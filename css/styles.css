@@ -188,13 +188,13 @@ body {
 
 /* Ekran Gösterim/Gizleme */
 .game-view {
-    display: none;
+    display: none !important;
     height: 100dvh;
     overflow: hidden;
 }
 
 .game-view.active-view {
-    display: flex;
+    display: flex !important;
 }
 
 /* Kelime Kartı Animasyonları */
