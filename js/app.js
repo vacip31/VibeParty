@@ -119,6 +119,15 @@ function setupEventListeners() {
     
     // --- ADIM 1 KURULUM EKRANI OLAYLARI ---
     
+    // Kurulum Adım 1 -> Başlangıç Ekranına Geri Dön
+    const btnSetupHome = document.getElementById('btn-setup-home');
+    if (btnSetupHome) {
+        btnSetupHome.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            showView(views.splash);
+        });
+    }
+    
     // Takım ekleme
     const btnAddTeam = document.getElementById('btn-add-team');
     if (btnAddTeam) {
@@ -294,9 +303,52 @@ function setupEventListeners() {
         });
     }
     
+    // Sayaca tıklayarak duraklatma
+    const timerClickArea = document.getElementById('timer-click-area');
+    if (timerClickArea) {
+        timerClickArea.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            if (state.currentState === STATES.PLAYING) {
+                pauseRound();
+            }
+        });
+    }
+
+    // Duraklatma ekranındaki "Devam Et" butonu
+    const btnPauseResume = document.getElementById('btn-pause-resume');
+    if (btnPauseResume) {
+        btnPauseResume.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            initAudio();
+            resumeRound();
+        });
+    }
+
+    // Duraklatma ekranındaki "Ana Menüye Dön" butonu
+    const btnPauseHome = document.getElementById('btn-pause-home');
+    if (btnPauseHome) {
+        btnPauseHome.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            stopConfettiEffect();
+            if (roundInterval) {
+                clearInterval(roundInterval);
+                roundInterval = null;
+            }
+            const pauseOverlay = document.getElementById('pause-overlay');
+            if (pauseOverlay) {
+                pauseOverlay.classList.add('hidden');
+                pauseOverlay.classList.remove('flex');
+            }
+            resetGame();
+            initSetupScreen();
+        });
+    }
+    
     // Klavye Kısayolları (Geliştirici ve Bilgisayarda Test Etme Kolaylığı İçin)
     window.addEventListener('keydown', (e) => {
         if (state.currentState !== STATES.PLAYING) return;
+        const pauseOverlay = document.getElementById('pause-overlay');
+        if (pauseOverlay && !pauseOverlay.classList.contains('hidden')) return;
         
         if (e.code === 'ArrowRight' || e.code === 'Space') {
             e.preventDefault();
@@ -453,6 +505,8 @@ function setupPlayingView() {
  */
 function handleCardAction(decision) {
     if (state.currentState !== STATES.PLAYING) return;
+    const pauseOverlay = document.getElementById('pause-overlay');
+    if (pauseOverlay && !pauseOverlay.classList.contains('hidden')) return;
     
     // Pas limiti aşımı durumunda butonun eylemsiz kalmasını sağla
     if (decision === 'pass' && state.passLimit !== 'unlimited' && state.currentPassesUsed >= state.passLimit) {
@@ -493,6 +547,35 @@ function startTimerLoop() {
             endRound();
         }
     }, 1000);
+}
+
+/**
+ * Turu duraklatır (Süreyi durdurur ve overlay'i gösterir).
+ */
+function pauseRound() {
+    if (roundInterval) {
+        clearInterval(roundInterval);
+        roundInterval = null;
+    }
+    
+    const pauseOverlay = document.getElementById('pause-overlay');
+    if (pauseOverlay) {
+        pauseOverlay.classList.remove('hidden');
+        pauseOverlay.classList.add('flex');
+    }
+}
+
+/**
+ * Turu devam ettirir (Süreyi başlatır ve overlay'i gizler).
+ */
+function resumeRound() {
+    const pauseOverlay = document.getElementById('pause-overlay');
+    if (pauseOverlay) {
+        pauseOverlay.classList.add('hidden');
+        pauseOverlay.classList.remove('flex');
+    }
+    
+    startTimerLoop();
 }
 
 /**

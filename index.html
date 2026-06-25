@@ -87,7 +87,10 @@
 
     <!-- 1. GÖRÜNÜM: OYUN KURULUMU (ADIM 1) -->
     <section id="view-setup" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden relative">
-        <header class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16">
+        <header class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16 relative">
+            <button id="btn-setup-home" class="text-primary hover:opacity-80 transition-opacity active:scale-95 flex items-center justify-center absolute left-4">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
             <h1 class="font-display text-[20px] text-primary uppercase tracking-[0.25em] font-light">VİBETABU</h1>
         </header>
 
@@ -245,13 +248,17 @@
                     <span id="playing-round-text" class="font-body text-sm text-primary mt-1 font-light">1. Tur</span>
                 </div>
                 
-                <!-- Dairesel Sayaç -->
-                <div class="relative flex items-center justify-center w-16 h-16 rounded-full liquid-glass inner-glow select-none">
+                <!-- Dairesel Sayaç (Tıklandığında Duraklatır) -->
+                <div id="timer-click-area" class="relative flex items-center justify-center w-16 h-16 rounded-full liquid-glass inner-glow select-none cursor-pointer active:scale-95 transition-transform group">
                     <svg class="absolute inset-0 w-full h-full transform -rotate-90" viewbox="0 0 64 64">
                         <circle cx="32" cy="32" fill="none" r="28" stroke="rgba(255,255,255,0.05)" stroke-width="2"></circle>
                         <circle id="timer-svg-circle" class="text-primary transition-all duration-1000" cx="32" cy="32" fill="none" r="28" stroke="currentColor" stroke-dasharray="175.93" stroke-dashoffset="0" stroke-width="2"></circle>
                     </svg>
                     <span id="timer-text" class="font-body text-xl text-on-surface z-10 relative font-medium">90</span>
+                    <!-- Üzerine gelindiğinde/basıldığında pause ikonu göster -->
+                    <div class="absolute inset-0 bg-black/60 rounded-full opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity z-20">
+                        <span class="material-symbols-outlined text-primary text-xl">pause</span>
+                    </div>
                 </div>
                 
                 <div class="flex flex-col items-end">
@@ -284,6 +291,27 @@
                 </button>
             </div>
         </main>
+
+        <!-- Duraklatma Paneli (Overlay) -->
+        <div id="pause-overlay" class="absolute inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex-col items-center justify-center gap-8">
+            <div class="relative flex flex-col items-center justify-center text-center">
+                <div class="absolute w-48 h-48 rounded-full bg-primary/10 blur-3xl opacity-80 animate-pulse-slow"></div>
+                <span class="material-symbols-outlined text-[64px] text-primary relative z-10 mb-4 animate-pulse">pause_circle</span>
+                <h2 class="font-display text-3xl text-white font-light tracking-wide relative z-10">Oyun Duraklatıldı</h2>
+                <p class="font-body text-sm text-white/40 mt-2">Süre donduruldu. Devam etmek için hazır mısınız?</p>
+            </div>
+
+            <div class="flex flex-col gap-4 w-[280px] mt-4 relative z-10">
+                <button id="btn-pause-resume" class="glass-btn-primary py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium text-base tracking-wider active:scale-95 transition-all">
+                    <span class="material-symbols-outlined text-sm">play_arrow</span>
+                    <span>Devam Et</span>
+                </button>
+                <button id="btn-pause-home" class="border border-white/10 hover:border-white/20 py-4 rounded-full flex items-center justify-center gap-2 text-white/60 hover:text-white font-medium text-base tracking-wider active:scale-95 transition-all">
+                    <span class="material-symbols-outlined text-sm">home</span>
+                    <span>Ana Menüye Dön</span>
+                </button>
+            </div>
+        </div>
     </section>
 
     <!-- 5. GÖRÜNÜM: TUR SONU İNCELEME EKRANI -->
