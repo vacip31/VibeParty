@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html class="dark" lang="tr">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
     <title>VibeTabu - Premium Tabu Oyunu</title>
-    
+
+    <!-- Favicon & PWA Manifest -->
+    <link rel="icon" type="image/png" href="./icon-192.png" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <link rel="manifest" href="./manifest.json" />
+
     <!-- Tailwind CSS ve Eklentileri -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    
+
     <!-- Google Fonts & Material Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
     <!-- Özel Tasarım Sistemimiz (Obsidian Glass) -->
-    <link rel="stylesheet" href="./css/styles.css"/>
-    
+    <link rel="stylesheet" href="./css/styles.css" />
+
     <!-- Tailwind Yapılandırması (Görsel uyum için) -->
     <script id="tailwind-config">
         tailwind.config = {
@@ -45,19 +53,23 @@
         }
     </script>
 </head>
+
 <body class="bg-black text-on-surface antialiased h-screen w-screen overflow-hidden flex flex-col font-body relative">
 
     <!-- Anlık Renkli Parlama Maskesi (Correct/Tabu basıldığında) -->
     <div id="flash-overlay" class="view-overlay"></div>
 
     <!-- 0. GÖRÜNÜM: BAŞLANGIÇ EKRANI (SPLASH) -->
-    <section id="view-splash" class="game-view active-view flex flex-col w-full h-[100dvh] overflow-hidden items-center justify-between px-container-padding py-12 relative">
+    <section id="view-splash"
+        class="game-view active-view flex flex-col w-full h-[100dvh] overflow-hidden items-center justify-between px-container-padding py-12 relative">
         <!-- Atmosferik Arka Plan Işıması -->
         <div class="glow-bg"></div>
 
         <!-- Üst Alan (Ayarlar/Hakkında) -->
         <div class="h-12 w-full flex justify-end relative z-10">
-            <button aria-label="Bilgi" class="glass-btn-icon w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md active:scale-95 transition-transform" id="btn-splash-about">
+            <button aria-label="Bilgi"
+                class="glass-btn-icon w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md active:scale-95 transition-transform"
+                id="btn-splash-about">
                 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">info</span>
             </button>
         </div>
@@ -66,16 +78,21 @@
         <div class="flex-1 flex flex-col items-center justify-center w-full mt-[-48px] relative z-10">
             <div class="relative flex flex-col items-center justify-center text-center">
                 <!-- Arka neon halka -->
-                <div class="absolute w-64 h-64 rounded-full bg-gradient-to-tr from-primary/10 to-secondary/15 blur-3xl opacity-80 animate-pulse-slow"></div>
-                
+                <div
+                    class="absolute w-64 h-64 rounded-full bg-gradient-to-tr from-primary/10 to-secondary/15 blur-3xl opacity-80 animate-pulse-slow">
+                </div>
+
                 <!-- Logo -->
-                <h1 class="font-display text-[48px] md:text-[64px] font-extralight tracking-[0.25em] text-white drop-shadow-[0_0_30px_rgba(184,196,255,0.4)] select-none animate-float">
+                <h1
+                    class="font-display text-[48px] md:text-[64px] font-extralight tracking-[0.25em] text-white drop-shadow-[0_0_30px_rgba(184,196,255,0.4)] select-none animate-float">
                     VİBE<span class="text-primary font-light">TABU</span>
                 </h1>
-                <p class="font-body text-xs text-white/40 tracking-[0.15em] mt-5 uppercase">Siber-Minimalist Kelime Oyunu</p>
-                
+                <p class="font-body text-xs text-white/40 tracking-[0.15em] mt-5 uppercase">Kelime Oyunu</p>
+                <p class="font-body text-[10px] text-white/25 tracking-[0.2em] mt-1.5 uppercase">vacbir</p>
+
                 <!-- Kelime Sayacı Rozeti -->
-                <div id="word-count-badge" class="mt-8 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] tracking-[0.15em] uppercase font-medium shadow-[0_0_12px_rgba(184,196,255,0.1)] opacity-0 transition-opacity duration-500 mx-auto w-fit">
+                <div id="word-count-badge"
+                    class="mt-8 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] tracking-[0.15em] uppercase font-medium shadow-[0_0_12px_rgba(184,196,255,0.1)] opacity-0 transition-opacity duration-500 mx-auto w-fit">
                     <span id="splash-word-count">0</span> Kelime Yüklendi
                 </div>
             </div>
@@ -83,7 +100,8 @@
 
         <!-- Alt Başla Butonu -->
         <div class="w-full flex justify-center pb-8 relative z-10">
-            <button id="btn-splash-start" class="glass-btn-primary w-[280px] py-4 rounded-full flex items-center justify-center gap-3 text-white font-medium text-lg tracking-wider active:scale-95 transition-all">
+            <button id="btn-splash-start"
+                class="glass-btn-primary w-[280px] py-4 rounded-full flex items-center justify-center gap-3 text-white font-medium text-lg tracking-wider active:scale-95 transition-all">
                 <span>Oyuna Başla</span>
                 <span class="material-symbols-outlined text-primary">play_circle</span>
             </button>
@@ -92,25 +110,30 @@
 
     <!-- 1. GÖRÜNÜM: OYUN KURULUMU (ADIM 1) -->
     <section id="view-setup" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden relative">
-        <header class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16 relative">
-            <button id="btn-setup-home" class="text-primary hover:opacity-80 transition-opacity active:scale-95 flex items-center justify-center absolute left-4">
+        <header
+            class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16 relative">
+            <button id="btn-setup-home"
+                class="text-primary hover:opacity-80 transition-opacity active:scale-95 flex items-center justify-center absolute left-4">
                 <span class="material-symbols-outlined">arrow_back</span>
             </button>
             <h1 class="font-display text-[20px] text-primary uppercase tracking-[0.25em] font-light">VİBETABU</h1>
         </header>
 
-        <main class="flex-1 pt-20 pb-32 px-container-padding overflow-y-auto w-full max-w-[600px] mx-auto flex flex-col gap-10">
+        <main
+            class="flex-1 pt-20 pb-32 px-container-padding overflow-y-auto w-full max-w-[600px] mx-auto flex flex-col gap-10">
             <!-- Takımlar Bölümü -->
             <div class="flex flex-col gap-5 mt-4">
-                <h2 class="font-label-caps text-label-caps text-outline uppercase tracking-widest text-center">Takım İsimleri</h2>
-                
+                <h2 class="font-label-caps text-label-caps text-outline uppercase tracking-widest text-center">Takım
+                    İsimleri</h2>
+
                 <div class="glass-panel rounded-2xl p-6 flex flex-col gap-5 relative overflow-hidden">
                     <div id="team-inputs-container" class="flex flex-col gap-5">
                         <!-- js/ui.js tarafından dinamik doldurulur -->
                     </div>
 
                     <!-- Takım Ekle Butonu -->
-                    <button id="btn-add-team" type="button" class="mt-2 py-3 border border-dashed border-white/10 rounded-lg flex items-center justify-center gap-2 text-white/50 hover:text-white hover:border-white/20 active:scale-95 transition-all text-sm font-light">
+                    <button id="btn-add-team" type="button"
+                        class="mt-2 py-3 border border-dashed border-white/10 rounded-lg flex items-center justify-center gap-2 text-white/50 hover:text-white hover:border-white/20 active:scale-95 transition-all text-sm font-light">
                         <span class="material-symbols-outlined text-sm">add</span> Yeni Takım Ekle
                     </button>
                 </div>
@@ -118,8 +141,9 @@
 
             <!-- Oyun Ayarları Bölümü -->
             <div class="flex flex-col gap-5">
-                <h2 class="font-label-caps text-label-caps text-outline uppercase tracking-widest text-center">Kurallar & Ayarlar</h2>
-                
+                <h2 class="font-label-caps text-label-caps text-outline uppercase tracking-widest text-center">Kurallar
+                    & Ayarlar</h2>
+
                 <div class="glass-panel rounded-2xl p-6 flex flex-col gap-6">
                     <!-- Süre Ayarı -->
                     <div class="flex flex-col gap-3">
@@ -127,9 +151,12 @@
                             <span class="material-symbols-outlined text-primary text-base">timer</span> Süre (Saniye)
                         </span>
                         <div id="time-pills-container" class="flex gap-2">
-                            <button class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95">60</button>
-                            <button class="option-pill active flex-1 py-3 rounded-lg font-body text-sm active:scale-95">90</button>
-                            <button class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95">120</button>
+                            <button
+                                class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95">60</button>
+                            <button
+                                class="option-pill active flex-1 py-3 rounded-lg font-body text-sm active:scale-95">90</button>
+                            <button
+                                class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95">120</button>
                         </div>
                     </div>
 
@@ -140,9 +167,12 @@
                             <span class="material-symbols-outlined text-primary text-base">skip_next</span> Pas Hakkı
                         </span>
                         <div id="pass-pills-container" class="flex gap-2">
-                            <button class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95">3</button>
-                            <button class="option-pill active flex-1 py-3 rounded-lg font-body text-sm active:scale-95">5</button>
-                            <button class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95">Sınırsız</button>
+                            <button
+                                class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95">3</button>
+                            <button
+                                class="option-pill active flex-1 py-3 rounded-lg font-body text-sm active:scale-95">5</button>
+                            <button
+                                class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95">Sınırsız</button>
                         </div>
                     </div>
 
@@ -150,12 +180,16 @@
                     <div class="h-px bg-white/5 w-full"></div>
                     <div class="flex flex-col gap-3">
                         <span class="font-body text-sm text-white/70 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-primary text-base">sports_score</span> Hedef Skor
+                            <span class="material-symbols-outlined text-primary text-base">sports_score</span> Hedef
+                            Skor
                         </span>
                         <div id="score-pills-container" class="flex gap-2">
-                            <button class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95">30</button>
-                            <button class="option-pill active flex-1 py-3 rounded-lg font-body text-sm active:scale-95">50</button>
-                            <button class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95">100</button>
+                            <button
+                                class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95">30</button>
+                            <button
+                                class="option-pill active flex-1 py-3 rounded-lg font-body text-sm active:scale-95">50</button>
+                            <button
+                                class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95">100</button>
                         </div>
                     </div>
                 </div>
@@ -163,8 +197,10 @@
         </main>
 
         <!-- Sabit Alt Aksiyon Butonu -->
-        <div class="fixed bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
-            <button id="btn-setup-next" class="primary-btn w-[280px] py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium tracking-wide active:scale-95 transition-all">
+        <div
+            class="fixed bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
+            <button id="btn-setup-next"
+                class="primary-btn w-[280px] py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium tracking-wide active:scale-95 transition-all">
                 <span>Sonraki Adım</span>
                 <span class="material-symbols-outlined text-primary">arrow_forward</span>
             </button>
@@ -173,18 +209,22 @@
 
     <!-- 2. GÖRÜNÜM: OYUN KURULUMU (ADIM 2 - KATEGORİ VE ZORLUK SEÇİMİ) -->
     <section id="view-setup-step2" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden relative">
-        <header class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-between px-container-padding h-16">
-            <button id="btn-setup-back" class="text-primary hover:opacity-80 transition-opacity active:scale-95 flex items-center justify-center">
+        <header
+            class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-between px-container-padding h-16">
+            <button id="btn-setup-back"
+                class="text-primary hover:opacity-80 transition-opacity active:scale-95 flex items-center justify-center">
                 <span class="material-symbols-outlined">arrow_back</span>
             </button>
             <h1 class="font-display text-[20px] text-primary uppercase tracking-[0.25em] font-light">KATEGORİLER</h1>
             <div class="w-6"></div> <!-- Boş spacer -->
         </header>
 
-        <main class="flex-1 pt-20 pb-32 px-container-padding overflow-y-auto w-full max-w-[600px] mx-auto flex flex-col gap-8">
+        <main
+            class="flex-1 pt-20 pb-32 px-container-padding overflow-y-auto w-full max-w-[600px] mx-auto flex flex-col gap-8">
             <!-- Kategoriler Listesi -->
             <div class="flex flex-col gap-4 mt-4">
-                <h2 class="font-label-caps text-label-caps text-outline uppercase tracking-widest text-center">Kelime Paketleri</h2>
+                <h2 class="font-label-caps text-label-caps text-outline uppercase tracking-widest text-center">Kelime
+                    Paketleri</h2>
                 <div id="categories-container" class="grid grid-cols-2 gap-3">
                     <!-- js/ui.js tarafından yüklenen kategoriler listelenir -->
                 </div>
@@ -192,19 +232,26 @@
 
             <!-- Zorluk Derecesi -->
             <div class="flex flex-col gap-4 mt-2">
-                <h2 class="font-label-caps text-label-caps text-outline uppercase tracking-widest text-center">Kelime Zorluğu</h2>
+                <h2 class="font-label-caps text-label-caps text-outline uppercase tracking-widest text-center">Kelime
+                    Zorluğu</h2>
                 <div id="difficulty-pills-container" class="flex gap-2">
-                    <button class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95" data-difficulty="K">Kolay</button>
-                    <button class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95" data-difficulty="O">Orta</button>
-                    <button class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95" data-difficulty="Z">Zor</button>
-                    <button class="option-pill active flex-1 py-3 rounded-lg font-body text-sm active:scale-95" data-difficulty="ALL">Karışık</button>
+                    <button class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95"
+                        data-difficulty="K">Kolay</button>
+                    <button class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95"
+                        data-difficulty="O">Orta</button>
+                    <button class="option-pill flex-1 py-3 rounded-lg font-body text-sm active:scale-95"
+                        data-difficulty="Z">Zor</button>
+                    <button class="option-pill active flex-1 py-3 rounded-lg font-body text-sm active:scale-95"
+                        data-difficulty="ALL">Karışık</button>
                 </div>
             </div>
         </main>
 
         <!-- Sabit Alt Aksiyon Butonu -->
-        <div class="fixed bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
-            <button id="btn-start-game" class="primary-btn w-[280px] py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium tracking-wide active:scale-95 transition-all">
+        <div
+            class="fixed bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
+            <button id="btn-start-game"
+                class="primary-btn w-[280px] py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium tracking-wide active:scale-95 transition-all">
                 <span>Oyunu Başlat</span>
                 <span class="material-symbols-outlined text-primary">play_arrow</span>
             </button>
@@ -212,21 +259,27 @@
     </section>
 
     <!-- 3. GÖRÜNÜM: TURA HAZIR OL EKRANI -->
-    <section id="view-round-ready" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden items-center justify-center relative">
+    <section id="view-round-ready"
+        class="game-view flex flex-col w-full h-[100dvh] overflow-hidden items-center justify-center relative">
         <div class="ambient-glow animate-pulse-slow"></div>
-        
-        <main class="relative z-10 w-full max-w-[600px] px-container-padding flex flex-col items-center justify-center h-full text-center">
+
+        <main
+            class="relative z-10 w-full max-w-[600px] px-container-padding flex flex-col items-center justify-center h-full text-center">
             <div class="flex flex-col items-center space-y-6 w-full animate-float">
                 <h1 class="font-display text-[36px] md:text-[48px] text-primary mb-2 font-light">
                     Sıra <span id="ready-team-name" class="font-medium text-white">...</span> takımında!
                 </h1>
-                <p class="font-body text-lg text-on-surface-variant max-w-[280px] md:max-w-[400px] mx-auto mb-8 font-light">
+                <p
+                    class="font-body text-lg text-on-surface-variant max-w-[280px] md:max-w-[400px] mx-auto mb-8 font-light">
                     Cihazı anlatacak kişiye teslim edin ve diğer oyunculara kartları göstermeyin.
                 </p>
-                
+
                 <div>
-                    <button id="btn-start-turn" class="glass-btn-primary rounded-full px-12 py-6 flex flex-col items-center justify-center space-y-2 group">
-                        <span class="material-symbols-outlined text-[48px] text-primary group-hover:scale-110 transition-transform duration-300" style="font-variation-settings: 'FILL' 1;">
+                    <button id="btn-start-turn"
+                        class="glass-btn-primary rounded-full px-12 py-6 flex flex-col items-center justify-center space-y-2 group">
+                        <span
+                            class="material-symbols-outlined text-[48px] text-primary group-hover:scale-110 transition-transform duration-300"
+                            style="font-variation-settings: 'FILL' 1;">
                             play_circle
                         </span>
                         <span class="font-label-caps text-xs text-primary tracking-wide uppercase">
@@ -242,30 +295,39 @@
     <section id="view-playing" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden relative bg-black">
         <!-- İlerleme Çubuğu (Tepede) -->
         <div class="w-full h-1 bg-white/5 absolute top-0 left-0 z-50">
-            <div id="timer-progress-bar" class="h-full bg-primary timer-glow text-primary transition-all duration-1000 ease-linear" style="width: 100%;"></div>
+            <div id="timer-progress-bar"
+                class="h-full bg-primary timer-glow text-primary transition-all duration-1000 ease-linear"
+                style="width: 100%;"></div>
         </div>
 
-        <main class="flex-1 flex flex-col items-center justify-between w-full max-w-[600px] mx-auto px-container-padding pt-6 pb-safe-area-bottom relative z-10">
+        <main
+            class="flex-1 flex flex-col items-center justify-between w-full max-w-[600px] mx-auto px-container-padding pt-6 pb-safe-area-bottom relative z-10">
             <!-- Header Alanı -->
             <header class="w-full flex items-center justify-between mt-4">
                 <div class="flex flex-col">
-                    <span id="playing-team-name" class="font-label-caps text-label-caps text-outline uppercase tracking-widest">TAKIM 1</span>
+                    <span id="playing-team-name"
+                        class="font-label-caps text-label-caps text-outline uppercase tracking-widest">TAKIM 1</span>
                     <span id="playing-round-text" class="font-body text-sm text-primary mt-1 font-light">1. Tur</span>
                 </div>
-                
+
                 <!-- Dairesel Sayaç (Tıklandığında Duraklatır) -->
-                <div id="timer-click-area" class="relative flex items-center justify-center w-16 h-16 rounded-full liquid-glass inner-glow select-none cursor-pointer active:scale-95 transition-transform group">
+                <div id="timer-click-area"
+                    class="relative flex items-center justify-center w-16 h-16 rounded-full liquid-glass inner-glow select-none cursor-pointer active:scale-95 transition-transform group">
                     <svg class="absolute inset-0 w-full h-full transform -rotate-90" viewbox="0 0 64 64">
-                        <circle cx="32" cy="32" fill="none" r="28" stroke="rgba(255,255,255,0.05)" stroke-width="2"></circle>
-                        <circle id="timer-svg-circle" class="text-primary transition-all duration-1000" cx="32" cy="32" fill="none" r="28" stroke="currentColor" stroke-dasharray="175.93" stroke-dashoffset="0" stroke-width="2"></circle>
+                        <circle cx="32" cy="32" fill="none" r="28" stroke="rgba(255,255,255,0.05)" stroke-width="2">
+                        </circle>
+                        <circle id="timer-svg-circle" class="text-primary transition-all duration-1000" cx="32" cy="32"
+                            fill="none" r="28" stroke="currentColor" stroke-dasharray="175.93" stroke-dashoffset="0"
+                            stroke-width="2"></circle>
                     </svg>
                     <span id="timer-text" class="font-body text-xl text-on-surface z-10 relative font-medium">90</span>
                     <!-- Üzerine gelindiğinde/basıldığında pause ikonu göster -->
-                    <div class="absolute inset-0 bg-black/60 rounded-full opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity z-20">
+                    <div
+                        class="absolute inset-0 bg-black/60 rounded-full opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity z-20">
                         <span class="material-symbols-outlined text-primary text-xl">pause</span>
                     </div>
                 </div>
-                
+
                 <div class="flex flex-col items-end">
                     <span class="font-label-caps text-label-caps text-outline uppercase tracking-widest">SKORLAR</span>
                     <span id="playing-scoreboard-text" class="font-body text-sm text-white mt-1 font-light">0 - 0</span>
@@ -273,24 +335,28 @@
             </header>
 
             <!-- Kelime Kartı Konteyneri -->
-            <div id="active-card-container" class="card-container w-full liquid-glass rounded-3xl p-8 flex flex-col items-center justify-center pulse-border inner-glow mt-8 mb-auto relative overflow-hidden">
+            <div id="active-card-container"
+                class="card-container w-full liquid-glass rounded-3xl p-8 flex flex-col items-center justify-center pulse-border inner-glow mt-8 mb-auto relative overflow-hidden">
                 <!-- js/ui.js tarafından kart kelimeleri doldurulur -->
             </div>
 
             <!-- Alt Kontrol Butonları -->
             <div class="w-full grid grid-cols-3 gap-4 mt-8">
                 <!-- TABU -->
-                <button id="btn-tabu" class="flex flex-col items-center justify-center space-y-2 py-4 rounded-2xl bg-white/[0.02] border border-error/30 text-error hover:bg-error/10 transition-all active:scale-95 inner-glow">
+                <button id="btn-tabu"
+                    class="flex flex-col items-center justify-center space-y-2 py-4 rounded-2xl bg-white/[0.02] border border-error/30 text-error hover:bg-error/10 transition-all active:scale-95 inner-glow">
                     <span class="material-symbols-outlined">close</span>
                     <span class="font-label-caps text-[10px] tracking-widest font-semibold">TABU!</span>
                 </button>
                 <!-- PAS -->
-                <button id="btn-pass" class="flex flex-col items-center justify-center space-y-2 py-4 rounded-2xl liquid-glass text-white/50 hover:text-white transition-all active:scale-95 inner-glow">
+                <button id="btn-pass"
+                    class="flex flex-col items-center justify-center space-y-2 py-4 rounded-2xl liquid-glass text-white/50 hover:text-white transition-all active:scale-95 inner-glow">
                     <span class="material-symbols-outlined">fast_forward</span>
                     <span class="font-label-caps text-[10px] tracking-widest font-semibold pass-count-label">PAS</span>
                 </button>
                 <!-- DOĞRU -->
-                <button id="btn-correct" class="flex flex-col items-center justify-center space-y-2 py-4 rounded-2xl bg-white/[0.02] border border-primary/30 text-primary hover:bg-primary/10 transition-all active:scale-95 inner-glow">
+                <button id="btn-correct"
+                    class="flex flex-col items-center justify-center space-y-2 py-4 rounded-2xl bg-white/[0.02] border border-primary/30 text-primary hover:bg-primary/10 transition-all active:scale-95 inner-glow">
                     <span class="material-symbols-outlined">check</span>
                     <span class="font-label-caps text-[10px] tracking-widest font-semibold">DOĞRU</span>
                 </button>
@@ -298,20 +364,25 @@
         </main>
 
         <!-- Duraklatma Paneli (Overlay) -->
-        <div id="pause-overlay" class="absolute inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex-col items-center justify-center gap-8">
+        <div id="pause-overlay"
+            class="absolute inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex-col items-center justify-center gap-8">
             <div class="relative flex flex-col items-center justify-center text-center">
                 <div class="absolute w-48 h-48 rounded-full bg-primary/10 blur-3xl opacity-80 animate-pulse-slow"></div>
-                <span class="material-symbols-outlined text-[64px] text-primary relative z-10 mb-4 animate-pulse">pause_circle</span>
-                <h2 class="font-display text-3xl text-white font-light tracking-wide relative z-10">Oyun Duraklatıldı</h2>
+                <span
+                    class="material-symbols-outlined text-[64px] text-primary relative z-10 mb-4 animate-pulse">pause_circle</span>
+                <h2 class="font-display text-3xl text-white font-light tracking-wide relative z-10">Oyun Duraklatıldı
+                </h2>
                 <p class="font-body text-sm text-white/40 mt-2">Süre donduruldu. Devam etmek için hazır mısınız?</p>
             </div>
 
             <div class="flex flex-col gap-4 w-[280px] mt-4 relative z-10">
-                <button id="btn-pause-resume" class="glass-btn-primary py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium text-base tracking-wider active:scale-95 transition-all">
+                <button id="btn-pause-resume"
+                    class="glass-btn-primary py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium text-base tracking-wider active:scale-95 transition-all">
                     <span class="material-symbols-outlined text-sm">play_arrow</span>
                     <span>Devam Et</span>
                 </button>
-                <button id="btn-pause-home" class="border border-white/10 hover:border-white/20 py-4 rounded-full flex items-center justify-center gap-2 text-white/60 hover:text-white font-medium text-base tracking-wider active:scale-95 transition-all">
+                <button id="btn-pause-home"
+                    class="border border-white/10 hover:border-white/20 py-4 rounded-full flex items-center justify-center gap-2 text-white/60 hover:text-white font-medium text-base tracking-wider active:scale-95 transition-all">
                     <span class="material-symbols-outlined text-sm">home</span>
                     <span>Ana Menüye Dön</span>
                 </button>
@@ -321,33 +392,43 @@
 
     <!-- 5. GÖRÜNÜM: TUR SONU İNCELEME EKRANI -->
     <section id="view-round-over" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden relative bg-black">
-        <header class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16">
+        <header
+            class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16">
             <h1 class="font-display text-[18px] text-white uppercase tracking-[0.2em] font-light">TUR SONU İNCELEME</h1>
         </header>
 
-        <main class="flex-1 pt-20 pb-32 px-container-padding overflow-y-auto w-full max-w-[600px] mx-auto flex flex-col gap-6">
+        <main
+            class="flex-1 pt-20 pb-32 px-container-padding overflow-y-auto w-full max-w-[600px] mx-auto flex flex-col gap-6">
             <!-- Tur Puanı Özeti -->
             <div class="text-center my-4">
-                <h2 id="review-team-name" class="font-label-caps text-label-caps text-white/50 tracking-[0.2em] uppercase mb-2">...</h2>
+                <h2 id="review-team-name"
+                    class="font-label-caps text-label-caps text-white/50 tracking-[0.2em] uppercase mb-2">...</h2>
                 <div id="review-score-change" class="font-display text-4xl text-primary font-light">+0 Puan</div>
             </div>
 
             <!-- Oynanan Kelimeler Kart Görünümü -->
             <div class="flex-1 flex flex-col justify-center items-center w-full gap-6">
-                <h3 class="font-label-caps text-[10px] text-white/40 tracking-wider text-center uppercase">Kararlar ve Düzeltmeler</h3>
-                
+                <h3 class="font-label-caps text-[10px] text-white/40 tracking-wider text-center uppercase">Kararlar ve
+                    Düzeltmeler</h3>
+
                 <!-- Kart Konteyneri -->
                 <div id="review-card-container" class="w-full">
                     <!-- js/ui.js tarafından dinamik olarak tek bir kart render edilecek -->
                 </div>
-                
+
                 <!-- Navigasyon Kontrolleri -->
-                <div id="review-nav-controls" class="w-full flex items-center justify-between px-4 max-w-[360px] mx-auto hidden">
-                    <button id="btn-review-prev" class="glass-btn-icon w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md active:scale-95 transition-transform" type="button">
+                <div id="review-nav-controls"
+                    class="w-full flex items-center justify-between px-4 max-w-[360px] mx-auto hidden">
+                    <button id="btn-review-prev"
+                        class="glass-btn-icon w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md active:scale-95 transition-transform"
+                        type="button">
                         <span class="material-symbols-outlined">chevron_left</span>
                     </button>
-                    <span id="review-card-indicator" class="font-body text-sm text-white/40 tracking-widest font-light">1 / 1</span>
-                    <button id="btn-review-next" class="glass-btn-icon w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md active:scale-95 transition-transform" type="button">
+                    <span id="review-card-indicator"
+                        class="font-body text-sm text-white/40 tracking-widest font-light">1 / 1</span>
+                    <button id="btn-review-next"
+                        class="glass-btn-icon w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md active:scale-95 transition-transform"
+                        type="button">
                         <span class="material-symbols-outlined">chevron_right</span>
                     </button>
                 </div>
@@ -355,8 +436,10 @@
         </main>
 
         <!-- Sabit Alt Aksiyon Butonu -->
-        <div class="fixed bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
-            <button id="btn-confirm-review" class="primary-btn w-[280px] py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium tracking-wide active:scale-95 transition-all">
+        <div
+            class="fixed bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
+            <button id="btn-confirm-review"
+                class="primary-btn w-[280px] py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium tracking-wide active:scale-95 transition-all">
                 <span>Skorları Onayla</span>
                 <span class="material-symbols-outlined text-primary">done_all</span>
             </button>
@@ -365,13 +448,16 @@
 
     <!-- 6. GÖRÜNÜM: SKOR TABLOSU EKRANI -->
     <section id="view-scoreboard" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden relative bg-black">
-        <header class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16">
+        <header
+            class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16">
             <h1 class="font-display text-[18px] text-primary uppercase tracking-[0.2em] font-light">SKOR TABLOSU</h1>
         </header>
 
-        <main class="flex-1 pt-20 pb-32 px-container-padding overflow-y-auto w-full max-w-[600px] mx-auto flex flex-col gap-6">
+        <main
+            class="flex-1 pt-20 pb-32 px-container-padding overflow-y-auto w-full max-w-[600px] mx-auto flex flex-col gap-6">
             <div class="flex flex-col gap-4 mt-6">
-                <h2 class="font-label-caps text-[10px] text-white/40 tracking-wider text-center uppercase">Genel Puan Durumu</h2>
+                <h2 class="font-label-caps text-[10px] text-white/40 tracking-wider text-center uppercase">Genel Puan
+                    Durumu</h2>
                 <div id="scoreboard-list-container" class="flex flex-col gap-4">
                     <!-- js/ui.js tarafından takımların puanları listelenir -->
                 </div>
@@ -379,8 +465,10 @@
         </main>
 
         <!-- Sabit Alt Aksiyon Butonu -->
-        <div class="fixed bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
-            <button id="btn-scoreboard-next" class="primary-btn w-[280px] py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium tracking-wide active:scale-95 transition-all">
+        <div
+            class="fixed bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
+            <button id="btn-scoreboard-next"
+                class="primary-btn w-[280px] py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium tracking-wide active:scale-95 transition-all">
                 <span>Sonraki Tura Geç</span>
                 <span class="material-symbols-outlined text-primary">arrow_forward</span>
             </button>
@@ -388,13 +476,17 @@
     </section>
 
     <!-- 7. GÖRÜNÜM: OYUN BİTTİ / ŞAMPİYON EKRANI -->
-    <section id="view-game-over" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden items-center justify-center relative bg-black">
-        <main class="w-full max-w-[600px] px-container-padding py-10 flex flex-col items-center relative z-10 h-full justify-center">
+    <section id="view-game-over"
+        class="game-view flex flex-col w-full h-[100dvh] overflow-hidden items-center justify-center relative bg-black">
+        <main
+            class="w-full max-w-[600px] px-container-padding py-10 flex flex-col items-center relative z-10 h-full justify-center">
             <!-- Kupa Simgesi -->
             <div class="mb-6 relative flex items-center justify-center">
                 <div class="subtle-glow"></div>
-                <div class="w-20 h-20 rounded-full flex items-center justify-center relative z-10 border border-white/5 bg-black/40 backdrop-blur-md">
-                    <span class="material-symbols-outlined text-4xl text-white/90" style="font-variation-settings: 'FILL' 0, 'wght' 200;">
+                <div
+                    class="w-20 h-20 rounded-full flex items-center justify-center relative z-10 border border-white/5 bg-black/40 backdrop-blur-md">
+                    <span class="material-symbols-outlined text-4xl text-white/90"
+                        style="font-variation-settings: 'FILL' 0, 'wght' 200;">
                         emoji_events
                     </span>
                 </div>
@@ -403,7 +495,8 @@
             <!-- Tebrik Başlığı -->
             <div class="text-center mb-8">
                 <h2 class="font-label-caps text-label-caps text-white/50 tracking-[0.2em] uppercase mb-2">Şampiyon</h2>
-                <h1 id="winner-team-title" class="font-display text-3xl md:text-5xl text-white tracking-tight font-light">
+                <h1 id="winner-team-title"
+                    class="font-display text-3xl md:text-5xl text-white tracking-tight font-light">
                     ... Takımı
                 </h1>
             </div>
@@ -415,11 +508,13 @@
 
             <!-- Alt Butonlar -->
             <div class="w-full flex flex-col gap-3 mt-auto">
-                <button id="btn-game-over-replay" class="w-full py-4 px-6 rounded-full glass-btn-primary text-white font-body text-sm hover:bg-white/10 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                <button id="btn-game-over-replay"
+                    class="w-full py-4 px-6 rounded-full glass-btn-primary text-white font-body text-sm hover:bg-white/10 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
                     <span class="material-symbols-outlined text-[18px]">refresh</span>
                     Yeniden Oyna
                 </button>
-                <button id="btn-game-over-home" class="w-full py-4 px-6 rounded-full border border-white/10 text-white/60 font-body text-sm hover:text-white hover:border-white/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                <button id="btn-game-over-home"
+                    class="w-full py-4 px-6 rounded-full border border-white/10 text-white/60 font-body text-sm hover:text-white hover:border-white/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
                     <span class="material-symbols-outlined text-[18px]">home</span>
                     Ana Menüye Dön
                 </button>
@@ -430,4 +525,5 @@
     <!-- Ana Uygulama Modülü -->
     <script type="module" src="./js/app.js"></script>
 </body>
+
 </html>
