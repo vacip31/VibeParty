@@ -327,11 +327,24 @@
                 <div id="review-score-change" class="font-display text-4xl text-primary font-light">+0 Puan</div>
             </div>
 
-            <!-- Oynanan Kelimeler Listesi -->
-            <div class="flex flex-col gap-4">
+            <!-- Oynanan Kelimeler Kart Görünümü -->
+            <div class="flex-1 flex flex-col justify-center items-center w-full gap-6">
                 <h3 class="font-label-caps text-[10px] text-white/40 tracking-wider text-center uppercase">Kararlar ve Düzeltmeler</h3>
-                <div id="review-list-container" class="flex flex-col gap-3">
-                    <!-- js/ui.js tarafından oynanan kelimeler doldurulur -->
+                
+                <!-- Kart Konteyneri -->
+                <div id="review-card-container" class="w-full">
+                    <!-- js/ui.js tarafından dinamik olarak tek bir kart render edilecek -->
+                </div>
+                
+                <!-- Navigasyon Kontrolleri -->
+                <div id="review-nav-controls" class="w-full flex items-center justify-between px-4 max-w-[360px] mx-auto hidden">
+                    <button id="btn-review-prev" class="glass-btn-icon w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md active:scale-95 transition-transform" type="button">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <span id="review-card-indicator" class="font-body text-sm text-white/40 tracking-widest font-light">1 / 1</span>
+                    <button id="btn-review-next" class="glass-btn-icon w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md active:scale-95 transition-transform" type="button">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
                 </div>
             </div>
         </main>

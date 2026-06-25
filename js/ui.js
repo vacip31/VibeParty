@@ -12,14 +12,44 @@ export const views = {
     gameOver: document.getElementById('view-game-over')
 };
 
+let currentActiveView = null;
+
 /**
- * Belirtilen oyun ekranını gösterir, diğerlerini gizler.
+ * Belirtilen oyun ekranını yumuşak geçiş animasyonlarıyla gösterir.
  */
 export function showView(activeView) {
-    Object.values(views).forEach(view => {
-        if (view) view.classList.remove('active-view');
-    });
-    if (activeView) activeView.classList.add('active-view');
+    if (!currentActiveView) {
+        currentActiveView = document.querySelector('.game-view.active-view') || views.splash;
+    }
+    
+    if (!activeView || activeView === currentActiveView) return;
+    
+    const oldView = currentActiveView;
+    currentActiveView = activeView;
+    
+    // Eski ekranın çıkış animasyonunu başlat
+    if (oldView) {
+        oldView.classList.add('transitioning', 'fade-out');
+        oldView.classList.remove('active-view');
+    }
+    
+    // Yeni ekranı hazırla (başlangıç konumu: opacity 0, translate 16px)
+    activeView.classList.add('transitioning');
+    activeView.classList.remove('fade-out', 'active-view');
+    
+    // Tarayıcı reflow tetikle (yeni pozisyonun algılanması için)
+    void activeView.offsetWidth;
+    
+    // Yeni ekranı görünür yap (böylece CSS geçişi başlar)
+    activeView.classList.add('active-view');
+    
+    // Animasyon tamamlandığında durum sınıflarını temizle
+    setTimeout(() => {
+        if (oldView) {
+            oldView.classList.remove('transitioning', 'fade-out');
+        }
+        activeView.classList.remove('transitioning');
+    }, 250);
 }
 
 /**
@@ -220,66 +250,119 @@ export function triggerFlashOverlay(type) {
 }
 
 /**
- * Tur bittiğinde oynanan kelimelerin gözden geçirilip itiraz edilebildiği listeyi oluşturur.
+ * Tur bittiğinde oynanan kelimelerin tek bir kart halinde incelenip düzeltilebildiği kart-kart arayüzünü oluşturur.
  */
-export function renderRoundReviewList(container, history, onDecisionChange) {
+export function renderRoundReviewCard(container, history, currentIndex, onDecisionChange) {
     container.innerHTML = '';
+    
+    const navControls = document.getElementById('review-nav-controls');
+    const indicator = document.getElementById('review-card-indicator');
+    const prevBtn = document.getElementById('btn-review-prev');
+    const nextBtn = document.getElementById('btn-review-next');
     
     if (history.length === 0) {
         container.innerHTML = `
-            <div class="text-center text-white/40 py-8 font-body-md">
+            <div class="text-center text-white/40 py-12 font-body-md glass-card rounded-2xl p-8 border border-white/5">
+                <span class="material-symbols-outlined text-4xl text-white/20 mb-3 block">history_toggle_off</span>
                 Bu turda hiçbir kelime oynanmadı.
             </div>
         `;
+        if (navControls) navControls.classList.add('hidden');
         return;
     }
     
-    history.forEach((item, index) => {
-        const itemDiv = document.createElement('div');
-        itemDiv.className = 'relative bg-white/[0.02] border border-white/5 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:bg-white/[0.04]';
-        
-        // Aktif durum renkleri
-        let statusTextClass = 'text-white/40';
-        let statusLabel = 'Pas';
-        
-        if (item.result === 'correct') {
-            statusTextClass = 'text-primary font-medium';
-            statusLabel = 'Doğru';
-        } else if (item.result === 'tabu') {
-            statusTextClass = 'text-error font-medium';
-            statusLabel = 'Tabu';
-        }
-        
-        itemDiv.innerHTML = `
-            <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
-                <span class="font-body-lg font-light text-white">${item.word}</span>
-                <span class="text-[10px] uppercase tracking-wider text-white/30 mt-1">Yasaklı: ${item.forbidden.slice(0, 3).join(', ')}...</span>
-            </div>
-            
-            <div class="flex items-center gap-2">
-                <!-- Karar Butonları -->
-                <button type="button" class="btn-review-opt px-3 py-1.5 rounded-full text-xs border ${item.result === 'tabu' ? 'border-error bg-error/10 text-error' : 'border-white/10 text-white/50 hover:text-white'} transition-all active:scale-95" data-idx="${index}" data-type="tabu">
-                    Tabu
-                </button>
-                <button type="button" class="btn-review-opt px-3 py-1.5 rounded-full text-xs border ${item.result === 'pass' ? 'border-white bg-white/10 text-white' : 'border-white/10 text-white/50 hover:text-white'} transition-all active:scale-95" data-idx="${index}" data-type="pass">
-                    Pas
-                </button>
-                <button type="button" class="btn-review-opt px-3 py-1.5 rounded-full text-xs border ${item.result === 'correct' ? 'border-primary bg-primary/10 text-primary' : 'border-white/10 text-white/50 hover:text-white'} transition-all active:scale-95" data-idx="${index}" data-type="correct">
-                    Doğru
-                </button>
-            </div>
-        `;
-        container.appendChild(itemDiv);
-    });
+    if (navControls) {
+        navControls.classList.remove('hidden');
+        navControls.classList.add('flex');
+    }
     
-    // Olay dinleyicilerini bağla
-    container.querySelectorAll('.btn-review-opt').forEach(btn => {
+    // Aktif kart verisini al
+    const item = history[currentIndex];
+    if (!item) return;
+    
+    // Kart HTML yapısı (Siber minimalist tabu kartı şeklinde)
+    const cardDiv = document.createElement('div');
+    cardDiv.className = 'card-container w-full liquid-glass rounded-3xl p-8 flex flex-col items-center justify-center inner-glow relative overflow-hidden';
+    
+    // Karar durum renkleri ve buton sınıfları
+    const btnTabuClass = item.result === 'tabu' 
+        ? 'border-error bg-error/15 text-error shadow-[0_0_15px_rgba(248,113,113,0.3)]' 
+        : 'border-white/10 text-white/40 hover:text-white hover:border-white/20';
+        
+    const btnPassClass = item.result === 'pass' 
+        ? 'border-white bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)]' 
+        : 'border-white/10 text-white/40 hover:text-white hover:border-white/20';
+        
+    const btnCorrectClass = item.result === 'correct' 
+        ? 'border-primary bg-primary/15 text-primary shadow-[0_0_15px_rgba(184,196,255,0.3)]' 
+        : 'border-white/10 text-white/40 hover:text-white hover:border-white/20';
+
+    cardDiv.innerHTML = `
+        <h1 class="font-display text-[32px] md:text-[40px] text-white tracking-widest uppercase mb-4 text-center select-none font-medium">
+            ${item.word}
+        </h1>
+        <div class="w-2/3 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-4"></div>
+        
+        <div class="flex flex-col items-center space-y-[8px] w-full select-none mb-6">
+            <span class="font-label-caps text-[10px] text-white/40 tracking-wider mb-2">YASAKLI KELİMELER</span>
+            <div class="w-full flex flex-col items-center space-y-[6px]">
+                ${item.forbidden.map((word, i) => `
+                    <span class="font-body text-base text-on-surface-variant font-light tracking-wide w-full text-center ${i < 4 ? 'pb-2 border-b border-white/5' : ''}">
+                        ${word}
+                    </span>
+                `).join('')}
+            </div>
+        </div>
+        
+        <div class="w-full grid grid-cols-3 gap-3">
+            <button type="button" class="btn-review-opt py-3.5 rounded-2xl border font-label-caps text-[10px] tracking-widest font-semibold flex flex-col items-center justify-center gap-1 active:scale-95 transition-all ${btnTabuClass}" data-type="tabu">
+                <span class="material-symbols-outlined text-lg">close</span> TABU
+            </button>
+            <button type="button" class="btn-review-opt py-3.5 rounded-2xl border font-label-caps text-[10px] tracking-widest font-semibold flex flex-col items-center justify-center gap-1 active:scale-95 transition-all ${btnPassClass}" data-type="pass">
+                <span class="material-symbols-outlined text-lg">fast_forward</span> PAS
+            </button>
+            <button type="button" class="btn-review-opt py-3.5 rounded-2xl border font-label-caps text-[10px] tracking-widest font-semibold flex flex-col items-center justify-center gap-1 active:scale-95 transition-all ${btnCorrectClass}" data-type="correct">
+                <span class="material-symbols-outlined text-lg">check</span> DOĞRU
+            </button>
+        </div>
+    `;
+    
+    container.appendChild(cardDiv);
+    
+    // Karar Değiştirme Dinleyicileri
+    cardDiv.querySelectorAll('.btn-review-opt').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            const idx = parseInt(btn.dataset.idx, 10);
+            e.preventDefault();
             const type = btn.dataset.type;
-            onDecisionChange(idx, type);
+            onDecisionChange(currentIndex, type);
         });
     });
+    
+    // Göstergeyi güncelle
+    if (indicator) {
+        indicator.textContent = `${currentIndex + 1} / ${history.length}`;
+    }
+    
+    // Navigasyon Butonlarının Aktiflik Durumları
+    if (prevBtn) {
+        if (currentIndex === 0) {
+            prevBtn.disabled = true;
+            prevBtn.classList.add('opacity-30', 'cursor-not-allowed');
+        } else {
+            prevBtn.disabled = false;
+            prevBtn.classList.remove('opacity-30', 'cursor-not-allowed');
+        }
+    }
+    
+    if (nextBtn) {
+        if (currentIndex === history.length - 1) {
+            nextBtn.disabled = true;
+            nextBtn.classList.add('opacity-30', 'cursor-not-allowed');
+        } else {
+            nextBtn.disabled = false;
+            nextBtn.classList.remove('opacity-30', 'cursor-not-allowed');
+        }
+    }
 }
 
 /**

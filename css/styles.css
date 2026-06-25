@@ -186,15 +186,29 @@ body {
     opacity: 1;
 }
 
-/* Ekran Gösterim/Gizleme */
+/* Ekran Gösterim/Gizleme ve Geçiş Animasyonları */
 .game-view {
     display: none !important;
     height: 100dvh;
     overflow: hidden;
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: opacity, transform;
+}
+
+.game-view.active-view, .game-view.transitioning {
+    display: flex !important;
 }
 
 .game-view.active-view {
-    display: flex !important;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.game-view.fade-out {
+    opacity: 0;
+    transform: translate3d(0, -16px, 0);
 }
 
 /* Kelime Kartı Animasyonları */

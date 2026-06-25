@@ -20,7 +20,7 @@ import {
     animateCardTransition, 
     updateTimerUI, 
     triggerFlashOverlay, 
-    renderRoundReviewList, 
+    renderRoundReviewCard, 
     renderScoreboardUI, 
     renderGameOverUI, 
     stopConfettiEffect 
@@ -364,6 +364,28 @@ function setupEventListeners() {
     
     // --- TUR SONU İNCELEME EKRANI ---
     
+    const btnReviewPrev = document.getElementById('btn-review-prev');
+    if (btnReviewPrev) {
+        btnReviewPrev.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            if (state.currentReviewIndex > 0) {
+                state.currentReviewIndex--;
+                setupRoundOverView();
+            }
+        });
+    }
+
+    const btnReviewNext = document.getElementById('btn-review-next');
+    if (btnReviewNext) {
+        btnReviewNext.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            if (state.currentReviewIndex < state.roundHistory.length - 1) {
+                state.currentReviewIndex++;
+                setupRoundOverView();
+            }
+        });
+    }
+    
     const btnConfirmReview = document.getElementById('btn-confirm-review');
     if (btnConfirmReview) {
         btnConfirmReview.addEventListener(clickEvent, (e) => {
@@ -602,8 +624,7 @@ function endRound() {
  */
 function setupRoundOverView() {
     const reviewTeamName = document.getElementById('review-team-name');
-    const reviewScoreChange = document.getElementById('review-score-change');
-    const listContainer = document.getElementById('review-list-container');
+    const cardContainer = document.getElementById('review-card-container');
     
     if (reviewTeamName) {
         reviewTeamName.textContent = state.teams[state.currentTeamIndex].name;
@@ -611,8 +632,8 @@ function setupRoundOverView() {
     
     updateReviewScoreLabel();
     
-    // İnceleme listesini render et
-    renderRoundReviewList(listContainer, state.roundHistory, (index, newDecision) => {
+    // İnceleme kartını render et
+    renderRoundReviewCard(cardContainer, state.roundHistory, state.currentReviewIndex, (index, newDecision) => {
         // Kararı değiştir
         updateRoundHistoryDecision(index, newDecision);
         
@@ -620,9 +641,9 @@ function setupRoundOverView() {
         if (newDecision === 'correct') playCorrect();
         else if (newDecision === 'tabu') playTabu();
         
-        // Skoru ve listeyi güncelle
+        // Skoru ve kartı güncelle
         updateReviewScoreLabel();
-        setupRoundOverView(); // Listeyi yeniden çiz
+        setupRoundOverView(); // Ekranı yeniden çiz
     });
     
     showView(views.roundOver);

@@ -36,6 +36,7 @@ export const state = {
     
     // Tur Sonu İnceleme Geçmişi
     roundHistory: [], // [{ word, forbidden, result: 'correct'|'tabu'|'pass', initialResult }]
+    currentReviewIndex: 0,
     
     // Puanlama İstatistikleri (Düzeltmeleri yönetmek için tur içi geçici skor takibi)
     roundScoreChange: 0
@@ -113,6 +114,7 @@ export function startRound() {
     state.currentTimer = state.timeLimit;
     state.currentPassesUsed = 0;
     state.roundHistory = [];
+    state.currentReviewIndex = 0;
     state.roundScoreChange = 0;
     state.currentState = STATES.PLAYING;
     
