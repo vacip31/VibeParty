@@ -1,0 +1,242 @@
+[
+  {
+    "w": "Klavye",
+    "f": ["Tuş", "Yazı", "Bilgisayar", "Ekran", "Fare"],
+    "c": "Teknoloji",
+    "d": "K"
+  },
+  {
+    "w": "İnternet",
+    "f": ["Ağ", "Web", "Bağlantı", "Site", "Bilgisayar"],
+    "c": "Teknoloji",
+    "d": "K"
+  },
+  {
+    "w": "Yapay Zeka",
+    "f": ["Robot", "Akıllı", "Bilgisayar", "Kod", "İnsan"],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Yazılım",
+    "f": ["Kod", "Program", "Bilgisayar", "Geliştirici", "Dil"],
+    "c": "Teknoloji",
+    "d": "K"
+  },
+  {
+    "w": "Veritabanı",
+    "f": ["Veri", "Tablo", "SQL", "Kayıt", "Bilgi"],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Kripto",
+    "f": ["Bitcoin", "Para", "Sanal", "Cüzdan", "Blockchain"],
+    "c": "Teknoloji",
+    "d": "Z"
+  },
+  {
+    "w": "Akıllı Telefon",
+    "f": ["Mobil", "Arama", "Dokunmatik", "Uygulama", "Cep"],
+    "c": "Teknoloji",
+    "d": "K"
+  },
+  {
+    "w": "Sunucu",
+    "f": ["Server", "Barındırma", "Ağ", "Bilgisayar", "Site"],
+    "c": "Teknoloji",
+    "d": "Z"
+  },
+  {
+    "w": "Titanik",
+    "f": ["Gemi", "Buzdağı", "Okyanus", "Aşk", "Leonardo"],
+    "c": "Sinema",
+    "d": "K"
+  },
+  {
+    "w": "Matrix",
+    "f": ["Neo", "Hap", "Gerçek", "Bilgisayar", "Gözlük"],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Avatar",
+    "f": ["Mavi", "Gezegen", "Pandora", "3D", "Yönetmen"],
+    "c": "Sinema",
+    "d": "K"
+  },
+  {
+    "w": "Aslan Kral",
+    "f": ["Simba", "Çizgi Film", "Hayvan", "Orman", "Taht"],
+    "c": "Sinema",
+    "d": "K"
+  },
+  {
+    "w": "Yıldız Savaşları",
+    "f": ["Luke", "Darth Vader", "Kılıç", "Uzay", "Star Wars"],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Yüzüklerin Efendisi",
+    "f": ["Frodo", "Elf", "Gandalf", "Mordor", "Güç"],
+    "c": "Sinema",
+    "d": "K"
+  },
+  {
+    "w": "Baba",
+    "f": ["Godfather", "Mafya", "Don Corleone", "Aile", "Film"],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Başlangıç",
+    "f": ["Rüya", "Leonardo", "Cobb", "Fırıldak", "Mimari"],
+    "c": "Sinema",
+    "d": "Z"
+  },
+  {
+    "w": "Futbol",
+    "f": ["Top", "Kale", "Maç", "Oyuncu", "Ayak"],
+    "c": "Spor",
+    "d": "K"
+  },
+  {
+    "w": "Basketbol",
+    "f": ["Pota", "Top", "Smaç", "El", "NBA"],
+    "c": "Spor",
+    "d": "K"
+  },
+  {
+    "w": "Tenis",
+    "f": ["Raket", "Top", "File", "Kort", "Set"],
+    "c": "Spor",
+    "d": "K"
+  },
+  {
+    "w": "Formula 1",
+    "f": ["Yarış", "Araba", "Hız", "Pilot", "Pist"],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Olimpiyatlar",
+    "f": ["Altın", "Madalya", "Sporcu", "Koşu", "Halka"],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Dağcılık",
+    "f": ["Tırmanmak", "Zirve", "Halat", "Kar", "Kamp"],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Pilates",
+    "f": ["Top", "Minder", "Egzersiz", "Esnemek", "Reformer"],
+    "c": "Spor",
+    "d": "K"
+  },
+  {
+    "w": "Satranç",
+    "f": ["Şah", "Mat", "Kale", "Taş", "Tahta"],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "İstanbul",
+    "f": ["Boğaz", "Köprü", "Metropol", "Türkiye", "Cami"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çay",
+    "f": ["Bardak", "İnce Belli", "Şeker", "Kahvaltı", "Demlik"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kahve",
+    "f": ["Türk", "Fincan", "Köpük", "Telve", "Kafein"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Simit",
+    "f": ["Susam", "Çay", "Fırın", "Gevrek", "Kahvaltı"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Nazar Boncuğu",
+    "f": ["Mavi", "Göz", "Batıl İnanç", "Koruma", "Cam"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Mangal",
+    "f": ["Et", "Kömür", "Piknik", "Yelpaze", "Izgara"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Bayram",
+    "f": ["Harçlık", "Ziyaret", "Şeker", "Tatil", "El Öpmek"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kolonya",
+    "f": ["Limon", "Misafir", "Bayram", "Koku", "Alkol"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Atatürk",
+    "f": ["Mustafa Kemal", "Türkiye", "Cumhurbaşkanı", "Lider", "Selanik"],
+    "c": "Tarih",
+    "d": "K"
+  },
+  {
+    "w": "Osmanlı",
+    "f": ["Padişah", "İmparatorluk", "İstanbul", "Saray", "Fetih"],
+    "c": "Tarih",
+    "d": "K"
+  },
+  {
+    "w": "Cumhuriyet",
+    "f": ["İlan", "29 Ekim", "Devlet", "Demokrasi", "Halk"],
+    "c": "Tarih",
+    "d": "K"
+  },
+  {
+    "w": "Roma",
+    "f": ["İmparatorluk", "İtalya", "Sezar", "Kolezyum", "Gladyatör"],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Piramit",
+    "f": ["Mısır", "Firavun", "Çöl", "Gize", "Taş"],
+    "c": "Tarih",
+    "d": "K"
+  },
+  {
+    "w": "Çanakkale",
+    "f": ["Savaş", "Geçilmez", "Şehitlik", "Boğaz", "Seyit Onbaşı"],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Göbeklitepe",
+    "f": ["Şanlıurfa", "Tarih", "Tapınak", "Neolitik", "Kazı"],
+    "c": "Tarih",
+    "d": "Z"
+  },
+  {
+    "w": "Fransız İhtilali",
+    "f": ["Devrim", "Fransa", "Özgürlük", "Kral", "1789"],
+    "c": "Tarih",
+    "d": "Z"
+  }
+]
