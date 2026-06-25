@@ -61,7 +61,7 @@
 
     <!-- 0. GÖRÜNÜM: BAŞLANGIÇ EKRANI (SPLASH) -->
     <section id="view-splash"
-        class="game-view active-view flex flex-col w-full h-[100dvh] overflow-hidden items-center justify-between px-container-padding py-12 relative">
+        class="game-view active-view flex flex-col w-full h-[100dvh] overflow-hidden items-center justify-between px-container-padding py-12">
         <!-- Atmosferik Arka Plan Işıması -->
         <div class="glow-bg"></div>
 
@@ -108,9 +108,9 @@
     </section>
 
     <!-- 1. GÖRÜNÜM: OYUN KURULUMU (ADIM 1) -->
-    <section id="view-setup" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden relative">
+    <section id="view-setup" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden">
         <header
-            class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16 relative">
+            class="bg-black/80 backdrop-blur-md absolute top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16">
             <button id="btn-setup-home"
                 class="text-primary hover:opacity-80 transition-opacity active:scale-95 flex items-center justify-center absolute left-4">
                 <span class="material-symbols-outlined">arrow_back</span>
@@ -197,7 +197,7 @@
 
         <!-- Sabit Alt Aksiyon Butonu -->
         <div
-            class="fixed bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
+            class="absolute bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
             <button id="btn-setup-next"
                 class="primary-btn w-[280px] py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium tracking-wide active:scale-95 transition-all">
                 <span>Sonraki Adım</span>
@@ -207,9 +207,9 @@
     </section>
 
     <!-- 2. GÖRÜNÜM: OYUN KURULUMU (ADIM 2 - KATEGORİ VE ZORLUK SEÇİMİ) -->
-    <section id="view-setup-step2" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden relative">
+    <section id="view-setup-step2" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden">
         <header
-            class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-between px-container-padding h-16">
+            class="bg-black/80 backdrop-blur-md absolute top-0 w-full z-50 border-b border-white/5 flex items-center justify-between px-container-padding h-16">
             <button id="btn-setup-back"
                 class="text-primary hover:opacity-80 transition-opacity active:scale-95 flex items-center justify-center">
                 <span class="material-symbols-outlined">arrow_back</span>
@@ -248,7 +248,7 @@
 
         <!-- Sabit Alt Aksiyon Butonu -->
         <div
-            class="fixed bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
+            class="absolute bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
             <button id="btn-start-game"
                 class="primary-btn w-[280px] py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium tracking-wide active:scale-95 transition-all">
                 <span>Oyunu Başlat</span>
@@ -259,7 +259,7 @@
 
     <!-- 3. GÖRÜNÜM: TURA HAZIR OL EKRANI -->
     <section id="view-round-ready"
-        class="game-view flex flex-col w-full h-[100dvh] overflow-hidden items-center justify-center relative">
+        class="game-view flex flex-col w-full h-[100dvh] overflow-hidden items-center justify-center">
         <div class="ambient-glow animate-pulse-slow"></div>
 
         <main
@@ -291,7 +291,7 @@
     </section>
 
     <!-- 4. GÖRÜNÜM: AKTİF OYUN EKRANI -->
-    <section id="view-playing" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden relative bg-black">
+    <section id="view-playing" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden bg-black">
         <!-- İlerleme Çubuğu (Tepede) -->
         <div class="w-full h-1 bg-white/5 absolute top-0 left-0 z-50">
             <div id="timer-progress-bar"
@@ -390,9 +390,9 @@
     </section>
 
     <!-- 5. GÖRÜNÜM: TUR SONU İNCELEME EKRANI -->
-    <section id="view-round-over" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden relative bg-black">
+    <section id="view-round-over" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden bg-black">
         <header
-            class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16">
+            class="bg-black/80 backdrop-blur-md absolute top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16">
             <h1 class="font-display text-[18px] text-white uppercase tracking-[0.2em] font-light">TUR SONU İNCELEME</h1>
         </header>
 
@@ -436,7 +436,7 @@
 
         <!-- Sabit Alt Aksiyon Butonu -->
         <div
-            class="fixed bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
+            class="absolute bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
             <button id="btn-confirm-review"
                 class="primary-btn w-[280px] py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium tracking-wide active:scale-95 transition-all">
                 <span>Skorları Onayla</span>
@@ -446,9 +446,9 @@
     </section>
 
     <!-- 6. GÖRÜNÜM: SKOR TABLOSU EKRANI -->
-    <section id="view-scoreboard" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden relative bg-black">
+    <section id="view-scoreboard" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden bg-black">
         <header
-            class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16">
+            class="bg-black/80 backdrop-blur-md absolute top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16">
             <h1 class="font-display text-[18px] text-primary uppercase tracking-[0.2em] font-light">SKOR TABLOSU</h1>
         </header>
 
@@ -465,7 +465,7 @@
 
         <!-- Sabit Alt Aksiyon Butonu -->
         <div
-            class="fixed bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
+            class="absolute bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
             <button id="btn-scoreboard-next"
                 class="primary-btn w-[280px] py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium tracking-wide active:scale-95 transition-all">
                 <span>Sonraki Tura Geç</span>
@@ -476,7 +476,7 @@
 
     <!-- 7. GÖRÜNÜM: OYUN BİTTİ / ŞAMPİYON EKRANI -->
     <section id="view-game-over"
-        class="game-view flex flex-col w-full h-[100dvh] overflow-hidden items-center justify-center relative bg-black">
+        class="game-view flex flex-col w-full h-[100dvh] overflow-hidden items-center justify-center bg-black">
         <main
             class="w-full max-w-[600px] px-container-padding py-10 flex flex-col items-center relative z-10 h-full justify-center">
             <!-- Kupa Simgesi -->
@@ -522,9 +522,9 @@
     </section>
 
     <!-- 8. GÖRÜNÜM: OYUN KURALLARI EKRANI (YENİ GÖRÜNÜM) -->
-    <section id="view-rules" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden relative bg-black">
+    <section id="view-rules" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden bg-black">
         <header
-            class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16 relative">
+            class="bg-black/80 backdrop-blur-md absolute top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16">
             <button id="btn-rules-back"
                 class="text-primary hover:opacity-80 transition-opacity active:scale-95 flex items-center justify-center absolute left-4">
                 <span class="material-symbols-outlined">arrow_back</span>
