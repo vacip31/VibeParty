@@ -34,3 +34,8 @@ yarn-error.log*
 # Documentation
 docs/
 
+# Agent Rules
+AGENTS.md
+.agents.md
+
+
