@@ -88,7 +88,7 @@ function initSetupScreen() {
         state.selectedCategories = [...uniqueCategories];
     }
     
-    showView(views.setup);
+    showView(views.splash);
 }
 
 /**
@@ -97,6 +97,25 @@ function initSetupScreen() {
 function setupEventListeners() {
     // Mobil tıklama gecikmesini gidermek için touch/pointer olayları kullanımı
     const clickEvent = 'pointerdown';
+    
+    // --- BAŞLANGIÇ EKRANI (SPLASH) OLAYLARI ---
+    const btnSplashStart = document.getElementById('btn-splash-start');
+    if (btnSplashStart) {
+        btnSplashStart.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            initAudio(); // Ses motorunu ilk tıklamada ısıt
+            showView(views.setup);
+        });
+    }
+
+    const btnSplashAbout = document.getElementById('btn-splash-about');
+    if (btnSplashAbout) {
+        btnSplashAbout.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            initAudio();
+            alert("VibeTabu - Luxe Edition v1.0.0\n\nModern, siber-minimalist ve çevrimdışı PWA Tabu oyunu.\n\nİyi eğlenceler!");
+        });
+    }
     
     // --- ADIM 1 KURULUM EKRANI OLAYLARI ---
     

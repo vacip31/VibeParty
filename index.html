@@ -50,8 +50,43 @@
     <!-- Anlık Renkli Parlama Maskesi (Correct/Tabu basıldığında) -->
     <div id="flash-overlay" class="view-overlay"></div>
 
+    <!-- 0. GÖRÜNÜM: BAŞLANGIÇ EKRANI (SPLASH) -->
+    <section id="view-splash" class="game-view active-view flex flex-col w-full h-[100dvh] overflow-hidden items-center justify-between px-container-padding py-12 relative">
+        <!-- Atmosferik Arka Plan Işıması -->
+        <div class="glow-bg"></div>
+
+        <!-- Üst Alan (Ayarlar/Hakkında) -->
+        <div class="h-12 w-full flex justify-end relative z-10">
+            <button aria-label="Bilgi" class="glass-btn-icon w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md active:scale-95 transition-transform" id="btn-splash-about">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">info</span>
+            </button>
+        </div>
+
+        <!-- Orta Logo Alanı -->
+        <div class="flex-1 flex flex-col items-center justify-center w-full mt-[-48px] relative z-10">
+            <div class="relative flex flex-col items-center justify-center text-center">
+                <!-- Arka neon halka -->
+                <div class="absolute w-64 h-64 rounded-full bg-gradient-to-tr from-primary/10 to-secondary/15 blur-3xl opacity-80 animate-pulse-slow"></div>
+                
+                <!-- Logo -->
+                <h1 class="font-display text-[48px] md:text-[64px] font-extralight tracking-[0.25em] text-white drop-shadow-[0_0_30px_rgba(184,196,255,0.4)] select-none animate-float">
+                    VİBE<span class="text-primary font-light">TABU</span>
+                </h1>
+                <p class="font-body text-xs text-white/40 tracking-[0.15em] mt-5 uppercase">Siber-Minimalist Kelime Oyunu</p>
+            </div>
+        </div>
+
+        <!-- Alt Başla Butonu -->
+        <div class="w-full flex justify-center pb-8 relative z-10">
+            <button id="btn-splash-start" class="glass-btn-primary w-[280px] py-4 rounded-full flex items-center justify-center gap-3 text-white font-medium text-lg tracking-wider active:scale-95 transition-all">
+                <span>Oyuna Başla</span>
+                <span class="material-symbols-outlined text-primary">play_circle</span>
+            </button>
+        </div>
+    </section>
+
     <!-- 1. GÖRÜNÜM: OYUN KURULUMU (ADIM 1) -->
-    <section id="view-setup" class="game-view active-view flex flex-col w-full h-[100dvh] overflow-hidden relative">
+    <section id="view-setup" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden relative">
         <header class="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-center px-container-padding h-16">
             <h1 class="font-display text-[20px] text-primary uppercase tracking-[0.25em] font-light">VİBETABU</h1>
         </header>

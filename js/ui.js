@@ -2,6 +2,7 @@
 
 // Görünüm elementlerinin referansları
 export const views = {
+    splash: document.getElementById('view-splash'),
     setup: document.getElementById('view-setup'),
     setupStep2: document.getElementById('view-setup-step2'),
     roundReady: document.getElementById('view-round-ready'),
@@ -351,7 +352,7 @@ export function renderGameOverUI(teams) {
             
             <!-- Grafik Çubuğu -->
             <div class="w-full h-[2px] bg-white/10 rounded-full overflow-hidden mt-auto mb-5">
-                <div class="h-full bg-white/80 rounded-full" style="width: ${progressPercent}%;"></div>
+                <div class="h-full bg-white/80 rounded-full animate-width" style="width: ${progressPercent}%;"></div>
             </div>
             
             <!-- Detaylı İstatistikler -->

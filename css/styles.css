@@ -239,9 +239,13 @@ body {
     100% { border-color: rgba(184, 196, 255, 0.4); box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(184, 196, 255, 0.15); }
 }
 
+#view-playing {
+    perspective: 1000px;
+}
+
 @keyframes card-enter {
-    0% { transform: translate3d(0, -60px, 0) scale(0.9); opacity: 0; }
-    100% { transform: translate3d(0, 0, 0) scale(1); opacity: 1; }
+    0% { transform: translate3d(0, 45px, 0) scale(0.92) rotateX(-15deg); opacity: 0; }
+    100% { transform: translate3d(0, 0, 0) scale(1) rotateX(0deg); opacity: 1; }
 }
 
 /* Sayaç Panik Nabız Animasyonu */
@@ -269,4 +273,13 @@ body {
 @keyframes confetti-fall {
     0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
     100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+/* Skor Grafiği Büyüme Animasyonu */
+.animate-width {
+    animation: expand-width 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes expand-width {
+    0% { width: 0%; }
 }
