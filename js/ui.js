@@ -131,6 +131,9 @@ export function animateCardTransition(decision, onComplete) {
     // Eski animasyon sınıflarını temizle
     cardContainer.classList.remove('slide-in', 'slide-correct', 'slide-tabu', 'slide-pass');
     
+    // Tarayıcı reflow tetikle (animasyonun baslamasini garantilemek icin)
+    void cardContainer.offsetWidth;
+    
     // Karara göre animasyon sınıfı ekle
     let animClass = '';
     if (decision === 'correct') animClass = 'slide-correct';
@@ -139,17 +142,14 @@ export function animateCardTransition(decision, onComplete) {
     
     cardContainer.classList.add(animClass);
     
-    // Animasyon tamamlandığında yeni kartı yükle
-    const handleTransitionEnd = () => {
-        cardContainer.removeEventListener('transitionend', handleTransitionEnd);
+    // Kilitlenmeleri onlemek icin kesin çalisan setTimeout kullan
+    setTimeout(() => {
         onComplete();
         
         // Yeni kartı yukarıdan içeri süzerek getir
         cardContainer.classList.remove(animClass);
         cardContainer.classList.add('slide-in');
-    };
-    
-    cardContainer.addEventListener('transitionend', handleTransitionEnd);
+    }, 250);
 }
 
 /**

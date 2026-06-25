@@ -170,7 +170,6 @@ export function recordDecision(decision) {
     // Geçici puanı güncelle
     if (decision === 'correct') {
         state.roundScoreChange++;
-        state.currentPassesUsed++; // Pas hakkı değil ama toplam çekilen kart takibi için
     } else if (decision === 'tabu') {
         state.roundScoreChange--;
     } else if (decision === 'pass') {

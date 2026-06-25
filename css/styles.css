@@ -199,8 +199,10 @@ body {
 
 /* Kelime Kartı Animasyonları */
 .card-container {
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease;
+    transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.25s ease;
     will-change: transform, opacity;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 1;
 }
 
 /* Doğru Animasyonu - Sağa kayar ve döner */
