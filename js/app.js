@@ -24,7 +24,8 @@ import {
     renderScoreboardUI, 
     renderGameOverUI, 
     stopConfettiEffect,
-    updateSplashWordCount
+    updateSplashWordCount,
+    animateReviewTransition
 } from './ui.js';
 
 import { 
@@ -386,8 +387,10 @@ function setupEventListeners() {
         btnReviewPrev.addEventListener(clickEvent, (e) => {
             e.preventDefault();
             if (state.currentReviewIndex > 0) {
-                state.currentReviewIndex--;
-                setupRoundOverView();
+                animateReviewTransition('right', () => {
+                    state.currentReviewIndex--;
+                    setupRoundOverView();
+                });
             }
         });
     }
@@ -397,10 +400,53 @@ function setupEventListeners() {
         btnReviewNext.addEventListener(clickEvent, (e) => {
             e.preventDefault();
             if (state.currentReviewIndex < state.roundHistory.length - 1) {
-                state.currentReviewIndex++;
-                setupRoundOverView();
+                animateReviewTransition('left', () => {
+                    state.currentReviewIndex++;
+                    setupRoundOverView();
+                });
             }
         });
+    }
+
+    // Sağa/Sola Kaydırma (Swipe) Algılayıcı
+    const reviewCardContainer = document.getElementById('review-card-container');
+    if (reviewCardContainer) {
+        let touchStartX = 0;
+        let touchStartY = 0;
+        
+        reviewCardContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        reviewCardContainer.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].screenX;
+            const touchEndY = e.changedTouches[0].screenY;
+            
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+            
+            // Yatay hareket belirgin bir kaydırma olmalı ve dikey hareketi geçmeli
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    // Sağa kaydırma -> Önceki kart (right animasyonu)
+                    if (state.currentReviewIndex > 0) {
+                        animateReviewTransition('right', () => {
+                            state.currentReviewIndex--;
+                            setupRoundOverView();
+                        });
+                    }
+                } else {
+                    // Sola kaydırma -> Sonraki kart (left animasyonu)
+                    if (state.currentReviewIndex < state.roundHistory.length - 1) {
+                        animateReviewTransition('left', () => {
+                            state.currentReviewIndex++;
+                            setupRoundOverView();
+                        });
+                    }
+                }
+            }
+        }, { passive: true });
     }
     
     const btnConfirmReview = document.getElementById('btn-confirm-review');

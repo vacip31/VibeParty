@@ -50,11 +50,11 @@
   {
     "w": "Veritabanı",
     "f": [
-      "Veri",
-      "Tablo",
+      "Depolama",
       "SQL",
+      "Tablo",
       "Kayıt",
-      "Bilgi"
+      "Sistem"
     ],
     "c": "Teknoloji",
     "d": "O"
@@ -1710,7 +1710,7 @@
       "Bakmak",
       "Kaş",
       "Organ",
-      "Gözkapağı"
+      "Kirpik"
     ],
     "c": "Genel",
     "d": "K"
@@ -2438,11 +2438,11 @@
   {
     "w": "Anahtarlık",
     "f": [
-      "Anahtar",
       "Metal",
       "Halka",
       "Kaybetmek",
-      "Cep"
+      "Cep",
+      "Deste"
     ],
     "c": "Genel",
     "d": "K"
@@ -2523,8 +2523,8 @@
     "w": "Çöp Kutusu",
     "f": [
       "Atık",
-      "Çöp Kovası",
-      "Çöp Torbası",
+      "Kova",
+      "Torba",
       "Atmak",
       "Mutfak"
     ],
@@ -2594,11 +2594,11 @@
   {
     "w": "Tırnak Makası",
     "f": [
-      "Tırnak",
       "Kesmek",
       "El",
       "Ayak",
-      "Manikür"
+      "Manikür",
+      "Kısaltmak"
     ],
     "c": "Genel",
     "d": "K"
@@ -2609,7 +2609,7 @@
       "Temizlik",
       "Toz",
       "Masayı Silmek",
-      "Bez Parçası",
+      "Kumaş",
       "Islak"
     ],
     "c": "Genel",
@@ -2702,11 +2702,11 @@
   {
     "w": "Sabunluk",
     "f": [
-      "Sabun",
-      "Banyo",
       "Köpük",
+      "Banyo",
       "Lavabo",
-      "Plastik"
+      "Plastik",
+      "Koymak"
     ],
     "c": "Genel",
     "d": "K"
@@ -2714,11 +2714,11 @@
   {
     "w": "Diş Macunu",
     "f": [
-      "Diş",
       "Fırça",
       "Beyazlatmak",
       "Tüp",
-      "Ağız"
+      "Ağız",
+      "Temizlik"
     ],
     "c": "Genel",
     "d": "K"
@@ -2870,11 +2870,11 @@
   {
     "w": "Dişçi",
     "f": [
-      "Diş",
-      "Muayene",
-      "Çekmek",
-      "Dolgu",
-      "Koltuk"
+      "Tabip",
+      "Hekim",
+      "Koltuk",
+      "Ağız",
+      "Dolgu"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -2967,10 +2967,10 @@
     "w": "Kütüphaneci",
     "f": [
       "Kitap",
-      "Kütüphane",
       "Raf",
       "Ödünç",
-      "Sessiz"
+      "Sessiz",
+      "Görevli"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -3039,10 +3039,10 @@
     "w": "Gazeteci",
     "f": [
       "Haber",
-      "Gazete",
       "Röportaj",
       "Yazmak",
-      "Muhabir"
+      "Muhabir",
+      "Basın"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -3062,11 +3062,11 @@
   {
     "w": "Kameraman",
     "f": [
-      "Kamera",
       "Çekim",
       "Video",
       "Televizyon",
-      "Film"
+      "Film",
+      "Yönetmen"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -3086,11 +3086,11 @@
   {
     "w": "Şarkıcı",
     "f": [
-      "Şarkı",
       "Müzik",
       "Ses",
       "Albüm",
-      "Konser"
+      "Konser",
+      "Mikrofon"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -3122,9 +3122,9 @@
   {
     "w": "Makyajör",
     "f": [
-      "Yüz",
-      "Makyaj",
+      "Güzellik",
       "Kozmetik",
+      "Yüz",
       "Fırça",
       "Sahne"
     ],
@@ -3146,11 +3146,11 @@
   {
     "w": "Ayakkabıcı",
     "f": [
-      "Ayakkabı",
+      "Deri",
+      "Kösele",
+      "Dükkan",
       "Kundura",
-      "Taban",
-      "Tamir",
-      "Satmak"
+      "Satıcı"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -3218,11 +3218,11 @@
   {
     "w": "Valilik",
     "f": [
-      "Vali",
       "İl",
       "Şehir",
       "Devlet",
-      "Temsilci"
+      "Temsilci",
+      "Bina"
     ],
     "c": "Genel",
     "d": "O"
@@ -3351,10 +3351,10 @@
     "w": "Hayvanat Bahçesi",
     "f": [
       "Kafes",
-      "Hayvan",
       "Aslan",
       "Ziyaret",
-      "Park"
+      "Park",
+      "Kutup Ayısı"
     ],
     "c": "Genel",
     "d": "O"
@@ -3557,8 +3557,8 @@
       "Seçim",
       "Arada Kalmak",
       "Şık",
-      "Karar",
-      "Düşünmek"
+      "Düşünmek",
+      "İkilem"
     ],
     "c": "Genel",
     "d": "Z"
@@ -4058,11 +4058,11 @@
   {
     "w": "İlham",
     "f": [
-      "İlham Perisi",
       "Yaratıcılık",
       "Fikir",
       "Gelmek",
-      "Sanatçı"
+      "Sanatçı",
+      "Şair"
     ],
     "c": "Felsefe",
     "d": "Z"
@@ -4158,7 +4158,7 @@
       "Dinlemek",
       "Telefon",
       "Ses",
-      "Kulak"
+      "Kablo"
     ],
     "c": "Teknoloji",
     "d": "K"
@@ -4250,11 +4250,11 @@
   {
     "w": "Ütü Masası",
     "f": [
-      "Ütü",
-      "Elbise",
       "Kırışık",
+      "Elbise",
+      "Katlamak",
       "Ayak",
-      "Katlamak"
+      "Sıcak"
     ],
     "c": "Genel",
     "d": "K"
@@ -4706,11 +4706,11 @@
   {
     "w": "Pastane",
     "f": [
-      "Börek",
-      "Pasta",
-      "Kurabiye",
+      "Fırın",
       "Poğaça",
-      "Tatlı"
+      "Tatlı",
+      "Şeker",
+      "Börek"
     ],
     "c": "Genel",
     "d": "O"
@@ -5031,10 +5031,10 @@
     "w": "Muayene",
     "f": [
       "Doktor",
+      "Hasta",
+      "Sağlık",
       "Kontrol",
-      "Araba",
-      "İstasyon",
-      "Muayenehane"
+      "Reçete"
     ],
     "c": "Genel",
     "d": "O"
@@ -5055,10 +5055,10 @@
     "w": "Ameliyat",
     "f": [
       "Hastane",
-      "Doktor",
+      "Hekim",
       "Neşter",
-      "Ameliyathane",
-      "Narkoz"
+      "Hasta",
+      "Doktor"
     ],
     "c": "Genel",
     "d": "O"
@@ -5162,11 +5162,11 @@
   {
     "w": "Rüzgar Gülü",
     "f": [
-      "Yön",
-      "Rüzgar",
-      "Çatı",
+      "Yel",
       "Dönmek",
-      "Oyuncak"
+      "Fırıldak",
+      "Bahçe",
+      "Kağıt"
     ],
     "c": "Genel",
     "d": "O"
@@ -5294,11 +5294,11 @@
   {
     "w": "Gerçeküstü",
     "f": [
-      "Sürreal",
+      "Sürrealizm",
       "Rüya",
-      "Gerçek",
-      "Sanat",
-      "Hayal"
+      "Hayal",
+      "Dali",
+      "Sanat"
     ],
     "c": "Felsefe",
     "d": "Z"
@@ -5500,9 +5500,9 @@
     "f": [
       "Kaba",
       "Saygısız",
-      "Görgü Kuralları",
-      "Yemek",
-      "Sosyal"
+      "Davranış",
+      "Ayıp",
+      "Yemek Yemek"
     ],
     "c": "Genel",
     "d": "Z"
@@ -5534,11 +5534,11 @@
   {
     "w": "Kötümser",
     "f": [
-      "Pesimist",
       "Negatif",
       "Karamsar",
-      "Kötü",
-      "Düşünmek"
+      "Gelecek",
+      "Düşünmek",
+      "Pessimist"
     ],
     "c": "Felsefe",
     "d": "Z"
@@ -5654,11 +5654,11 @@
   {
     "w": "Sözünde Durmak",
     "f": [
-      "Söz",
-      "Güven",
-      "Doğru",
+      "Güvenilir",
       "Tutmak",
-      "Yapmak"
+      "Karakter",
+      "Doğru",
+      "Vermek"
     ],
     "c": "Felsefe",
     "d": "Z"
@@ -5738,11 +5738,11 @@
   {
     "w": "Kararlı",
     "f": [
-      "Emin",
-      "Net",
-      "Sözünden Dönmeyen",
-      "İnat",
-      "Karar"
+      "İnatçı",
+      "Azimli",
+      "Hedef",
+      "Vazgeçmemek",
+      "Emin"
     ],
     "c": "Felsefe",
     "d": "Z"
@@ -5882,11 +5882,11 @@
   {
     "w": "Salatalık",
     "f": [
-      "Yeşil",
       "Hıyar",
+      "Yeşil",
       "Kabuk",
-      "Salata",
-      "Cacık"
+      "Cacık",
+      "Yemek"
     ],
     "c": "Genel",
     "d": "K"
@@ -5918,11 +5918,11 @@
   {
     "w": "Çaydanlık",
     "f": [
-      "Çay",
-      "Demlemek",
-      "Sıcak",
-      "Alt Üst",
-      "Mutfak"
+      "Demlik",
+      "Su",
+      "Kaynamak",
+      "Ocak",
+      "Alt Üst"
     ],
     "c": "Genel",
     "d": "K"
@@ -6098,23 +6098,23 @@
   {
     "w": "Yara Bandı",
     "f": [
+      "Kanama",
       "Kesik",
-      "Kan",
       "Yapıştırmak",
       "Ten",
-      "Yara"
+      "Eczane"
     ],
     "c": "Genel",
     "d": "K"
   },
   {
-    "w": "Saç Kurutma Makinesi",
+    "w": "Fön Makinesi",
     "f": [
       "Saç",
-      "Fön",
       "Kurutmak",
       "Banyo",
-      "Sıcak"
+      "Sıcak",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "K"
@@ -6183,10 +6183,10 @@
     "w": "Yağmurluk",
     "f": [
       "Su Geçirmez",
-      "Yağmur",
-      "Kış",
-      "Giysi",
-      "Mont"
+      "Giyinmek",
+      "Mont",
+      "Şemsiye",
+      "Islanmak"
     ],
     "c": "Genel",
     "d": "K"
@@ -6195,10 +6195,10 @@
     "w": "Güneş Gözlüğü",
     "f": [
       "Yaz",
-      "Göz",
-      "Güneş",
-      "Koruma",
-      "Cam"
+      "Cam",
+      "Aksesuar",
+      "Işık",
+      "Marka"
     ],
     "c": "Genel",
     "d": "K"
@@ -6207,10 +6207,10 @@
     "w": "Sırt Çantası",
     "f": [
       "Okul",
-      "Taşıma",
-      "Sırt",
-      "Kitap",
-      "Fermuar"
+      "Dağcı",
+      "Taşımak",
+      "Kabin",
+      "Yolculuk"
     ],
     "c": "Genel",
     "d": "K"
@@ -6230,11 +6230,11 @@
   {
     "w": "Asma Kilit",
     "f": [
-      "Anahtar",
-      "Kapı",
-      "Korumak",
       "Demir",
-      "Kilit"
+      "Şifre",
+      "Korumak",
+      "Zincir",
+      "Kasa"
     ],
     "c": "Genel",
     "d": "K"
@@ -7116,7 +7116,7 @@
     "d": "Z"
   },
   {
-    "w": "Kulak Misafiri Olmak",
+    "w": "Kulak Misafiri",
     "f": [
       "Dinlemek",
       "İstemeden",
@@ -7128,7 +7128,7 @@
     "d": "Z"
   },
   {
-    "w": "Burnunun Dikine Gitmek",
+    "w": "Dikbaşlılık",
     "f": [
       "Söz Dinlememek",
       "İnat",
@@ -7176,37 +7176,37 @@
     "d": "Z"
   },
   {
-    "w": "İçi Kan Ağlamak",
+    "w": "Çok Üzülmek",
     "f": [
-      "Üzülmek",
       "Belli Etmemek",
       "Ağlamak",
       "Acı",
-      "Saklamak"
+      "Saklamak",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Pabucu Dama Atılmak",
+    "w": "Gözden Düşmek",
     "f": [
       "Değersizleşmek",
       "Eskimek",
       "Yeni",
-      "Gözden Düşmek",
-      "İkinci Plan"
+      "İkinci Plan",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Sırra Kadem Basmak",
+    "w": "Kaybolmak",
     "f": [
-      "Kaybolmak",
       "Bulunamamak",
       "Gitmek",
       "Kaçmak",
-      "Ortadan Yok Olmak"
+      "Ortadan Yok Olmak",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -7224,13 +7224,13 @@
     "d": "Z"
   },
   {
-    "w": "El Üstünde Tutmak",
+    "w": "Çok Sevmek",
     "f": [
       "Değer Vermek",
-      "Çok Sevmek",
       "Kıymetli",
       "Davranış",
-      "Ağırlamak"
+      "Ağırlamak",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -7248,13 +7248,13 @@
     "d": "Z"
   },
   {
-    "w": "İpe Un Sermek",
+    "w": "Bahaneler",
     "f": [
-      "Bahane",
       "Ertelemek",
       "İşi Yapmamak",
       "Kaçınmak",
-      "Zorlaştırmak"
+      "Zorlaştırmak",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -7284,7 +7284,7 @@
     "d": "Z"
   },
   {
-    "w": "Ekmeğini Taştan Çıkarmak",
+    "w": "Alın Teri",
     "f": [
       "Çalışkan",
       "Zor Koşullar",
@@ -7344,13 +7344,13 @@
     "d": "Z"
   },
   {
-    "w": "Can Kulağıyla Dinlemek",
+    "w": "Dikkatli Dinlemek",
     "f": [
-      "Çok Dikkatli",
       "Duymak",
       "Önemsememek",
       "Konsantre",
-      "Odaklanmak"
+      "Odaklanmak",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -7368,13 +7368,13 @@
     "d": "Z"
   },
   {
-    "w": "Burnundan Kıl Aldırmamak",
+    "w": "Kibirli",
     "f": [
-      "Kibirli",
       "Kendini Beğenmiş",
       "Taviz Vermeyen",
       "Gururlu",
-      "Eleştiri Kabul Etmeyen"
+      "Eleştiri Kabul Etmeyen",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -7440,37 +7440,37 @@
     "d": "Z"
   },
   {
-    "w": "Gözü Arkada Kalmak",
+    "w": "Merakta Kalmak",
     "f": [
-      "Merak Etmek",
       "Ayrılmak",
       "Endişe",
       "Güvenememek",
-      "Gitmek"
+      "Gitmek",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Kulak Ardı Etmek",
+    "w": "Önemsememek",
     "f": [
       "Dinlememek",
-      "Önemsememek",
       "Unutmak",
       "Boş Vermek",
-      "Söz"
+      "Söz",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Sesi Soluğu Çıkmamak",
+    "w": "Sessiz Kalmak",
     "f": [
-      "Sessiz",
       "Haber Alınamamak",
       "Kaybolmak",
       "Konuşmamak",
-      "Sakin"
+      "Sakin",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -7500,13 +7500,13 @@
     "d": "Z"
   },
   {
-    "w": "Ağzı Açık Kalmak",
+    "w": "Çok Şaşırmak",
     "f": [
-      "Çok Şaşırmak",
       "Şok Olmak",
       "Beklenmedik",
       "Hayret",
-      "Şaşkınlık"
+      "Şaşkınlık",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -7514,11 +7514,11 @@
   {
     "w": "Gözü Dönmek",
     "f": [
-      "Çok Öfkelenmek",
-      "Sinir",
-      "Kendini Kaybetmek",
-      "Saldırgan",
-      "Çılgına Dönmek"
+      "Öfkelenmek",
+      "Kızmak",
+      "Sinirlenmek",
+      "Kontrolünü Kaybetmek",
+      "Çok"
     ],
     "c": "Genel",
     "d": "Z"
@@ -7596,13 +7596,13 @@
     "d": "Z"
   },
   {
-    "w": "Eli Kolu Bağlanmak",
+    "w": "Çaresiz Kalmak",
     "f": [
-      "Çaresiz",
       "Bir Şey Yapamamak",
       "Engel",
       "Sıkışmak",
-      "Zor Durum"
+      "Zor Durum",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -7718,11 +7718,11 @@
   {
     "w": "Kitaplık",
     "f": [
-      "Kitap",
       "Raf",
       "Kütüphane",
       "Ahşap",
-      "Oda"
+      "Dizmek",
+      "Mobilya"
     ],
     "c": "Genel",
     "d": "K"
@@ -7790,11 +7790,11 @@
   {
     "w": "Çöp Torbası",
     "f": [
-      "Çöp",
-      "Kova",
       "Atık",
+      "Plastik",
+      "Kova",
       "Siyah",
-      "Plastik"
+      "Koku"
     ],
     "c": "Genel",
     "d": "K"
@@ -7982,11 +7982,11 @@
   {
     "w": "Zeytinyağı",
     "f": [
-      "Zeytin",
       "Yağ",
-      "Salata",
       "Ege",
-      "Şişe"
+      "Salata",
+      "Yemek",
+      "Sızma"
     ],
     "c": "Genel",
     "d": "K"
@@ -8126,11 +8126,11 @@
   {
     "w": "Gecelik",
     "f": [
-      "Pijama",
       "Uyumak",
-      "Gece",
+      "Yatak",
       "Giysi",
-      "Yatak"
+      "Pijama",
+      "Kadın"
     ],
     "c": "Genel",
     "d": "K"
@@ -8152,9 +8152,9 @@
     "f": [
       "İsim",
       "İş",
+      "Şirket",
       "Telefon",
-      "Kart",
-      "Şirket"
+      "Adres"
     ],
     "c": "Genel",
     "d": "K"
@@ -8210,11 +8210,11 @@
   {
     "w": "Tekerlekli Sandalye",
     "f": [
-      "Hasta",
       "Engelli",
-      "Oturmak",
-      "Tekerlek",
-      "Yürümek"
+      "Hasta",
+      "Yürüyememek",
+      "Hastane",
+      "Koltuk"
     ],
     "c": "Genel",
     "d": "K"
@@ -8222,11 +8222,11 @@
   {
     "w": "Bebek Arabası",
     "f": [
-      "Bebek",
-      "Çocuk",
-      "Tekerlek",
       "Puset",
-      "Taşımak"
+      "Tekerlek",
+      "Gezdirmek",
+      "Pusat",
+      "Çocuk"
     ],
     "c": "Genel",
     "d": "K"
@@ -8309,8 +8309,8 @@
       "Müzik",
       "Şarkı",
       "Nota",
-      "Beste",
-      "Sanatçı"
+      "Sanatçı",
+      "Kompozisyon"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -8318,11 +8318,11 @@
   {
     "w": "Heykeltıraş",
     "f": [
-      "Heykel",
-      "Taş",
       "Sanatçı",
-      "Çamur",
-      "Yontmak"
+      "Mermer",
+      "Kil",
+      "Yontmak",
+      "Eser"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -8378,11 +8378,11 @@
   {
     "w": "Bilim İnsanı",
     "f": [
+      "Araştırma",
       "Laboratuvar",
       "Deney",
-      "Bilim",
-      "Araştırma",
-      "Profesör"
+      "Akademi",
+      "Teori"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -8439,10 +8439,10 @@
     "w": "Denizci",
     "f": [
       "Gemi",
-      "Deniz",
       "Kaptan",
-      "Sefer",
-      "Üniforma"
+      "Tayfa",
+      "Asker",
+      "Bahriye"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -8510,11 +8510,11 @@
   {
     "w": "Çöpçü",
     "f": [
-      "Çöp",
       "Sokak",
-      "Süpürge",
-      "Kova",
-      "Belediye"
+      "Temizlik",
+      "Belediye",
+      "Süpürmek",
+      "Gece"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -8556,7 +8556,7 @@
     "d": "O"
   },
   {
-    "w": "Sosyal Medya Uzmanı",
+    "w": "Sosyal Medya",
     "f": [
       "Instagram",
       "Paylaşım",
@@ -8642,11 +8642,11 @@
   {
     "w": "Gazete Bayii",
     "f": [
-      "Gazete",
-      "Dergi",
+      "Büfe",
       "Satmak",
-      "Sokak",
-      "Büfe"
+      "Dükkan",
+      "Haber",
+      "Sokak"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -8678,11 +8678,11 @@
   {
     "w": "Pazarcı",
     "f": [
-      "Pazar",
       "Tezgah",
+      "Meyve",
       "Sebze",
-      "Bağırmak",
-      "Meyve"
+      "Satıcı",
+      "Bağırmak"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -8789,8 +8789,8 @@
       "Ev",
       "Arsa",
       "Satış",
-      "Tapu",
-      "Belge"
+      "Resmi",
+      "Mülk"
     ],
     "c": "Genel",
     "d": "O"
@@ -8846,11 +8846,11 @@
   {
     "w": "Muayenehane",
     "f": [
-      "Doktor",
-      "Muayene",
       "Klinik",
-      "Oda",
-      "Hasta"
+      "Doktor",
+      "Hasta",
+      "Özel",
+      "Oda"
     ],
     "c": "Genel",
     "d": "O"
@@ -8904,37 +8904,37 @@
     "d": "Z"
   },
   {
-    "w": "İki Ayağı Bir Pabuçta",
+    "w": "Telaşlı",
     "f": [
       "Acele",
-      "Telaş",
       "Sıkışmak",
       "Zaman",
-      "Zor Durum"
+      "Zor Durum",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Baltayı Taşa Vurmak",
+    "w": "Pot Kırmak",
     "f": [
       "Hata",
-      "Pot Kırmak",
       "Yanlış",
       "Söylemek",
-      "İstemeden"
+      "İstemeden",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Ağzı Kulaklarına Varmak",
+    "w": "Çok Sevinmek",
     "f": [
-      "Çok Sevinmek",
       "Mutlu",
       "Gülmek",
       "Gülümsemek",
-      "Haber"
+      "Haber",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -8978,17 +8978,17 @@
   {
     "w": "Can Sıkmak",
     "f": [
-      "Üzmek",
-      "Moral Bozmak",
+      "Bunalmak",
       "Keyifsiz",
-      "Canı Sıkılmak",
-      "Rahatsız"
+      "Ruh",
+      "Zaman",
+      "Sıkıcı"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Havadan Sudan Konuşmak",
+    "w": "Boş Konuşmak",
     "f": [
       "Sohbet",
       "Muhabbet",
@@ -9072,13 +9072,13 @@
     "d": "Z"
   },
   {
-    "w": "Kılı Kırk Yarmak",
+    "w": "Çok Titiz",
     "f": [
       "Detay",
-      "Titiz",
-      "Çok Düşünmek",
       "İncelemek",
-      "Özen"
+      "Özen",
+      "Açıklamak",
+      "Tahmin"
     ],
     "c": "Genel",
     "d": "Z"
@@ -9132,25 +9132,25 @@
     "d": "Z"
   },
   {
-    "w": "Ağzının Tadı Bozulmak",
+    "w": "Keyfi Kaçmak",
     "f": [
       "Huzur",
       "Keyif",
-      "Kaçmak",
       "Ev",
-      "Mutsuzluk"
+      "Mutsuzluk",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Başı Göğe Ermek",
+    "w": "Çok Sevinmek",
     "f": [
-      "Çok Mutlu",
-      "Sevinmek",
-      "Kazanmak",
+      "Mutlu",
+      "Gülmek",
       "Gurur",
-      "Alay"
+      "Haber",
+      "Uçmak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -9228,13 +9228,13 @@
     "d": "Z"
   },
   {
-    "w": "Maymun Gözünü Açtı",
+    "w": "Akıllanmak",
     "f": [
       "Uyanmak",
       "Kanmamak",
       "Aldanmamak",
-      "Akıllanmak",
-      "Ders Almak"
+      "Ders Almak",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -9288,25 +9288,25 @@
     "d": "Z"
   },
   {
-    "w": "İçine Kurt Düşmek",
+    "w": "Şüphelenmek",
     "f": [
-      "Şüphelenmek",
       "Endişe",
       "Kuşku",
       "Kaygı",
-      "Merak"
+      "Merak",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Ağız Birliği Etmek",
+    "w": "Anlaşmak",
     "f": [
-      "Anlaşmak",
       "Aynı Şeyi Söylemek",
       "Ortak",
       "Yalan",
-      "Sözleşmek"
+      "Sözleşmek",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -9350,11 +9350,11 @@
   {
     "w": "Başa Çıkmak",
     "f": [
-      "Çözmek",
+      "Halleder",
       "Mücadele",
-      "Zorluk",
-      "Başarmak",
-      "Güç"
+      "Sorun",
+      "Üstesinden",
+      "Zorluk"
     ],
     "c": "Genel",
     "d": "Z"
@@ -9372,7 +9372,7 @@
     "d": "Z"
   },
   {
-    "w": "İçi Rahat Etmek",
+    "w": "Rahatlamak",
     "f": [
       "Huzurlu",
       "Endişesiz",
@@ -9396,7 +9396,7 @@
     "d": "Z"
   },
   {
-    "w": "Kendi Kendine Gelin Güvey Olmak",
+    "w": "Tek Taraflı",
     "f": [
       "Hayal Kurmak",
       "Kendi Başına",
@@ -9408,7 +9408,7 @@
     "d": "Z"
   },
   {
-    "w": "Göz Kulak Olmak",
+    "w": "Gözetmek",
     "f": [
       "Korumak",
       "Bakmak",
@@ -9456,13 +9456,13 @@
     "d": "Z"
   },
   {
-    "w": "Havanda Su Dövmek",
+    "w": "Boş Uğraş",
     "f": [
-      "Boşuna Uğraşmak",
       "Yararsız",
       "İş",
       "Zaman Kaybı",
-      "Gereksiz"
+      "Gereksiz",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -9710,9 +9710,9 @@
   {
     "w": "Çorba Kasesi",
     "f": [
-      "Çorba",
       "Kaşık",
       "Sıcak",
+      "İçmek",
       "Yemek",
       "Porselen"
     ],
@@ -9734,11 +9734,11 @@
   {
     "w": "Çay Kaşığı",
     "f": [
-      "Çay",
       "Şeker",
-      "Küçük",
       "Karıştırmak",
-      "Bardak"
+      "Küçük",
+      "Fincan",
+      "Metal"
     ],
     "c": "Genel",
     "d": "K"
@@ -9746,11 +9746,11 @@
   {
     "w": "Ekmek Sepeti",
     "f": [
-      "Ekmek",
-      "Masa",
-      "Dilim",
+      "Sofrada",
+      "Tahta",
       "Hasır",
-      "Yemek"
+      "Dilim",
+      "Koymak"
     ],
     "c": "Genel",
     "d": "K"
@@ -9782,11 +9782,11 @@
   {
     "w": "Kürdanlık",
     "f": [
-      "Kürdan",
-      "Diş",
-      "Küçük",
+      "Masa",
+      "Restoran",
       "Kutu",
-      "Mutfak"
+      "Ağaç",
+      "Diş Temizliği"
     ],
     "c": "Genel",
     "d": "K"
@@ -9890,11 +9890,11 @@
   {
     "w": "Kitap Ayracı",
     "f": [
-      "Kitap",
-      "Okumak",
+      "Sayfa",
       "Kaldığı Yer",
-      "Kağıt",
-      "Süs"
+      "Okumak",
+      "Karton",
+      "İşaret"
     ],
     "c": "Genel",
     "d": "K"
@@ -9902,10 +9902,10 @@
   {
     "w": "Kalemtıraş",
     "f": [
-      "Kalem",
       "Açmak",
       "Çöp",
       "Kurşun",
+      "Uç",
       "Kırtasiye"
     ],
     "c": "Genel",
@@ -9914,11 +9914,11 @@
   {
     "w": "Ataşlık",
     "f": [
-      "Ataş",
+      "Kağıt",
       "Ofis",
+      "Tutturmak",
       "Metal",
-      "Kırtasiye",
-      "Kutu"
+      "Kırtasiye"
     ],
     "c": "Genel",
     "d": "K"
@@ -9938,11 +9938,11 @@
   {
     "w": "Resim Çantası",
     "f": [
-      "Resim",
-      "Tuval",
-      "Büyük",
+      "Boya",
+      "Çizmek",
       "Taşımak",
-      "Çizim"
+      "Okul",
+      "Büyük"
     ],
     "c": "Genel",
     "d": "K"
@@ -9950,11 +9950,11 @@
   {
     "w": "Kalemlik",
     "f": [
-      "Kalem",
-      "Okul",
-      "Fermuar",
+      "Kutu",
       "Masa",
-      "Kutu"
+      "Okul",
+      "Öğrenci",
+      "Sınıf"
     ],
     "c": "Genel",
     "d": "K"
@@ -9974,11 +9974,11 @@
   {
     "w": "Resim Defteri",
     "f": [
-      "Resim",
-      "Çizmek",
       "Boya",
-      "Beyaz",
-      "Sayfa"
+      "Çizmek",
+      "Kağıt",
+      "Kalem",
+      "Görsel"
     ],
     "c": "Genel",
     "d": "K"
@@ -10008,7 +10008,7 @@
     "d": "K"
   },
   {
-    "w": "El İşi Kağıdı",
+    "w": "Elişi Kağıdı",
     "f": [
       "Renkli",
       "Okul",
@@ -10094,11 +10094,11 @@
   {
     "w": "Ameliyathane",
     "f": [
-      "Hastane",
-      "Doktor",
-      "Ameliyat",
+      "Steril",
+      "Yeşil Giysi",
       "Narkoz",
-      "Neşter"
+      "Doktor",
+      "Hastane"
     ],
     "c": "Genel",
     "d": "O"
@@ -10154,11 +10154,11 @@
   {
     "w": "Diyetisyen",
     "f": [
-      "Kilo",
       "Zayıflamak",
-      "Diyet",
-      "Yemek",
-      "Sağlık"
+      "Kilo",
+      "Beslenme",
+      "Uzman",
+      "Kalori"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -10190,11 +10190,11 @@
   {
     "w": "Diş Protezi",
     "f": [
-      "Diş",
+      "Takma",
       "Yapay",
-      "Damak",
       "Yaşlı",
-      "Ağız"
+      "Damağa Yapışan",
+      "Hekim"
     ],
     "c": "Genel",
     "d": "O"
@@ -10202,23 +10202,23 @@
   {
     "w": "Diş İpi",
     "f": [
-      "Temizlemek",
-      "Diş",
-      "Arayüz",
+      "Temizlik",
+      "Ara",
       "Ağız",
-      "Yemek"
+      "Fırçalama",
+      "Kürdan"
     ],
     "c": "Genel",
     "d": "O"
   },
   {
-    "w": "Ağız Bakım Suyu",
+    "w": "Gargara",
     "f": [
       "Diş",
-      "Gargara",
       "Çalkalamak",
       "Ferah",
-      "Nane"
+      "Nane",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "O"
@@ -10262,11 +10262,11 @@
   {
     "w": "Kondisyon Bisikleti",
     "f": [
-      "Spor",
       "Pedal",
-      "Ev",
+      "Spor",
       "Salon",
-      "Bisiklet"
+      "Evde",
+      "Zayıflamak"
     ],
     "c": "Genel",
     "d": "O"
@@ -10286,11 +10286,11 @@
   {
     "w": "Pilates Matı",
     "f": [
-      "Sermek",
-      "Yer",
       "Spor",
+      "Yere Sermek",
+      "Egzersiz",
       "Yumuşak",
-      "Pilates"
+      "Döşek"
     ],
     "c": "Genel",
     "d": "O"
@@ -10298,11 +10298,11 @@
   {
     "w": "Spor Ayakkabısı",
     "f": [
-      "Spor",
       "Koşmak",
+      "Yürüyüş",
       "Rahat",
-      "Spor Salonu",
-      "Ayak"
+      "Bağcık",
+      "Sneaker"
     ],
     "c": "Genel",
     "d": "O"
@@ -10311,9 +10311,9 @@
     "w": "Şirket Müdürü",
     "f": [
       "Yönetici",
-      "Patron",
       "Ofis",
-      "Şirket",
+      "Toplantı",
+      "Patron",
       "Karar"
     ],
     "c": "Meslekler",
@@ -10419,10 +10419,10 @@
     "w": "Vergi Memuru",
     "f": [
       "Devlet",
-      "Vergi Dairesi",
       "Para",
+      "Maliye",
       "Denetim",
-      "Beyanname"
+      "Gelir"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -10430,11 +10430,11 @@
   {
     "w": "Noter Katibi",
     "f": [
-      "Noter",
       "İmza",
-      "Onay",
-      "Belge",
-      "Evrak"
+      "Evrak",
+      "Yazmak",
+      "Resmi",
+      "Belge"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -10456,9 +10456,9 @@
     "f": [
       "Sürücü",
       "Araba",
+      "Ders",
       "Sınav",
-      "Direksiyon",
-      "Ehliyet"
+      "Eğitim"
     ],
     "c": "Genel",
     "d": "O"
@@ -10598,11 +10598,11 @@
   {
     "w": "Benzin İstasyonu",
     "f": [
-      "Akaryakıt",
-      "Benzin",
-      "Pompa",
-      "Yakıt",
-      "Araba"
+      "Mazot",
+      "Petrol",
+      "Yolculuk",
+      "Depo",
+      "Pompa"
     ],
     "c": "Genel",
     "d": "O"
@@ -10646,11 +10646,11 @@
   {
     "w": "Otobüs Muavini",
     "f": [
-      "Yolcu",
-      "Otobüs",
-      "İkram",
+      "Yolculuk",
       "Bilet",
-      "Sefer"
+      "İkram",
+      "Su Dağıtmak",
+      "Host"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -10659,10 +10659,10 @@
     "w": "Şehirlerarası Yolculuk",
     "f": [
       "Otobüs",
+      "Terminal",
       "Bilet",
-      "Yol",
       "Mesafe",
-      "Şehir"
+      "Seyahat"
     ],
     "c": "Genel",
     "d": "O"
@@ -10680,25 +10680,25 @@
     "d": "Z"
   },
   {
-    "w": "Gözünü Dört Açmak",
+    "w": "Uyanık Olmak",
     "f": [
       "Dikkat Etmek",
-      "Uyanık Olmak",
       "Tehlike",
       "Bakmak",
-      "Çevre"
+      "Çevre",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "İğneyle Kuyu Kazmak",
+    "w": "Büyük Sabır",
     "f": [
       "Zor",
-      "Sabır",
       "Yavaş",
       "Uğraşmak",
-      "İş"
+      "İş",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -10716,31 +10716,31 @@
     "d": "Z"
   },
   {
-    "w": "Ağzı Torba Değil ki Büzesin",
+    "w": "Dedikodu",
     "f": [
       "Konuşmak",
-      "Dedikodu",
       "Engel Olamamak",
       "İnsan",
-      "Laf"
+      "Laf",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Tereyağından Kıl Çeker Gibi",
+    "w": "Çok Kolay",
     "f": [
-      "Kolay",
       "Sorunsuz",
       "Hızlı",
       "Rahat",
-      "Çözmek"
+      "Çözmek",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Dimyat'a Pirince Giderken Evdeki Bulgurdan Olmak",
+    "w": "Bulgurdan Olmak",
     "f": [
       "Kaybetmek",
       "Hırs",
@@ -10752,7 +10752,7 @@
     "d": "Z"
   },
   {
-    "w": "Havlayan Köpek Isırmaz",
+    "w": "Kuru Gürültü",
     "f": [
       "Korkutmak",
       "Tehdit",
@@ -10764,7 +10764,7 @@
     "d": "Z"
   },
   {
-    "w": "Dost Kara Günde Belli Olur",
+    "w": "Kara Gün",
     "f": [
       "Zor Zaman",
       "Yardım",
@@ -10776,13 +10776,13 @@
     "d": "Z"
   },
   {
-    "w": "Damlaya Damlaya Göl Olur",
+    "w": "Tasarruf",
     "f": [
-      "Tasarruf",
       "Biriktirmek",
       "Para",
       "Kumbara",
-      "Ufak"
+      "Ufak",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -10812,19 +10812,19 @@
     "d": "Z"
   },
   {
-    "w": "Başının Etini Yemek",
+    "w": "Bıktırmak",
     "f": [
       "Israr",
       "Sürekli Konuşmak",
-      "Bıktırmak",
       "İstemek",
-      "Rahatsız Etmek"
+      "Rahatsız Etmek",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Can Çıkmayınca Huy Çıkmaz",
+    "w": "Huy",
     "f": [
       "Değişmemek",
       "Karakter",
@@ -10836,7 +10836,7 @@
     "d": "Z"
   },
   {
-    "w": "Sinekten Yağ Çıkarmak",
+    "w": "Çok Cimri",
     "f": [
       "Çıkar",
       "Aşırı Tutumluluk",
@@ -10848,19 +10848,19 @@
     "d": "Z"
   },
   {
-    "w": "Kaş Yaparken Göz Çıkarmak",
+    "w": "Hata Yapmak",
     "f": [
-      "Hata",
-      "İyilik Yapmak İsterken",
       "Zarar",
       "Bozmak",
-      "Düzeltmek"
+      "Düzeltmek",
+      "Açıklamak",
+      "Tahmin"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Dilinin Altındaki Baklayı Çıkarmak",
+    "w": "Baklayı Çıkarmak",
     "f": [
       "Söylemek",
       "Sır",
@@ -10884,7 +10884,7 @@
     "d": "Z"
   },
   {
-    "w": "Rüzgar Eken Fırtına Biçer",
+    "w": "Bedel Ödemek",
     "f": [
       "Sonuç",
       "Kötülük",
@@ -10896,37 +10896,37 @@
     "d": "Z"
   },
   {
-    "w": "Kendi Düşen Ağlamaz",
+    "w": "Kendi Hatası",
     "f": [
-      "Hata",
       "Karar",
       "Suçlamak",
-      "Kendisi",
-      "Sonuç"
+      "Sonuç",
+      "Açıklamak",
+      "Tahmin"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Dereyi Görmeden Paçaları Sıvamak",
+    "w": "Erken Sevinmek",
     "f": [
-      "Aceleci",
-      "Erken",
-      "Plan",
-      "Hazırlanmak",
-      "Henüz"
+      "Dere",
+      "Paşa",
+      "Sıvamak",
+      "Acele",
+      "Beklemek"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Bir Taşla İki Kuş",
+    "w": "Çifte Kazanç",
     "f": [
-      "Kazanç",
       "Aynı Anda",
       "Fırsat",
       "Kolay",
-      "Başarı"
+      "Başarı",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -10956,13 +10956,13 @@
     "d": "Z"
   },
   {
-    "w": "Etekleri Zil Çalmak",
+    "w": "Çok Sevinmek",
     "f": [
-      "Çok Sevinmek",
       "Heyecan",
       "Mutlu",
       "Haber",
-      "Telaş"
+      "Telaş",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -10992,13 +10992,13 @@
     "d": "Z"
   },
   {
-    "w": "Ağzının Suyu Akmak",
+    "w": "Çok İstemek",
     "f": [
-      "Çok İstemek",
       "Canı Çekmek",
       "Beğenmek",
       "Yemek",
-      "İmrenmek"
+      "İmrenmek",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -11030,11 +11030,11 @@
   {
     "w": "Kan Ağlamak",
     "f": [
-      "Çok Üzülmek",
-      "Acı",
-      "Sıkıntı",
-      "Ağlamak",
-      "Keder"
+      "Üzülmek",
+      "Çok Sıkıntı Çekmek",
+      "Perişan Olmak",
+      "Gözyaşı",
+      "Üzülmek"
     ],
     "c": "Genel",
     "d": "Z"
@@ -11076,7 +11076,7 @@
     "d": "Z"
   },
   {
-    "w": "Eli Ayağı Titremek",
+    "w": "Çok Korkmak",
     "f": [
       "Korku",
       "Heyecan",
@@ -11124,19 +11124,19 @@
     "d": "Z"
   },
   {
-    "w": "Yere Bakan Yürek Yakan",
+    "w": "Sinsi İnsan",
     "f": [
-      "Sinsi",
       "Gizli",
       "Tehlikeli",
       "Sessiz",
-      "Görünüş"
+      "Görünüş",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Ağzından Çıkanı Kulağı Duymamak",
+    "w": "Düşünmeden Konuşmak",
     "f": [
       "Öfke",
       "Kızgınlık",
@@ -11148,7 +11148,7 @@
     "d": "Z"
   },
   {
-    "w": "Feleğin Çemberinden Geçmek",
+    "w": "Görmüş Geçirmiş",
     "f": [
       "Tecrübe",
       "Çok Yaşamak",
@@ -11160,13 +11160,13 @@
     "d": "Z"
   },
   {
-    "w": "Gününü Gün Etmek",
+    "w": "Keyif Çatmak",
     "f": [
       "Eğlenmek",
       "Hayatını Yaşamak",
-      "Keyif",
       "Zaman",
-      "Geleceği Düşünmemek"
+      "Geleceği Düşünmemek",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -11196,7 +11196,7 @@
     "d": "Z"
   },
   {
-    "w": "Ağzını Bıçak Açmamak",
+    "w": "Suskun Olmak",
     "f": [
       "Sessiz",
       "Konuşmamak",
@@ -11208,7 +11208,7 @@
     "d": "Z"
   },
   {
-    "w": "Hevesi Kursağında Kalmak",
+    "w": "Hayal Kırıklığı",
     "f": [
       "Yarım Kalmak",
       "Üzülmek",
@@ -11220,7 +11220,7 @@
     "d": "Z"
   },
   {
-    "w": "Pabucunu Ters Giydirmek",
+    "w": "Kandırmak",
     "f": [
       "Kurnazlık",
       "Aldatmak",
@@ -11232,37 +11232,37 @@
     "d": "Z"
   },
   {
-    "w": "Çorbada Tuzu Olmak",
+    "w": "Katkı Sağlamak",
     "f": [
-      "Katkı",
       "Yardım",
       "Küçük",
       "Paylaşmak",
-      "Destek"
+      "Destek",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Havadan Para Kazanmak",
+    "w": "Kolay Kazanç",
     "f": [
-      "Kolay",
       "Çalışmadan",
       "Şans",
       "Beleş",
-      "Emeksiz"
+      "Emeksiz",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Bir Elin Nesi Var İki Elin Sesi Var",
+    "w": "Birlik Olmak",
     "f": [
-      "Birliktelik",
       "Yardımlaşma",
       "Güç Birliği",
       "Beraber",
-      "İş"
+      "İş",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -11379,10 +11379,10 @@
     "w": "Güneş Kremi",
     "f": [
       "Yaz",
-      "Güneş",
       "Koruma",
       "Cilt",
-      "Sürmek"
+      "Sürmek",
+      "Plaj"
     ],
     "c": "Genel",
     "d": "K"
@@ -11394,7 +11394,7 @@
       "Kum",
       "Kurulanmak",
       "Sermek",
-      "Plaj"
+      "Güneşlenmek"
     ],
     "c": "Genel",
     "d": "K"
@@ -11403,10 +11403,10 @@
     "w": "Deniz Yatağı",
     "f": [
       "Havuz",
-      "Deniz",
       "Şişme",
-      "Yaz",
-      "Üzerine Yatmak"
+      "Yüzmek",
+      "Yatmak",
+      "Plaj"
     ],
     "c": "Genel",
     "d": "K"
@@ -11414,11 +11414,11 @@
   {
     "w": "Deniz Simidi",
     "f": [
-      "Deniz",
-      "Yuvarlak",
       "Havuz",
+      "Şişme",
       "Yüzmek",
-      "Şişme"
+      "Çocuk",
+      "Yuvarlak"
     ],
     "c": "Genel",
     "d": "K"
@@ -11486,10 +11486,10 @@
   {
     "w": "Kahve Fincanı",
     "f": [
-      "Kahve",
-      "Türk Kahvesi",
       "Telve",
       "Fal",
+      "İçmek",
+      "Porselen",
       "Kulplu"
     ],
     "c": "Genel",
@@ -11510,11 +11510,11 @@
   {
     "w": "Çay Tabağı",
     "f": [
-      "Çay",
       "Bardak",
       "Altlık",
-      "Cam",
-      "Masa"
+      "Kıraathane",
+      "Porselen",
+      "Koymak"
     ],
     "c": "Genel",
     "d": "K"
@@ -11522,11 +11522,11 @@
   {
     "w": "Çay Süzgeci",
     "f": [
-      "Çay",
-      "Demlik",
-      "Çöp",
+      "Dem",
       "Bardak",
-      "Metal"
+      "Süzmek",
+      "Telve",
+      "Koymak"
     ],
     "c": "Genel",
     "d": "K"
@@ -11606,11 +11606,11 @@
   {
     "w": "Kek Kalıbı",
     "f": [
-      "Kek",
-      "Fırın",
       "Pişirmek",
+      "Fırın",
       "Şekil",
-      "Tepsi"
+      "Dökmek",
+      "Metal"
     ],
     "c": "Genel",
     "d": "K"
@@ -11642,11 +11642,11 @@
   {
     "w": "Tost Makinesi",
     "f": [
-      "Tost",
       "Ekmek",
       "Peynir",
-      "Sıcak",
-      "Basmak"
+      "Kaşar",
+      "Isıtmak",
+      "Mutfak"
     ],
     "c": "Genel",
     "d": "K"
@@ -11654,11 +11654,11 @@
   {
     "w": "Çay Makinesi",
     "f": [
-      "Çay",
-      "Su",
-      "Isıtıcı",
       "Kettle",
-      "Elektrikli"
+      "Demlemek",
+      "Elektrikli",
+      "Sıcak",
+      "Mutfak"
     ],
     "c": "Genel",
     "d": "K"
@@ -11667,10 +11667,10 @@
     "w": "Su Isıtıcısı",
     "f": [
       "Kettle",
-      "Su",
-      "Sıcak",
-      "Kaynatmak",
-      "Elektrikli"
+      "Kaynamak",
+      "Mutfak",
+      "Elektrikli",
+      "Çay"
     ],
     "c": "Genel",
     "d": "K"
@@ -11678,11 +11678,11 @@
   {
     "w": "Saç Düzleştirici",
     "f": [
-      "Saç",
-      "Fön",
-      "Sıcak",
+      "Isı",
+      "Maşa",
+      "Kuaför",
       "Kadın",
-      "Maşa"
+      "Şekil"
     ],
     "c": "Genel",
     "d": "K"
@@ -11702,11 +11702,11 @@
   {
     "w": "El Aynası",
     "f": [
-      "Ayna",
       "Bakmak",
-      "Küçük",
-      "Çanta",
-      "Makyaj"
+      "Cam",
+      "Yansıma",
+      "Makyaj",
+      "Tarak"
     ],
     "c": "Genel",
     "d": "K"
@@ -11738,11 +11738,11 @@
   {
     "w": "Kulak Çubuğu",
     "f": [
-      "Kulak",
       "Temizlemek",
       "Pamuk",
-      "Plastik",
-      "Çöp"
+      "Banyo",
+      "Kiri",
+      "Plastik"
     ],
     "c": "Genel",
     "d": "K"
@@ -11750,11 +11750,11 @@
   {
     "w": "Çengelli İğne",
     "f": [
-      "İğne",
       "Metal",
-      "Bebek",
       "Tutturmak",
-      "Kilitlemek"
+      "Bebek",
+      "Dikiş",
+      "Emniyet"
     ],
     "c": "Genel",
     "d": "K"
@@ -11762,11 +11762,11 @@
   {
     "w": "Gaz Lambası",
     "f": [
-      "Gaz",
       "Işık",
-      "Aydınlık",
       "Eski",
-      "Mum"
+      "Aydınlatma",
+      "Fitil",
+      "Cam"
     ],
     "c": "Genel",
     "d": "K"
@@ -11786,11 +11786,11 @@
   {
     "w": "Katı Sabun",
     "f": [
-      "Sabun",
-      "El",
-      "Köpük",
+      "Kalıp",
       "Banyo",
-      "Kalıp"
+      "El Yıkamak",
+      "Köpük",
+      "Hijyen"
     ],
     "c": "Genel",
     "d": "K"
@@ -11798,11 +11798,11 @@
   {
     "w": "Şampuan Şişesi",
     "f": [
-      "Şampuan",
       "Banyo",
-      "Saç",
+      "Saç Yıkamak",
+      "Köpük",
       "Plastik",
-      "Kutu"
+      "Kapak"
     ],
     "c": "Genel",
     "d": "K"
@@ -11810,23 +11810,23 @@
   {
     "w": "Duş Jeli",
     "f": [
-      "Duş",
       "Banyo",
-      "Kokulu",
       "Köpük",
-      "Vücut"
+      "Lif",
+      "Sabun",
+      "Kokulu"
     ],
     "c": "Genel",
     "d": "K"
   },
   {
-    "w": "Diş Macunu Tüpü",
+    "w": "Ağız Hijyeni",
     "f": [
       "Diş",
       "Macun",
       "Sıkmak",
       "Fırça",
-      "Ağız"
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "K"
@@ -11835,10 +11835,10 @@
     "w": "Havlupan",
     "f": [
       "Banyo",
-      "Havlu",
-      "Isıtıcı",
-      "Radyatör",
-      "Metal"
+      "Petek",
+      "Isıtmak",
+      "Asmak",
+      "Sıcak"
     ],
     "c": "Genel",
     "d": "K"
@@ -11847,10 +11847,10 @@
     "w": "Çamaşır Sepeti",
     "f": [
       "Kirli",
-      "Çamaşır",
       "Banyo",
-      "Plastik",
-      "Giysi"
+      "Yıkamak",
+      "Hasır",
+      "Kova"
     ],
     "c": "Genel",
     "d": "K"
@@ -11860,9 +11860,9 @@
     "f": [
       "Tuvalet",
       "Temizlik",
+      "Plastik",
       "Banyo",
-      "Klozet",
-      "Sap"
+      "Su"
     ],
     "c": "Genel",
     "d": "K"
@@ -11945,8 +11945,8 @@
       "Banka",
       "Para",
       "Ödeme",
-      "Vezne",
-      "Sıra"
+      "Sıra",
+      "Kasa"
     ],
     "c": "Meslekler",
     "d": "O"
@@ -12002,11 +12002,11 @@
   {
     "w": "Kurye Motoru",
     "f": [
-      "Paket",
-      "Teslimat",
-      "Hızlı",
+      "Motosiklet",
       "Sipariş",
-      "Kurye"
+      "Teslimat",
+      "Paket",
+      "Hızlı"
     ],
     "c": "Genel",
     "d": "O"
@@ -12050,10 +12050,10 @@
   {
     "w": "Garanti Belgesi",
     "f": [
+      "Kutu",
       "Ürün",
       "Bozulmak",
       "Tamir",
-      "Belge",
       "Yıl"
     ],
     "c": "Genel",
@@ -12074,11 +12074,11 @@
   {
     "w": "Alışveriş Fişi",
     "f": [
-      "Alışveriş",
-      "Market",
-      "Para",
       "Kasa",
-      "Ödeme"
+      "Market",
+      "Ödeme",
+      "Tutar",
+      "Kağıt"
     ],
     "c": "Genel",
     "d": "O"
@@ -12230,11 +12230,11 @@
   {
     "w": "Akıllı Saat",
     "f": [
-      "Saat",
-      "Teknoloji",
-      "Bilek",
-      "Adım",
-      "Ekran"
+      "Aksesuar",
+      "Zaman",
+      "Dijital",
+      "Apple",
+      "Teknoloji"
     ],
     "c": "Teknoloji",
     "d": "O"
@@ -12266,11 +12266,11 @@
   {
     "w": "Kulaklık Kutusu",
     "f": [
-      "Kulaklık",
       "Şarj",
-      "Kablosuz",
+      "Kılıf",
+      "Taşımak",
       "Bluetooth",
-      "Küçük"
+      "Kayıp"
     ],
     "c": "Teknoloji",
     "d": "O"
@@ -12468,31 +12468,31 @@
     "d": "O"
   },
   {
-    "w": "Lafı Ağzından Almak",
+    "w": "Aynı Anda",
     "f": [
       "Konuşmak",
       "Söylemek",
-      "Aynı Anda",
       "Kelime",
-      "Cümle"
+      "Cümle",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Nabzına Göre Şerbet Vermek",
+    "w": "İdare Etmek",
     "f": [
       "Davranış",
       "İnsan",
       "Uygun",
-      "Hoşnut Etmek",
-      "Karakter"
+      "Karakter",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Eli Boş Dönmek",
+    "w": "Eli Boş",
     "f": [
       "Geri Gelmek",
       "Hiçbir Şey",
@@ -12576,13 +12576,13 @@
     "d": "Z"
   },
   {
-    "w": "Başının Çaresine Bakmak",
+    "w": "Kendi Başına",
     "f": [
-      "Kendi Kendine",
       "Çözüm",
       "Çaresiz",
       "Sorun",
-      "Halletmek"
+      "Halletmek",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -12592,9 +12592,9 @@
     "f": [
       "Güvenilir",
       "Kimseye Söylemeyen",
-      "Sır",
       "Ağzı Sıkı",
-      "İnsan"
+      "İnsan",
+      "Saklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -12648,25 +12648,25 @@
     "d": "Z"
   },
   {
-    "w": "İçi Cız Etmek",
+    "w": "Çok Acımak",
     "f": [
-      "Acımak",
       "Üzülmek",
       "Merhamet",
       "Ansızın",
-      "Kalp"
+      "Kalp",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Burnunun Ucunda Tütecek",
+    "w": "Çok Özlemek",
     "f": [
-      "Özlemek",
-      "Çok",
       "Hasret",
       "Sevgili",
-      "Memleket"
+      "Memleket",
+      "Açıklamak",
+      "Tahmin"
     ],
     "c": "Genel",
     "d": "Z"
@@ -12684,13 +12684,13 @@
     "d": "Z"
   },
   {
-    "w": "El Ele Vermek",
+    "w": "Birlikte Çalışmak",
     "f": [
-      "Birlik",
       "Beraberlik",
       "Yardımlaşma",
       "Güç",
-      "İş"
+      "İş",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -12720,7 +12720,7 @@
     "d": "Z"
   },
   {
-    "w": "Tozu Dumana Katmak",
+    "w": "Hızla Geçmek",
     "f": [
       "Hızlı",
       "Koşmak",
@@ -12756,7 +12756,7 @@
     "d": "Z"
   },
   {
-    "w": "İçi Rahatlamak",
+    "w": "Ferahlamak",
     "f": [
       "Huzur",
       "Endişe",
@@ -12792,13 +12792,13 @@
     "d": "Z"
   },
   {
-    "w": "Dert Küpü",
+    "w": "Sıkıntı Küpü",
     "f": [
-      "Çok Sıkıntılı",
       "Sürekli Şikayet Eden",
       "Üzgün",
       "İnsan",
-      "Dert"
+      "Dert",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -12816,13 +12816,13 @@
     "d": "Z"
   },
   {
-    "w": "Gözü Gönlü Açılmak",
+    "w": "Ferahlamak",
     "f": [
       "Huzur",
       "Mutluluk",
-      "Ferahlamak",
       "Manzara",
-      "Güzel"
+      "Güzel",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -12840,13 +12840,13 @@
     "d": "Z"
   },
   {
-    "w": "Gözünü Toprak Doyursun",
+    "w": "Açgözlülük",
     "f": [
-      "Açgözlü",
       "Doyumsuz",
       "Çok",
       "Para",
-      "İstemek"
+      "İstemek",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -12900,13 +12900,13 @@
     "d": "Z"
   },
   {
-    "w": "Laf Altında Kalmamak",
+    "w": "Hazırcevap",
     "f": [
       "Cevap Vermek",
       "Karşılık",
-      "Hazırcevap",
       "Laf",
-      "Tartışma"
+      "Tartışma",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -12948,7 +12948,7 @@
     "d": "Z"
   },
   {
-    "w": "Sözünü Ballarla Kesmek",
+    "w": "Sözünü Kesmek",
     "f": [
       "Konuşmak",
       "Araya Girmek",
@@ -12996,25 +12996,25 @@
     "d": "Z"
   },
   {
-    "w": "Yer Yarılıp İçine Girmek",
+    "w": "Çok Utanmak",
     "f": [
-      "Utanmak",
       "Rezil Olmak",
       "Saklanmak",
-      "Çok",
-      "Durum"
+      "Durum",
+      "Açıklamak",
+      "Tahmin"
     ],
     "c": "Genel",
     "d": "Z"
   },
   {
-    "w": "Yolunu Gözlemek",
+    "w": "Beklemek",
     "f": [
-      "Beklemek",
       "Özlemek",
       "Yol",
       "Gelmek",
-      "Hasret"
+      "Hasret",
+      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"

@@ -514,3 +514,39 @@ export function updateSplashWordCount(count) {
         badgeEl.classList.remove('opacity-0');
     }
 }
+
+/**
+ * Tur sonu inceleme kartları arasında geçiş yaparken yatay kayma animasyonu uygular.
+ */
+export function animateReviewTransition(direction, onComplete) {
+    const card = document.querySelector('#review-card-container .card-container');
+    if (!card) {
+        onComplete();
+        return;
+    }
+    
+    // direction: 'left' (sola kayar, sonraki kart) veya 'right' (sağa kayar, önceki kart)
+    card.style.transition = 'transform 0.2s ease, opacity 0.2s ease';
+    card.style.transform = direction === 'left' ? 'translate3d(-100%, 0, 0)' : 'translate3d(100%, 0, 0)';
+    card.style.opacity = '0';
+    
+    setTimeout(() => {
+        onComplete();
+        
+        // Yeni render edilen kartı ters yönden içeri getir
+        const newCard = document.querySelector('#review-card-container .card-container');
+        if (newCard) {
+            newCard.style.transition = 'none';
+            newCard.style.transform = direction === 'left' ? 'translate3d(100%, 0, 0)' : 'translate3d(-100%, 0, 0)';
+            newCard.style.opacity = '0';
+            
+            // Reflow tetikle
+            void newCard.offsetWidth;
+            
+            newCard.style.transition = 'transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.25s ease';
+            newCard.style.transform = 'translate3d(0, 0, 0)';
+            newCard.style.opacity = '1';
+        }
+    }, 200);
+}
+
