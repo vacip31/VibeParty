@@ -9466,5 +9466,3605 @@
     ],
     "c": "Genel",
     "d": "Z"
+  },
+  {
+    "w": "Havuç",
+    "f": [
+      "Sebze",
+      "Turuncu",
+      "Tavşan",
+      "Toprak",
+      "Salata"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Lahana",
+    "f": [
+      "Sebze",
+      "Yaprak",
+      "Sarması",
+      "Beyaz",
+      "Turşu"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Karnabahar",
+    "f": [
+      "Sebze",
+      "Beyaz",
+      "Ağaç",
+      "Brokoli",
+      "Yemek"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Brokoli",
+    "f": [
+      "Yeşil",
+      "Sebze",
+      "Ağaç",
+      "Haşlama",
+      "Salata"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Ispanak",
+    "f": [
+      "Temel Reis",
+      "Yeşil",
+      "Sebze",
+      "Demir",
+      "Yemek"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Pırasa",
+    "f": [
+      "Sebze",
+      "Yeşil",
+      "Beyaz",
+      "Yemek",
+      "Kış"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Maydanoz",
+    "f": [
+      "Yeşil",
+      "Baharat",
+      "Yaprak",
+      "Salata",
+      "Süs"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Dereotu",
+    "f": [
+      "Yeşil",
+      "Baharat",
+      "Kokulu",
+      "Poğaça",
+      "Cacık"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Marul",
+    "f": [
+      "Yeşil",
+      "Salata",
+      "Yaprak",
+      "Kebap",
+      "Çiğ Köfte"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Patlıcan",
+    "f": [
+      "Mor",
+      "Sebze",
+      "Kebap",
+      "Musakka",
+      "Karnıyarık"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kabak",
+    "f": [
+      "Sebze",
+      "Dolma",
+      "Yeşil",
+      "Çekirdek",
+      "Tatlı"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Turp",
+    "f": [
+      "Kırmızı",
+      "Beyaz",
+      "Sert",
+      "Salata",
+      "Isırmak"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Sarımsak",
+    "f": [
+      "Soğan",
+      "Beyaz",
+      "Kokmak",
+      "Vampir",
+      "Cacık"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Zeytin Dalı",
+    "f": [
+      "Barış",
+      "Ağaç",
+      "Yeşil",
+      "Sembol",
+      "Güvercin"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Mısır",
+    "f": [
+      "Sarı",
+      "Koçan",
+      "Patlatmak",
+      "Bardak",
+      "Sinema"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kaju",
+    "f": [
+      "Kuruyemiş",
+      "Pahalı",
+      "Fıstık",
+      "Hilal",
+      "Kıvrık"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Antep Fıstığı",
+    "f": [
+      "Kuruyemiş",
+      "Baklava",
+      "Yeşil",
+      "Kabuk",
+      "Gaziantep"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Badem",
+    "f": [
+      "Kuruyemiş",
+      "Acı",
+      "Şeker",
+      "Göz",
+      "Ağaç"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Leblebi",
+    "f": [
+      "Nohut",
+      "Sarı",
+      "Çorum",
+      "Kuruyemiş",
+      "Toz"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çerez",
+    "f": [
+      "Kuruyemiş",
+      "Fındık",
+      "Fıstık",
+      "Tabak",
+      "Çekirdek"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çorba Kasesi",
+    "f": [
+      "Çorba",
+      "Kaşık",
+      "Sıcak",
+      "Yemek",
+      "Porselen"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Demlik",
+    "f": [
+      "Çay",
+      "Çaydanlık",
+      "Üst",
+      "Süzgeç",
+      "Sıcak"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çay Kaşığı",
+    "f": [
+      "Çay",
+      "Şeker",
+      "Küçük",
+      "Karıştırmak",
+      "Bardak"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Ekmek Sepeti",
+    "f": [
+      "Ekmek",
+      "Masa",
+      "Dilim",
+      "Hasır",
+      "Yemek"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Sofra Bezi",
+    "f": [
+      "Yemek",
+      "Yer",
+      "Sermek",
+      "Kırıntı",
+      "Örtü"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Nihale",
+    "f": [
+      "Sıcak",
+      "Tencere",
+      "Çaydanlık",
+      "Altlık",
+      "Masa"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kürdanlık",
+    "f": [
+      "Kürdan",
+      "Diş",
+      "Küçük",
+      "Kutu",
+      "Mutfak"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Bulaşık Süngeri",
+    "f": [
+      "Yıkamak",
+      "Tabak",
+      "Köpük",
+      "Yeşil",
+      "Mutfak"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çamaşır İpi",
+    "f": [
+      "Mandal",
+      "Elbise",
+      "Asmak",
+      "Balkon",
+      "Kurutmak"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Askılık",
+    "f": [
+      "Elbise",
+      "Gardırop",
+      "Asmak",
+      "Giriş",
+      "Vestiyer"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Vestiyer",
+    "f": [
+      "Giriş",
+      "Kapı",
+      "Mont",
+      "Ayakkabı",
+      "Askı"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Portmanto",
+    "f": [
+      "Vestiyer",
+      "Askı",
+      "Giriş",
+      "Elbise",
+      "Ayakkabı"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Şifonyer",
+    "f": [
+      "Çekmece",
+      "Yatak Odası",
+      "Mobilya",
+      "Elbise",
+      "Aynalı"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Komodin",
+    "f": [
+      "Yatak",
+      "Yanı",
+      "Gece",
+      "Lamba",
+      "Çekmece"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Etajer",
+    "f": [
+      "Raf",
+      "Cam",
+      "Banyo",
+      "Küçük",
+      "Mobilya"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kitap Ayracı",
+    "f": [
+      "Kitap",
+      "Okumak",
+      "Kaldığı Yer",
+      "Kağıt",
+      "Süs"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kalemtıraş",
+    "f": [
+      "Kalem",
+      "Açmak",
+      "Çöp",
+      "Kurşun",
+      "Kırtasiye"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Ataşlık",
+    "f": [
+      "Ataş",
+      "Ofis",
+      "Metal",
+      "Kırtasiye",
+      "Kutu"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Tebeşir",
+    "f": [
+      "Tahta",
+      "Yazmak",
+      "Beyaz",
+      "Toz",
+      "Sınıf"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Resim Çantası",
+    "f": [
+      "Resim",
+      "Tuval",
+      "Büyük",
+      "Taşımak",
+      "Çizim"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kalemlik",
+    "f": [
+      "Kalem",
+      "Okul",
+      "Fermuar",
+      "Masa",
+      "Kutu"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Cetvel Takımı",
+    "f": [
+      "Çizmek",
+      "Matematik",
+      "Gönye",
+      "İletki",
+      "Açı"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Resim Defteri",
+    "f": [
+      "Resim",
+      "Çizmek",
+      "Boya",
+      "Beyaz",
+      "Sayfa"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Suluboya",
+    "f": [
+      "Resim",
+      "Fırça",
+      "Su",
+      "Renk",
+      "Defter"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Pastel Boya",
+    "f": [
+      "Çizmek",
+      "Renk",
+      "Mum",
+      "Resim",
+      "Kalem"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "El İşi Kağıdı",
+    "f": [
+      "Renkli",
+      "Okul",
+      "Kesmek",
+      "Yapıştırmak",
+      "Karton"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Fon Kartonu",
+    "f": [
+      "Büyük",
+      "Renkli",
+      "Okul",
+      "Kağıt",
+      "Proje"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Oyun Hamuru",
+    "f": [
+      "Çocuk",
+      "Şekil",
+      "Renkli",
+      "Yumuşak",
+      "Kil"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Yapıştırıcı",
+    "f": [
+      "Pritt",
+      "Kağıt",
+      "Yapıştırmak",
+      "Uhu",
+      "Sıvı"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Seloteyp",
+    "f": [
+      "Bant",
+      "Yapıştırmak",
+      "Şeffaf",
+      "Kağıt",
+      "Rulo"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "İlaç Kutusu",
+    "f": [
+      "Eczane",
+      "Hap",
+      "Şurup",
+      "Prospektüs",
+      "Reçete"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Ambulans Şoförü",
+    "f": [
+      "Acil",
+      "Hasta",
+      "Siren",
+      "Araba",
+      "Hastane"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Ameliyathane",
+    "f": [
+      "Hastane",
+      "Doktor",
+      "Ameliyat",
+      "Narkoz",
+      "Neşter"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Eczane Kalfası",
+    "f": [
+      "İlaç",
+      "Eczacı",
+      "Reçete",
+      "Dükkan",
+      "Yardımcı"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Nöbetçi Eczane",
+    "f": [
+      "Gece",
+      "Pazar",
+      "İlaç",
+      "Açık",
+      "Eczacı"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Sağlık Ocağı",
+    "f": [
+      "Doktor",
+      "Aşı",
+      "Mahalle",
+      "Hemşire",
+      "Reçete"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Laborant",
+    "f": [
+      "Deney",
+      "Kan",
+      "Hastane",
+      "Test",
+      "Laboratuvar"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Diyetisyen",
+    "f": [
+      "Kilo",
+      "Zayıflamak",
+      "Diyet",
+      "Yemek",
+      "Sağlık"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Fizyoterapist",
+    "f": [
+      "Hareket",
+      "Egzersiz",
+      "Kas",
+      "Tedavi",
+      "Fizik Tedavi"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Optik Mağazası",
+    "f": [
+      "Gözlük",
+      "Göz",
+      "Cam",
+      "Çerçeve",
+      "Lens"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Diş Protezi",
+    "f": [
+      "Diş",
+      "Yapay",
+      "Damak",
+      "Yaşlı",
+      "Ağız"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Diş İpi",
+    "f": [
+      "Temizlemek",
+      "Diş",
+      "Arayüz",
+      "Ağız",
+      "Yemek"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Ağız Bakım Suyu",
+    "f": [
+      "Diş",
+      "Gargara",
+      "Çalkalamak",
+      "Ferah",
+      "Nane"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Spor Salonu",
+    "f": [
+      "Fitness",
+      "Alet",
+      "Koşu Bandı",
+      "Üyelik",
+      "Antrenman"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Koşu Bandı",
+    "f": [
+      "Spor",
+      "Yürümek",
+      "Koşmak",
+      "Elektrikli",
+      "Salon"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Plates Topu",
+    "f": [
+      "Büyük",
+      "Yuvarlak",
+      "Spor",
+      "Pilates",
+      "Egzersiz"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Kondisyon Bisikleti",
+    "f": [
+      "Spor",
+      "Pedal",
+      "Ev",
+      "Salon",
+      "Bisiklet"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Dambıl",
+    "f": [
+      "Ağırlık",
+      "Spor",
+      "Kas",
+      "Demir",
+      "Kaldırmak"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Pilates Matı",
+    "f": [
+      "Sermek",
+      "Yer",
+      "Spor",
+      "Yumuşak",
+      "Pilates"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Spor Ayakkabısı",
+    "f": [
+      "Spor",
+      "Koşmak",
+      "Rahat",
+      "Spor Salonu",
+      "Ayak"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Şirket Müdürü",
+    "f": [
+      "Yönetici",
+      "Patron",
+      "Ofis",
+      "Şirket",
+      "Karar"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "İnsan Kaynakları",
+    "f": [
+      "İş",
+      "Mülakat",
+      "CV",
+      "Şirket",
+      "İşe Alım"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Halkla İlişkiler",
+    "f": [
+      "Şirket",
+      "İletişim",
+      "Müşteri",
+      "Tanıtım",
+      "PR"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Çağrı Merkezi",
+    "f": [
+      "Telefon",
+      "Müşteri",
+      "Kulaklık",
+      "Destek",
+      "Aramak"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Satış Temsilcisi",
+    "f": [
+      "Ürün",
+      "Müşteri",
+      "Satmak",
+      "Şirket",
+      "Pazarlama"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Proje Yöneticisi",
+    "f": [
+      "Plan",
+      "İş",
+      "Ekip",
+      "Süre",
+      "Şirket"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Grafik Tasarımcı",
+    "f": [
+      "Bilgisayar",
+      "Logo",
+      "Çizim",
+      "Reklam",
+      "Görsel"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Reklam Ajansı",
+    "f": [
+      "Tanıtım",
+      "Şirket",
+      "Kampanya",
+      "Afiş",
+      "Marka"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Muhasebe Ofisi",
+    "f": [
+      "Para",
+      "Hesap",
+      "Fatura",
+      "Vergi",
+      "Şirket"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Vergi Memuru",
+    "f": [
+      "Devlet",
+      "Vergi Dairesi",
+      "Para",
+      "Denetim",
+      "Beyanname"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Noter Katibi",
+    "f": [
+      "Noter",
+      "İmza",
+      "Onay",
+      "Belge",
+      "Evrak"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Pasaport Şubesi",
+    "f": [
+      "Polis",
+      "Emniyet",
+      "Yurtdışı",
+      "Vize",
+      "Belge"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Ehliyet Kursu",
+    "f": [
+      "Sürücü",
+      "Araba",
+      "Sınav",
+      "Direksiyon",
+      "Ehliyet"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Sürücü Adayı",
+    "f": [
+      "Araba",
+      "Direksiyon",
+      "Sınav",
+      "Ehliyet",
+      "Kurs"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Trafik Polisi",
+    "f": [
+      "Araba",
+      "Ceza",
+      "Yol",
+      "Plaka",
+      "Ehliyet"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Çekici",
+    "f": [
+      "Araba",
+      "Bozulmak",
+      "Kaza",
+      "Taşımak",
+      "Trafik"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Oto Sanayi",
+    "f": [
+      "Araba",
+      "Tamir",
+      "Motor",
+      "Usta",
+      "Parça"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Egzoz",
+    "f": [
+      "Araba",
+      "Duman",
+      "Ses",
+      "Çevre",
+      "Boru"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Şanzıman",
+    "f": [
+      "Araba",
+      "Vites",
+      "Motor",
+      "Şaft",
+      "Tamir"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Buji",
+    "f": [
+      "Araba",
+      "Motor",
+      "Ateşleme",
+      "Parça",
+      "Kıvılcım"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Karbüratör",
+    "f": [
+      "Araba",
+      "Motor",
+      "Yakıt",
+      "Hava",
+      "Eski"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Amortisör",
+    "f": [
+      "Araba",
+      "Tümsek",
+      "Yay",
+      "Sarsıntı",
+      "Tekerlek"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Rot Ayarı",
+    "f": [
+      "Direksiyon",
+      "Lastik",
+      "Araba",
+      "Sanayi",
+      "Denge"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Oto Yıkama",
+    "f": [
+      "Araba",
+      "Köpük",
+      "Su",
+      "Temizlik",
+      "İç Dış"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Benzin İstasyonu",
+    "f": [
+      "Akaryakıt",
+      "Benzin",
+      "Pompa",
+      "Yakıt",
+      "Araba"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Pompacı",
+    "f": [
+      "Benzin İstasyonu",
+      "Depo",
+      "Yakıt",
+      "Araba",
+      "Doldurmak"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Dinlenme Tesisi",
+    "f": [
+      "Yolculuk",
+      "Otobüs",
+      "Mola",
+      "Yemek",
+      "Şehirlerarası"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Yolcu Otobüsü",
+    "f": [
+      "Sefer",
+      "Otogar",
+      "Şoför",
+      "Muavin",
+      "Bilet"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Otobüs Muavini",
+    "f": [
+      "Yolcu",
+      "Otobüs",
+      "İkram",
+      "Bilet",
+      "Sefer"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Şehirlerarası Yolculuk",
+    "f": [
+      "Otobüs",
+      "Bilet",
+      "Yol",
+      "Mesafe",
+      "Şehir"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Çile Çekmek",
+    "f": [
+      "Zorluk",
+      "Sıkıntı",
+      "Acı",
+      "Katlanmak",
+      "Hayat"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Gözünü Dört Açmak",
+    "f": [
+      "Dikkat Etmek",
+      "Uyanık Olmak",
+      "Tehlike",
+      "Bakmak",
+      "Çevre"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "İğneyle Kuyu Kazmak",
+    "f": [
+      "Zor",
+      "Sabır",
+      "Yavaş",
+      "Uğraşmak",
+      "İş"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Karınca Kararınca",
+    "f": [
+      "Az",
+      "Elinden Geldiği Kadar",
+      "Katkı",
+      "Yardım",
+      "Ufak"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Ağzı Torba Değil ki Büzesin",
+    "f": [
+      "Konuşmak",
+      "Dedikodu",
+      "Engel Olamamak",
+      "İnsan",
+      "Laf"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Tereyağından Kıl Çeker Gibi",
+    "f": [
+      "Kolay",
+      "Sorunsuz",
+      "Hızlı",
+      "Rahat",
+      "Çözmek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Dimyat'a Pirince Giderken Evdeki Bulgurdan Olmak",
+    "f": [
+      "Kaybetmek",
+      "Hırs",
+      "Elindeki",
+      "Zarar",
+      "Daha İyisi"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Havlayan Köpek Isırmaz",
+    "f": [
+      "Korkutmak",
+      "Tehdit",
+      "Boş",
+      "Bağırmak",
+      "Zararsız"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Dost Kara Günde Belli Olur",
+    "f": [
+      "Zor Zaman",
+      "Yardım",
+      "Güven",
+      "Arkadaş",
+      "Sıkıntı"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Damlaya Damlaya Göl Olur",
+    "f": [
+      "Tasarruf",
+      "Biriktirmek",
+      "Para",
+      "Kumbara",
+      "Ufak"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Göz Yummak",
+    "f": [
+      "Görmezden Gelmek",
+      "İzin Vermek",
+      "Hata",
+      "Kusur",
+      "Kabul Etmek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Ateş Püskürmek",
+    "f": [
+      "Sinirlenmek",
+      "Öfke",
+      "Bağırmak",
+      "Kızmak",
+      "Ejderha"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Başının Etini Yemek",
+    "f": [
+      "Israr",
+      "Sürekli Konuşmak",
+      "Bıktırmak",
+      "İstemek",
+      "Rahatsız Etmek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Can Çıkmayınca Huy Çıkmaz",
+    "f": [
+      "Değişmemek",
+      "Karakter",
+      "Alışkanlık",
+      "Yaş",
+      "İnsan"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Sinekten Yağ Çıkarmak",
+    "f": [
+      "Çıkar",
+      "Aşırı Tutumluluk",
+      "Fırsat",
+      "Kazanç",
+      "Her Şeyden"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Kaş Yaparken Göz Çıkarmak",
+    "f": [
+      "Hata",
+      "İyilik Yapmak İsterken",
+      "Zarar",
+      "Bozmak",
+      "Düzeltmek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Dilinin Altındaki Baklayı Çıkarmak",
+    "f": [
+      "Söylemek",
+      "Sır",
+      "Sonunda",
+      "Açıklamak",
+      "Gizli"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Dert Ortağı",
+    "f": [
+      "Arkadaş",
+      "Dost",
+      "Dinlemek",
+      "Paylaşmak",
+      "Sıkıntı"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Rüzgar Eken Fırtına Biçer",
+    "f": [
+      "Sonuç",
+      "Kötülük",
+      "Davranış",
+      "Karşılık",
+      "Yapmak"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Kendi Düşen Ağlamaz",
+    "f": [
+      "Hata",
+      "Karar",
+      "Suçlamak",
+      "Kendisi",
+      "Sonuç"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Dereyi Görmeden Paçaları Sıvamak",
+    "f": [
+      "Aceleci",
+      "Erken",
+      "Plan",
+      "Hazırlanmak",
+      "Henüz"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Bir Taşla İki Kuş",
+    "f": [
+      "Kazanç",
+      "Aynı Anda",
+      "Fırsat",
+      "Kolay",
+      "Başarı"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Gözleri Dolmak",
+    "f": [
+      "Ağlamak",
+      "Duygusal",
+      "Yaş",
+      "Üzülmek",
+      "Sevinç"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Bağrına Basmak",
+    "f": [
+      "Sevgi",
+      "Kucaklamak",
+      "Kabul Etmek",
+      "Şefkat",
+      "Sahiplenmek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Etekleri Zil Çalmak",
+    "f": [
+      "Çok Sevinmek",
+      "Heyecan",
+      "Mutlu",
+      "Haber",
+      "Telaş"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Dara Düşmek",
+    "f": [
+      "Sıkışmak",
+      "Para",
+      "Zor Durum",
+      "Yardım",
+      "Borç"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Burnu Sızlamak",
+    "f": [
+      "Üzülmek",
+      "Ağlamak",
+      "Duygusal",
+      "Eski",
+      "Özlemek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Ağzının Suyu Akmak",
+    "f": [
+      "Çok İstemek",
+      "Canı Çekmek",
+      "Beğenmek",
+      "Yemek",
+      "İmrenmek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Baş Kaldırmak",
+    "f": [
+      "İsyan",
+      "Karşı Çıkmak",
+      "Otorite",
+      "Devlet",
+      "İtaat Etmemek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Çenesi Düşük",
+    "f": [
+      "Çok Konuşan",
+      "Geveze",
+      "Susturulamayan",
+      "Laf",
+      "İnsan"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Kan Ağlamak",
+    "f": [
+      "Çok Üzülmek",
+      "Acı",
+      "Sıkıntı",
+      "Ağlamak",
+      "Keder"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Eli Uzun",
+    "f": [
+      "Hırsız",
+      "Çalmak",
+      "Gizlice",
+      "Güvenilmez",
+      "Eşya"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "İçi Kararmak",
+    "f": [
+      "Karamsar",
+      "Üzülmek",
+      "Sıkıntı",
+      "Kötü",
+      "Gelecek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Gözü Kaldı",
+    "f": [
+      "Kıskanmak",
+      "Nazar",
+      "İstemek",
+      "Beğenmek",
+      "Başkasının"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Eli Ayağı Titremek",
+    "f": [
+      "Korku",
+      "Heyecan",
+      "Sinir",
+      "Fiziksel",
+      "Kontrol Edememek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Kabuğuna Çekilmek",
+    "f": [
+      "Yalnızlık",
+      "Sessiz",
+      "İçe Dönük",
+      "Ortam",
+      "Kimseyle Konuşmamak"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Burnundan Solumak",
+    "f": [
+      "Çok Öfkeli",
+      "Sinirli",
+      "Kızgın",
+      "Soluk",
+      "Davranış"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Sözünü Kesmek",
+    "f": [
+      "Konuşmak",
+      "Araya Girmek",
+      "Dinlememek",
+      "Bölmek",
+      "Saygısızlık"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Yere Bakan Yürek Yakan",
+    "f": [
+      "Sinsi",
+      "Gizli",
+      "Tehlikeli",
+      "Sessiz",
+      "Görünüş"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Ağzından Çıkanı Kulağı Duymamak",
+    "f": [
+      "Öfke",
+      "Kızgınlık",
+      "Ne Söylediğini Bilmemek",
+      "Bağırmak",
+      "Sonradan Pişman Olmak"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Feleğin Çemberinden Geçmek",
+    "f": [
+      "Tecrübe",
+      "Çok Yaşamak",
+      "Zorluk",
+      "Hayat",
+      "Olgunlaşmak"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Gününü Gün Etmek",
+    "f": [
+      "Eğlenmek",
+      "Hayatını Yaşamak",
+      "Keyif",
+      "Zaman",
+      "Geleceği Düşünmemek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Gözleri Parlamak",
+    "f": [
+      "Sevinç",
+      "Mutluluk",
+      "Heyecan",
+      "Işık",
+      "Bakış"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Kalbini Kırmak",
+    "f": [
+      "Üzmek",
+      "Dost",
+      "Gücendirmek",
+      "Kötü Söz",
+      "Samimiyet"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Ağzını Bıçak Açmamak",
+    "f": [
+      "Sessiz",
+      "Konuşmamak",
+      "Üzüntü",
+      "Moral",
+      "Tek Kelime"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Hevesi Kursağında Kalmak",
+    "f": [
+      "Yarım Kalmak",
+      "Üzülmek",
+      "Beklenti",
+      "Engel",
+      "İstek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Pabucunu Ters Giydirmek",
+    "f": [
+      "Kurnazlık",
+      "Aldatmak",
+      "Alt Etmek",
+      "Zeki",
+      "Oyun"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Çorbada Tuzu Olmak",
+    "f": [
+      "Katkı",
+      "Yardım",
+      "Küçük",
+      "Paylaşmak",
+      "Destek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Havadan Para Kazanmak",
+    "f": [
+      "Kolay",
+      "Çalışmadan",
+      "Şans",
+      "Beleş",
+      "Emeksiz"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Bir Elin Nesi Var İki Elin Sesi Var",
+    "f": [
+      "Birliktelik",
+      "Yardımlaşma",
+      "Güç Birliği",
+      "Beraber",
+      "İş"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Lego",
+    "f": [
+      "Oyuncak",
+      "Blok",
+      "Parça",
+      "Yapmak",
+      "Kutusu"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Yapboz",
+    "f": [
+      "Puzzle",
+      "Parça",
+      "Resim",
+      "Birleştirmek",
+      "Kutusu"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Uçurtma",
+    "f": [
+      "Rüzgar",
+      "İp",
+      "Gökyüzü",
+      "Kuyruk",
+      "Uçurmak"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Oyuncak Ayı",
+    "f": [
+      "Panda",
+      "Peluş",
+      "Yumuşak",
+      "Çocuk",
+      "Hediye"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Oyuncak Bebek",
+    "f": [
+      "Kız",
+      "Barbie",
+      "Emzik",
+      "Çocuk",
+      "Süs"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Su Tabancası",
+    "f": [
+      "Oyuncak",
+      "Islatmak",
+      "Yaz",
+      "Ateş Etmek",
+      "Plastik"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Şnorkel",
+    "f": [
+      "Deniz",
+      "Maske",
+      "Dalmak",
+      "Su",
+      "Nefes Almak"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Mayo",
+    "f": [
+      "Deniz",
+      "Havuz",
+      "Yaz",
+      "Yüzmek",
+      "Giysi"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Bikini",
+    "f": [
+      "Deniz",
+      "Havuz",
+      "Yaz",
+      "İki Parça",
+      "Mayo"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Güneş Kremi",
+    "f": [
+      "Yaz",
+      "Güneş",
+      "Koruma",
+      "Cilt",
+      "Sürmek"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Plaj Havlusu",
+    "f": [
+      "Deniz",
+      "Kum",
+      "Kurulanmak",
+      "Sermek",
+      "Plaj"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Deniz Yatağı",
+    "f": [
+      "Havuz",
+      "Deniz",
+      "Şişme",
+      "Yaz",
+      "Üzerine Yatmak"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Deniz Simidi",
+    "f": [
+      "Deniz",
+      "Yuvarlak",
+      "Havuz",
+      "Yüzmek",
+      "Şişme"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Palet",
+    "f": [
+      "Deniz",
+      "Ayak",
+      "Yüzmek",
+      "Hızlı",
+      "Plastik"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Can Yeleği",
+    "f": [
+      "Deniz",
+      "Tekne",
+      "Havuz",
+      "Batmamak",
+      "Turuncu"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Olta",
+    "f": [
+      "Balık",
+      "Deniz",
+      "Yakalamak",
+      "İp",
+      "Makara"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kafes",
+    "f": [
+      "Kuş",
+      "Demir",
+      "Tel",
+      "Evcil",
+      "Hayvan"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Telve",
+    "f": [
+      "Kahve",
+      "Fincan",
+      "Fal",
+      "Türk Kahvesi",
+      "Altında"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kahve Fincanı",
+    "f": [
+      "Kahve",
+      "Türk Kahvesi",
+      "Telve",
+      "Fal",
+      "Kulplu"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Termos",
+    "f": [
+      "Sıcak",
+      "Soğuk",
+      "İçecek",
+      "Piknik",
+      "Çay"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çay Tabağı",
+    "f": [
+      "Çay",
+      "Bardak",
+      "Altlık",
+      "Cam",
+      "Masa"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çay Süzgeci",
+    "f": [
+      "Çay",
+      "Demlik",
+      "Çöp",
+      "Bardak",
+      "Metal"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Süzgeç",
+    "f": [
+      "Makarna",
+      "Su",
+      "Mutfak",
+      "Dökmek",
+      "Plastik"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Rende",
+    "f": [
+      "Peynir",
+      "Havuç",
+      "Mutfak",
+      "Doğramak",
+      "Keskin"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kevgir",
+    "f": [
+      "Makarna",
+      "Kaşık",
+      "Delikli",
+      "Mutfak",
+      "Çorba"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Huni",
+    "f": [
+      "Sıvı",
+      "Dökmek",
+      "Şişe",
+      "Plastik",
+      "Ağız"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Merdane",
+    "f": [
+      "Hamur",
+      "Açmak",
+      "Un",
+      "Börek",
+      "Ahşap"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Oklava",
+    "f": [
+      "Hamur",
+      "İnce",
+      "Açmak",
+      "Ahşap",
+      "Mantı"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kek Kalıbı",
+    "f": [
+      "Kek",
+      "Fırın",
+      "Pişirmek",
+      "Şekil",
+      "Tepsi"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Mikser",
+    "f": [
+      "Çırpmak",
+      "Kek",
+      "Hamur",
+      "Karıştırmak",
+      "Elektrikli"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Blender",
+    "f": [
+      "Mutfak",
+      "Parçalamak",
+      "Çorba",
+      "Sebze",
+      "Elektrikli"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Tost Makinesi",
+    "f": [
+      "Tost",
+      "Ekmek",
+      "Peynir",
+      "Sıcak",
+      "Basmak"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çay Makinesi",
+    "f": [
+      "Çay",
+      "Su",
+      "Isıtıcı",
+      "Kettle",
+      "Elektrikli"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Su Isıtıcısı",
+    "f": [
+      "Kettle",
+      "Su",
+      "Sıcak",
+      "Kaynatmak",
+      "Elektrikli"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Saç Düzleştirici",
+    "f": [
+      "Saç",
+      "Fön",
+      "Sıcak",
+      "Kadın",
+      "Maşa"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Baskül",
+    "f": [
+      "Kilo",
+      "Tartılmak",
+      "Tartı",
+      "Ağır",
+      "Hafif"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "El Aynası",
+    "f": [
+      "Ayna",
+      "Bakmak",
+      "Küçük",
+      "Çanta",
+      "Makyaj"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Cımbız",
+    "f": [
+      "Kaş",
+      "Kıl",
+      "Çekmek",
+      "Metal",
+      "Kozmetik"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Pamuk Ped",
+    "f": [
+      "Makyaj",
+      "Temizlemek",
+      "Cilt",
+      "Yuvarlak",
+      "Yumuşak"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kulak Çubuğu",
+    "f": [
+      "Kulak",
+      "Temizlemek",
+      "Pamuk",
+      "Plastik",
+      "Çöp"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çengelli İğne",
+    "f": [
+      "İğne",
+      "Metal",
+      "Bebek",
+      "Tutturmak",
+      "Kilitlemek"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Gaz Lambası",
+    "f": [
+      "Gaz",
+      "Işık",
+      "Aydınlık",
+      "Eski",
+      "Mum"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Sıvı Sabun",
+    "f": [
+      "El",
+      "Yıkamak",
+      "Köpük",
+      "Pompa",
+      "Banyo"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Katı Sabun",
+    "f": [
+      "Sabun",
+      "El",
+      "Köpük",
+      "Banyo",
+      "Kalıp"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Şampuan Şişesi",
+    "f": [
+      "Şampuan",
+      "Banyo",
+      "Saç",
+      "Plastik",
+      "Kutu"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Duş Jeli",
+    "f": [
+      "Duş",
+      "Banyo",
+      "Kokulu",
+      "Köpük",
+      "Vücut"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Diş Macunu Tüpü",
+    "f": [
+      "Diş",
+      "Macun",
+      "Sıkmak",
+      "Fırça",
+      "Ağız"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Havlupan",
+    "f": [
+      "Banyo",
+      "Havlu",
+      "Isıtıcı",
+      "Radyatör",
+      "Metal"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çamaşır Sepeti",
+    "f": [
+      "Kirli",
+      "Çamaşır",
+      "Banyo",
+      "Plastik",
+      "Giysi"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Klozet Fırçası",
+    "f": [
+      "Tuvalet",
+      "Temizlik",
+      "Banyo",
+      "Klozet",
+      "Sap"
+    ],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kredi Kartı",
+    "f": [
+      "Banka",
+      "Para",
+      "Ödeme",
+      "Plastik",
+      "Borç"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Faiz",
+    "f": [
+      "Banka",
+      "Para",
+      "Kredi",
+      "Oran",
+      "Borç"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Veresiye",
+    "f": [
+      "Peşin",
+      "Borç",
+      "Satın Almak",
+      "Ödemek",
+      "Defter"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Rehin",
+    "f": [
+      "Banka",
+      "Para",
+      "Borç",
+      "İpotek",
+      "Eşya"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Senet",
+    "f": [
+      "Para",
+      "Borç",
+      "İmza",
+      "Kağıt",
+      "Ödemek"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Çek Defteri",
+    "f": [
+      "Banka",
+      "Para",
+      "Yazmak",
+      "Yaprak",
+      "Ödeme"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Veznedar",
+    "f": [
+      "Banka",
+      "Para",
+      "Ödeme",
+      "Vezne",
+      "Sıra"
+    ],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Kiralık Kasa",
+    "f": [
+      "Banka",
+      "Sır",
+      "Kilit",
+      "Altın",
+      "Saklamak"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Pasaport Kontrolü",
+    "f": [
+      "Gümrük",
+      "Sınır",
+      "Havaalanı",
+      "Polis",
+      "Vize"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Vize Başvurusu",
+    "f": [
+      "Konsolosluk",
+      "Pasaport",
+      "Ülke",
+      "Evrak",
+      "Seyahat"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Döviz Bürosu",
+    "f": [
+      "Dolar",
+      "Euro",
+      "Para",
+      "Bozdurmak",
+      "Kur"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Kurye Motoru",
+    "f": [
+      "Paket",
+      "Teslimat",
+      "Hızlı",
+      "Sipariş",
+      "Kurye"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Kargo Takip",
+    "f": [
+      "İnternet",
+      "Paket",
+      "Numara",
+      "Sorgulamak",
+      "Nerede"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Sipariş",
+    "f": [
+      "Yemek",
+      "İnternet",
+      "Satın Almak",
+      "Restoran",
+      "Getirmek"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "İade",
+    "f": [
+      "Ürün",
+      "Beğenmemek",
+      "Geri Vermek",
+      "Para",
+      "Mağaza"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Garanti Belgesi",
+    "f": [
+      "Ürün",
+      "Bozulmak",
+      "Tamir",
+      "Belge",
+      "Yıl"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Kullanım Kılavuzu",
+    "f": [
+      "Kutu",
+      "Ürün",
+      "Okumak",
+      "Nasıl Çalışır",
+      "Kitapçık"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Alışveriş Fişi",
+    "f": [
+      "Alışveriş",
+      "Market",
+      "Para",
+      "Kasa",
+      "Ödeme"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Barkod",
+    "f": [
+      "Ürün",
+      "Kasada Okutmak",
+      "Fiyat",
+      "Çizgi",
+      "Siyah Beyaz"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Fiyat Etiketi",
+    "f": [
+      "Ürün",
+      "Raf",
+      "Para",
+      "Satın Almak",
+      "Üzerinde"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Alışveriş Sepeti",
+    "f": [
+      "Market",
+      "Tekerlekli",
+      "Eşya",
+      "Kasa",
+      "Doldurmak"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Kampanya",
+    "f": [
+      "İndirim",
+      "Alışveriş",
+      "Ucuz",
+      "Mağaza",
+      "Reklam"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Hediye Çeki",
+    "f": [
+      "Para",
+      "Alışveriş",
+      "Mağaza",
+      "Vermek",
+      "Kart"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Müşteri Hizmetleri",
+    "f": [
+      "Telefon",
+      "Şikayet",
+      "Destek",
+      "Aramak",
+      "İletişim"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Teknik Servis",
+    "f": [
+      "Bozulmak",
+      "Tamir",
+      "Cihaz",
+      "Telefon",
+      "Bilgisayar"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Yazılım Güncellemesi",
+    "f": [
+      "Telefon",
+      "Bilgisayar",
+      "Yeni",
+      "Sürüm",
+      "Yüklemek"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Şifre",
+    "f": [
+      "Kasa",
+      "Telefon",
+      "Kart",
+      "Parola",
+      "Gizli"
+    ],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "İnternet Bağlantısı",
+    "f": [
+      "Kablosuz",
+      "Wi-Fi",
+      "Ağ",
+      "Hat",
+      "Bilgisayar"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Sosyal Medya",
+    "f": [
+      "Instagram",
+      "Paylaşım",
+      "İnternet",
+      "Fotoğraf",
+      "Takipçi"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "E-Posta",
+    "f": [
+      "Mail",
+      "İnternet",
+      "Adres",
+      "Göndermek",
+      "Mesaj"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Akıllı Saat",
+    "f": [
+      "Saat",
+      "Teknoloji",
+      "Bilek",
+      "Adım",
+      "Ekran"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Tablet",
+    "f": [
+      "Bilgisayar",
+      "Ekran",
+      "Dokunmatik",
+      "Çocuk",
+      "Oyun"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Şarj Kablosu",
+    "f": [
+      "Telefon",
+      "Elektrik",
+      "Priz",
+      "Pil",
+      "Dolmak"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Kulaklık Kutusu",
+    "f": [
+      "Kulaklık",
+      "Şarj",
+      "Kablosuz",
+      "Bluetooth",
+      "Küçük"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Powerbank",
+    "f": [
+      "Şarj",
+      "Telefon",
+      "Taşınabilir",
+      "Pil",
+      "Kablo"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Wi-Fi Şifresi",
+    "f": [
+      "İnternet",
+      "Kablosuz",
+      "Kafe",
+      "Ev",
+      "Bağlanmak"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Spor Kulübü",
+    "f": [
+      "Takım",
+      "Futbol",
+      "Basketbol",
+      "Taraftar",
+      "Maç"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Transfer",
+    "f": [
+      "Futbol",
+      "Oyuncu",
+      "Takım",
+      "Almak",
+      "Sözleşme"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Teknik Direktör",
+    "f": [
+      "Antrenör",
+      "Takım",
+      "Futbol",
+      "Taktik",
+      "Saha"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Maç Yayını",
+    "f": [
+      "Televizyon",
+      "Canlı",
+      "Futbol",
+      "İzlemek",
+      "Kanal"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Ofsayt",
+    "f": [
+      "Futbol",
+      "Hakem",
+      "Çizgi",
+      "Gol",
+      "Kural"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Penaltı",
+    "f": [
+      "Futbol",
+      "Kale",
+      "Hakem",
+      "Ceza Sahası",
+      "Atış"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Sarı Kart",
+    "f": [
+      "Hakem",
+      "Futbol",
+      "Uyarı",
+      "Ceza",
+      "Maç"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Kırmızı Kart",
+    "f": [
+      "Hakem",
+      "Futbol",
+      "Oyundan Atmak",
+      "Ceza",
+      "Maç"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Uzatma Dakikaları",
+    "f": [
+      "Maç",
+      "Hakem",
+      "Süre",
+      "Futbol",
+      "Sonuna Eklemek"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Pas",
+    "f": [
+      "Top",
+      "Vermek",
+      "Takım Arkadaşı",
+      "Futbol",
+      "Basketbol"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Gol Sevinci",
+    "f": [
+      "Futbol",
+      "Atmak",
+      "Koşmak",
+      "Taraftar",
+      "Mutluluk"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Tribün Lideri",
+    "f": [
+      "Amigo",
+      "Taraftar",
+      "Bağırmak",
+      "Maç",
+      "Stadyum"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Stadyum",
+    "f": [
+      "Maç",
+      "Futbol",
+      "Tribün",
+      "Taraftar",
+      "Saha"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Antrenman",
+    "f": [
+      "İdman",
+      "Spor",
+      "Çalışmak",
+      "Antrenör",
+      "Hazırlanmak"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Lafı Ağzından Almak",
+    "f": [
+      "Konuşmak",
+      "Söylemek",
+      "Aynı Anda",
+      "Kelime",
+      "Cümle"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Nabzına Göre Şerbet Vermek",
+    "f": [
+      "Davranış",
+      "İnsan",
+      "Uygun",
+      "Hoşnut Etmek",
+      "Karakter"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Eli Boş Dönmek",
+    "f": [
+      "Geri Gelmek",
+      "Hiçbir Şey",
+      "Kazanamamak",
+      "Başarısız",
+      "Alışveriş"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Ağız Tadıyla",
+    "f": [
+      "Huzurla",
+      "Keyifle",
+      "Rahat",
+      "Mutlu",
+      "Yaşamak"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Canı Sıkılmak",
+    "f": [
+      "Bunalmak",
+      "Evde",
+      "Yapacak Bir Şey Bulamamak",
+      "Keyifsiz",
+      "Zaman"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "İçi Geçmek",
+    "f": [
+      "Uyumak",
+      "Kısa Süre",
+      "Farkında Olmadan",
+      "Şekerleme",
+      "Yorgunluk"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Aklı Çelinmek",
+    "f": [
+      "Kandırılmak",
+      "İkna Olmak",
+      "Fikir Değiştirmek",
+      "Karar",
+      "Etkilenmek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Üste Çıkmak",
+    "f": [
+      "Suçluyken",
+      "Haklı Görünmek",
+      "Tartışma",
+      "Yavuz Hırsız",
+      "Kavga"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Ayakbağı Olmak",
+    "f": [
+      "Engel",
+      "Zorlaştırmak",
+      "Yavaşlatmak",
+      "İş",
+      "Durdurmak"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Başının Çaresine Bakmak",
+    "f": [
+      "Kendi Kendine",
+      "Çözüm",
+      "Çaresiz",
+      "Sorun",
+      "Halletmek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Sır Küpü",
+    "f": [
+      "Güvenilir",
+      "Kimseye Söylemeyen",
+      "Sır",
+      "Ağzı Sıkı",
+      "İnsan"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Göze Girmek",
+    "f": [
+      "Beğenilmek",
+      "Takdir Almak",
+      "Patron",
+      "Öğretmen",
+      "Sevgi Kazanmak"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Dili Dönmemek",
+    "f": [
+      "Söyleyememek",
+      "Telaffuz",
+      "Kelime",
+      "Zor",
+      "Konuşmak"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Kulak Kesilmek",
+    "f": [
+      "Çok Dikkatli",
+      "Dinlemek",
+      "Ses",
+      "Pürdikkat",
+      "Odaklanmak"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Ağırına Gitmek",
+    "f": [
+      "Üzülmek",
+      "Kırılmak",
+      "Dokunmak",
+      "Gurur",
+      "Söz"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "İçi Cız Etmek",
+    "f": [
+      "Acımak",
+      "Üzülmek",
+      "Merhamet",
+      "Ansızın",
+      "Kalp"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Burnunun Ucunda Tütecek",
+    "f": [
+      "Özlemek",
+      "Çok",
+      "Hasret",
+      "Sevgili",
+      "Memleket"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Tepeden Tırnağa",
+    "f": [
+      "Her Yer",
+      "Tamamen",
+      "Bütün",
+      "Islanmak",
+      "Giyinmek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "El Ele Vermek",
+    "f": [
+      "Birlik",
+      "Beraberlik",
+      "Yardımlaşma",
+      "Güç",
+      "İş"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Başa Kakmak",
+    "f": [
+      "İyilik",
+      "Hatırlatmak",
+      "Yüzüne Vurmak",
+      "Söylemek",
+      "Pişman Etmek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Göbek Atmak",
+    "f": [
+      "Oynamak",
+      "Dans",
+      "Sevinmek",
+      "Düğün",
+      "Eğlenmek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Tozu Dumana Katmak",
+    "f": [
+      "Hızlı",
+      "Koşmak",
+      "Karıştırmak",
+      "Ortalık",
+      "Kaçmak"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Lafı Çevirmek",
+    "f": [
+      "Konuyu Değiştirmek",
+      "Kıvırmak",
+      "Başka Şey Söylemek",
+      "Sıkışmak",
+      "Tartışma"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Ayaküstü",
+    "f": [
+      "Hızlıca",
+      "Acele",
+      "Durarak",
+      "Konuşmak",
+      "Ayakta"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "İçi Rahatlamak",
+    "f": [
+      "Huzur",
+      "Endişe",
+      "Kaygı",
+      "Kurtulmak",
+      "Rahat Nefes Almak"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Çıt Çıkarmak",
+    "f": [
+      "Ses",
+      "Sessiz",
+      "Gürültü",
+      "Konuşmak",
+      "Engel"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Dili Uzun",
+    "f": [
+      "Saygısız",
+      "Çok Konuşan",
+      "Karşı Gelen",
+      "Terbiyesiz",
+      "Laf"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Dert Küpü",
+    "f": [
+      "Çok Sıkıntılı",
+      "Sürekli Şikayet Eden",
+      "Üzgün",
+      "İnsan",
+      "Dert"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Elinin Kiri",
+    "f": [
+      "Para",
+      "Önemsiz",
+      "Değersiz",
+      "Geçici",
+      "Maddiyat"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Gözü Gönlü Açılmak",
+    "f": [
+      "Huzur",
+      "Mutluluk",
+      "Ferahlamak",
+      "Manzara",
+      "Güzel"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Gözü Kaymak",
+    "f": [
+      "İstemeden Bakmak",
+      "Dikkatini Çekmek",
+      "Odaklanmak",
+      "Görmek",
+      "İzlemek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Gözünü Toprak Doyursun",
+    "f": [
+      "Açgözlü",
+      "Doyumsuz",
+      "Çok",
+      "Para",
+      "İstemek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Gözünü Seveyim",
+    "f": [
+      "Rica",
+      "Yalvarmak",
+      "Lütfen",
+      "İkna Etmek",
+      "Söylemek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Hırsından Çatlamak",
+    "f": [
+      "Kıskançlık",
+      "Öfke",
+      "Çekememek",
+      "Sinirlenmek",
+      "Başarı"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "İçi Isınmak",
+    "f": [
+      "Sevmek",
+      "Alışmak",
+      "Sempati",
+      "Yakınlık",
+      "İnsan"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "İçi Sızlamak",
+    "f": [
+      "Acımak",
+      "Üzülmek",
+      "Merhamet",
+      "Vicdan",
+      "Çocuk"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Laf Altında Kalmamak",
+    "f": [
+      "Cevap Vermek",
+      "Karşılık",
+      "Hazırcevap",
+      "Laf",
+      "Tartışma"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Nefesi Kesilmek",
+    "f": [
+      "Heyecan",
+      "Yorulmak",
+      "Koşmak",
+      "Şaşırmak",
+      "Soluk"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Ömrünü Çürütmek",
+    "f": [
+      "Yıllar",
+      "Harcamak",
+      "Çalışmak",
+      "Boşuna",
+      "Hayat"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Sineye Çekmek",
+    "f": [
+      "Katlanmak",
+      "Kabul Etmek",
+      "Sabretmek",
+      "Haksızlık",
+      "Sessiz Kalmak"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Sözünü Ballarla Kesmek",
+    "f": [
+      "Konuşmak",
+      "Araya Girmek",
+      "Bölmek",
+      "İzin",
+      "Tatlı"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Tepeden Bakmak",
+    "f": [
+      "Küçümsemek",
+      "Kibir",
+      "Kendini Beğenmiş",
+      "Üstün",
+      "İnsan"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Vefa Borcu",
+    "f": [
+      "İyilik",
+      "Unutmamak",
+      "Sadakat",
+      "Karşılık",
+      "Ödemek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Yaka Silkmek",
+    "f": [
+      "Bıkmak",
+      "Usanmak",
+      "Şikayet",
+      "Kurtulmak",
+      "İllallah"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Yer Yarılıp İçine Girmek",
+    "f": [
+      "Utanmak",
+      "Rezil Olmak",
+      "Saklanmak",
+      "Çok",
+      "Durum"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Yolunu Gözlemek",
+    "f": [
+      "Beklemek",
+      "Özlemek",
+      "Yol",
+      "Gelmek",
+      "Hasret"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Yüz Vermek",
+    "f": [
+      "Şımartmak",
+      "İlgi",
+      "Yakınlık",
+      "Davranış",
+      "Taviz"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Yüzü Kızarmak",
+    "f": [
+      "Utanmak",
+      "Rezil Olmak",
+      "Pembe",
+      "Yanak",
+      "Hata"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Can Ciğer",
+    "f": [
+      "Çok Yakın",
+      "Dost",
+      "Samimi",
+      "Arkadaş",
+      "Sevmek"
+    ],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Göz Dikmek",
+    "f": [
+      "İstemek",
+      "Sahip Olmak",
+      "Sürekli Bakmak",
+      "Hedef",
+      "Kıskanmak"
+    ],
+    "c": "Genel",
+    "d": "Z"
   }
 ]

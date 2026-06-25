@@ -109,3 +109,32 @@ export function playTimeOver() {
         console.warn("Ses çalma hatası:", e);
     }
 }
+
+/**
+ * Sayfa geçiş sesi: Yumuşak ve fütüristik yükselen bir sinüs kayması (sweeping sine).
+ */
+export function playTransition() {
+    try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        
+        osc.type = 'sine';
+        // 300Hz'den 800Hz'e hızlı bir kayma (whoosh hissi için)
+        osc.frequency.setValueAtTime(300, now);
+        osc.frequency.exponentialRampToValueAtTime(800, now + 0.15);
+        
+        gain.gain.setValueAtTime(0.06, now); // Çok yüksek olmasın, kulağı yormasın
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+        
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        
+        osc.start(now);
+        osc.stop(now + 0.15);
+    } catch (e) {
+        console.warn("Ses çalma hatası:", e);
+    }
+}

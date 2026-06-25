@@ -1,5 +1,7 @@
 /* VibeTabu Arayüz Güncelleme (DOM) Modülü */
 
+import { playTransition } from './audio.js';
+
 // Görünüm elementlerinin referansları
 export const views = {
     splash: document.getElementById('view-splash'),
@@ -27,20 +29,23 @@ export function showView(activeView) {
     const oldView = currentActiveView;
     currentActiveView = activeView;
     
+    // Geçiş sesini çal
+    playTransition();
+    
     // Eski ekranın çıkış animasyonunu başlat
     if (oldView) {
         oldView.classList.add('transitioning', 'fade-out');
         oldView.classList.remove('active-view');
     }
     
-    // Yeni ekranı hazırla (başlangıç konumu: opacity 0, translate 16px)
+    // Yeni ekranı hazırla
     activeView.classList.add('transitioning');
     activeView.classList.remove('fade-out', 'active-view');
     
-    // Tarayıcı reflow tetikle (yeni pozisyonun algılanması için)
+    // Tarayıcı reflow tetikle
     void activeView.offsetWidth;
     
-    // Yeni ekranı görünür yap (böylece CSS geçişi başlar)
+    // Yeni ekranı görünür yap
     activeView.classList.add('active-view');
     
     // Animasyon tamamlandığında durum sınıflarını temizle
@@ -49,7 +54,7 @@ export function showView(activeView) {
             oldView.classList.remove('transitioning', 'fade-out');
         }
         activeView.classList.remove('transitioning');
-    }, 250);
+    }, 350);
 }
 
 /**
