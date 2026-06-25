@@ -23,7 +23,8 @@ import {
     renderRoundReviewCard, 
     renderScoreboardUI, 
     renderGameOverUI, 
-    stopConfettiEffect 
+    stopConfettiEffect,
+    updateSplashWordCount
 } from './ui.js';
 
 import { 
@@ -56,6 +57,9 @@ async function loadWordsData() {
         
         // İlk ekran kurulumunu yap
         initSetupScreen();
+        
+        // Kelime sayacını güncelle
+        updateSplashWordCount(allWords.length);
     } catch (e) {
         console.error("Kelimeler yüklenirken hata oluştu:", e);
         // Fallback kelime listesi (İnternet/fetch hatası durumunda)
@@ -66,6 +70,7 @@ async function loadWordsData() {
             { "w": "İstanbul", "f": ["Boğaz", "Köprü", "Metropol", "Türkiye", "Cami"], "c": "Genel", "d": "K" }
         ];
         initSetupScreen();
+        updateSplashWordCount(allWords.length);
     }
 }
 

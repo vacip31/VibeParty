@@ -496,3 +496,15 @@ export function stopConfettiEffect() {
     }
     document.querySelectorAll('.confetti').forEach(el => el.remove());
 }
+
+/**
+ * Anasayfadaki toplam kelime sayacını günceller ve gösterir.
+ */
+export function updateSplashWordCount(count) {
+    const wordCountEl = document.getElementById('splash-word-count');
+    const badgeEl = document.getElementById('word-count-badge');
+    if (wordCountEl && badgeEl) {
+        wordCountEl.textContent = count;
+        badgeEl.classList.remove('opacity-0');
+    }
+}

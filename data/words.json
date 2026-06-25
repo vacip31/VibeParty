@@ -238,5 +238,2699 @@
     "f": ["Devrim", "Fransa", "Özgürlük", "Kral", "1789"],
     "c": "Tarih",
     "d": "Z"
+  },
+  {
+    "w": "Egzistansiyalizm",
+    "f": ["Felsefe", "Varoluş", "Sartre", "İnsan", "Akım"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Rasyonalizm",
+    "f": ["Akılcılık", "Felsefe", "Descartes", "Bilgi", "Teori"],
+    "c": "Felsefe",
+    "d": "O"
+  },
+  {
+    "w": "Empirizm",
+    "f": ["Deneycilik", "Locke", "Bilgi", "Felsefe", "Duyu"],
+    "c": "Felsefe",
+    "d": "O"
+  },
+  {
+    "w": "Dogmatizm",
+    "f": ["Sorgulamak", "İnanç", "Değişmez", "Felsefe", "Kati"],
+    "c": "Felsefe",
+    "d": "O"
+  },
+  {
+    "w": "Dualizm",
+    "f": ["İkilik", "Felsefe", "Ruh", "Beden", "Descartes"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Materyalizm",
+    "f": ["Maddecilik", "Marx", "Felsefe", "Gerçeklik", "Soyut"],
+    "c": "Felsefe",
+    "d": "O"
+  },
+  {
+    "w": "İdealizm",
+    "f": ["Düşünce", "Felsefe", "Platon", "Fikir", "Madde"],
+    "c": "Felsefe",
+    "d": "O"
+  },
+  {
+    "w": "Pozitivizm",
+    "f": ["Olguculuk", "Comte", "Bilim", "Felsefe", "Deney"],
+    "c": "Felsefe",
+    "d": "O"
+  },
+  {
+    "w": "Fenomenoloji",
+    "f": ["Görüngübilim", "Husserl", "Öz", "Bilinç", "Felsefe"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Sezgicilik",
+    "f": ["Bergson", "Gazali", "Bilgi", "Felsefe", "Kalp"],
+    "c": "Felsefe",
+    "d": "O"
+  },
+  {
+    "w": "Septisizm",
+    "f": ["Şüphecilik", "Felsefe", "Kuşku", "Doğruluk", "Pyrrhon"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Panteizm",
+    "f": ["Kamu Tanrıcılık", "Spinoza", "Tanrı", "Doğa", "Evren"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Deizm",
+    "f": ["Tanrı", "Din", "Peygamber", "Akıl", "Yaratıcı"],
+    "c": "Felsefe",
+    "d": "K"
+  },
+  {
+    "w": "Ateizm",
+    "f": ["Tanrı", "İnançsızlık", "Din", "Kabul Etmemek", "Teizm"],
+    "c": "Felsefe",
+    "d": "K"
+  },
+  {
+    "w": "Agnostisizm",
+    "f": ["Bilinmezcilik", "Tanrı", "Felsefe", "Şüphe", "Bilgi"],
+    "c": "Felsefe",
+    "d": "O"
+  },
+  {
+    "w": "Teizm",
+    "f": ["Tanrıcılık", "Din", "İnanç", "Yaradan", "Tek Tanrı"],
+    "c": "Felsefe",
+    "d": "O"
+  },
+  {
+    "w": "Anarşizm",
+    "f": ["Devlet", "Otorite", "Düzen", "Yönetim", "Başkaldırı"],
+    "c": "Felsefe",
+    "d": "K"
+  },
+  {
+    "w": "Sosyalizm",
+    "f": ["Eşitlik", "Toplum", "Kapitalizm", "Devlet", "Ortak"],
+    "c": "Felsefe",
+    "d": "K"
+  },
+  {
+    "w": "Kapitalizm",
+    "f": ["Para", "Sermaye", "Ekonomi", "Serbest Piyasa", "Sınıf"],
+    "c": "Felsefe",
+    "d": "K"
+  },
+  {
+    "w": "Faşizm",
+    "f": ["Diktatör", "Milliyetçilik", "Rejim", "Mussolini", "Baskı"],
+    "c": "Felsefe",
+    "d": "K"
+  },
+  {
+    "w": "Liberalizm",
+    "f": ["Özgürlük", "Birey", "Ekonomi", "Devlet", "Serbest"],
+    "c": "Felsefe",
+    "d": "K"
+  },
+  {
+    "w": "Kozmopolitizm",
+    "f": ["Dünya", "Vatandaş", "Kültür", "Ulusal", "Evrensel"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Feminizm",
+    "f": ["Kadın", "Eşitlik", "Hak", "Cinsiyet", "Aktivizm"],
+    "c": "Felsefe",
+    "d": "K"
+  },
+  {
+    "w": "Diplomasi",
+    "f": ["Devlet", "İlişki", "Elçi", "Siyaset", "Müzakere"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Jeopolitik",
+    "f": ["Coğrafya", "Siyaset", "Konum", "Strateji", "Dünya"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Demografi",
+    "f": ["Nüfus", "İstatistik", "Doğum", "Ölüm", "Coğrafya"],
+    "c": "Bilim",
+    "d": "Z"
+  },
+  {
+    "w": "Kartografi",
+    "f": ["Harita", "Çizim", "Ölçek", "Coğrafya", "Yer"],
+    "c": "Bilim",
+    "d": "Z"
+  },
+  {
+    "w": "Topografya",
+    "f": ["Harita", "Yer Şekli", "Yükseklik", "Arazi", "Ölçüm"],
+    "c": "Bilim",
+    "d": "Z"
+  },
+  {
+    "w": "Jeomorfoloji",
+    "f": ["Yer Şekilleri", "Coğrafya", "Aşınma", "Taş", "Bilim"],
+    "c": "Bilim",
+    "d": "Z"
+  },
+  {
+    "w": "Klimatoloji",
+    "f": ["İklim", "Hava Durumu", "Coğrafya", "Sıcaklık", "Bilim"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Paleontoloji",
+    "f": ["Fosil", "Dinozor", "Tarih Öncesi", "Jeoloji", "Bilim"],
+    "c": "Bilim",
+    "d": "Z"
+  },
+  {
+    "w": "Antropoloji",
+    "f": ["İnsan", "Kültür", "Irk", "Evrim", "Bilim"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Sosyoloji",
+    "f": ["Toplum", "Kurum", "İnsan", "Kültür", "Bilim"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Astrofizik",
+    "f": ["Uzay", "Fizik", "Yıldız", "Galaksi", "Matematik"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Kozmogoni",
+    "f": ["Evren", "Oluşum", "Mitoloji", "Teori", "Bilim"],
+    "c": "Bilim",
+    "d": "Z"
+  },
+  {
+    "w": "Ontoloji",
+    "f": ["Varlık", "Felsefe", "Varoluş", "Gerçeklik", "Metafizik"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Aksiyoloji",
+    "f": ["Değer", "Felsefe", "Etik", "Estetik", "Ahlak"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Semantik",
+    "f": ["Anlam", "Dil Bilimi", "Sözcük", "Cümle", "Mantık"],
+    "c": "Bilim",
+    "d": "Z"
+  },
+  {
+    "w": "Morfoloji",
+    "f": ["Yapı", "Şekil", "Dil Bilimi", "Biyoloji", "Ek"],
+    "c": "Bilim",
+    "d": "Z"
+  },
+  {
+    "w": "Fonetik",
+    "f": ["Ses", "Dil Bilimi", "Harf", "Telaffuz", "Alfabe"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Sintaks",
+    "f": ["Cümle Bilgisi", "Dil Bilimi", "Öğe", "Sözdizimi", "Kural"],
+    "c": "Bilim",
+    "d": "Z"
+  },
+  {
+    "w": "Etimoloji",
+    "f": ["Köken", "Sözcük", "Tarih", "Dil", "Kelime"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Arkaik",
+    "f": ["Eski", "Antik", "Tarih", "Kelime", "Çağ"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Asimilasyon",
+    "f": ["Uyum", "Kültür", "Kaybolmak", "Azınlık", "Baskı"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Otokrasi",
+    "f": ["Yönetim", "Tek Kişi", "Diktatör", "Güç", "Siyaset"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Plütokrasi",
+    "f": ["Zengin", "Sınıf", "Yönetim", "Para", "Devlet"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Teokratik",
+    "f": ["Din", "Yönetim", "Devlet", "Ruhban", "Şeriat"],
+    "c": "Felsefe",
+    "d": "O"
+  },
+  {
+    "w": "Bürokratik",
+    "f": ["Memur", "Devlet", "Kırtasiye", "Hiyerarşi", "Evrak"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Gnoseoloji",
+    "f": ["Bilgi", "Kuram", "Felsefe", "Epistemoloji", "Akıl"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Teleoloji",
+    "f": ["Amaç", "Felsefe", "Nedensellik", "Sonuç", "Doğa"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Ambulans",
+    "f": ["Hasta", "Acil", "Siren", "Hastane", "Doktor"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "İtfaiye",
+    "f": ["Yangın", "Hortum", "Su", "Kırmızı", "Söndürmek"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kelepçe",
+    "f": ["Polis", "Hırsız", "Demir", "Kol", "Tutuklamak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Dedektif",
+    "f": ["Polis", "İz", "Büyüteç", "İpucu", "Sherlock"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Tünel",
+    "f": ["Yol", "Dağ", "Geçit", "Tren", "Metro"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Paraşüt",
+    "f": ["Atlamak", "Uçak", "Hava", "Gökyüzü", "Süzülmek"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Heyelan",
+    "f": ["Toprak", "Kaymak", "Doğal Afet", "Yağmur", "Çökme"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Çığ",
+    "f": ["Kar", "Dağ", "Doğal Afet", "Kaymak", "Gürültü"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Kasırga",
+    "f": ["Rüzgar", "Fırtına", "Doğal Afet", "Hortum", "Felaket"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Sel",
+    "f": ["Su", "Yağmur", "Taşkın", "Doğal Afet", "Felaket"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Erozyon",
+    "f": ["Toprak", "Ağaçlandırma", "Süpürülmek", "Rüzgar", "Doğa"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Mumya",
+    "f": ["Mısır", "Piramit", "Lahit", "Sargı", "Firavun"],
+    "c": "Tarih",
+    "d": "K"
+  },
+  {
+    "w": "Korsan",
+    "f": ["Gemi", "Deniz", "Define", "Kanca", "Papağan"],
+    "c": "Tarih",
+    "d": "K"
+  },
+  {
+    "w": "Define",
+    "f": ["Hazine", "Sandık", "Altın", "Harita", "Gömmek"],
+    "c": "Tarih",
+    "d": "K"
+  },
+  {
+    "w": "Şövalye",
+    "f": ["Zırh", "Kılıç", "Orta Çağ", "At", "Kale"],
+    "c": "Tarih",
+    "d": "K"
+  },
+  {
+    "w": "Saray",
+    "f": ["Padişah", "Kral", "Köşk", "Büyük", "Hanedan"],
+    "c": "Tarih",
+    "d": "K"
+  },
+  {
+    "w": "Kanyon",
+    "f": ["Dağ", "Vadi", "Geçit", "Doğa", "Nehir"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Şelale",
+    "f": ["Su", "Çağlayan", "Akmak", "Yüksek", "Dere"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Mağara",
+    "f": ["Taş", "Kovuk", "Karanlık", "Dağ", "Yeraltı"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Vadi",
+    "f": ["Dağ", "Dere", "İki Dağ Arası", "Coğrafya", "Yeşil"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Ada",
+    "f": ["Kara", "Deniz", "Dört Taraf", "Su", "Tatil"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Yarımada",
+    "f": ["Kara", "Üç Taraf", "Deniz", "Türkiye", "Coğrafya"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Kıta",
+    "f": ["Asya", "Avrupa", "Dünya", "Coğrafya", "Büyük Kara"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Atlas",
+    "f": ["Harita", "Kitap", "Coğrafya", "Dünya", "Dağ"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Dürbün",
+    "f": ["Bakmak", "Uzak", "Yakın", "Mercek", "Göz"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Mercek",
+    "f": ["Gözlük", "Cam", "Büyüteç", "Işık", "Odak"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Deney",
+    "f": ["Laboratuvar", "Bilim", "Kimya", "Test", "Tüp"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Matematik",
+    "f": ["Rakam", "Sayı", "İşlem", "Toplama", "Geometri"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Geometri",
+    "f": ["Üçgen", "Kare", "Şekil", "Açı", "Matematik"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Üçgen",
+    "f": ["Şekil", "Açı", "Kenar", "Piramit", "Geometri"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Kare",
+    "f": ["Şekil", "Kenar", "Dört", "Dikdörtgen", "Eşit"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Daire",
+    "f": ["Şekil", "Yuvarlak", "Çember", "Çap", "Geometri"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Dikdörtgen",
+    "f": ["Şekil", "Kare", "Kenar", "Karşılıklı", "Geometri"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Küp",
+    "f": ["Şekil", "Kare", "Üç Boyutlu", "Zar", "Kutu"],
+    "c": "Bilim",
+    "d": "K"
+  },
+  {
+    "w": "Silindir",
+    "f": ["Şekil", "Boru", "Yuvarlak", "Üç Boyutlu", "Kutu"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Koni",
+    "f": ["Şekil", "Üçgen", "Dondurma Külahı", "Geometri", "Tepe"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Usta",
+    "f": ["Çırak", "Kalfa", "İş", "Meslek", "Sanatkar"],
+    "c": "Meslekler",
+    "d": "K"
+  },
+  {
+    "w": "Çırak",
+    "f": ["Usta", "Kalfa", "Öğrenmek", "İş", "Genç"],
+    "c": "Meslekler",
+    "d": "K"
+  },
+  {
+    "w": "Kalfa",
+    "f": ["Usta", "Çırak", "Aşama", "İş", "Meslek"],
+    "c": "Meslekler",
+    "d": "K"
+  },
+  {
+    "w": "Kurye",
+    "f": ["Paket", "Motor", "Posta", "Teslim", "Getirmek"],
+    "c": "Meslekler",
+    "d": "K"
+  },
+  {
+    "w": "Postacı",
+    "f": ["Mektup", "Dağıtmak", "Zarf", "Adres", "Haber"],
+    "c": "Meslekler",
+    "d": "K"
+  },
+  {
+    "w": "Veteriner",
+    "f": ["Hayvan", "Doktor", "Kedi", "Köpek", "Klinik"],
+    "c": "Meslekler",
+    "d": "K"
+  },
+  {
+    "w": "Çiftçi",
+    "f": ["Tarım", "Traktör", "Toprak", "Ekmek", "Köy"],
+    "c": "Meslekler",
+    "d": "K"
+  },
+  {
+    "w": "Çoban",
+    "f": ["Koyun", "Sürü", "Kaval", "Köpek", "Dağ"],
+    "c": "Meslekler",
+    "d": "K"
+  },
+  {
+    "w": "Manav",
+    "f": ["Meyve", "Sebze", "Tezgah", "Satmak", "Dükkan"],
+    "c": "Meslekler",
+    "d": "K"
+  },
+  {
+    "w": "Kasap",
+    "f": ["Et", "Bıçak", "Kıyma", "Tavuk", "Kesmek"],
+    "c": "Meslekler",
+    "d": "K"
+  },
+  {
+    "w": "Kuaför",
+    "f": ["Saç", "Berber", "Kesmek", "Kadın", "Boya"],
+    "c": "Meslekler",
+    "d": "K"
+  },
+  {
+    "w": "Kuyumcu",
+    "f": ["Altın", "Bilezik", "Gerdanlık", "Pırlanta", "Satmak"],
+    "c": "Meslekler",
+    "d": "K"
+  },
+  {
+    "w": "Makinist",
+    "f": ["Tren", "Sürücü", "Ray", "Metro", "Lokomotif"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Televizyon",
+    "f": ["Ekran", "İzlemek", "Kanal", "Kumanda", "Dizi"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Makas",
+    "f": ["Kesmek", "Kağıt", "Berber", "Kumaş", "Alet"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çilek",
+    "f": ["Meyve", "Kırmızı", "Reçel", "Yaz", "Tatlı"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Göz",
+    "f": ["Görmek", "Bakmak", "Kaş", "Organ", "Gözkapağı"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Su",
+    "f": ["İçecek", "Sıvı", "Şişe", "Bardak", "Musluk"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Halı",
+    "f": ["Kilim", "Yer", "Sermek", "Dokuma", "Oda"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Diş Fırçası",
+    "f": ["Macun", "Ağız", "Temizlemek", "Sabah", "Plastik"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Pantolon",
+    "f": ["Giysi", "Kot", "Kemer", "Paça", "Bacak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Tavşan",
+    "f": ["Havuç", "Hayvan", "Uzun Kulak", "Zıplamak", "Hızlı"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Güvercin",
+    "f": ["Kuş", "Beyaz", "Kanat", "Barış", "Yem"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Patates",
+    "f": ["Kızartma", "Sebze", "Püre", "Toprak", "Yemek"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Soğan",
+    "f": ["Sebze", "Ağlatmak", "Yemek", "Cücük", "Kokmak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Soba",
+    "f": ["Isınmak", "Kış", "Kömür", "Odun", "Ateş"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Şeker",
+    "f": ["Tatlı", "Çay", "Tuz", "Bayram", "Akide"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Tuz",
+    "f": ["Deniz", "Şeker", "Yemek", "Beyaz", "Baharat"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Biber",
+    "f": ["Sebze", "Acı", "Kırmızı", "Yeşil", "Dolma"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Yoğurt",
+    "f": ["Süt", "Beyaz", "Ayran", "Kase", "Mayalamak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Peynir",
+    "f": ["Süt", "Kahvaltı", "Kaşar", "Beyaz", "Fare"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Zeytin",
+    "f": ["Kahvaltı", "Siyah", "Yeşil", "Ağaç", "Yağ"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Yumurta",
+    "f": ["Tavuk", "Kahvaltı", "Beyaz", "Sarısı", "Kabuk"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çorba",
+    "f": ["Sıcak", "Yemek", "Kaşık", "Kase", "Mercimek"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Pilav",
+    "f": ["Pirinç", "Nohut", "Tereyağı", "Yemek", "Tane"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Defter",
+    "f": ["Kitap", "Yazmak", "Kalem", "Kağıt", "Okul"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Silgi",
+    "f": ["Defter", "Kalem", "Yazı", "Tahta", "Temizlemek"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Sınıf",
+    "f": ["Okul", "Öğrenci", "Öğretmen", "Sıra", "Ders"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Öğretmen",
+    "f": ["Okul", "Ders", "Öğrenci", "Sınıf", "Anlatmak"],
+    "c": "Meslekler",
+    "d": "K"
+  },
+  {
+    "w": "Öğrenci",
+    "f": ["Okul", "Ders", "Sınıf", "Karne", "Sınav"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Tahta",
+    "f": ["Yazmak", "Tebeşir", "Sınıf", "Ağaç", "Ahşap"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Sıra",
+    "f": ["Oturmak", "Sınıf", "Okul", "Masa", "Öğrenci"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kutu",
+    "f": ["Karton", "Paket", "İç", "Kapak", "Hediye"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Hediye",
+    "f": ["Paket", "Doğum Günü", "Almak", "Vermek", "Sürpriz"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çadır",
+    "f": ["Kamp", "Doğa", "Kurmak", "Uyku Tulumu", "Orman"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Orman",
+    "f": ["Ağaç", "Yeşil", "Piknik", "Doğa", "Ağaçlık"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Park",
+    "f": ["Çocuk", "Salıncak", "Kaydırak", "Oyun", "Bahçe"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Bahçe",
+    "f": ["Ev", "Çiçek", "Ağaç", "Sulamak", "Toprak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çit",
+    "f": ["Bahçe", "Tahta", "Tel", "Çevirmek", "Sınır"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çatı",
+    "f": ["Ev", "Bina", "Üst", "Kiremit", "Baca"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Duvar",
+    "f": ["Taş", "Tuğla", "Örmek", "Ev", "Oda"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Pencere",
+    "f": ["Cam", "Ev", "Açmak", "Manzara", "Perde"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Balkon",
+    "f": ["Ev", "Dışarı", "Demir", "Masa", "Hava Almak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Mutfak",
+    "f": ["Yemek", "Pişirmek", "Tezgah", "Buzdolabı", "Tabak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Banyo",
+    "f": ["Küvet", "Yıkanmak", "Su", "Sabun", "Şampuan"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Yastık",
+    "f": ["Baş", "Uyumak", "Yatak", "Yumuşak", "Kılıf"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Havlu",
+    "f": ["Kurulanmak", "Banyo", "Su", "Islak", "Yumuşak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Terlik",
+    "f": ["Ev", "Ayak", "Giymek", "Tokat", "Anne"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çorap",
+    "f": ["Ayak", "Ayakkabı", "Giymek", "Çift", "Yün"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Şort",
+    "f": ["Yaz", "Pantolon", "Kısa", "Giymek", "Deniz"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Ceket",
+    "f": ["Giysi", "Kış", "Düğme", "Takım Elbise", "Palto"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Bilezik",
+    "f": ["Altın", "Kol", "Takı", "Bilek", "Yuvarlak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Yüzük",
+    "f": ["Parmak", "Evlilik", "Altın", "Alyans", "Takı"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "At",
+    "f": ["Hayvan", "Binmek", "Koşmak", "Seyis", "Nal"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çatal",
+    "f": ["Kaşık", "Bıçak", "Yemek", "Demir", "Batırmak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Bıçak",
+    "f": ["Keskin", "Kesmek", "Mutfak", "Çatal", "Bileylemek"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Armut",
+    "f": ["Meyve", "Ağaç", "Sap", "Ayı", "Tatlı"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Karpuz",
+    "f": ["Yaz", "Çekirdek", "Kırmızı", "Kabuk", "Meyve"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kavun",
+    "f": ["Sarı", "Yaz", "Çekirdek", "Kokulu", "Meyve"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kiraz",
+    "f": ["Kırmızı", "Sap", "Meyve", "Çekirdek", "Kulak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Şeftali",
+    "f": ["Tüylü", "Meyve", "Çekirdek", "Tatlı", "Yaz"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Atkı",
+    "f": ["Boyun", "Kış", "Soğuk", "Örmek", "Yün"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Bere",
+    "f": ["Baş", "Kış", "Şapka", "Soğuk", "Örmek"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Eldiven",
+    "f": ["El", "Kış", "Parmak", "Soğuk", "Takmak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çizme",
+    "f": ["Ayakkabı", "Yağmur", "Kış", "Deri", "Ayak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kemer",
+    "f": ["Pantolon", "Bel", "Toka", "Sıkmak", "Deri"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Cüzdan",
+    "f": ["Para", "Kart", "Cep", "Kimlik", "Deri"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Anahtarlık",
+    "f": ["Anahtar", "Metal", "Halka", "Kaybetmek", "Cep"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Toka",
+    "f": ["Saç", "Bağlamak", "Kız", "Aksesuar", "Lastik"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Ruj",
+    "f": ["Dudak", "Boya", "Makyaj", "Kırmızı", "Sürmek"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Tencere",
+    "f": ["Yemek", "Pişirmek", "Mutfak", "Kapak", "Çorba"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Tava",
+    "f": ["Kızartmak", "Yağ", "Yumurta", "Sap", "Balık"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Tabak",
+    "f": ["Yemek", "Porselen", "Kase", "Masaya Koymak", "Servis"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Sürahi",
+    "f": ["Su", "Cam", "Bardak", "Dökmek", "Karaf"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çöp Kutusu",
+    "f": ["Atık", "Çöp Kovası", "Çöp Torbası", "Atmak", "Mutfak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Süpürge",
+    "f": ["Temizlik", "Yer", "Elektrik", "Süpürmek", "Toz"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kova",
+    "f": ["Su", "Temizlik", "Plastik", "Sap", "Doldurmak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kürek",
+    "f": ["Toprak", "Kum", "Kazmak", "İnşaat", "Sap"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Boya",
+    "f": ["Duvar", "Renk", "Fırça", "Badana", "Kutu"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Fırça",
+    "f": ["Boya", "Saç", "Temizlik", "Tel", "Sürmek"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Tırnak Makası",
+    "f": ["Tırnak", "Kesmek", "El", "Ayak", "Manikür"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Bez",
+    "f": ["Temizlik", "Toz", "Masayı Silmek", "Bez Parçası", "Islak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Ütü",
+    "f": ["Kırışık", "Elbise", "Buhar", "Sıcak", "Masa"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çamaşır Makinesi",
+    "f": ["Yıkamak", "Deterjan", "Elbise", "Kirli", "Tambur"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Bulaşık Makinesi",
+    "f": ["Tabak", "Bardak", "Yıkamak", "Deterjan", "Mutfak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Buzdolabı",
+    "f": ["Soğuk", "Yemek", "Buzluk", "Mutfak", "Yiyecek"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Fırın",
+    "f": ["Pişirmek", "Börek", "Kek", "Sıcak", "Tepsi"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Ocak",
+    "f": ["Ateş", "Yemek", "Gaz", "Pişirmek", "Tüp"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Musluk",
+    "f": ["Su", "Lavabo", "Açmak", "Kapatmak", "Demir"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Sabunluk",
+    "f": ["Sabun", "Banyo", "Köpük", "Lavabo", "Plastik"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Diş Macunu",
+    "f": ["Diş", "Fırça", "Beyazlatmak", "Tüp", "Ağız"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Şampoo",
+    "f": ["Saç", "Yıkanmak", "Duş", "Köpük", "Şişe"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Lif",
+    "f": ["Banyo", "Sabun", "Köpürmek", "Sürünmek", "Örgü"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Duş",
+    "f": ["Banyo", "Yıkanmak", "Su", "Kabin", "Başlık"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Küvet",
+    "f": ["Banyo", "Su", "Yıkanmak", "Doldurmak", "İçine Yatmak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Pijama",
+    "f": ["Gece", "Uyumak", "Yatak", "Giysi", "Takım"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Battaniye",
+    "f": ["Kış", "Isınmak", "Yatak", "Yorgan", "Yumuşak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çarşaf",
+    "f": ["Yatak", "Yastık", "Sermek", "Beyaz", "Tekstil"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Dolap",
+    "f": ["Elbise", "Raf", "Kiler", "Kapak", "Oda"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çekmece",
+    "f": ["Masa", "Dolap", "Çekmek", "Göz", "Eşya"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Halat",
+    "f": ["İp", "Kalın", "Bağlamak", "Gemi", "Çekmek"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "İplik",
+    "f": ["Dikiş", "İğne", "Makara", "Dikmek", "Yün"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "İğne",
+    "f": ["Dikiş", "İplik", "Terzi", "Delik", "Batmak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Dişçi",
+    "f": ["Diş", "Muayene", "Çekmek", "Dolgu", "Koltuk"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Pilot",
+    "f": ["Uçak", "Hava", "Kokpit", "Uçurmak", "Gökyüzü"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Hostes",
+    "f": ["Uçak", "Yolcu", "Servis", "Kabin", "İkram"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Şoför",
+    "f": ["Araba", "Otobüs", "Sürücü", "Direksiyon", "Yolcu"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Kaptan",
+    "f": ["Gemi", "Deniz", "Dümen", "Liman", "Denizci"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Garson",
+    "f": ["Restoran", "Sipariş", "Yemek", "Menü", "Bahşiş"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Aşçı",
+    "f": ["Yemek", "Pişirmek", "Restoran", "Mutfak", "Önlük"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Resepsiyon",
+    "f": ["Otel", "Giriş", "Lobisi", "Kayıt", "Anahtar"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Kütüphaneci",
+    "f": ["Kitap", "Kütüphane", "Raf", "Ödünç", "Sessiz"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Tezgahtar",
+    "f": ["Dükkan", "Mağaza", "Satıcı", "Müşteri", "Reyon"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Kasiyer",
+    "f": ["Para", "Kasa", "Market", "Fiş", "Ödeme"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Güvenlik Görevlisi",
+    "f": ["Nöbet", "Koruma", "Üniforma", "Kimlik", "Kapı"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Antrenör",
+    "f": ["Spor", "Takım", "Çalıştırmak", "Teknik Direktör", "İdman"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Hakem",
+    "f": ["Düdük", "Maç", "Futbol", "Kart", "Yönetmek"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Gazeteci",
+    "f": ["Haber", "Gazete", "Röportaj", "Yazmak", "Muhabir"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Fotoğrafçı",
+    "f": ["Kamera", "Resim", "Makine", "Çekmek", "Stüdyo"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Kameraman",
+    "f": ["Kamera", "Çekim", "Video", "Televizyon", "Film"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Sunucu",
+    "f": ["Program", "Televizyon", "Mikrofon", "Konuşmak", "Spiker"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Şarkıcı",
+    "f": ["Şarkı", "Müzik", "Ses", "Albüm", "Konser"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Yönetmen",
+    "f": ["Film", "Kamera", "Set", "Sahne", "Reji"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Oyuncu",
+    "f": ["Tiyatro", "Film", "Rol", "Sahne", "Karakter"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Makyajör",
+    "f": ["Yüz", "Makyaj", "Kozmetik", "Fırça", "Sahne"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Terzi",
+    "f": ["Dikiş", "Makas", "Kumaş", "Ölçü", "Takım Elbise"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Ayakkabıcı",
+    "f": ["Ayakkabı", "Kundura", "Taban", "Tamir", "Satmak"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Postane",
+    "f": ["Mektup", "Postacı", "Kargo", "Paket", "PTT"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Karakol",
+    "f": ["Polis", "Nezarethane", "Şikayet", "Amir", "Bina"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Adliye",
+    "f": ["Mahkeme", "Hukuk", "Hakim", "Dava", "Savcı"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Eczane",
+    "f": ["İlaç", "Reçete", "Eczacı", "Medikal", "Nöbetçi"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Belediye",
+    "f": ["Başkan", "Çöp", "Sokak", "Şehir", "Hizmet"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Valilik",
+    "f": ["Vali", "İl", "Şehir", "Devlet", "Temsilci"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Konsolosluk",
+    "f": ["Vize", "Yurtdışı", "Pasaport", "Büyükelçilik", "Yabancı"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Havalimanı",
+    "f": ["Uçak", "Pasaport", "Uçuş", "Bilet", "Terminal"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "İstasyon",
+    "f": ["Tren", "Gar", "Demiryolu", "Yolcu", "Beklemek"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Liman",
+    "f": ["Gemi", "Deniz", "Yük", "Rıhtım", "İskele"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Otogar",
+    "f": ["Otobüs", "Yolcu", "Terminal", "Sefer", "Yazıhane"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Gişe",
+    "f": ["Bilet", "Sinema", "Tiyatro", "Para", "Satış"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Turnike",
+    "f": ["Kart", "Geçiş", "Metro", "Dönmek", "Güvenlik"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Yürüyen Merdiven",
+    "f": ["Basamak", "Çıkmak", "Alışveriş Merkezi", "Asansör", "Elektrikli"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Asansör",
+    "f": ["Kat", "Çıkmak", "Apartman", "Kabin", "Düğme"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Akvaryum",
+    "f": ["Balık", "Cam", "Su", "Evcil", "Deniz"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Hayvanat Bahçesi",
+    "f": ["Kafes", "Hayvan", "Aslan", "Ziyaret", "Park"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Lunapark",
+    "f": ["Dönme Dolap", "Çarpışan Araba", "Eğlence", "Atlıkarınca", "Çocuk"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Sirk",
+    "f": ["Palyaço", "Çadır", "Hayvan", "Akrobat", "Gösteri"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Sinema",
+    "f": ["Film", "Perde", "Mısır", "Salon", "İzlemek"],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Konser",
+    "f": ["Şarkı", "Müzik", "Canlı", "Sahne", "Bilet"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Festival",
+    "f": ["Etkinlik", "Eğlence", "Konser", "Yaz", "Alanı"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Sergi",
+    "f": ["Sanat", "Resim", "Tablo", "Galeri", "Sanatçı"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Panayır",
+    "f": ["Eğlence", "Oyun", "Lunapark", "Çadır", "Kasaba"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Kermes",
+    "f": ["Satış", "Yardım", "El İşi", "Yemek", "Okul"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Pazar",
+    "f": ["Sebze", "Meyve", "Tezgah", "Alışveriş", "Haftalık"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Vicdan",
+    "f": ["İç Ses", "Ahlak", "Doğru", "Suçluluk", "Rahat"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Önyargı",
+    "f": ["Peşin Hüküm", "Karar", "Düşünce", "Tanımadan", "Yanlış"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Empati",
+    "f": ["Kendini Koymak", "Anlamak", "Duygu", "Başkası", "İlişki"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Nostalji",
+    "f": ["Geçmiş", "Eski", "Özlem", "Hatıra", "Günler"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Tesadüf",
+    "f": ["Rastlantı", "Kader", "Baht", "Planlamadan", "Karşılaşmak"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Hayal Kırıklığı",
+    "f": ["Beklenti", "Üzülmek", "Boşa Çıkmak", "Şok", "İnanmak"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Sabır",
+    "f": ["Beklemek", "Tahammül", "Sinirlenmek", "Acele", "Sakin"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Kararsızlık",
+    "f": ["Seçim", "Arada Kalmak", "Şık", "Karar", "Düşünmek"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Samimiyet",
+    "f": ["İçtenlik", "Yapmacık", "Mesafe", "Dostluk", "Güven"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "İroni",
+    "f": ["Alay", "Tersini Söylemek", "Çelişki", "Laf", "Şaka"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Sorumluluk",
+    "f": ["Görev", "Üstlenmek", "Hesap", "Ödev", "Yetişkin"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Kıskançlık",
+    "f": ["Çekememek", "İlişki", "Paylaşamamak", "Hırs", "Başkası"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Gurur",
+    "f": ["Onur", "Kibir", "Kendini Beğenmek", "Taviz", "Kırılmak"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Hoşgörü",
+    "f": ["Tolerans", "Kabul Etmek", "Anlayış", "Kusur", "Esneklik"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Fedakarlık",
+    "f": ["Özveri", "Kendinden Vermek", "Vazgeçmek", "İyilik", "Karşılıksız"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Hayal Gücü",
+    "f": ["Rüyalar", "Zihin", "Yaratıcılık", "Tasarlamak", "Beyin"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Merak",
+    "f": ["Öğrenmek", "Soru Sormak", "İlgi", "Araştırmak", "Gizem"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Pişmanlık",
+    "f": ["Keşke", "Hata", "Üzüntü", "Sonradan", "Geri Dönmek"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Karizma",
+    "f": ["Etkilemek", "Cazibe", "Çekici", "Duruş", "Lider"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Yetenek",
+    "f": ["Kabiliyet", "Beceri", "Doğuştan", "Sanat", "Spor"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Adalet",
+    "f": ["Hukuk", "Eşitlik", "Mahkeme", "Hak", "Terazi"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Güven",
+    "f": ["İnanmak", "Kuşku", "Sır", "Dayanmak", "Söz"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Saygı",
+    "f": ["Hürmet", "Büyük", "Terbiye", "Davranış", "Sevgi"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "İnat",
+    "f": ["Israr", "Direnmek", "Vazgeçmemek", "Keçi", "Karar"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Özlem",
+    "f": ["Hasret", "Görmek", "Uzak", "Kavuşmak", "Hatırlamak"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Şüphe",
+    "f": ["Kuşku", "Güvensizlik", "Acaba", "Zan", "Emin Olmamak"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "İllüzyon",
+    "f": ["Göz Yanılması", "Sihirbaz", "Gerçek", "Aldatmak", "Algı"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Şans",
+    "f": ["Talih", "Kader", "Kura", "Piyango", "Uğur"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Macera",
+    "f": ["Serüven", "Tehlike", "Heyecan", "Yolculuk", "Bilinmeyen"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Disiplin",
+    "f": ["Kural", "Düzen", "Sıkı", "Çalışma", "Ceza"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Dedikodu",
+    "f": ["Arkasından Konuşmak", "Gıybet", "Sır", "Fısıltı", "Kulaktan Kulağa"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "İtibar",
+    "f": ["Saygınlık", "Şöhret", "İsim", "Güven", "Toplum"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Tecrübe",
+    "f": ["Deneyim", "Yıl", "Yaşamak", "Öğrenmek", "İş"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Öfke",
+    "f": ["Kızgınlık", "Sinir", "Bağırmak", "Sakinleşmek", "Duygu"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Özgüven",
+    "f": ["Kendine İnanmak", "Cesaret", "Korkusuz", "Başarı", "Duruş"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Heyecan",
+    "f": ["Telaş", "Kalp Atışı", "Coşku", "Beklemek", "Sevinç"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Sır",
+    "f": ["Gizli", "Paylaşmamak", "Saklamak", "Kulak", "Kimse"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Adet",
+    "f": ["Gelenek", "Görenek", "Bayram", "Kültür", "Eskiden"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Bahane",
+    "f": ["Mazeret", "Uydurmak", "Sebep", "Kaçmak", "Yalan"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Teselli",
+    "f": ["Avutmak", "Acı", "Üzüntü", "Destek", "Ağlamak"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "İnatçı",
+    "f": ["Söz Dinlemeyen", "Israrcı", "Keçi", "Fikir", "Değişmeyen"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Mucize",
+    "f": ["Olağanüstü", "Doğaüstü", "İnanılmaz", "Beklenmedik", "Şans"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Tehdit",
+    "f": ["Şantaj", "Korkutmak", "Tehlike", "Zarar", "Polise Gitmek"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Takıntı",
+    "f": ["Saplantı", "Obsesyon", "Temizlik", "Akıl", "Sürekli"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Utanç",
+    "f": ["Rezil Olmak", "Yüzü Kızarmak", "Hata", "Saklanmak", "Duygu"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Şefkat",
+    "f": ["Sevgi", "Koruma", "Anne", "Yumuşak", "Acımak"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Vefa",
+    "f": ["Sadakat", "Dostluk", "Unutmamak", "İyilik", "İstanbul (semt)"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "İhanet",
+    "f": ["Arkadan Vurmak", "Aldatmak", "Satmak", "Güven", "Dost"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Heves",
+    "f": ["İstek", "Arzu", "Geçici", "Başlamak", "Merak"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "İlham",
+    "f": ["İlham Perisi", "Yaratıcılık", "Fikir", "Gelmek", "Sanatçı"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Tost",
+    "f": ["Ekmek", "Peynir", "Makine", "Kahvaltı", "Sıcak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Sucuk",
+    "f": ["Yumurta", "Baharat", "Et", "Kangal", "Mangal"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Margarin",
+    "f": ["Tereyağı", "Yağ", "Kahvaltı", "Ekmek", "Paket"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Reçel",
+    "f": ["Tatlı", "Çilek", "Kavanoz", "Şerbet", "Kahvaltı"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Bal",
+    "f": ["Arı", "Tatlı", "Petek", "Kahvaltı", "Kovandan"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Pekmez",
+    "f": ["Üzüm", "Tahin", "Tatlı", "Siyah", "Şurup"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Tahin",
+    "f": ["Susam", "Pekmez", "Kavanoz", "Yağ", "Kahvaltı"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kulaklık",
+    "f": ["Müzik", "Dinlemek", "Telefon", "Ses", "Kulak"],
+    "c": "Teknoloji",
+    "d": "K"
+  },
+  {
+    "w": "Şarj Cihazı",
+    "f": ["Telefon", "Pil", "Kablo", "Elektrik", "Batarya"],
+    "c": "Teknoloji",
+    "d": "K"
+  },
+  {
+    "w": "Kumanda",
+    "f": ["Televizyon", "Cihaz", "Kanal", "Pil", "Düğme"],
+    "c": "Teknoloji",
+    "d": "K"
+  },
+  {
+    "w": "Askı",
+    "f": ["Elbise", "Dolap", "Asmak", "Metal", "Ceket"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Priz",
+    "f": ["Fiş", "Elektrik", "Duvar", "Kablo", "Takmak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Fiş",
+    "f": ["Elektrik", "Priz", "Kablo", "Alet", "Sokmak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kablo",
+    "f": ["Elektrik", "Tel", "Bağlantı", "Akım", "Plastik"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Mandal",
+    "f": ["Çamaşır", "İp", "Asmak", "Rüzgar", "Plastik"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Ütü Masası",
+    "f": ["Ütü", "Elbise", "Kırışık", "Ayak", "Katlamak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kilim",
+    "f": ["Halı", "Yer", "Sermek", "Motif", "Dokuma"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Minder",
+    "f": ["Oturmak", "Yumuşak", "Yer", "Koltuk", "Yastık"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Sehpa",
+    "f": ["Masa", "Salon", "Küçük", "Üzerine Koymak", "Mobilya"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çerçeve",
+    "f": ["Resim", "Fotoğraf", "Duvar", "Cam", "Kenar"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Dergi",
+    "f": ["Haftalık", "Aylık", "Sayfa", "Okumak", "Kapak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kartpostal",
+    "f": ["Yazmak", "Tebrik", "Bayram", "Manzara", "Posta"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Zarf",
+    "f": ["Mektup", "Kağıt", "Posta", "İçine Koymak", "Pul"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Pul",
+    "f": ["Mektup", "Posta", "Yapıştırmak", "Koleksiyon", "Zarf"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Bozuk Para",
+    "f": ["Metal", "Demir", "Kuruş", "Cüzdan", "Kumbara"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Madalyon",
+    "f": ["Kolye", "Takı", "Boyun", "Zincir", "Yuvarlak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Küpe",
+    "f": ["Kulak", "Takı", "Altın", "Delik", "Aksesuar"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kolye",
+    "f": ["Boyun", "Zincir", "Takı", "Altın", "Gerdanlık"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Halhal",
+    "f": ["Ayak", "Bilek", "Takı", "Aksesuar", "Zincir"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Duvar Saati",
+    "f": ["Zaman", "Asmak", "Pil", "Salon", "Akrep"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çalar Saat",
+    "f": ["Zaman", "Sabah", "Uyanmak", "Alarm", "Kurmak"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "El Feneri",
+    "f": ["Işık", "Pil", "Karanlık", "Aydınlatmak", "Gece"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kibrit",
+    "f": ["Ateş", "Kutusu", "Çöp", "Yakmak", "Soba"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çakmak",
+    "f": ["Ateş", "Gaz", "Yakmak", "Sigara", "Taş"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Mum",
+    "f": ["Işık", "Erimek", "Fitil", "Karanlık", "Doğum Günü"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Şamdan",
+    "f": ["Mum", "Koymak", "Süs", "Masa", "Metal"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Vazo",
+    "f": ["Çiçek", "Su", "Cam", "Masa", "Süs"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Saksı",
+    "f": ["Çiçek", "Toprak", "Bitki", "Bahçe", "Pencere Önü"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Toprak",
+    "f": ["Çiçek", "Saksı", "Bitki", "Tarım", "Kahverengi"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Gübre",
+    "f": ["Bitki", "Toprak", "Beslemek", "Çiftçi", "Bahçe"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Tohum",
+    "f": ["Bitki", "Toprak", "Ekmek", "Çiçek", "Büyümek"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Fidan",
+    "f": ["Ağaç", "Küçük", "Toprak", "Dikmek", "Orman"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Yaprak",
+    "f": ["Ağaç", "Yeşil", "Sonbahar", "Dökülmek", "Dal"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Dal",
+    "f": ["Ağaç", "Yaprak", "Kuş", "Kırılmak", "Kök"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kök",
+    "f": ["Ağaç", "Toprak", "Altında", "Bitki", "Su"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Gövde",
+    "f": ["Ağaç", "Dal", "Yaprak", "Kalın", "Odun"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Kabuk",
+    "f": ["Ağaç", "Meyve", "Soymak", "Dış", "Portakal"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Çekirdek",
+    "f": ["Meyve", "Karpuz", "Ortası", "Tohum", "Yemek"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Sincap",
+    "f": ["Hayvan", "Fındık", "Meşe Palamudu", "Ağaç", "Kuyruk"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Maymun",
+    "f": ["Muz", "Hayvan", "Ağaç", "İnsan", "Şempanze"],
+    "c": "Genel",
+    "d": "K"
+  },
+  {
+    "w": "Otel",
+    "f": ["Tatil", "Oda", "Rezervasyon", "Kalmak", "Lobi"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Restoran",
+    "f": ["Yemek", "Garson", "Menü", "Masa", "Hesap"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Kafe",
+    "f": ["Kahve", "Çay", "Oturmak", "Sohbet", "Garson"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Pastane",
+    "f": ["Börek", "Pasta", "Kurabiye", "Poğaça", "Tatlı"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Fırın",
+    "f": ["Ekmek", "Pişirmek", "Un", "Somun", "Simit"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Süpermarket",
+    "f": ["Alışveriş", "Sepet", "Kasa", "Raf", "Market"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Şarküteri",
+    "f": ["Peynir", "Zeytin", "Salam", "Sosis", "Satış"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Kırtasiye",
+    "f": ["Kalem", "Defter", "Okul", "Kitap", "Malzeme"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Hırdavatçı",
+    "f": ["Çivi", "Çekiç", "Alet", "Tornavida", "Dükkan"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Optisyen",
+    "f": ["Gözlük", "Göz", "Çerçeve", "Cam", "Reçete"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Güzellik Salonu",
+    "f": ["Makyaj", "Cilt Bakımı", "Lazer", "Kadın", "Manikür"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Berber",
+    "f": ["Saç", "Sakal", "Tıraş", "Erkek", "Makas"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Eczacı",
+    "f": ["İlaç", "Reçete", "Eczane", "Doktor", "Satmak"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Tesisatçı",
+    "f": ["Su", "Boru", "Musluk", "Sızıntı", "Tamir"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Elektrikçi",
+    "f": ["Kablo", "Priz", "Işık", "Akım", "Tamir"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Boyacı",
+    "f": ["Duvar", "Badana", "Fırça", "Renk", "Ev"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Tamirci",
+    "f": ["Araba", "Motor", "Alet", "Bozulmak", "Atölye"],
+    "c": "Meslekler",
+    "d": "O"
+  },
+  {
+    "w": "Kargo",
+    "f": ["Paket", "Kurye", "Şube", "Göndermek", "Adres"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Gümrük",
+    "f": ["Sınır", "Pasaport", "Ülke", "Mal", "Kontrol"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Otoyol",
+    "f": ["Araba", "Hız", "Gişe", "Otoban", "Yol"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Köprü",
+    "f": ["Su", "Karşı", "Geçmek", "Yol", "İstanbul"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Üstgeçit",
+    "f": ["Yol", "Karşı", "Köprü", "Yaya", "Merdiven"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Altgeçit",
+    "f": ["Yol", "Yeraltı", "Karşı", "Yaya", "Araba"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Trafik Lambası",
+    "f": ["Kırmızı", "Yeşil", "Sarı", "Kavşak", "Durmak"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Kavşak",
+    "f": ["Yol", "Trafik", "Dönemeç", "Göbek", "Araba"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Yaya Geçidi",
+    "f": ["Çizgi", "Yol", "Karşıya Geçmek", "Trafik", "Araba"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Park Yeri",
+    "f": ["Otopark", "Araba", "Çizgi", "Bırakmak", "Ücret"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Plaka",
+    "f": ["Araba", "Numara", "Harf", "Metal", "Trafik"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Ehliyet",
+    "f": ["Sürücü", "Kart", "Sınav", "Araba", "Trafik"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Ruhsat",
+    "f": ["Araba", "Belge", "Trafik", "Kimlik", "Polis"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Muayene",
+    "f": ["Doktor", "Kontrol", "Araba", "İstasyon", "Muayenehane"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Teşhis",
+    "f": ["Doktor", "Hastalık", "Muayene", "Tanı", "Koymak"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Ameliyat",
+    "f": ["Hastane", "Doktor", "Neşter", "Ameliyathane", "Narkoz"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Narkoz",
+    "f": ["Anestezi", "Uyumak", "Ameliyat", "Doktor", "İlaç"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Alçı",
+    "f": ["Kırık", "Kol", "Bacak", "Beyaz", "Sarılı"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Sedye",
+    "f": ["Hasta", "Hastane", "Taşıma", "Tekerlek", "Ambulans"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Serum",
+    "f": ["Hasta", "Damar", "Hastane", "Su", "Askı"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Röntgen",
+    "f": ["Kemik", "Çekmek", "Film", "Hastane", "X Işını"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Tansiyon",
+    "f": ["Kan", "Ölçmek", "Alet", "Yüksek", "Düşük"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Termometre",
+    "f": ["Derece", "Sıcaklık", "Ateş", "Ölçmek", "Hava"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Barometre",
+    "f": ["Basınç", "Hava", "Ölçmek", "Atmosfer", "Coğrafya"],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Rüzgar Gülü",
+    "f": ["Yön", "Rüzgar", "Çatı", "Dönmek", "Oyuncak"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Hava Durumu",
+    "f": ["Tahmin", "Yağmur", "Kar", "Güneş", "Televizyon"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Derece",
+    "f": ["Sıcaklık", "Ölçü", "Termometre", "Santigrat", "Hava"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Rapor",
+    "f": ["Yazı", "İş", "Belge", "Sonuç", "Sunmak"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Toplantı",
+    "f": ["İş", "Ofis", "Konuşmak", "Bir Araya Gelmek", "Gündem"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Ofis",
+    "f": ["İş", "Büro", "Çalışmak", "Masa", "Bilgisayar"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "İş Başvurusu",
+    "f": ["Özgeçmiş", "CV", "Mülakat", "Çalışmak", "Form"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Mülakat",
+    "f": ["İş", "Görüşme", "Soru", "Cevap", "İşe Alım"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Maaş",
+    "f": ["Para", "İş", "Aylık", "Çalışmak", "Hesap"],
+    "c": "Genel",
+    "d": "O"
+  },
+  {
+    "w": "Adrenalin",
+    "f": ["Heyecan", "Korku", "Macera", "Kalp Atışı", "Hormon"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Hayalperest",
+    "f": ["Rüya", "Kurmak", "Düşünmek", "Çocuk", "Gerçek Dışı"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Gerçeküstü",
+    "f": ["Sürreal", "Rüya", "Gerçek", "Sanat", "Hayal"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Kıvrak",
+    "f": ["Zeki", "Dans", "Hızlı", "Hareket", "Akıl"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Mantıksız",
+    "f": ["Saçma", "Yanlış", "Akıl", "Düşünce", "Karar"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Samimiyetsiz",
+    "f": ["Yapmacık", "Sahte", "Gülüş", "Arkadaş", "Mesafe"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Özentilik",
+    "f": ["Taklit", "Benzemek", "Davranış", "Başkası", "Eğilim"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Gönül Almak",
+    "f": ["Özür", "Kırmak", "Affetmek", "Hediye", "Sevgi"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Kırgınlık",
+    "f": ["Küsmek", "Üzülmek", "Dost", "Gücenmek", "Kalp"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Küçümsemek",
+    "f": ["Tepeden Bakmak", "Hakir Görmek", "Önemsiz", "Değersiz", "Davranış"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Abartı",
+    "f": ["Mübalağa", "Çok", "Büyütmek", "Hikaye", "Anlatmak"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Tevazu",
+    "f": ["Alçakgönüllü", "Kibirsiz", "Kendini Övmeyen", "Karakter", "Mütevazı"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Bencillik",
+    "f": ["Egoist", "Kendi", "Paylaşmamak", "Hep Bana", "Karakter"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Umutsuzluk",
+    "f": ["Karamsar", "Kötü", "Gelecek", "Duygu", "Üzüntü"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Bahse Girmek",
+    "f": ["Kupon", "İddaa", "Maç", "Para", "Kazanmak"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Üşengeçlik",
+    "f": ["Tembellik", "Ertelemek", "Canı İstememek", "Yapmak", "İş"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Titizlik",
+    "f": ["Temizlik", "Düzen", "Takıntı", "Hassas", "Özen"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Merhamet",
+    "f": ["Acımak", "Şefkat", "İyilik", "Kalp", "Yardım"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Şımarıklık",
+    "f": ["Çocuk", "Her İstediği Yapılan", "Yüz Bulmak", "Davranış", "Kapris"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Görgüsüzlük",
+    "f": ["Kaba", "Saygısız", "Görgü Kuralları", "Yemek", "Sosyal"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Açgözlülük",
+    "f": ["Doyumsuz", "Çok", "Yemek", "Para", "İstemek"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "İyimser",
+    "f": ["Pozitif", "Pollyanna", "Güzel Bakmak", "Umut", "Gelecek"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Kötümser",
+    "f": ["Pesimist", "Negatif", "Karamsar", "Kötü", "Düşünmek"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Geçimsiz",
+    "f": ["Kavga", "Zor", "İnsan", "Anlaşmak", "Tartışma"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Telaş",
+    "f": ["Acele", "Panik", "Koşturmak", "Heyecan", "Yetişmek"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Vurdumduymaz",
+    "f": ["Umursamaz", "Rahat", "Tepkisiz", "Aldırmayan", "Önemsemeyen"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Pişkinlik",
+    "f": ["Yüzsüzlük", "Utanmamak", "Hata", "Rahat", "Davranış"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Hınç",
+    "f": ["Öfke", "İntikam", "Nefret", "Beslemek", "Duygu"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Kurnazlık",
+    "f": ["Zeki", "Tilki", "Aldatmak", "Çıkar", "Hile"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Kendini Beğenmiş",
+    "f": ["Kibir", "Ego", "Havalı", "Üstün", "Karakter"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Gözü Kara",
+    "f": ["Cesur", "Korkusuz", "Atılgan", "Tehlike", "Korku"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Çapkın",
+    "f": ["Flört", "Sevgili", "Aşk", "Gözü Dışarıda", "İlişki"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Sözünde Durmak",
+    "f": ["Söz", "Güven", "Doğru", "Tutmak", "Yapmak"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Aldatıcı",
+    "f": ["Yanıltıcı", "Sahte", "Yalan", "İllüzyon", "Gerçek Dışı"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Sinsilik",
+    "f": ["Gizli", "Arkadan İş Çeviren", "Kötü", "Plan", "Davranış"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Gösteriş",
+    "f": ["Hava Atmak", "Lüks", "Caka", "Millete Sunmak", "Kıyafet"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Soğukkanlı",
+    "f": ["Sakin", "Heyecansız", "Panik Yapmayan", "Olay", "Karakter"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Duygusal",
+    "f": ["Hassas", "Ağlamak", "Romantik", "His", "İçten"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Mantıklı",
+    "f": ["Akıllı", "Doğru", "Karar", "Düşünce", "Beyin"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Kararlı",
+    "f": ["Emin", "Net", "Sözünden Dönmeyen", "İnat", "Karar"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Hoşnutsuzluk",
+    "f": ["Memnuniyetsiz", "Şikayet", "Beğenmemek", "Keyifsiz", "Durum"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Tedirginlik",
+    "f": ["Huzursuz", "Korku", "Endişe", "Rahatsız", "Acaba"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Endişe",
+    "f": ["Kaygı", "Tasalanmak", "Gelecek", "Kötü", "Düşünmek"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Hata Yapmak",
+    "f": ["Yanlış", "Doğru", "Kusur", "İstemeden", "Düzeltmek"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Teslimiyet",
+    "f": ["Kabul Etmek", "Boyun Eğmek", "Kader", "Bırakmak", "Mücadele"],
+    "c": "Felsefe",
+    "d": "Z"
+  },
+  {
+    "w": "Baskı",
+    "f": ["Zorlama", "Stres", "Üzerine Gitmek", "Güç", "Tahakküm"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Uyumsuz",
+    "f": ["Aykırı", "Geçimsiz", "Farklı", "Ortam", "Uymayan"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Çaresizlik",
+    "f": ["Çözümsüz", "Elinden Bir Şey Gelmemek", "Sıkışmak", "Zor Durum", "Yol"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Bağımlılık",
+    "f": ["Alışkanlık", "Vazgeçememek", "Tutku", "Bırakamamak", "Zararlı"],
+    "c": "Genel",
+    "d": "Z"
+  },
+  {
+    "w": "Sınır Koymak",
+    "f": ["Mesafe", "Engel", "Dur", "Çizgi", "İlişki"],
+    "c": "Felsefe",
+    "d": "Z"
   }
 ]
