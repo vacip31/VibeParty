@@ -15214,5 +15214,269 @@
     ],
     "c": "Tarih",
     "d": "O"
+  },
+  {
+    "w": "Bluetooth",
+    "f": [
+      "Kablosuz",
+      "Bağlantı",
+      "Telefon",
+      "Kulaklık",
+      "Mavi"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Bulut Depolama",
+    "f": [
+      "iCloud",
+      "Drive",
+      "İnternet",
+      "Saklamak",
+      "Dosya"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Sanal Gerçeklik",
+    "f": [
+      "Gözlük",
+      "VR",
+      "Oyun",
+      "Teknoloji",
+      "Ağ"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Dokunmatik",
+    "f": [
+      "Ekran",
+      "Telefon",
+      "Parmak",
+      "Akıllı",
+      "Cam"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Bilgisayar Virüsü",
+    "f": [
+      "Dosya",
+      "Bozulmak",
+      "Antivirüs",
+      "Hack",
+      "Ağ"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Hacker",
+    "f": [
+      "Korsan",
+      "Bilgisayar",
+      "Çalmak",
+      "Şifre",
+      "Güvenlik"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Yedekleme",
+    "f": [
+      "Backup",
+      "Dosya",
+      "Saklamak",
+      "Kopyalamak",
+      "Telefon"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Algoritma",
+    "f": [
+      "Matematik",
+      "Yazılım",
+      "Adım",
+      "Çözüm",
+      "Kod"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Mouse",
+    "f": [
+      "Fare",
+      "Bilgisayar",
+      "Tıklamak",
+      "Ekran",
+      "İmleç"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Wi-Fi",
+    "f": [
+      "İnternet",
+      "Kablosuz",
+      "Şifre",
+      "Bağlantı",
+      "Ağ"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Siber Güvenlik",
+    "f": [
+      "Şifre",
+      "Hacker",
+      "Korumak",
+      "İnternet",
+      "Bilgisayar"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Kripto Para",
+    "f": [
+      "Bitcoin",
+      "Dijital",
+      "Sanal",
+      "Cüzdan",
+      "Borsa"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Yapay Uydu",
+    "f": [
+      "Uzay",
+      "Dünya",
+      "Sinyal",
+      "Haberleşme",
+      "Yörünge"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Format Atmak",
+    "f": [
+      "Silmek",
+      "Bilgisayar",
+      "Yeniden Yüklemek",
+      "Sıfırlamak",
+      "Telefon"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Arama Motoru",
+    "f": [
+      "Google",
+      "İnternet",
+      "Site",
+      "Bulmak",
+      "Yazmak"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Büyük Veri",
+    "f": [
+      "Big Data",
+      "Analiz",
+      "Şirket",
+      "Bilgi",
+      "İnternet"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Yazıcı",
+    "f": [
+      "Printer",
+      "Kağıt",
+      "Bilgisayar",
+      "Baskı",
+      "Çıkarmak"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Tarayıcı",
+    "f": [
+      "Scanner",
+      "Kağıt",
+      "Bilgisayar",
+      "Dijital",
+      "Aktarmak"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Web Sitesi",
+    "f": [
+      "İnternet",
+      "Sayfa",
+      "Adres",
+      "Tıklamak",
+      "Link"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "İndirmek",
+    "f": [
+      "Download",
+      "İnternet",
+      "Dosya",
+      "Yüklemek",
+      "Bilgisayar"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Yüklemek",
+    "f": [
+      "Upload",
+      "İnternet",
+      "Paylaşmak",
+      "Dosya",
+      "Göndermek"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Çevrimdışı",
+    "f": [
+      "Offline",
+      "İnternet",
+      "Bağlantı",
+      "Yok",
+      "Çevrimiçi"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
   }
 ]
