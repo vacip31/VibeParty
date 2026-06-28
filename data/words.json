@@ -14578,5 +14578,341 @@
     ],
     "c": "Sokak Ağzı",
     "d": "Z"
+  },
+  {
+    "w": "Dublör",
+    "f": [
+      "Tehlikeli",
+      "Sahne",
+      "Oyuncu",
+      "Rol",
+      "Film"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Senaryo",
+    "f": [
+      "Yazmak",
+      "Metin",
+      "Film",
+      "Hikaye",
+      "Yazar"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Yeşilçam",
+    "f": [
+      "Eski",
+      "Türk",
+      "Film",
+      "Sinema",
+      "Artist"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Fragman",
+    "f": [
+      "Tanıtım",
+      "Kısa",
+      "Film",
+      "İzlemek",
+      "Sinema"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Kırmızı Halı",
+    "f": [
+      "Tören",
+      "Ödül",
+      "Festival",
+      "Oscar",
+      "Yürümek"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Altyazı",
+    "f": [
+      "Çeviri",
+      "Film",
+      "Yabancı",
+      "Dil",
+      "Okumak"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Klaket",
+    "f": [
+      "Çekim",
+      "Sahne",
+      "Kamera",
+      "Set",
+      "Ses"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Figüran",
+    "f": [
+      "Rol",
+      "Arka Plan",
+      "Kalabalık",
+      "Film",
+      "Oyuncu"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Seslendirme",
+    "f": [
+      "Dublaj",
+      "Konuşmak",
+      "Film",
+      "Çeviri",
+      "Ekran"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Makaslamak",
+    "f": [
+      "Sansür",
+      "Film",
+      "Kesmek",
+      "Sahne",
+      "Kaldırmak"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Belgesel",
+    "f": [
+      "Doğa",
+      "Hayvan",
+      "Gerçek",
+      "TV",
+      "İzlemek"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Dizi",
+    "f": [
+      "Bölüm",
+      "Televizyon",
+      "Her Hafta",
+      "Sezon",
+      "İzlemek"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Korku Filmi",
+    "f": [
+      "Karanlık",
+      "Çığlık",
+      "Canavar",
+      "Ürkmek",
+      "Sinema"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Kamera Arkası",
+    "f": [
+      "Set",
+      "Çekim",
+      "Komik",
+      "Yönetmen",
+      "Oyuncu"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Makyaj",
+    "f": [
+      "Yüz",
+      "Değiştirmek",
+      "Oyuncu",
+      "Set",
+      "Kozmetik"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Bilim Kurgu",
+    "f": [
+      "Gelecek",
+      "Uzay",
+      "Teknoloji",
+      "Robot",
+      "Film"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Animasyon",
+    "f": [
+      "Çizgi Film",
+      "Çocuk",
+      "Bilgisayar",
+      "Karakter",
+      "Pixar"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Dekor",
+    "f": [
+      "Sahne",
+      "Tiyatro",
+      "Film",
+      "Ev",
+      "Arka Plan"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Karakter",
+    "f": [
+      "Rol",
+      "Oyuncu",
+      "İsim",
+      "Film",
+      "Canlandırmak"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Suflör",
+    "f": [
+      "Tiyatro",
+      "Unutmak",
+      "Fısıldamak",
+      "Oyuncu",
+      "Sahne"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Reji",
+    "f": [
+      "Yönetmen",
+      "Masa",
+      "Televizyon",
+      "Canlı Yayın",
+      "Kumanda"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Yabancı Film",
+    "f": [
+      "Çeviri",
+      "Altyazı",
+      "Dublaj",
+      "Dil",
+      "Altyazılı"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Vizyon",
+    "f": [
+      "Sinema",
+      "Gösterim",
+      "Yeni",
+      "Film",
+      "Girmek"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Prömiyer",
+    "f": [
+      "İlk",
+      "Gösterim",
+      "Tören",
+      "Davet",
+      "Film"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Afiş",
+    "f": [
+      "Resim",
+      "Duvar",
+      "Tanıtım",
+      "Reklam",
+      "Film"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Film Seti",
+    "f": [
+      "Çekim",
+      "Kamera",
+      "Oyuncu",
+      "Yönetmen",
+      "Işık"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Yavaş Çekim",
+    "f": [
+      "Slow Motion",
+      "Hız",
+      "Saniye",
+      "Kamera",
+      "Hareket"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Sessiz Sinema",
+    "f": [
+      "Oyun",
+      "Anlatmak",
+      "Hareket",
+      "Konuşmamak",
+      "Jest"
+    ],
+    "c": "Sinema",
+    "d": "O"
   }
 ]
