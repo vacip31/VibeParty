@@ -15706,5 +15706,353 @@
     ],
     "c": "Spor",
     "d": "O"
+  },
+  {
+    "w": "Yerçekimi",
+    "f": [
+      "Newton",
+      "Elma",
+      "Dünya",
+      "Çekim",
+      "Fizik"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Laboratuvar",
+    "f": [
+      "Bilim",
+      "Deney",
+      "Tüp",
+      "Mikroskop",
+      "Araştırmak"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Mikroskop",
+    "f": [
+      "Hücre",
+      "Laboratuvar",
+      "Mercek",
+      "Büyütmek",
+      "Küçük"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Teleskop",
+    "f": [
+      "Uzay",
+      "Yıldız",
+      "Gezegen",
+      "Gözlem",
+      "Astronomi"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Hücre",
+    "f": [
+      "Canlı",
+      "Biyoloji",
+      "Mikroskop",
+      "İnsan",
+      "Organ"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Güneş Tutulması",
+    "f": [
+      "Ay",
+      "Dünya",
+      "Karanlık",
+      "Gökyüzü",
+      "Kapatmak"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Atmosfer",
+    "f": [
+      "Hava",
+      "Dünya",
+      "Gökyüzü",
+      "Gaz",
+      "Katman"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Mıknatıs",
+    "f": [
+      "Demir",
+      "Çekmek",
+      "Kutup",
+      "Metal",
+      "Pusula"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Deprem",
+    "f": [
+      "Fay",
+      "Sarsıntı",
+      "Richter",
+      "Yer",
+      "Doğal Afet"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Volkan",
+    "f": [
+      "Lav",
+      "Magma",
+      "Patlama",
+      "Krater",
+      "Yanardağ"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Bakteri",
+    "f": [
+      "Mikrop",
+      "Hastalık",
+      "Hücre",
+      "Biyoloji",
+      "Temizlik"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Yer Kabuğu",
+    "f": [
+      "Dünya",
+      "Taş",
+      "Kaya",
+      "Deprem",
+      "Katman"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Element",
+    "f": [
+      "Kimya",
+      "Tablo",
+      "Periyodik",
+      "Hidrojen",
+      "Madde"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Isı",
+    "f": [
+      "Sıcaklık",
+      "Ölçmek",
+      "Termometre",
+      "Derece",
+      "Enerji"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Enerji",
+    "f": [
+      "Güç",
+      "Elektrik",
+      "Hareket",
+      "Güneş",
+      "Isı"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Işık",
+    "f": [
+      "Aydınlık",
+      "Güneş",
+      "Lamba",
+      "Karanlık",
+      "Hız"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Gezegen",
+    "f": [
+      "Dünya",
+      "Mars",
+      "Güneş",
+      "Uzay",
+      "Yörünge"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Yörünge",
+    "f": [
+      "Gezegen",
+      "Dünya",
+      "Dönmek",
+      "Uzay",
+      "Çekim"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Göktaşı",
+    "f": [
+      "Meteor",
+      "Uzay",
+      "Dünya",
+      "Düşmek",
+      "Krater"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Arkeoloji",
+    "f": [
+      "Kazı",
+      "Geçmiş",
+      "Tarih",
+      "Eski",
+      "Toprak"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Sera Etkisi",
+    "f": [
+      "Küresel Isınma",
+      "Gaz",
+      "Dünya",
+      "İklim",
+      "Sıcaklık"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Kutup",
+    "f": [
+      "Soğuk",
+      "Kar",
+      "Ayı",
+      "Buzul",
+      "Kuzey Güney"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Tsunami",
+    "f": [
+      "Deprem",
+      "Dalga",
+      "Deniz",
+      "Felaket",
+      "Dev"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Klonlamak",
+    "f": [
+      "Kopya",
+      "Canlı",
+      "Biyoloji",
+      "Koyun Dolly",
+      "Hücre"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Kara Delik",
+    "f": [
+      "Uzay",
+      "Çekim",
+      "Yıldız",
+      "Işık",
+      "Teori"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "DNA",
+    "f": [
+      "Sarmal",
+      "Gen",
+      "İnsan",
+      "Biyoloji",
+      "Test"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Fizik",
+    "f": [
+      "Bilim",
+      "Kuvvet",
+      "Matematik",
+      "Newton",
+      "Kuralları"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Kimya",
+    "f": [
+      "Laboratuvar",
+      "Karışım",
+      "Element",
+      "Tüp",
+      "Madde"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Biyoloji",
+    "f": [
+      "Canlı",
+      "Hayvan",
+      "Bitki",
+      "Hücre",
+      "Bilim"
+    ],
+    "c": "Bilim",
+    "d": "O"
   }
 ]
