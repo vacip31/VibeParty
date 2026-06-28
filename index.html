@@ -308,10 +308,13 @@
             class="flex-1 flex flex-col items-center justify-between w-full max-w-[600px] mx-auto px-container-padding pt-6 pb-safe-area-bottom relative z-10">
             <!-- Header Alanı -->
             <header class="w-full flex items-center justify-between mt-4">
-                <div class="flex flex-col">
+                <div class="flex flex-col text-left">
                     <span id="playing-team-name"
                         class="font-label-caps text-label-caps text-outline uppercase tracking-widest">TAKIM 1</span>
                     <span id="playing-round-text" class="font-body text-sm text-primary mt-1 font-light">1. Tur</span>
+                    <span id="playing-bet-badge" class="hidden mt-1.5 px-2 py-0.5 rounded-full border border-secondary/20 bg-secondary/5 text-secondary text-[9px] tracking-wider uppercase font-medium shadow-[0_0_8px_rgba(255,155,113,0.1)] w-fit items-center gap-1">
+                        🎰 HEDEF: <span id="playing-bet-target">5</span> DOĞRU
+                    </span>
                 </div>
 
                 <!-- Dairesel Sayaç (Tıklandığında Duraklatır) -->
@@ -492,14 +495,25 @@
                     </div>
                 </div>
 
-                <!-- Eğlenceli Durum & İpuçları Paneli -->
-                <div class="glass-panel rounded-2xl p-5 flex items-start gap-4 shadow-lg border border-primary/10">
-                    <span class="material-symbols-outlined text-primary text-3xl animate-bounce">campaign</span>
-                    <div class="flex flex-col gap-1 text-left">
-                        <h4 class="font-label-caps text-[10px] text-primary tracking-wider uppercase font-semibold">Günün Durumu / Tavsiye</h4>
-                        <p id="scoreboard-motivational-text" class="font-body text-xs text-white/70 font-light leading-relaxed">
-                            Yükleniyor...
-                        </p>
+                <!-- Sıradaki Tur İddiası Paneli -->
+                <div class="glass-panel rounded-2xl p-5 flex flex-col gap-4 shadow-lg border border-primary/10 relative overflow-hidden">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-3xl animate-bounce">casino</span>
+                        <div class="flex flex-col gap-0.5 text-left">
+                            <h4 class="font-label-caps text-[10px] text-primary tracking-wider uppercase font-semibold">Sıradaki Tur İddiası 🎰</h4>
+                            <p id="scoreboard-bet-text" class="font-body text-xs text-white/80 font-light leading-relaxed">
+                                Yükleniyor...
+                            </p>
+                        </div>
+                    </div>
+                    <!-- İddia Seçim Butonları -->
+                    <div class="grid grid-cols-2 gap-3 mt-1 relative z-10">
+                        <button id="btn-bet-accept" class="option-pill py-3 rounded-xl font-body text-xs active:scale-95 transition-all flex items-center justify-center gap-1.5 border-primary/20">
+                            <span class="material-symbols-outlined text-sm">check_circle</span> İddiaya Gir (+1 / -1)
+                        </button>
+                        <button id="btn-bet-decline" class="option-pill active py-3 rounded-xl font-body text-xs active:scale-95 transition-all flex items-center justify-center gap-1.5 border-primary/20">
+                            <span class="material-symbols-outlined text-sm">cancel</span> Normal Oyna
+                        </button>
                     </div>
                 </div>
             </div>

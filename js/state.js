@@ -22,6 +22,13 @@ export const state = {
     passLimit: 5, // Sayı veya 'unlimited'
     targetScore: 50,
     
+    // Bahis / İddia Mekanizması
+    isBetActive: false,
+    betTarget: 5,
+    nextTeamBetActive: false,
+    nextTeamBetTarget: 5,
+    lastBetResult: null,
+    
     // Aktif Oyun Takibi
     currentTeamIndex: 0,
     currentRoundNumber: 1,
@@ -77,6 +84,9 @@ export function initGame(allWords, teamNames, categories, difficulty, time, pass
     state.currentTeamIndex = 0;
     state.currentRoundNumber = 1;
     state.playedWordsHistory.clear();
+    state.isBetActive = false;
+    state.nextTeamBetActive = false;
+    state.lastBetResult = null;
     state.currentState = STATES.ROUND_READY;
     
     // Kelime havuzunu filtrele ve hazırla
@@ -116,6 +126,9 @@ export function startRound() {
     state.roundHistory = [];
     state.currentReviewIndex = 0;
     state.roundScoreChange = 0;
+    state.isBetActive = state.nextTeamBetActive;
+    state.betTarget = state.nextTeamBetTarget;
+    state.nextTeamBetActive = false; // Sonraki tur için sıfırla
     state.currentState = STATES.PLAYING;
     
     drawNextCard();
@@ -229,7 +242,20 @@ export function confirmRoundScores() {
         else if (item.result === 'pass') roundPasses++;
     });
     
-    team.score += state.roundScoreChange;
+    // Bahis puanı hesaplama ve uygulama
+    let betBonus = 0;
+    state.lastBetResult = null;
+    if (state.isBetActive) {
+        if (roundCorrects >= state.betTarget) {
+            betBonus = 1;
+            state.lastBetResult = 'win';
+        } else {
+            betBonus = -1;
+            state.lastBetResult = 'lose';
+        }
+    }
+    
+    team.score += state.roundScoreChange + betBonus;
     team.corrects += roundCorrects;
     team.tabus += roundTabus;
     team.passes += roundPasses;

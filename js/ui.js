@@ -475,30 +475,28 @@ export function renderScoreboardUI(container, teams, currentRound) {
         });
     }
     
-    // 4. Motivasyonel Cümleyi Oluştur
-    const motivationalText = document.getElementById('scoreboard-motivational-text');
-    if (motivationalText) {
-        let message = '⚡ Sıradaki tur oyunun kaderini belirleyebilir. Hazır olun!';
-        
-        if (sortedTeams.length >= 2) {
-            const second = sortedTeams[1];
-            const diff = leader.score - second.score;
-            
-            if (leader.score >= targetScore) {
-                message = `🏆 Tebrikler! ${leader.name} hedef skora ulaştı ve oyunu kazanmaya hak kazandı!`;
-            } else if (targetScore - leader.score <= 5) {
-                message = `🏆 Heyecan dorukta! ${leader.name} şampiyonluğa çok yakın! Kazanmak için sadece ${targetScore - leader.score} puan gerekiyor!`;
-            } else if (diff === 0 && leader.score !== 0) {
-                message = `⚖️ Harika bir denge! ${leader.name} ve ${second.name} eşit puanda başa baş gidiyor. Bu tur dengeleri bozacak!`;
-            } else if (leader.score > 0 && diff <= 3) {
-                message = `🔥 Nefes kesen takip! ${second.name}, lider ${leader.name} takımını sadece ${diff} puan geriden takip ediyor!`;
-            } else if (leader.score < 0) {
-                message = `🥶 Takımların skorları ekside seyrediyor! Toparlanıp artı puanlara geçme zamanı!`;
-            } else {
-                message = `⚡ ${leader.name} şu an lider durumda. Diğer takımların sıradaki turda farkı kapatmak için agresif oynaması gerekiyor!`;
-            }
-        }
-        motivationalText.textContent = message;
+    // 4. İddia Seçeneklerini Kur
+    state.nextTeamBetActive = false; // Varsayılan olarak iddiaya girilmemiş başla
+    
+    let betTarget = 5;
+    if (state.timeLimit <= 60) betTarget = 4;
+    else if (state.timeLimit >= 120) betTarget = 6;
+    
+    state.nextTeamBetTarget = betTarget;
+    
+    const nextTeamIndex = state.currentTeamIndex;
+    const nextTeamName = state.teams[nextTeamIndex].name;
+    
+    const betText = document.getElementById('scoreboard-bet-text');
+    if (betText) {
+        betText.innerHTML = `Sıradaki turda <strong>${nextTeamName}</strong> takımı en az <strong>${betTarget} DOĞRU</strong> kelime anlatabilir mi?`;
+    }
+    
+    const btnAccept = document.getElementById('btn-bet-accept');
+    const btnDecline = document.getElementById('btn-bet-decline');
+    if (btnAccept && btnDecline) {
+        btnAccept.classList.remove('active');
+        btnDecline.classList.add('active');
     }
 }
 

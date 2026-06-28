@@ -16150,5 +16150,197 @@
     ],
     "c": "Sinema",
     "d": "O"
+  },
+  {
+    "w": "Firavun",
+    "f": [
+      "Mısır",
+      "Piramit",
+      "Mezar",
+      "Tanrı Kral",
+      "Kadeş"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Sümerler",
+    "f": [
+      "Yazı",
+      "İlk",
+      "Mezopotamya",
+      "Çivi Yazısı",
+      "Ziggurat"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Lidyalılar",
+    "f": [
+      "Para",
+      "İlk",
+      "Takas",
+      "Kral Yolu",
+      "Anadolu"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Kast Sistemi",
+    "f": [
+      "Hindistan",
+      "Sınıf",
+      "Ayrım",
+      "Kölelik",
+      "Toplum"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Truva Atı",
+    "f": [
+      "Savaş",
+      "Tahta",
+      "Hediye",
+      "Çanakkale",
+      "Geçmiş"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Kadeş Antlaşması",
+    "f": [
+      "Mısır",
+      "Hitit",
+      "Savaş",
+      "İlk",
+      "Barış"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Milat",
+    "f": [
+      "Hz. İsa",
+      "Doğum",
+      "Başlangıç",
+      "Takvim",
+      "Yıl"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Kronoloji",
+    "f": [
+      "Zaman",
+      "Sıra",
+      "Tarih",
+      "Olay",
+      "Sıralama"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Dinozor",
+    "f": [
+      "Soyu Tükenmiş",
+      "Fosil",
+      "Sürüngen",
+      "Evrim",
+      "Kemik"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Kolezyum",
+    "f": [
+      "Roma",
+      "Gladyatör",
+      "Arena",
+      "Antik",
+      "İtalya"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Çin Seddi",
+    "f": [
+      "Duvar",
+      "Savunma",
+      "Uzay",
+      "Mimari",
+      "Geçmiş"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Piramitler",
+    "f": [
+      "Mısır",
+      "Firavun",
+      "Mezar",
+      "Antik",
+      "Kleopatra"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Lozan Antlaşması",
+    "f": [
+      "İsviçre",
+      "Türkiye",
+      "Cumhuriyet",
+      "Sınır",
+      "Barış"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Sultan Mehmet",
+    "f": [
+      "İstanbul",
+      "Fetih",
+      "Bizans",
+      "1453",
+      "Padişah"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Gök Türkler",
+    "f": [
+      "Orhun",
+      "Kitabe",
+      "Yazı",
+      "Tarih",
+      "Geçmiş"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Sikke",
+    "f": [
+      "Para",
+      "Antik",
+      "Lidyalılar",
+      "Kazı",
+      "Metal"
+    ],
+    "c": "Tarih",
+    "d": "O"
   }
 ]
