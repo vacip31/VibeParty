@@ -7188,18 +7188,6 @@
     "d": "Z"
   },
   {
-    "w": "Gözden Düşmek",
-    "f": [
-      "Değersizleşmek",
-      "Eskimek",
-      "Yeni",
-      "İkinci Plan",
-      "Açıklamak"
-    ],
-    "c": "Genel",
-    "d": "Z"
-  },
-  {
     "w": "Kaybolmak",
     "f": [
       "Bulunamamak",
@@ -8556,18 +8544,6 @@
     "d": "O"
   },
   {
-    "w": "Sosyal Medya",
-    "f": [
-      "Instagram",
-      "Paylaşım",
-      "İnternet",
-      "Hesap",
-      "Şirket"
-    ],
-    "c": "Meslekler",
-    "d": "O"
-  },
-  {
     "w": "Yazılımcı",
     "f": [
       "Kod",
@@ -8922,18 +8898,6 @@
       "Yanlış",
       "Söylemek",
       "İstemeden",
-      "Açıklamak"
-    ],
-    "c": "Genel",
-    "d": "Z"
-  },
-  {
-    "w": "Çok Sevinmek",
-    "f": [
-      "Mutlu",
-      "Gülmek",
-      "Gülümsemek",
-      "Haber",
       "Açıklamak"
     ],
     "c": "Genel",
@@ -10248,18 +10212,6 @@
     "d": "O"
   },
   {
-    "w": "Plates Topu",
-    "f": [
-      "Büyük",
-      "Yuvarlak",
-      "Spor",
-      "Pilates",
-      "Egzersiz"
-    ],
-    "c": "Genel",
-    "d": "O"
-  },
-  {
     "w": "Kondisyon Bisikleti",
     "f": [
       "Pedal",
@@ -10716,18 +10668,6 @@
     "d": "Z"
   },
   {
-    "w": "Dedikodu",
-    "f": [
-      "Konuşmak",
-      "Engel Olamamak",
-      "İnsan",
-      "Laf",
-      "Açıklamak"
-    ],
-    "c": "Genel",
-    "d": "Z"
-  },
-  {
     "w": "Çok Kolay",
     "f": [
       "Sorunsuz",
@@ -10848,18 +10788,6 @@
     "d": "Z"
   },
   {
-    "w": "Hata Yapmak",
-    "f": [
-      "Zarar",
-      "Bozmak",
-      "Düzeltmek",
-      "Açıklamak",
-      "Tahmin"
-    ],
-    "c": "Genel",
-    "d": "Z"
-  },
-  {
     "w": "Baklayı Çıkarmak",
     "f": [
       "Söylemek",
@@ -10951,18 +10879,6 @@
       "Kabul Etmek",
       "Şefkat",
       "Sahiplenmek"
-    ],
-    "c": "Genel",
-    "d": "Z"
-  },
-  {
-    "w": "Çok Sevinmek",
-    "f": [
-      "Heyecan",
-      "Mutlu",
-      "Haber",
-      "Telaş",
-      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -11208,18 +11124,6 @@
     "d": "Z"
   },
   {
-    "w": "Hayal Kırıklığı",
-    "f": [
-      "Yarım Kalmak",
-      "Üzülmek",
-      "Beklenti",
-      "Engel",
-      "İstek"
-    ],
-    "c": "Genel",
-    "d": "Z"
-  },
-  {
     "w": "Kandırmak",
     "f": [
       "Kurnazlık",
@@ -11444,7 +11348,7 @@
       "Batmamak",
       "Turuncu"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -12816,18 +12720,6 @@
     "d": "Z"
   },
   {
-    "w": "Ferahlamak",
-    "f": [
-      "Huzur",
-      "Mutluluk",
-      "Manzara",
-      "Güzel",
-      "Açıklamak"
-    ],
-    "c": "Genel",
-    "d": "Z"
-  },
-  {
     "w": "Gözü Kaymak",
     "f": [
       "İstemeden Bakmak",
@@ -12835,18 +12727,6 @@
       "Odaklanmak",
       "Görmek",
       "İzlemek"
-    ],
-    "c": "Genel",
-    "d": "Z"
-  },
-  {
-    "w": "Açgözlülük",
-    "f": [
-      "Doyumsuz",
-      "Çok",
-      "Para",
-      "İstemek",
-      "Açıklamak"
     ],
     "c": "Genel",
     "d": "Z"
@@ -12943,18 +12823,6 @@
       "Sabretmek",
       "Haksızlık",
       "Sessiz Kalmak"
-    ],
-    "c": "Genel",
-    "d": "Z"
-  },
-  {
-    "w": "Sözünü Kesmek",
-    "f": [
-      "Konuşmak",
-      "Araya Girmek",
-      "Bölmek",
-      "İzin",
-      "Tatlı"
     ],
     "c": "Genel",
     "d": "Z"
@@ -17486,7 +17354,7 @@
   {
     "w": "Pilates Topu",
     "f": [
-      "Plates",
+      "Denge",
       "Spor",
       "Büyük",
       "Yuvarlak",
