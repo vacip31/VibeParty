@@ -15478,5 +15478,233 @@
     ],
     "c": "Teknoloji",
     "d": "O"
+  },
+  {
+    "w": "Pota",
+    "f": [
+      "Basketbol",
+      "Top",
+      "File",
+      "Smaç",
+      "Saha"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "File",
+    "f": [
+      "Voleybol",
+      "Tenis",
+      "Ağ",
+      "İki Takım",
+      "Saha"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Raket",
+    "f": [
+      "Tenis",
+      "Top",
+      "Vurmak",
+      "Masa Tenisi",
+      "Oyuncu"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Halı Saha",
+    "f": [
+      "Futbol",
+      "Arkadaş",
+      "Maç",
+      "Akşam",
+      "Suni Çim"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Krampon",
+    "f": [
+      "Futbol",
+      "Ayakkabı",
+      "Dişli",
+      "Çim",
+      "Maç"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Maraton",
+    "f": [
+      "Koşu",
+      "Uzun Mesafe",
+      "Kilometre",
+      "Yol",
+      "Atlet"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Doping",
+    "f": [
+      "İlaç",
+      "Sporcu",
+      "Yasak",
+      "Performans",
+      "Test"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Smash",
+    "f": [
+      "Smaç",
+      "Voleybol",
+      "Tenis",
+      "Vurmak",
+      "Top"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Kondisyon",
+    "f": [
+      "Güç",
+      "Dayanıklılık",
+      "Spor",
+      "Koşmak",
+      "Yorulmak"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Tavla",
+    "f": [
+      "Zar",
+      "Pul",
+      "Mars",
+      "Kapı",
+      "Ahşap"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Okey",
+    "f": [
+      "Istaka",
+      "Taş",
+      "Çift",
+      "Dört Kişi",
+      "Oyun"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Bilardo",
+    "f": [
+      "Istaka",
+      "Top",
+      "Masa",
+      "Delik",
+      "Yeşil"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Dart",
+    "f": [
+      "Ok",
+      "Tahta",
+      "Yuvarlak",
+      "Hedef",
+      "Atmak"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Bowling",
+    "f": [
+      "Lobut",
+      "Top",
+      "Yuvarlak",
+      "Devirmek",
+      "Kulvar"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Asist",
+    "f": [
+      "Gol",
+      "Pas",
+      "Basketbol",
+      "Sayı",
+      "Takım"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Röveşata",
+    "f": [
+      "Futbol",
+      "Havada",
+      "Ters",
+      "Vurmak",
+      "Gol"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Kulvar",
+    "f": [
+      "Yüzme",
+      "Atletizm",
+      "Koşu",
+      "Çizgi",
+      "Şerit"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Gece Maçı",
+    "f": [
+      "Arkadaş",
+      "Futbol",
+      "Akşam",
+      "Kadro",
+      "Kola"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Basket Atmak",
+    "f": [
+      "Sayı",
+      "Top",
+      "Pota",
+      "File",
+      "Saha"
+    ],
+    "c": "Spor",
+    "d": "O"
   }
 ]
