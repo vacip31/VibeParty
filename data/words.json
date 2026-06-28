@@ -296,7 +296,7 @@
       "Türkiye",
       "Cami"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -308,7 +308,7 @@
       "Kahvaltı",
       "Demlik"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -320,7 +320,7 @@
       "Telve",
       "Kafein"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -332,7 +332,7 @@
       "Gevrek",
       "Kahvaltı"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -380,7 +380,7 @@
       "Koku",
       "Alkol"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -764,7 +764,7 @@
       "Siyaset",
       "Müzakere"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -1088,7 +1088,7 @@
       "Hastane",
       "Doktor"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -1100,7 +1100,7 @@
       "Kırmızı",
       "Söndürmek"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -1136,7 +1136,7 @@
       "Tren",
       "Metro"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -1688,7 +1688,7 @@
       "Kumaş",
       "Alet"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -1700,7 +1700,7 @@
       "Yaz",
       "Tatlı"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -1724,7 +1724,7 @@
       "Bardak",
       "Musluk"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -1736,7 +1736,7 @@
       "Dokuma",
       "Oda"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -1748,7 +1748,7 @@
       "Sabah",
       "Plastik"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -1760,7 +1760,7 @@
       "Paça",
       "Bacak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -1772,7 +1772,7 @@
       "Zıplamak",
       "Hızlı"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -1784,7 +1784,7 @@
       "Barış",
       "Yem"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -1796,7 +1796,7 @@
       "Toprak",
       "Yemek"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -1808,7 +1808,7 @@
       "Cücük",
       "Kokmak"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -1820,7 +1820,7 @@
       "Odun",
       "Ateş"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -1832,7 +1832,7 @@
       "Bayram",
       "Akide"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -1844,7 +1844,7 @@
       "Beyaz",
       "Baharat"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -1856,7 +1856,7 @@
       "Yeşil",
       "Dolma"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -1868,7 +1868,7 @@
       "Kase",
       "Mayalamak"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -1880,7 +1880,7 @@
       "Beyaz",
       "Fare"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -1892,7 +1892,7 @@
       "Ağaç",
       "Yağ"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -1904,7 +1904,7 @@
       "Sarısı",
       "Kabuk"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -1916,7 +1916,7 @@
       "Kase",
       "Mercimek"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -1928,7 +1928,7 @@
       "Yemek",
       "Tane"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -1940,7 +1940,7 @@
       "Kağıt",
       "Okul"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -1952,7 +1952,7 @@
       "Tahta",
       "Temizlemek"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -1964,7 +1964,7 @@
       "Sıra",
       "Ders"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -1988,7 +1988,7 @@
       "Karne",
       "Sınav"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2000,7 +2000,7 @@
       "Ağaç",
       "Ahşap"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2012,7 +2012,7 @@
       "Masa",
       "Öğrenci"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2060,7 +2060,7 @@
       "Doğa",
       "Ağaçlık"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2072,7 +2072,7 @@
       "Oyun",
       "Bahçe"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2084,7 +2084,7 @@
       "Sulamak",
       "Toprak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2120,7 +2120,7 @@
       "Ev",
       "Oda"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2180,7 +2180,7 @@
       "Yumuşak",
       "Kılıf"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2192,7 +2192,7 @@
       "Islak",
       "Yumuşak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2204,7 +2204,7 @@
       "Tokat",
       "Anne"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2216,7 +2216,7 @@
       "Çift",
       "Yün"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2228,7 +2228,7 @@
       "Giymek",
       "Deniz"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2240,7 +2240,7 @@
       "Takım Elbise",
       "Palto"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2252,7 +2252,7 @@
       "Bilek",
       "Yuvarlak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2264,7 +2264,7 @@
       "Alyans",
       "Takı"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2276,7 +2276,7 @@
       "Seyis",
       "Nal"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2288,7 +2288,7 @@
       "Demir",
       "Batırmak"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -2300,7 +2300,7 @@
       "Çatal",
       "Bileylemek"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -2312,7 +2312,7 @@
       "Ayı",
       "Tatlı"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -2324,7 +2324,7 @@
       "Kabuk",
       "Meyve"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -2336,7 +2336,7 @@
       "Kokulu",
       "Meyve"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -2348,7 +2348,7 @@
       "Çekirdek",
       "Kulak"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -2360,7 +2360,7 @@
       "Tatlı",
       "Yaz"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -2372,7 +2372,7 @@
       "Örmek",
       "Yün"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2384,7 +2384,7 @@
       "Soğuk",
       "Örmek"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2396,7 +2396,7 @@
       "Soğuk",
       "Takmak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2408,7 +2408,7 @@
       "Deri",
       "Ayak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2420,7 +2420,7 @@
       "Sıkmak",
       "Deri"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2432,7 +2432,7 @@
       "Kimlik",
       "Deri"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2444,7 +2444,7 @@
       "Cep",
       "Deste"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2456,7 +2456,7 @@
       "Aksesuar",
       "Lastik"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2468,7 +2468,7 @@
       "Kırmızı",
       "Sürmek"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2480,7 +2480,7 @@
       "Kapak",
       "Çorba"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -2492,7 +2492,7 @@
       "Sap",
       "Balık"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -2504,7 +2504,7 @@
       "Masaya Koymak",
       "Servis"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -2516,7 +2516,7 @@
       "Dökmek",
       "Karaf"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -2528,7 +2528,7 @@
       "Atmak",
       "Mutfak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2540,7 +2540,7 @@
       "Süpürmek",
       "Toz"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2552,7 +2552,7 @@
       "Sap",
       "Doldurmak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2564,7 +2564,7 @@
       "İnşaat",
       "Sap"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2576,7 +2576,7 @@
       "Badana",
       "Kutu"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2588,7 +2588,7 @@
       "Tel",
       "Sürmek"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2600,7 +2600,7 @@
       "Manikür",
       "Kısaltmak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2612,7 +2612,7 @@
       "Kumaş",
       "Islak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2624,7 +2624,7 @@
       "Sıcak",
       "Masa"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2636,7 +2636,7 @@
       "Kirli",
       "Tambur"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2648,7 +2648,7 @@
       "Deterjan",
       "Mutfak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2660,7 +2660,7 @@
       "Mutfak",
       "Yiyecek"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2672,7 +2672,7 @@
       "Sıcak",
       "Tepsi"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2684,7 +2684,7 @@
       "Pişirmek",
       "Tüp"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2696,7 +2696,7 @@
       "Kapatmak",
       "Demir"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2708,7 +2708,7 @@
       "Plastik",
       "Koymak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2720,7 +2720,7 @@
       "Ağız",
       "Temizlik"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2744,7 +2744,7 @@
       "Sürünmek",
       "Örgü"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2756,7 +2756,7 @@
       "Kabin",
       "Başlık"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2768,7 +2768,7 @@
       "Doldurmak",
       "İçine Yatmak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2780,7 +2780,7 @@
       "Giysi",
       "Takım"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2792,7 +2792,7 @@
       "Yorgan",
       "Yumuşak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2804,7 +2804,7 @@
       "Beyaz",
       "Tekstil"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2816,7 +2816,7 @@
       "Kapak",
       "Oda"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2828,7 +2828,7 @@
       "Göz",
       "Eşya"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2840,7 +2840,7 @@
       "Gemi",
       "Çekmek"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2852,7 +2852,7 @@
       "Dikmek",
       "Yün"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2864,7 +2864,7 @@
       "Delik",
       "Batmak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -2960,7 +2960,7 @@
       "Kayıt",
       "Anahtar"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3164,7 +3164,7 @@
       "Paket",
       "PTT"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3176,7 +3176,7 @@
       "Amir",
       "Bina"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3188,7 +3188,7 @@
       "Dava",
       "Savcı"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3200,7 +3200,7 @@
       "Medikal",
       "Nöbetçi"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3212,7 +3212,7 @@
       "Şehir",
       "Hizmet"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3224,7 +3224,7 @@
       "Temsilci",
       "Bina"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3236,7 +3236,7 @@
       "Büyükelçilik",
       "Yabancı"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3248,7 +3248,7 @@
       "Bilet",
       "Terminal"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3260,7 +3260,7 @@
       "Yolcu",
       "Beklemek"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3272,7 +3272,7 @@
       "Rıhtım",
       "İskele"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3284,7 +3284,7 @@
       "Sefer",
       "Yazıhane"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3308,7 +3308,7 @@
       "Dönmek",
       "Güvenlik"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3320,7 +3320,7 @@
       "Asansör",
       "Elektrikli"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3332,7 +3332,7 @@
       "Kabin",
       "Düğme"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3344,7 +3344,7 @@
       "Evcil",
       "Deniz"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3356,7 +3356,7 @@
       "Park",
       "Kutup Ayısı"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3368,7 +3368,7 @@
       "Atlıkarınca",
       "Çocuk"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3380,7 +3380,7 @@
       "Akrobat",
       "Gösteri"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3464,7 +3464,7 @@
       "Alışveriş",
       "Haftalık"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -3908,7 +3908,7 @@
       "Kulak",
       "Kimse"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "Z"
   },
   {
@@ -4076,7 +4076,7 @@
       "Kahvaltı",
       "Sıcak"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -4088,7 +4088,7 @@
       "Kangal",
       "Mangal"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -4100,7 +4100,7 @@
       "Ekmek",
       "Paket"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -4112,7 +4112,7 @@
       "Şerbet",
       "Kahvaltı"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -4124,7 +4124,7 @@
       "Kahvaltı",
       "Kovandan"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -4136,7 +4136,7 @@
       "Siyah",
       "Şurup"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -4148,7 +4148,7 @@
       "Yağ",
       "Kahvaltı"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -4196,7 +4196,7 @@
       "Metal",
       "Ceket"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4208,7 +4208,7 @@
       "Kablo",
       "Takmak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4220,7 +4220,7 @@
       "Alet",
       "Sokmak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4232,7 +4232,7 @@
       "Akım",
       "Plastik"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4244,7 +4244,7 @@
       "Rüzgar",
       "Plastik"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4256,7 +4256,7 @@
       "Ayak",
       "Sıcak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4268,7 +4268,7 @@
       "Motif",
       "Dokuma"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4280,7 +4280,7 @@
       "Koltuk",
       "Yastık"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4292,7 +4292,7 @@
       "Üzerine Koymak",
       "Mobilya"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4304,7 +4304,7 @@
       "Cam",
       "Kenar"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4352,7 +4352,7 @@
       "Koleksiyon",
       "Zarf"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -4388,7 +4388,7 @@
       "Delik",
       "Aksesuar"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4400,7 +4400,7 @@
       "Altın",
       "Gerdanlık"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4412,7 +4412,7 @@
       "Aksesuar",
       "Zincir"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4424,7 +4424,7 @@
       "Salon",
       "Akrep"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4436,7 +4436,7 @@
       "Alarm",
       "Kurmak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4460,7 +4460,7 @@
       "Yakmak",
       "Soba"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4472,7 +4472,7 @@
       "Sigara",
       "Taş"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4484,7 +4484,7 @@
       "Karanlık",
       "Doğum Günü"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4496,7 +4496,7 @@
       "Masa",
       "Metal"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4508,7 +4508,7 @@
       "Masa",
       "Süs"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4520,7 +4520,7 @@
       "Bahçe",
       "Pencere Önü"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4532,7 +4532,7 @@
       "Tarım",
       "Kahverengi"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4544,7 +4544,7 @@
       "Çiftçi",
       "Bahçe"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4556,7 +4556,7 @@
       "Çiçek",
       "Büyümek"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4568,7 +4568,7 @@
       "Dikmek",
       "Orman"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4580,7 +4580,7 @@
       "Dökülmek",
       "Dal"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4592,7 +4592,7 @@
       "Kırılmak",
       "Kök"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4604,7 +4604,7 @@
       "Bitki",
       "Su"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4616,7 +4616,7 @@
       "Kalın",
       "Odun"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4628,7 +4628,7 @@
       "Dış",
       "Portakal"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4640,7 +4640,7 @@
       "Tohum",
       "Yemek"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4652,7 +4652,7 @@
       "Ağaç",
       "Kuyruk"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4664,7 +4664,7 @@
       "İnsan",
       "Şempanze"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -4676,7 +4676,7 @@
       "Kalmak",
       "Lobi"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4688,7 +4688,7 @@
       "Masa",
       "Hesap"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4700,7 +4700,7 @@
       "Sohbet",
       "Garson"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4712,7 +4712,7 @@
       "Şeker",
       "Börek"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4724,7 +4724,7 @@
       "Somun",
       "Simit"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4736,7 +4736,7 @@
       "Raf",
       "Market"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4748,7 +4748,7 @@
       "Sosis",
       "Satış"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4892,7 +4892,7 @@
       "Mal",
       "Kontrol"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4904,7 +4904,7 @@
       "Otoban",
       "Yol"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4916,7 +4916,7 @@
       "Yol",
       "İstanbul"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4928,7 +4928,7 @@
       "Yaya",
       "Merdiven"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4940,7 +4940,7 @@
       "Yaya",
       "Araba"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4952,7 +4952,7 @@
       "Kavşak",
       "Durmak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4964,7 +4964,7 @@
       "Göbek",
       "Araba"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4976,7 +4976,7 @@
       "Trafik",
       "Araba"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -4988,7 +4988,7 @@
       "Bırakmak",
       "Ücret"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -5000,7 +5000,7 @@
       "Metal",
       "Trafik"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -5012,7 +5012,7 @@
       "Araba",
       "Trafik"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -5024,7 +5024,7 @@
       "Kimlik",
       "Polis"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -5048,7 +5048,7 @@
       "Tanı",
       "Koymak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -5060,7 +5060,7 @@
       "Hasta",
       "Doktor"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -5072,7 +5072,7 @@
       "Doktor",
       "İlaç"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -5084,7 +5084,7 @@
       "Beyaz",
       "Sarılı"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -5096,7 +5096,7 @@
       "Tekerlek",
       "Ambulans"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -5108,7 +5108,7 @@
       "Su",
       "Askı"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -5120,7 +5120,7 @@
       "Hastane",
       "X Işını"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -5132,7 +5132,7 @@
       "Yüksek",
       "Düşük"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -5168,7 +5168,7 @@
       "Bahçe",
       "Kağıt"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -5192,7 +5192,7 @@
       "Santigrat",
       "Hava"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -5324,7 +5324,7 @@
       "Düşünce",
       "Karar"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "Z"
   },
   {
@@ -5876,7 +5876,7 @@
       "Çorba",
       "Menemen"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -5888,7 +5888,7 @@
       "Cacık",
       "Yemek"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -5900,7 +5900,7 @@
       "Baklava",
       "Ağaç"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -5912,7 +5912,7 @@
       "Kabuk",
       "Ezme"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -5924,7 +5924,7 @@
       "Ocak",
       "Alt Üst"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -5936,7 +5936,7 @@
       "Banyo",
       "Yumuşak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -5948,7 +5948,7 @@
       "Fırın",
       "Limon"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -5960,7 +5960,7 @@
       "Amasya",
       "Kabuk"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -5972,7 +5972,7 @@
       "Un",
       "Sıcak"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -5984,7 +5984,7 @@
       "Fırın",
       "Üzümlü"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -5996,7 +5996,7 @@
       "Un",
       "Tuzlu"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -6008,7 +6008,7 @@
       "Maraş",
       "Tatlı"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -6020,7 +6020,7 @@
       "Diş",
       "Nane"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -6032,7 +6032,7 @@
       "Kapak",
       "Kabarcık"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -6044,7 +6044,7 @@
       "Çekmek",
       "Plastik"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -6056,7 +6056,7 @@
       "Küçük",
       "Kutu"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -6068,7 +6068,7 @@
       "Masa",
       "Yemek"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -6092,7 +6092,7 @@
       "Eczane",
       "Adana"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6104,7 +6104,7 @@
       "Ten",
       "Eczane"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6116,7 +6116,7 @@
       "Sıcak",
       "Açıklamak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6128,7 +6128,7 @@
       "Giymek",
       "Islak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6140,7 +6140,7 @@
       "Açık",
       "Parmak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6152,7 +6152,7 @@
       "Düğmeli",
       "Soğuk"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6164,7 +6164,7 @@
       "Düğme",
       "Kumaş"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6176,7 +6176,7 @@
       "Soğuk",
       "Yün"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6188,7 +6188,7 @@
       "Şemsiye",
       "Islanmak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6200,7 +6200,7 @@
       "Işık",
       "Marka"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6212,7 +6212,7 @@
       "Kabin",
       "Yolculuk"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6224,7 +6224,7 @@
       "Kıyafet",
       "Tekerlekli"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6236,7 +6236,7 @@
       "Zincir",
       "Kasa"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6248,7 +6248,7 @@
       "Köpek",
       "Kar"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6260,7 +6260,7 @@
       "İnşaat",
       "Duvar"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6272,7 +6272,7 @@
       "İnşaat",
       "Somun"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6284,7 +6284,7 @@
       "Uç",
       "Çevirmek"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6296,7 +6296,7 @@
       "Alet",
       "Sıkıştırmak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6308,7 +6308,7 @@
       "Dişli",
       "Alet"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6320,7 +6320,7 @@
       "Uç",
       "Elektrikli"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6332,7 +6332,7 @@
       "Tesisat",
       "Alet"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -6404,7 +6404,7 @@
       "İnşaat",
       "İnce"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -6752,7 +6752,7 @@
       "Bahçe",
       "Fakülte"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -6764,7 +6764,7 @@
       "Öğrenci",
       "Okul"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -6776,7 +6776,7 @@
       "Hoca",
       "Profesör"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -6788,7 +6788,7 @@
       "Seçim",
       "Dekan"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -6800,7 +6800,7 @@
       "Ders",
       "Unvan"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -6812,7 +6812,7 @@
       "Araştırma",
       "Savunmak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -6824,7 +6824,7 @@
       "Üniversite",
       "Tören"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -6836,7 +6836,7 @@
       "Atmak",
       "Elbise"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -6848,7 +6848,7 @@
       "Avukat",
       "Giymek"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -6980,7 +6980,7 @@
       "Ofis",
       "Kırtasiye"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -7004,7 +7004,7 @@
       "Raf",
       "Arşiv"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -7016,7 +7016,7 @@
       "Saklamak",
       "Tarih"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -7064,7 +7064,7 @@
       "Depo",
       "Eski Eşya"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "O"
   },
   {
@@ -7280,7 +7280,7 @@
       "Boş Oturmak",
       "Dükkan"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "Z"
   },
   {
@@ -7316,7 +7316,7 @@
       "Delirmek",
       "Aniden"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "Z"
   },
   {
@@ -7340,7 +7340,7 @@
       "Kararsız",
       "Değişken"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "Z"
   },
   {
@@ -7484,7 +7484,7 @@
       "Çözülmek",
       "Başlamak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "Z"
   },
   {
@@ -7688,7 +7688,7 @@
       "Plastik",
       "Düz"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -7700,7 +7700,7 @@
       "Isınmak",
       "Pamuk"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -7712,7 +7712,7 @@
       "Örtü",
       "Takım"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -7724,7 +7724,7 @@
       "Dizmek",
       "Mobilya"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -7736,7 +7736,7 @@
       "Aydınlatma",
       "Cam"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -7748,7 +7748,7 @@
       "Işık",
       "Şapka"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -7760,7 +7760,7 @@
       "Ayak",
       "Temizlik"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -7772,7 +7772,7 @@
       "Güneş",
       "Kapatmak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -7784,7 +7784,7 @@
       "Cam",
       "Plastik"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -7808,7 +7808,7 @@
       "C Vitamini",
       "Kabuk"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -7820,7 +7820,7 @@
       "Pekmez",
       "Şarap"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -7832,7 +7832,7 @@
       "Kurutmak",
       "Süt"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -7844,7 +7844,7 @@
       "Çekirdek",
       "Kurutmak"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -7856,7 +7856,7 @@
       "Tuz",
       "Kütür"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -7880,7 +7880,7 @@
       "Kabuk",
       "Bereket"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -7904,7 +7904,7 @@
       "Süt",
       "Toz"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -7928,7 +7928,7 @@
       "Taneli",
       "Konserve"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -7940,7 +7940,7 @@
       "Pilav",
       "Yemek"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -7952,7 +7952,7 @@
       "Çorba",
       "Leblebi"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -7964,7 +7964,7 @@
       "Yemek",
       "Bakliyat"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -7976,7 +7976,7 @@
       "Haşlamak",
       "Süzgeç"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -7988,7 +7988,7 @@
       "Yemek",
       "Sızma"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -8000,7 +8000,7 @@
       "Üzüm",
       "Elma"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -8012,7 +8012,7 @@
       "Beyaz",
       "Yumurta"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -8024,7 +8024,7 @@
       "Sos",
       "Kırmızı"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -8036,7 +8036,7 @@
       "Tuz",
       "Köfte"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -8048,7 +8048,7 @@
       "Limon",
       "Sakız"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -8060,7 +8060,7 @@
       "Dağ",
       "Yeşil"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -8084,7 +8084,7 @@
       "Sert",
       "El"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -8120,7 +8120,7 @@
       "Örtü",
       "Kış"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -8168,7 +8168,7 @@
       "Damat",
       "Düğün"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -8180,7 +8180,7 @@
       "Süs",
       "Kadın"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -9032,7 +9032,7 @@
       "Fikir",
       "Gizlice"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "Z"
   },
   {
@@ -9440,7 +9440,7 @@
       "Kazanmak",
       "Hazır"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "Z"
   },
   {
@@ -9476,7 +9476,7 @@
       "Toprak",
       "Salata"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -9488,7 +9488,7 @@
       "Beyaz",
       "Turşu"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -9500,7 +9500,7 @@
       "Brokoli",
       "Yemek"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -9524,7 +9524,7 @@
       "Demir",
       "Yemek"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -9536,7 +9536,7 @@
       "Yemek",
       "Kış"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -9548,7 +9548,7 @@
       "Salata",
       "Süs"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -9560,7 +9560,7 @@
       "Poğaça",
       "Cacık"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -9584,7 +9584,7 @@
       "Musakka",
       "Karnıyarık"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -9596,7 +9596,7 @@
       "Çekirdek",
       "Tatlı"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -9620,7 +9620,7 @@
       "Vampir",
       "Cacık"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -9632,7 +9632,7 @@
       "Sembol",
       "Güvercin"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -9680,7 +9680,7 @@
       "Göz",
       "Ağaç"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -9692,7 +9692,7 @@
       "Kuruyemiş",
       "Toz"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -9716,7 +9716,7 @@
       "Yemek",
       "Porselen"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -9788,7 +9788,7 @@
       "Ağaç",
       "Diş Temizliği"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -9824,7 +9824,7 @@
       "Giriş",
       "Vestiyer"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -9860,7 +9860,7 @@
       "Elbise",
       "Aynalı"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -9908,7 +9908,7 @@
       "Uç",
       "Kırtasiye"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -9956,7 +9956,7 @@
       "Öğrenci",
       "Sınıf"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -9968,7 +9968,7 @@
       "İletki",
       "Açı"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -10076,7 +10076,7 @@
       "Prospektüs",
       "Reçete"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -10100,7 +10100,7 @@
       "Doktor",
       "Hastane"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -10136,7 +10136,7 @@
       "Hemşire",
       "Reçete"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -10208,7 +10208,7 @@
       "Fırçalama",
       "Kürdan"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -10448,7 +10448,7 @@
       "Vize",
       "Belge"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -10460,7 +10460,7 @@
       "Sınav",
       "Eğitim"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -10664,7 +10664,7 @@
       "Mesafe",
       "Seyahat"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -10712,7 +10712,7 @@
       "Yardım",
       "Ufak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "Z"
   },
   {
@@ -10808,7 +10808,7 @@
       "Kızmak",
       "Ejderha"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "Z"
   },
   {
@@ -11252,7 +11252,7 @@
       "Emeksiz",
       "Açıklamak"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "Z"
   },
   {
@@ -11360,7 +11360,7 @@
       "Yüzmek",
       "Giysi"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -11372,7 +11372,7 @@
       "İki Parça",
       "Mayo"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -11384,7 +11384,7 @@
       "Sürmek",
       "Plaj"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -11408,7 +11408,7 @@
       "Yatmak",
       "Plaj"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -11420,7 +11420,7 @@
       "Çocuk",
       "Yuvarlak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -11468,7 +11468,7 @@
       "Evcil",
       "Hayvan"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -11492,7 +11492,7 @@
       "Porselen",
       "Kulplu"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -11540,7 +11540,7 @@
       "Dökmek",
       "Plastik"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -11552,7 +11552,7 @@
       "Doğramak",
       "Keskin"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -11648,7 +11648,7 @@
       "Isıtmak",
       "Mutfak"
     ],
-    "c": "Genel",
+    "c": "Yemek & İçecek",
     "d": "K"
   },
   {
@@ -11720,7 +11720,7 @@
       "Metal",
       "Kozmetik"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -11732,7 +11732,7 @@
       "Yuvarlak",
       "Yumuşak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -11780,7 +11780,7 @@
       "Pompa",
       "Banyo"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -11804,7 +11804,7 @@
       "Plastik",
       "Kapak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -11816,7 +11816,7 @@
       "Sabun",
       "Kokulu"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -11840,7 +11840,7 @@
       "Asmak",
       "Sıcak"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "K"
   },
   {
@@ -11972,7 +11972,7 @@
       "Polis",
       "Vize"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -11984,7 +11984,7 @@
       "Evrak",
       "Seyahat"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "O"
   },
   {
@@ -12680,7 +12680,7 @@
       "Islanmak",
       "Giyinmek"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "Z"
   },
   {
@@ -12920,7 +12920,7 @@
       "Şaşırmak",
       "Soluk"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "Z"
   },
   {
@@ -12968,7 +12968,7 @@
       "Üstün",
       "İnsan"
     ],
-    "c": "Genel",
+    "c": "Günlük Hayat",
     "d": "Z"
   },
   {
@@ -16341,6 +16341,1758 @@
       "Metal"
     ],
     "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Google",
+    "f": [
+      "Arama Motoru",
+      "Bilgisayar",
+      "İnternet",
+      "Site",
+      "Sayfa"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Bill Gates",
+    "f": [
+      "Zengin",
+      "Microsoft",
+      "Para",
+      "PC",
+      "Windows"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Smaç",
+    "f": [
+      "Voleybol",
+      "Tenis",
+      "Vurmak",
+      "Top",
+      "Sıçramak"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Kaleci",
+    "f": [
+      "Futbol",
+      "Top",
+      "Gol",
+      "Eldiven",
+      "Penaltı"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Jenerik",
+    "f": [
+      "Film",
+      "Başlamak",
+      "İsim",
+      "Yazı",
+      "Müzik"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Jüri",
+    "f": [
+      "Festival",
+      "Ödül",
+      "Seçmek",
+      "Üye",
+      "Karar"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Sürprizbozan",
+    "f": [
+      "Spoiler",
+      "Film",
+      "Sonu",
+      "Söylemek",
+      "Anlatmak"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Kurgu",
+    "f": [
+      "Film",
+      "Kesmek",
+      "Birleştirmek",
+      "Sahne",
+      "Masa"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Gala",
+    "f": [
+      "Film",
+      "İlk",
+      "Gösterim",
+      "Davet",
+      "Sanatçı"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Sinefil",
+    "f": [
+      "Film",
+      "Çok",
+      "İzlemek",
+      "Tutku",
+      "Sinema"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Montaj Masası",
+    "f": [
+      "Film",
+      "Kesmek",
+      "Birleştirmek",
+      "Sahne",
+      "Kurgu"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Dublaj Sanatçısı",
+    "f": [
+      "Ses",
+      "Konuşmak",
+      "Film",
+      "Çeviri",
+      "Stüdyo"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Yerli Film",
+    "f": [
+      "Türk",
+      "Sinema",
+      "Vizyon",
+      "Bizim",
+      "Yapım"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Koltuk Numarası",
+    "f": [
+      "Sinema",
+      "Bilet",
+      "Salon",
+      "Oturmak",
+      "Sıra"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Dublajlı",
+    "f": [
+      "Film",
+      "Ses",
+      "Çeviri",
+      "Dil",
+      "İzlemek"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Çizgi Film",
+    "f": [
+      "Çocuk",
+      "Televizyon",
+      "Animasyon",
+      "Karakter",
+      "İzlemek"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "IMAX",
+    "f": [
+      "Sinema",
+      "Büyük",
+      "Ekran",
+      "Gözlük",
+      "Salon"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Sinema Salonu",
+    "f": [
+      "Film",
+      "Koltuk",
+      "Karanlık",
+      "Bilet",
+      "İzlemek"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Cannes",
+    "f": [
+      "Festival",
+      "Film",
+      "Ödül",
+      "Fransa",
+      "Altın Palmiye"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Oscar Heykelciği",
+    "f": [
+      "Ödül",
+      "Akademi",
+      "Altın",
+      "Tören",
+      "Sinema"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Romantik Komedi",
+    "f": [
+      "Aşk",
+      "Gülmek",
+      "Film",
+      "Sevgili",
+      "Komik"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Dizi Müziği",
+    "f": [
+      "Şarkı",
+      "Başlangıç",
+      "Ses",
+      "İzlemek",
+      "Ekran"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Bölüm Sonu",
+    "f": [
+      "Dizi",
+      "Heyecan",
+      "Merak",
+      "Hafta",
+      "İzlemek"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Koltuk Seçimi",
+    "f": [
+      "Sinema",
+      "Bilet",
+      "Yer",
+      "Oturmak",
+      "Salon"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Kült Film",
+    "f": [
+      "Klasik",
+      "Popüler",
+      "Hayran",
+      "Eski",
+      "Sinema"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Yapımcı",
+    "f": [
+      "Film",
+      "Para",
+      "Şirket",
+      "Finans",
+      "Proje"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Senarist",
+    "f": [
+      "Yazmak",
+      "Metin",
+      "Film",
+      "Hikaye",
+      "Yazar"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Kamera Açısı",
+    "f": [
+      "Çekim",
+      "Yönetmen",
+      "Bakmak",
+      "Sahne",
+      "Lens"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Sinema Makinisti",
+    "f": [
+      "Film",
+      "Salon",
+      "Yansıtmak",
+      "Makine",
+      "Gösterim"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Sessiz Film",
+    "f": [
+      "Eski",
+      "Konuşmak",
+      "Müzik",
+      "Siyah Beyaz",
+      "Hareket"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Bağımsız Sinema",
+    "f": [
+      "Film",
+      "Düşük Bütçe",
+      "Sanat",
+      "Şirket",
+      "Festival"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Seri Film",
+    "f": [
+      "Bölüm",
+      "Devam",
+      "İkinci",
+      "Karakter",
+      "İzlemek"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Set Çalışanı",
+    "f": [
+      "Film",
+      "Işık",
+      "Kamera",
+      "Masa",
+      "Arkası"
+    ],
+    "c": "Sinema",
+    "d": "O"
+  },
+  {
+    "w": "Çivi Yazısı",
+    "f": [
+      "Sümerler",
+      "İlk",
+      "Kil Tablet",
+      "Tarih",
+      "Yazmak"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Kleopatra",
+    "f": [
+      "Mısır",
+      "Kraliçe",
+      "Sezar",
+      "Antik",
+      "Güzellik"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Sezar",
+    "f": [
+      "Roma",
+      "İmparator",
+      "Brütüs",
+      "Senato",
+      "Suikast"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Kurtuluş Savaşı",
+    "f": [
+      "Atatürk",
+      "Milli Mücadele",
+      "Ordu",
+      "İzmir",
+      "Geçmiş"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Cumhuriyet Bayramı",
+    "f": [
+      "29 Ekim",
+      "Atatürk",
+      "Kutlamak",
+      "Tören",
+      "Geçmiş"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Osmanlı İmparatorluğu",
+    "f": [
+      "Padişah",
+      "Saray",
+      "İstanbul",
+      "Sadrazam",
+      "Tarih"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Bizans İmparatorluğu",
+    "f": [
+      "İstanbul",
+      "Fatih",
+      "Surlar",
+      "Doğu Roma",
+      "Konstantinopolis"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "İstanbul'un Fethi",
+    "f": [
+      "Fatih",
+      "Osmanlı",
+      "Bizans",
+      "1453",
+      "Surlar"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Çanakkale Cephesi",
+    "f": [
+      "Savaş",
+      "Seyit Onbaşı",
+      "İngiliz",
+      "Anzak",
+      "Geçilmez"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Seyit Onbaşı",
+    "f": [
+      "Çanakkale",
+      "Mermi",
+      "Top",
+      "Sırtında Taşımak",
+      "Savaş"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Taht",
+    "f": [
+      "Padişah",
+      "Kral",
+      "Saray",
+      "Oturmak",
+      "Hanedan"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Taç",
+    "f": [
+      "Kral",
+      "Kraliçe",
+      "Baş",
+      "Altın",
+      "Saray"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Baharat Yolu",
+    "f": [
+      "Hindistan",
+      "Ticaret",
+      "Osmanlı",
+      "Mısır",
+      "Geçmiş"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Tarih Kitabı",
+    "f": [
+      "Geçmiş",
+      "Okumak",
+      "Sınav",
+      "Ders",
+      "Bilgi"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Arkeolojik Kazı",
+    "f": [
+      "Toprak",
+      "Bulmak",
+      "Antik",
+      "Tarih",
+      "Müze"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Han",
+    "f": [
+      "Kervansaray",
+      "Yol",
+      "Konaklamak",
+      "Osmanlı",
+      "Ticaret"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Helen",
+    "f": [
+      "Truva",
+      "Savaş",
+      "Güzel",
+      "Mitoloji",
+      "Kadın"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Büyük İskender",
+    "f": [
+      "Makedonya",
+      "Sefer",
+      "Asya",
+      "Savaş",
+      "Kral"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Atatürk İlkeleri",
+    "f": [
+      "Laiklik",
+      "Milliyetçilik",
+      "Cumhuriyetçilik",
+      "İnkılap",
+      "Devrim"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Tarih Öğretmeni",
+    "f": [
+      "Okul",
+      "Ders",
+      "Geçmiş",
+      "Sınav",
+      "Anlatmak"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Hititler",
+    "f": [
+      "Anadolu",
+      "Kadeş",
+      "Başkent",
+      "Hattuşaş",
+      "Antik"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Frigler",
+    "f": [
+      "Midas",
+      "Gordion",
+      "Tarım",
+      "Anadolu",
+      "Antik"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Asurlular",
+    "f": [
+      "Anadolu",
+      "Kayseri",
+      "Karum",
+      "Ticaret",
+      "Tablet"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Ziggurat",
+    "f": [
+      "Sümerler",
+      "Tapınak",
+      "Mezopotamya",
+      "Astronomi",
+      "Kat"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Medeniyet",
+    "f": [
+      "Toplum",
+      "Kültür",
+      "Tarih",
+      "İnsan",
+      "Eski"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Antik Kent",
+    "f": [
+      "Efes",
+      "Tarih",
+      "Kazı",
+      "Taş",
+      "Surlar"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Müze Kartı",
+    "f": [
+      "Gezmek",
+      "Tarih",
+      "Giriş",
+      "Para",
+      "Satın Almak"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Göktürk Yazıtları",
+    "f": [
+      "Moğolistan",
+      "İlk",
+      "Türk",
+      "Bilge Kağan",
+      "Geçmiş"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Karum",
+    "f": [
+      "Asurlular",
+      "Ticaret",
+      "Pazar",
+      "Kayseri",
+      "Kültepe"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Microsoft Windows",
+    "f": [
+      "Bilgisayar",
+      "İşletim Sistemi",
+      "Bill Gates",
+      "PC",
+      "Ofis"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "macOS",
+    "f": [
+      "Apple",
+      "Bilgisayar",
+      "İşletim Sistemi",
+      "Macbook",
+      "Ekran"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Takipçi",
+    "f": [
+      "Instagram",
+      "Hesap",
+      "Profil",
+      "Sayı",
+      "Beğeni"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "E-Devlet",
+    "f": [
+      "Giriş",
+      "Şifre",
+      "İnternet",
+      "Kimlik",
+      "Belge"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "QR Kod",
+    "f": [
+      "Kare",
+      "Kamera",
+      "Telefon",
+      "Okutmak",
+      "Bağlantı"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "USB Bellek",
+    "f": [
+      "Dosya",
+      "Bilgisayar",
+      "Taşımak",
+      "Hafıza",
+      "Ağ"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "SSD",
+    "f": [
+      "Bilgisayar",
+      "Disk",
+      "Hızlı",
+      "Depolama",
+      "Hafıza"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Dokunmatik Kalem",
+    "f": [
+      "Tablet",
+      "Çizim",
+      "Ekran",
+      "Yazmak",
+      "Akıllı"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Power Tuşu",
+    "f": [
+      "Telefon",
+      "Bilgisayar",
+      "Açmak",
+      "Kapatmak",
+      "Düğme"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Şarj Yuvası",
+    "f": [
+      "Telefon",
+      "Kablo",
+      "Takmak",
+      "Soket",
+      "Elektrik"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Akıllı Ev",
+    "f": [
+      "Teknoloji",
+      "Işık",
+      "Telefon",
+      "Otomasyon",
+      "Cihaz"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Robot Süpürge",
+    "f": [
+      "Ev",
+      "Temizlik",
+      "Süpürmek",
+      "Otomatik",
+      "Yuvarlak"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Sanal Cüzdan",
+    "f": [
+      "Para",
+      "Kripto",
+      "Telefon",
+      "Ödeme",
+      "Kart"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Instagram Hikayesi",
+    "f": [
+      "Paylaşım",
+      "24 Saat",
+      "Fotoğraf",
+      "Sosyal Medya",
+      "Profil"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Profil Resmi",
+    "f": [
+      "Sosyal Medya",
+      "Fotoğraf",
+      "Hesap",
+      "Yüz",
+      "Instagram"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Engellemek",
+    "f": [
+      "Sosyal Medya",
+      "Mesaj",
+      "Hesap",
+      "Görmemek",
+      "Arkadaş"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Görüldü Atmak",
+    "f": [
+      "Mesaj",
+      "Okumak",
+      "Cevap Vermemek",
+      "WhatsApp",
+      "Telefon"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Çevrimiçi",
+    "f": [
+      "İnternet",
+      "Aktif",
+      "Yeşil",
+      "Mesaj",
+      "Bağlı"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Spam",
+    "f": [
+      "Gereksiz",
+      "Mesaj",
+      "Mail",
+      "Kutu",
+      "Engellemek"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Takip İsteği",
+    "f": [
+      "Instagram",
+      "Kabul Etmek",
+      "Profil",
+      "Hesap",
+      "Gizli"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "İnternet Tarayıcısı",
+    "f": [
+      "Chrome",
+      "Site",
+      "Sayfa",
+      "Arama",
+      "Ağ"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Bildirim",
+    "f": [
+      "Telefon",
+      "Ekran",
+      "Ses",
+      "Mesaj",
+      "Gelmek"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Şarj Yüzdesi",
+    "f": [
+      "Telefon",
+      "Pil",
+      "Ekran",
+      "Üst",
+      "Azalmak"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Ekran Koruyucu",
+    "f": [
+      "Telefon",
+      "Cam",
+      "Kırılmak",
+      "Yapıştırmak",
+      "Darbe"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Telefon Kılıfı",
+    "f": [
+      "Korumak",
+      "Plastik",
+      "Arkası",
+      "Renkli",
+      "Ağ"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Akıllı Televizyon",
+    "f": [
+      "İnternet",
+      "YouTube",
+      "Ekran",
+      "Kumanda",
+      "İzlemek"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Kablosuz Kulaklık",
+    "f": [
+      "Müzik",
+      "Bluetooth",
+      "Telefon",
+      "Kutu",
+      "Ağ"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Veri Kotası",
+    "f": [
+      "İnternet",
+      "Telefon",
+      "Paket",
+      "GB",
+      "Bitmek"
+    ],
+    "c": "Teknoloji",
+    "d": "O"
+  },
+  {
+    "w": "Kaleci Eldiveni",
+    "f": [
+      "Futbol",
+      "El",
+      "Top",
+      "Tutmak",
+      "Saha"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Saha Ayakkabısı",
+    "f": [
+      "Futbol",
+      "Çim",
+      "Krampon",
+      "Maç",
+      "Giymek"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Basketbol Potası",
+    "f": [
+      "Top",
+      "File",
+      "Atmak",
+      "Saha",
+      "Takım"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Tenis Raketi",
+    "f": [
+      "Top",
+      "Vurmak",
+      "File",
+      "Kort",
+      "Spor"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Masa Tenisi",
+    "f": [
+      "Raket",
+      "Top",
+      "Küçük",
+      "File",
+      "Saha"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Pilates Topu",
+    "f": [
+      "Plates",
+      "Spor",
+      "Büyük",
+      "Yuvarlak",
+      "Egzersiz"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Ağırlık Kaldırmak",
+    "f": [
+      "Halter",
+      "Spor",
+      "Güç",
+      "Kas",
+      "Saha"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Koşu Ayakkabısı",
+    "f": [
+      "Spor",
+      "Koşmak",
+      "Rahat",
+      "Taban",
+      "Adım"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Sporcu Forması",
+    "f": [
+      "Maç",
+      "Takım",
+      "Futbol",
+      "Numara",
+      "Giymek"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Stadyum Tribünü",
+    "f": [
+      "Maç",
+      "Seyirci",
+      "Taraftar",
+      "Koltuk",
+      "İzlemek"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Isınma Hareketleri",
+    "f": [
+      "Spor",
+      "Başlamak",
+      "Kas",
+      "Egzersiz",
+      "İdman"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Smaç Vurmak",
+    "f": [
+      "Basketbol",
+      "Voleybol",
+      "Top",
+      "Pota",
+      "File"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Maç Biletleri",
+    "f": [
+      "Stadyum",
+      "Giriş",
+      "Taraftar",
+      "Para",
+      "Saha"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Kupa Töreni",
+    "f": [
+      "Şampiyon",
+      "Birinci",
+      "Kazanmak",
+      "Kaldırmak",
+      "Altın"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Sporcu Eşofmanı",
+    "f": [
+      "Giyim",
+      "Takım",
+      "Koşu",
+      "Antrenman",
+      "Saha"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Beden Eğitimi",
+    "f": [
+      "Okul",
+      "Spor",
+      "Öğretmen",
+      "Eşofman",
+      "Koşmak"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Hakem Düdüğü",
+    "f": [
+      "Maç",
+      "Futbol",
+      "Çalmak",
+      "Ses",
+      "Durdurmak"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Antrenman Sahası",
+    "f": [
+      "Spor",
+      "Takım",
+      "Çalışmak",
+      "İdman",
+      "Çim"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Uzun Atlama",
+    "f": [
+      "Atletizm",
+      "Kum",
+      "Havuz",
+      "Derece",
+      "Saha"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Yüksek Atlama",
+    "f": [
+      "Atletizm",
+      "Çıta",
+      "Minder",
+      "Spor",
+      "Saha"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Gülle Atma",
+    "f": [
+      "Atletizm",
+      "Ağır",
+      "Yuvarlak",
+      "Demir",
+      "Fırlatmak"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Engel Koşusu",
+    "f": [
+      "Atletizm",
+      "Koşmak",
+      "Üstünden Atlamak",
+      "Pist",
+      "Saha"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Kulvar Çizgisi",
+    "f": [
+      "Koşu",
+      "Yüzme",
+      "Şerit",
+      "Yarış",
+      "Sporcu"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Sporcu Sütyeni",
+    "f": [
+      "Kadın",
+      "Koşu",
+      "Rahat",
+      "Giysi",
+      "Fitness"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Kart Görmek",
+    "f": [
+      "Hakem",
+      "Futbol",
+      "Oyundan Atmak",
+      "Ceza",
+      "Maç"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Kart Sınırı",
+    "f": [
+      "Futbol",
+      "Oyuncu",
+      "Ceza",
+      "Maç",
+      "Hakem"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Penaltı Atışı",
+    "f": [
+      "Futbol",
+      "Kale",
+      "Kaleci",
+      "Vurmak",
+      "Hakem"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Altın Madalya",
+    "f": [
+      "Ödül",
+      "Birinci",
+      "Olimpiyat",
+      "Boyun",
+      "Sporcu"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Maç Kadrosu",
+    "f": [
+      "Takım",
+      "Futbol",
+      "Oyuncu",
+      "İsim",
+      "Yazmak"
+    ],
+    "c": "Spor",
+    "d": "O"
+  },
+  {
+    "w": "Küresel Isınma",
+    "f": [
+      "Dünya",
+      "Sıcaklık",
+      "Karbon",
+      "İklim",
+      "Kar"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Koyun Dolly",
+    "f": [
+      "Klonlamak",
+      "Kopya",
+      "Biyoloji",
+      "İlk",
+      "Canlı"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "DNA Sarmalı",
+    "f": [
+      "Gen",
+      "İnsan",
+      "Biyoloji",
+      "Yapı",
+      "Hücre"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Periyodik Tablo",
+    "f": [
+      "Kimya",
+      "Element",
+      "Hidrojen",
+      "Sınıflandırma",
+      "Bilim"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Mıknatısın Kutupları",
+    "f": [
+      "Demir",
+      "Kuzey Güney",
+      "Çekmek",
+      "Artı Eksi",
+      "Metal"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Doğal Afet",
+    "f": [
+      "Deprem",
+      "Sel",
+      "Tsunami",
+      "Heyelan",
+      "Madde"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Richter Ölçeği",
+    "f": [
+      "Deprem",
+      "Sarsıntı",
+      "Büyüklük",
+      "Ölçmek",
+      "Sayı"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Yanardağ Patlaması",
+    "f": [
+      "Lav",
+      "Magma",
+      "Dağ",
+      "Krater",
+      "Sıcak"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Bakteri Plağı",
+    "f": [
+      "Diş",
+      "Temizlik",
+      "Mikrop",
+      "Fırça",
+      "Ağız"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Sera Gazı",
+    "f": [
+      "Atmosfer",
+      "Küresel Isınma",
+      "Karbon",
+      "Sanayi",
+      "Dünya"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Kuzey Kutbu",
+    "f": [
+      "Soğuk",
+      "Buzul",
+      "Ayı",
+      "Dünya",
+      "En Üst"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Güney Kutbu",
+    "f": [
+      "Soğuk",
+      "Buzul",
+      "Penguen",
+      "Dünya",
+      "En Alt"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Klonlama Teknolojisi",
+    "f": [
+      "Biyoloji",
+      "Kopya",
+      "Canlı",
+      "DNA",
+      "Gen"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Samanyolu Galaksisi",
+    "f": [
+      "Uzay",
+      "Yıldız",
+      "Dünya",
+      "Güneş Sistemi",
+      "Gökyüzü"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Yerçekimi Yasası",
+    "f": [
+      "Newton",
+      "Fizik",
+      "Kuvvet",
+      "Elma",
+      "Çekim"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Laboratuvar Tüpü",
+    "f": [
+      "Deney",
+      "Kimya",
+      "Cam",
+      "Karışım",
+      "Sıvı"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Newton Elması",
+    "f": [
+      "Yerçekimi",
+      "Fizik",
+      "Ağaç",
+      "Düşmek",
+      "Kafaya"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Biyoloji Dersi",
+    "f": [
+      "Okul",
+      "Canlı",
+      "Hücre",
+      "Sınav",
+      "Bitki"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Kimya Laboratuvarı",
+    "f": [
+      "Deney",
+      "Tüp",
+      "Karışım",
+      "Element",
+      "Okul"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Tsunami Dalgası",
+    "f": [
+      "Deprem",
+      "Okyanus",
+      "Deniz",
+      "Felaket",
+      "Dev"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Meteor Yağmuru",
+    "f": [
+      "Uzay",
+      "Gökyüzü",
+      "Yıldız Kayması",
+      "Işık",
+      "Gece"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Fosil Yakıt",
+    "f": [
+      "Kömür",
+      "Petrol",
+      "Gaz",
+      "Enerji",
+      "Çevre"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Klorofil",
+    "f": [
+      "Bitki",
+      "Yeşil",
+      "Fotosentez",
+      "Yaprak",
+      "Işık"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Oksijen Kaynağı",
+    "f": [
+      "Nefes",
+      "Hava",
+      "Ağaç",
+      "Orman",
+      "Canlı"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Hubble Teleskobu",
+    "f": [
+      "Uzay",
+      "Yıldız",
+      "Gözlem",
+      "Fotoğraf",
+      "Kamera"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Yer Sarsıntısı",
+    "f": [
+      "Deprem",
+      "Fay",
+      "Ev",
+      "Sallanmak",
+      "Madde"
+    ],
+    "c": "Bilim",
+    "d": "O"
+  },
+  {
+    "w": "Yapay Kalp",
+    "f": [
+      "Organ",
+      "Tıp",
+      "Ameliyat",
+      "Hasta",
+      "Kan"
+    ],
+    "c": "Bilim",
     "d": "O"
   }
 ]

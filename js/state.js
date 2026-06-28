@@ -91,6 +91,7 @@ export function initGame(allWords, teamNames, categories, difficulty, time, pass
     
     // Kelime havuzunu filtrele ve hazırla
     prepareWordPool();
+    saveGameStateToStorage();
 }
 
 /**
@@ -132,6 +133,7 @@ export function startRound() {
     state.currentState = STATES.PLAYING;
     
     drawNextCard();
+    saveGameStateToStorage();
 }
 
 /**
@@ -229,6 +231,8 @@ export function updateRoundHistoryDecision(index, newDecision) {
  * Oyunun bitip bitmediğini kontrol eder.
  */
 export function confirmRoundScores() {
+    if (state.currentState !== STATES.ROUND_OVER) return;
+    
     const team = state.teams[state.currentTeamIndex];
     
     // Bu turdaki istatistikleri ve nihai skoru ekle
@@ -276,6 +280,7 @@ export function confirmRoundScores() {
     } else {
         state.currentState = STATES.SCOREBOARD;
     }
+    saveGameStateToStorage();
 }
 
 /**
@@ -303,4 +308,66 @@ export function resetGame() {
     state.teams = [];
     state.roundHistory = [];
     state.playedWordsHistory.clear();
+    clearGameStateFromStorage();
+}
+
+const LOCAL_STORAGE_KEY = 'vibesave_gamestate';
+
+export function saveGameStateToStorage() {
+    try {
+        const serializedState = {
+            currentState: state.currentState,
+            teams: state.teams,
+            selectedCategories: state.selectedCategories,
+            selectedDifficulty: state.selectedDifficulty,
+            timeLimit: state.timeLimit,
+            passLimit: state.passLimit,
+            targetScore: state.targetScore,
+            currentTeamIndex: state.currentTeamIndex,
+            currentRoundNumber: state.currentRoundNumber,
+            playedWordsHistory: Array.from(state.playedWordsHistory)
+        };
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(serializedState));
+    } catch (e) {
+        console.error("Save error:", e);
+    }
+}
+
+export function loadGameStateFromStorage(allWords) {
+    try {
+        const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+        if (!saved) return false;
+        
+        const data = JSON.parse(saved);
+        state.allWords = allWords;
+        state.currentState = data.currentState;
+        state.teams = data.teams;
+        state.selectedCategories = data.selectedCategories;
+        state.selectedDifficulty = data.selectedDifficulty;
+        state.timeLimit = data.timeLimit;
+        state.passLimit = data.passLimit;
+        state.targetScore = data.targetScore;
+        state.currentTeamIndex = data.currentTeamIndex;
+        state.currentRoundNumber = data.currentRoundNumber;
+        state.playedWordsHistory = new Set(data.playedWordsHistory);
+        
+        // Güvenlik kontrolü: Oyun oynanırken yarıda kaldıysa, o takımın hazırlık ekranına dön
+        if (state.currentState === STATES.PLAYING || state.currentState === STATES.ROUND_OVER) {
+            state.currentState = STATES.ROUND_READY;
+        }
+        
+        prepareWordPool();
+        return true;
+    } catch (e) {
+        console.error("Load error:", e);
+        return false;
+    }
+}
+
+export function clearGameStateFromStorage() {
+    try {
+        localStorage.removeItem(LOCAL_STORAGE_KEY);
+    } catch (e) {
+        console.error("Clear error:", e);
+    }
 }

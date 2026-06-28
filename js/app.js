@@ -8,7 +8,8 @@ import {
     recordDecision, 
     updateRoundHistoryDecision, 
     confirmRoundScores, 
-    resetGame 
+    resetGame,
+    loadGameStateFromStorage
 } from './state.js';
 
 import { 
@@ -94,12 +95,25 @@ function initSetupScreen() {
     const uniqueCategories = [...new Set(allWords.map(w => w.c))];
     const categoriesContainer = document.getElementById('categories-container');
     if (categoriesContainer) {
-        // Başlangıçta hepsi seçili gelsin
-        renderCategories(categoriesContainer, uniqueCategories, uniqueCategories);
-        state.selectedCategories = [...uniqueCategories];
+        // Başlangıçta hiçbirisi seçili gelmesin
+        renderCategories(categoriesContainer, uniqueCategories, []);
+        state.selectedCategories = [];
     }
+    updateStartButtonState();
     
     showView(views.splash);
+    
+    // Kayıtlı oyun varsa Devam Et butonunu göster
+    const btnResume = document.getElementById('btn-splash-resume');
+    if (btnResume) {
+        if (localStorage.getItem('vibesave_gamestate')) {
+            btnResume.classList.remove('hidden');
+            btnResume.classList.add('flex');
+        } else {
+            btnResume.classList.remove('flex');
+            btnResume.classList.add('hidden');
+        }
+    }
 }
 
 /**
@@ -123,6 +137,28 @@ function setupEventListeners() {
     }, { passive: true });
     
     // --- BAŞLANGIÇ EKRANI (SPLASH) OLAYLARI ---
+    const btnSplashResume = document.getElementById('btn-splash-resume');
+    if (btnSplashResume) {
+        btnSplashResume.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            initAudio();
+            
+            const loaded = loadGameStateFromStorage(allWords);
+            if (loaded) {
+                // Kayıtlı duruma göre doğru ekrana geç
+                if (state.currentState === STATES.ROUND_READY) {
+                    setupRoundReadyView();
+                } else if (state.currentState === STATES.SCOREBOARD) {
+                    setupScoreboardView();
+                } else if (state.currentState === STATES.GAME_OVER) {
+                    setupGameOverView();
+                } else {
+                    setupRoundReadyView();
+                }
+            }
+        });
+    }
+
     const btnSplashStart = document.getElementById('btn-splash-start');
     if (btnSplashStart) {
         btnSplashStart.addEventListener(clickEvent, (e) => {
@@ -227,15 +263,13 @@ function setupEventListeners() {
                 const cat = pill.dataset.category;
                 
                 if (state.selectedCategories.includes(cat)) {
-                    // En az bir kategori seçili kalmalı
-                    if (state.selectedCategories.length > 1) {
-                        state.selectedCategories = state.selectedCategories.filter(c => c !== cat);
-                        pill.classList.remove('active');
-                    }
+                    state.selectedCategories = state.selectedCategories.filter(c => c !== cat);
+                    pill.classList.remove('active');
                 } else {
                     state.selectedCategories.push(cat);
                     pill.classList.add('active');
                 }
+                updateStartButtonState();
             }
         });
     }
@@ -268,6 +302,9 @@ function setupEventListeners() {
     if (btnStartGame) {
         btnStartGame.addEventListener(clickEvent, (e) => {
             e.preventDefault();
+            
+            // Eğer kategori seçilmemişse oyunu başlatma (pointerdown engellemesi)
+            if (state.selectedCategories.length === 0) return;
             
             // Ayar değerlerini topla
             const teamNames = Array.from(document.querySelectorAll('.team-name-input')).map(inp => inp.value.trim());
@@ -475,8 +512,8 @@ function setupEventListeners() {
         btnConfirmReview.addEventListener(clickEvent, (e) => {
             e.preventDefault();
             
-            // Sayaç devam ediyorsa onaylamaya izin verme
-            if (reviewCountdownTime > 0) return;
+            // Sayaç devam ediyorsa veya zaten geçiş yapılmışsa (çift tıklama koruması) onaylamaya izin verme
+            if (reviewCountdownTime > 0 || state.currentState !== STATES.ROUND_OVER) return;
             
             if (reviewCountdownInterval) {
                 clearInterval(reviewCountdownInterval);
@@ -504,6 +541,26 @@ function setupEventListeners() {
             // Sıradaki tur için hazır ol ekranını kur
             state.currentState = STATES.ROUND_READY;
             setupRoundReadyView();
+        });
+    }
+
+    const btnBetAccept = document.getElementById('btn-bet-accept');
+    const btnBetDecline = document.getElementById('btn-bet-decline');
+    if (btnBetAccept && btnBetDecline) {
+        btnBetAccept.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            state.nextTeamBetActive = true;
+            btnBetAccept.classList.add('active');
+            btnBetDecline.classList.remove('active');
+            playVibration(15);
+        });
+        
+        btnBetDecline.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            state.nextTeamBetActive = false;
+            btnBetDecline.classList.add('active');
+            btnBetAccept.classList.remove('active');
+            playVibration(15);
         });
     }
     
@@ -586,6 +643,8 @@ function setupPlayingView() {
     const playingTeamName = document.getElementById('playing-team-name');
     const playingRoundText = document.getElementById('playing-round-text');
     const playingScoreboardText = document.getElementById('playing-scoreboard-text');
+    const betBadge = document.getElementById('playing-bet-badge');
+    const betTargetSpan = document.getElementById('playing-bet-target');
     
     if (playingTeamName) {
         playingTeamName.textContent = state.teams[state.currentTeamIndex].name;
@@ -602,6 +661,17 @@ function setupPlayingView() {
             playingScoreboardText.textContent = state.teams.map(t => t.score).join(' - ');
         } else {
             playingScoreboardText.textContent = state.teams[0].score;
+        }
+    }
+
+    if (betBadge) {
+        if (state.isBetActive) {
+            betBadge.classList.remove('hidden');
+            betBadge.classList.add('flex');
+            if (betTargetSpan) betTargetSpan.textContent = state.betTarget;
+        } else {
+            betBadge.classList.remove('flex');
+            betBadge.classList.add('hidden');
         }
     }
     
@@ -805,16 +875,34 @@ function updateReviewScoreLabel() {
     const reviewScoreChange = document.getElementById('review-score-change');
     if (!reviewScoreChange) return;
     
-    const change = state.roundScoreChange;
-    if (change > 0) {
-        reviewScoreChange.textContent = `+${change} Puan`;
-        reviewScoreChange.className = 'font-display text-4xl text-primary font-light';
-    } else if (change < 0) {
-        reviewScoreChange.textContent = `${change} Puan`;
-        reviewScoreChange.className = 'font-display text-4xl text-error font-light';
+    let roundCorrects = 0;
+    state.roundHistory.forEach(item => {
+        if (item.result === 'correct') roundCorrects++;
+    });
+    
+    let betBonus = 0;
+    let betMessage = '';
+    if (state.isBetActive) {
+        if (roundCorrects >= state.betTarget) {
+            betBonus = 1;
+            betMessage = ` (🎰 İddia Başarılı +1)`;
+        } else {
+            betBonus = -1;
+            betMessage = ` (🎰 İddia Başarısız -1)`;
+        }
+    }
+    
+    const totalChange = state.roundScoreChange + betBonus;
+    
+    if (totalChange > 0) {
+        reviewScoreChange.textContent = `+${totalChange} Puan${betMessage}`;
+        reviewScoreChange.className = 'font-display text-3xl text-primary font-light';
+    } else if (totalChange < 0) {
+        reviewScoreChange.textContent = `${totalChange} Puan${betMessage}`;
+        reviewScoreChange.className = 'font-display text-3xl text-error font-light';
     } else {
-        reviewScoreChange.textContent = `0 Puan`;
-        reviewScoreChange.className = 'font-display text-4xl text-white/50 font-light';
+        reviewScoreChange.textContent = `0 Puan${betMessage}`;
+        reviewScoreChange.className = 'font-display text-3xl text-white/50 font-light';
     }
 }
 
@@ -847,5 +935,23 @@ function registerServiceWorker() {
                 .then(reg => console.log('SW Başarıyla Kaydedildi. Kapsam:', reg.scope))
                 .catch(err => console.warn('SW Kayıt Hatası:', err));
         });
+    }
+}
+
+/**
+ * Kategori seçim durumuna göre oyunu başlatma butonunun durumunu günceller.
+ */
+function updateStartButtonState() {
+    const btnStart = document.getElementById('btn-start-game');
+    if (btnStart) {
+        if (state.selectedCategories.length > 0) {
+            btnStart.disabled = false;
+            btnStart.classList.remove('opacity-40', 'cursor-not-allowed');
+            btnStart.classList.add('active:scale-95');
+        } else {
+            btnStart.disabled = true;
+            btnStart.classList.add('opacity-40', 'cursor-not-allowed');
+            btnStart.classList.remove('active:scale-95');
+        }
     }
 }

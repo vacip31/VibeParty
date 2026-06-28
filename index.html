@@ -70,16 +70,21 @@
         <div class="h-12 w-full relative z-10"></div>
 
         <!-- Orta Logo Alanı -->
-        <div class="flex-1 flex flex-col items-center justify-center w-full mt-[-48px] relative z-10">
+        <div class="flex-1 flex flex-col items-center justify-center w-full mt-[-48px] relative z-10 animate-float">
             <div class="relative flex flex-col items-center justify-center text-center">
                 <!-- Arka neon halka -->
                 <div
                     class="absolute w-64 h-64 rounded-full bg-gradient-to-tr from-primary/10 to-secondary/15 blur-3xl opacity-80 animate-pulse-slow">
                 </div>
 
+                <!-- Uygulama İkonu -->
+                <div class="relative w-24 h-24 mb-6 flex items-center justify-center rounded-[24px] bg-[#2D3047]/45 border border-white/10 shadow-[0_8px_32px_rgba(27,153,139,0.15)] overflow-hidden z-10 select-none">
+                    <img src="./icon-192.png" alt="VibeTabu İkonu" class="w-[72px] h-[72px] object-contain rounded-[16px] pointer-events-none">
+                </div>
+
                 <!-- Logo -->
                 <h1
-                    class="font-display text-[48px] md:text-[64px] font-extralight tracking-[0.25em] text-white drop-shadow-[0_0_30px_rgba(184,196,255,0.4)] select-none animate-float">
+                    class="font-display text-[48px] md:text-[64px] font-extralight tracking-[0.25em] text-white drop-shadow-[0_0_30px_rgba(184,196,255,0.4)] select-none">
                     VİBE<span class="text-primary font-light">TABU</span>
                 </h1>
                 <p class="font-body text-xs text-white/40 tracking-[0.15em] mt-5 uppercase">Kelime Oyunu</p>
@@ -95,6 +100,12 @@
 
         <!-- Alt Butonlar -->
         <div class="w-full flex flex-col items-center gap-3 pb-8 relative z-10">
+            <!-- Kaldığın Yerden Devam Et (Gizli Başlar, Kayıt Varsa Görünür) -->
+            <button id="btn-splash-resume"
+                class="hidden w-[280px] py-4 rounded-full items-center justify-center gap-3 text-white font-medium text-lg tracking-wider active:scale-95 transition-all bg-secondary/10 border border-secondary/20 hover:bg-secondary/15 shadow-[0_4px_15px_rgba(255,155,113,0.15)]">
+                <span>Devam Et</span>
+                <span class="material-symbols-outlined text-secondary">restore</span>
+            </button>
             <button id="btn-splash-start"
                 class="glass-btn-primary w-[280px] py-4 rounded-full flex items-center justify-center gap-3 text-white font-medium text-lg tracking-wider active:scale-95 transition-all">
                 <span>Oyuna Başla</span>
@@ -250,8 +261,8 @@
         <!-- Sabit Alt Aksiyon Butonu -->
         <div
             class="absolute bottom-0 w-full px-container-padding py-6 pb-safe-area-bottom bg-gradient-to-t from-black via-black/90 to-transparent z-40 flex justify-center">
-            <button id="btn-start-game"
-                class="primary-btn w-[280px] py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium tracking-wide active:scale-95 transition-all">
+            <button id="btn-start-game" disabled
+                class="primary-btn w-[280px] py-4 rounded-full flex items-center justify-center gap-2 text-white font-medium tracking-wide transition-all opacity-40 cursor-not-allowed">
                 <span>Oyunu Başlat</span>
                 <span class="material-symbols-outlined text-primary">play_arrow</span>
             </button>
