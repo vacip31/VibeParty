@@ -511,7 +511,7 @@ function startConfettiEffect() {
         const confetti = document.createElement('div');
         confetti.className = 'confetti';
         confetti.style.left = `${Math.random() * 100}vw`;
-        confetti.style.backgroundColor = ['#b8c4ff', '#ddb7ff', '#10b981', '#f87171', '#ffb59a'][Math.floor(Math.random() * 5)];
+        confetti.style.backgroundColor = ['#1b998b', '#ff9b71', '#ed217c', '#fffd82', '#2d3047'][Math.floor(Math.random() * 5)];
         confetti.style.animationDuration = `${Math.random() * 2 + 2}s`; // 2s - 4s
         confetti.style.transform = `scale(${Math.random() * 0.8 + 0.4})`;
         

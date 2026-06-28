@@ -13306,5 +13306,605 @@
     ],
     "c": "Sokak Ağzı",
     "d": "O"
+  },
+  {
+    "w": "Lavuk",
+    "f": [
+      "Argo",
+      "Tip",
+      "Adam",
+      "Güvenilmez",
+      "Sokak"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Tırsmak",
+    "f": [
+      "Korkmak",
+      "Ürkmek",
+      "Geri Vites",
+      "Kaçmak",
+      "Tırsık"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Öküz",
+    "f": [
+      "Kaba",
+      "Hayvan",
+      "Erkek",
+      "Odun",
+      "Davranış"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Kezban",
+    "f": [
+      "Tip",
+      "Kız",
+      "Bakımsız",
+      "Klasik",
+      "Alay"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Kıro",
+    "f": [
+      "Keko",
+      "Kaba",
+      "Maganda",
+      "Tarz",
+      "Taşra"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Otlanmak",
+    "f": [
+      "Sigara",
+      "Bedava",
+      "Birinden",
+      "Çorlamak",
+      "Beleş"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Çorlamak",
+    "f": [
+      "Çalmak",
+      "Yürütmek",
+      "Aşırmak",
+      "Hırsızlık",
+      "Gizlice"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Yamulmak",
+    "f": [
+      "Yorulmak",
+      "Dayak",
+      "Eğrilmek",
+      "İçki",
+      "Alkol"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Kazık",
+    "f": [
+      "Pahalı",
+      "Alışveriş",
+      "Aldatmak",
+      "Çok Para",
+      "Açıklamak"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Beleş",
+    "f": [
+      "Bedava",
+      "Para",
+      "Otlanmak",
+      "Karşılıksız",
+      "Ucuza"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Fırlama",
+    "f": [
+      "Zeki",
+      "Afacan",
+      "Yaramaz",
+      "Kurnaz",
+      "Çocuk"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Çemkişmek",
+    "f": [
+      "Bağırmak",
+      "Karşı Gelmek",
+      "Laf Yetiştirmek",
+      "Kızmak",
+      "Kadın"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Papara",
+    "f": [
+      "Azar",
+      "Fırça",
+      "İşitmek",
+      "Kızmak",
+      "Anne"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Gömmek",
+    "f": [
+      "Yemek",
+      "Eleştirmek",
+      "Hızlı",
+      "Kötülemek",
+      "Sosyal Medya"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Kazma",
+    "f": [
+      "Beceriksiz",
+      "Aptal",
+      "Kaba",
+      "Baltaya Sap",
+      "İnsan"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Sille",
+    "f": [
+      "Tokat",
+      "Vurmak",
+      "El",
+      "Dayak",
+      "Yüz"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Kıtır Atmak",
+    "f": [
+      "Yalan",
+      "Söylemek",
+      "Uydurmak",
+      "Kolpa",
+      "İnanmak"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Yılışık",
+    "f": [
+      "Cıvık",
+      "Sulu",
+      "Yapışkan",
+      "Sırnaşık",
+      "Sevimsiz"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Kaytarmak",
+    "f": [
+      "Kaçmak",
+      "İş",
+      "Tembellik",
+      "Ders",
+      "Okul"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Şamar",
+    "f": [
+      "Tokat",
+      "Vurmak",
+      "El",
+      "Yüz",
+      "Dayak"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Fiske",
+    "f": [
+      "Dokunmak",
+      "Küçük",
+      "Vurmak",
+      "Parmak",
+      "Acıtmak"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Çelme",
+    "f": [
+      "Ayak",
+      "Takmak",
+      "Düşürmek",
+      "Yürümek",
+      "Engel"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Enayi",
+    "f": [
+      "Keriz",
+      "Saf",
+      "Kandırırmak",
+      "Aptal",
+      "Kolay"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Cıvık",
+    "f": [
+      "Ciddiyetsiz",
+      "Sulu",
+      "Yılışık",
+      "Davranış",
+      "Sinir Bozucu"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Fırça",
+    "f": [
+      "Azar",
+      "İşitmek",
+      "Kızmak",
+      "Patron",
+      "Anne"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Yüzsüz",
+    "f": [
+      "Utanmaz",
+      "Pişkin",
+      "Israrcı",
+      "İstenmeyen",
+      "Karakter"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Sulu",
+    "f": [
+      "Ciddiyetsiz",
+      "Şaka",
+      "Cıvık",
+      "Espri",
+      "Ortam"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Kakalamak",
+    "f": [
+      "Zorla",
+      "Satmak",
+      "Kandırmak",
+      "Değersiz",
+      "İtelemek"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Çapulcu",
+    "f": [
+      "Sokak",
+      "Eylem",
+      "Karışıklık",
+      "Hırsız",
+      "Grup"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Zehir Gibi",
+    "f": [
+      "Pratik",
+      "Akıllı",
+      "Hızlı",
+      "Çözüm",
+      "Kurnaz"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Çantacı",
+    "f": [
+      "Yancı",
+      "Takipçi",
+      "Yardımcı",
+      "Taşımak",
+      "Açıklamak"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Yancı",
+    "f": [
+      "Oyun",
+      "Kumar",
+      "Kahvehane",
+      "Masa",
+      "Bedavacı"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Çorba Etmek",
+    "f": [
+      "Karıştırmak",
+      "Bozmak",
+      "Kafa",
+      "Akıl",
+      "İş"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Otlakçı",
+    "f": [
+      "Sigara",
+      "Bedavacı",
+      "Otlanmak",
+      "Birinden",
+      "Sürekli"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Geyik Yapmak",
+    "f": [
+      "Muhabbet",
+      "Boş Konuşmak",
+      "Sohbet",
+      "Zaman",
+      "Eğlence"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Sülük",
+    "f": [
+      "Yapışkan",
+      "Rahatsız Eden",
+      "Gitmeyen",
+      "İnsan",
+      "Yüzsüz"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Tufaya Gelmek",
+    "f": [
+      "Kandırılmak",
+      "Tuzak",
+      "Aldatılmak",
+      "Saflık",
+      "Açıklamak"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Yolunmak",
+    "f": [
+      "Para Kaptırmak",
+      "Dolandırılmak",
+      "Alışveriş",
+      "Tüy",
+      "Kuş"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Laklak Etmek",
+    "f": [
+      "Boş Konuşmak",
+      "Sohbet",
+      "Zaman",
+      "Muhabbet",
+      "Dedikodu"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Çamur Yapmak",
+    "f": [
+      "Oyun Bozmak",
+      "Mızıkçılık",
+      "İtiraz",
+      "Kavga",
+      "Çirkef"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Gazlamak",
+    "f": [
+      "Hızlanmak",
+      "Arabayla",
+      "Kaçmak",
+      "Gitmek",
+      "Açıklamak"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Dümen",
+    "f": [
+      "Yalan",
+      "Numara",
+      "Hile",
+      "Çevirmek",
+      "Aldatmak"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Çark Etmek",
+    "f": [
+      "Geri Adım",
+      "Dönmek",
+      "Fikir Değiştirmek",
+      "Sözünden",
+      "Kıvırmak"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Tırstırmak",
+    "f": [
+      "Korkutmak",
+      "Yıldırmak",
+      "Gözdağı",
+      "Kaçırmak",
+      "Tehdit"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Yamuk Yapmak",
+    "f": [
+      "İhanet",
+      "Yanlış",
+      "Satmak",
+      "Dost",
+      "Güven"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Çatlak",
+    "f": [
+      "Deli",
+      "Kaçık",
+      "Saçma",
+      "Akıl",
+      "Kadın"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Cıvır",
+    "f": [
+      "Genç",
+      "Güzel",
+      "Kız",
+      "Sevgili",
+      "Süslü"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Sazan",
+    "f": [
+      "Hemen İnanmak",
+      "Atlamak",
+      "Saf",
+      "Balık",
+      "Kandırmak"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Kazıklanmak",
+    "f": [
+      "Pahalı",
+      "Satın Almak",
+      "Aldatılmak",
+      "Para",
+      "Dolandırılmak"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
+  },
+  {
+    "w": "Sıvışmak",
+    "f": [
+      "Kaçmak",
+      "Gizlice",
+      "Gitmek",
+      "Ortam",
+      "Kaybolmak"
+    ],
+    "c": "Sokak Ağzı",
+    "d": "K"
   }
 ]

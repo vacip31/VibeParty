@@ -1,16 +1,16 @@
 /* Obsidian Glass Tasarım Sistemi */
 
 :root {
-    --color-background: #000000;
-    --color-surface: #121414;
-    --color-primary: #b8c4ff;
-    --color-midnight-blue: #1e40af;
-    --color-neon-purple: #a855f7;
-    --color-soft-emerald: #10b981;
-    --color-coral-red: #f87171;
-    --color-text: #e2e2e2;
-    --color-text-muted: #8e909f;
-    --color-outline: rgba(255, 255, 255, 0.08);
+    --color-background: #121420;
+    --color-surface: #2d3047;
+    --color-primary: #1b998b;
+    --color-midnight-blue: #2d3047;
+    --color-neon-purple: #ff9b71;
+    --color-soft-emerald: #1b998b;
+    --color-coral-red: #ed217c;
+    --color-text: #ffffff;
+    --color-text-muted: #a6abc0;
+    --color-outline: rgba(255, 255, 255, 0.1);
 }
 
 /* Temel Sıfırlama ve Yapı */
@@ -39,7 +39,7 @@ body {
     transform: translate(-50%, -50%);
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(184, 196, 255, 0.15) 0%, rgba(0,0,0,0) 70%);
+    background: radial-gradient(circle, rgba(27, 153, 139, 0.15) 0%, rgba(0,0,0,0) 70%);
     filter: blur(40px);
     z-index: 0;
     animation: pulse-glow 4s infinite alternate ease-in-out;
@@ -55,7 +55,7 @@ body {
     height: 80vw;
     max-width: 500px;
     max-height: 500px;
-    background: radial-gradient(circle, rgba(184, 196, 255, 0.12) 0%, rgba(0,0,0,0) 70%);
+    background: radial-gradient(circle, rgba(27, 153, 139, 0.12) 0%, rgba(0,0,0,0) 70%);
     z-index: 0;
     pointer-events: none;
 }
@@ -94,7 +94,7 @@ body {
 
 /* Buton Tasarımları */
 .glass-btn-primary {
-    background: linear-gradient(180deg, rgba(184, 196, 255, 0.15) 0%, rgba(184, 196, 255, 0.05) 100%);
+    background: linear-gradient(180deg, rgba(27, 153, 139, 0.15) 0%, rgba(27, 153, 139, 0.05) 100%);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -104,7 +104,7 @@ body {
 }
 
 .glass-btn-primary:active {
-    background: linear-gradient(180deg, rgba(184, 196, 255, 0.25) 0%, rgba(184, 196, 255, 0.1) 100%);
+    background: linear-gradient(180deg, rgba(27, 153, 139, 0.25) 0%, rgba(27, 153, 139, 0.1) 100%);
     transform: scale(0.98);
 }
 
@@ -135,8 +135,8 @@ body {
 .primary-btn {
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(184, 196, 255, 0.2);
-    box-shadow: inset 0 0 12px rgba(184, 196, 255, 0.05);
+    border: 1px solid rgba(27, 153, 139, 0.2);
+    box-shadow: inset 0 0 12px rgba(27, 153, 139, 0.05);
     transition: all 0.2s ease;
 }
 
@@ -154,9 +154,9 @@ body {
 
 .option-pill.active {
     border-color: var(--color-primary);
-    background: rgba(184, 196, 255, 0.06);
+    background: rgba(27, 153, 139, 0.06);
     color: var(--color-primary);
-    box-shadow: 0 0 8px rgba(184, 196, 255, 0.1);
+    box-shadow: 0 0 8px rgba(27, 153, 139, 0.1);
 }
 
 /* İlerleme Çubuğu ve Sayaç Işıması */
@@ -175,11 +175,11 @@ body {
 }
 
 .view-overlay.correct {
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(circle, rgba(27, 153, 139, 0.2) 0%, rgba(0, 0, 0, 0) 80%);
 }
 
 .view-overlay.tabu {
-    background: radial-gradient(circle, rgba(248, 113, 113, 0.15) 0%, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(circle, rgba(237, 33, 124, 0.2) 0%, rgba(0, 0, 0, 0) 80%);
 }
 
 .view-overlay.active {
@@ -260,8 +260,8 @@ body {
 }
 
 @keyframes border-pulse-glow {
-    0% { border-color: rgba(184, 196, 255, 0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 20px 40px rgba(0,0,0,0.3); }
-    100% { border-color: rgba(184, 196, 255, 0.4); box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(184, 196, 255, 0.15); }
+    0% { border-color: rgba(27, 153, 139, 0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 20px 40px rgba(0,0,0,0.3); }
+    100% { border-color: rgba(27, 153, 139, 0.4); box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(27, 153, 139, 0.15); }
 }
 
 #view-playing {

@@ -32,12 +32,13 @@
             theme: {
                 extend: {
                     colors: {
-                        background: "#000000",
-                        surface: "#121414",
-                        primary: "#b8c4ff",
-                        secondary: "#ddb7ff",
-                        error: "#f87171",
-                        "on-surface-variant": "#c4c5d5"
+                        background: "#121420",
+                        surface: "#2d3047",
+                        primary: "#1b998b",
+                        secondary: "#ff9b71",
+                        error: "#ed217c",
+                        warning: "#fffd82",
+                        "on-surface-variant": "#a6abc0"
                     },
                     spacing: {
                         "container-padding": "24px",
@@ -54,7 +55,7 @@
     </script>
 </head>
 
-<body class="bg-black text-on-surface antialiased h-screen w-screen overflow-hidden flex flex-col font-body relative">
+<body class="bg-background text-on-surface antialiased h-screen w-screen overflow-hidden flex flex-col font-body relative">
 
     <!-- Anlık Renkli Parlama Maskesi (Correct/Tabu basıldığında) -->
     <div id="flash-overlay" class="view-overlay"></div>
