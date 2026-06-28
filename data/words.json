@@ -14914,5 +14914,305 @@
     ],
     "c": "Sinema",
     "d": "O"
+  },
+  {
+    "w": "Yeniçeri",
+    "f": [
+      "Osmanlı",
+      "Asker",
+      "Ocak",
+      "Padişah",
+      "İsyan"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Sultan",
+    "f": [
+      "Padişah",
+      "Osmanlı",
+      "Saray",
+      "Yönetici",
+      "Taht"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Antlaşma",
+    "f": [
+      "Savaş",
+      "Barış",
+      "İmzalamak",
+      "Belge",
+      "İki Ülke"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Fosil",
+    "f": [
+      "Dinozor",
+      "Taş",
+      "Toprak",
+      "Kemik",
+      "Tarih Öncesi"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Truva",
+    "f": [
+      "At",
+      "Savaş",
+      "Antik",
+      "Çanakkale",
+      "Mitoloji"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Hattuşaş",
+    "f": [
+      "Hitit",
+      "Başkent",
+      "Çorum",
+      "Antik",
+      "Anadolu"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Gordion",
+    "f": [
+      "Frigya",
+      "Midas",
+      "Eşek Kulak",
+      "Düğüm",
+      "Ankara"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Kadeş",
+    "f": [
+      "Antlaşma",
+      "Mısır",
+      "Hitit",
+      "İlk",
+      "Savaş"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Lozan",
+    "f": [
+      "Antlaşma",
+      "İsviçre",
+      "Türkiye",
+      "Cumhuriyet",
+      "Sınır"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Roma İmparatorluğu",
+    "f": [
+      "Sezar",
+      "Kolezyum",
+      "Antik",
+      "İtalya",
+      "Gladyatör"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Fatih",
+    "f": [
+      "Sultan Mehmet",
+      "İstanbul",
+      "Fetih",
+      "Bizans",
+      "1453"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Gök Türk",
+    "f": [
+      "Orhun",
+      "Kitabe",
+      "Yazı",
+      "Tarih",
+      "Geçmiş"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Uygurlar",
+    "f": [
+      "Yerleşik Hayat",
+      "Türk",
+      "Matbaa",
+      "Kağıt",
+      "Din"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Kavimler Göçü",
+    "f": [
+      "Barbar",
+      "Avrupa",
+      "Roma",
+      "Çağ",
+      "Yer Değiştirme"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Orta Çağ",
+    "f": [
+      "Feodalite",
+      "Şato",
+      "Derebeylik",
+      "Kilise",
+      "Karanlık"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Rönesans",
+    "f": [
+      "Sanat",
+      "İtalya",
+      "Yeniden Doğuş",
+      "Da Vinci",
+      "Reform"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Sadrazam",
+    "f": [
+      "Osmanlı",
+      "Vezir",
+      "Padişah",
+      "Devlet",
+      "Başbakan"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Laiklik",
+    "f": [
+      "Din",
+      "Devlet",
+      "Anayasa",
+      "Cumhuriyet",
+      "Atatürk"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Sikkeler",
+    "f": [
+      "Para",
+      "Antik",
+      "Lidyalılar",
+      "Kazı",
+      "Tarih"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "İpek Yolu",
+    "f": [
+      "Ticaret",
+      "Çin",
+      "Kervan",
+      "Baharat",
+      "Geçmiş"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Kervansaray",
+    "f": [
+      "Yol",
+      "Ticaret",
+      "Konaklamak",
+      "Otel",
+      "Geçmiş"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Anka Kuşu",
+    "f": [
+      "Mitoloji",
+      "Küllerinden Doğmak",
+      "Efsane",
+      "Kaf Dağı",
+      "Geçmiş"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Zeus",
+    "f": [
+      "Yunan",
+      "Mitoloji",
+      "Tanrı",
+      "Şimşek",
+      "Olimpos"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Tarihçi",
+    "f": [
+      "Geçmiş",
+      "Araştırmak",
+      "Belge",
+      "Kitap",
+      "Bilim"
+    ],
+    "c": "Tarih",
+    "d": "O"
+  },
+  {
+    "w": "Hanedan",
+    "f": [
+      "Aile",
+      "Soy",
+      "Kral",
+      "Padişah",
+      "Yönetim"
+    ],
+    "c": "Tarih",
+    "d": "O"
   }
 ]
