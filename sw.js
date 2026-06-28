@@ -1,6 +1,6 @@
 /* VibeTabu PWA Service Worker (sw.js) */
 
-const CACHE_NAME = 'vibetabu-cache-v58';
+const CACHE_NAME = 'vibetabu-cache-v62';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',

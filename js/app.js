@@ -544,22 +544,22 @@ function setupEventListeners() {
         });
     }
 
-    const btnBetAccept = document.getElementById('btn-bet-accept');
-    const btnBetDecline = document.getElementById('btn-bet-decline');
-    if (btnBetAccept && btnBetDecline) {
-        btnBetAccept.addEventListener(clickEvent, (e) => {
+    const btnReadyBetAccept = document.getElementById('btn-ready-bet-accept');
+    const btnReadyBetDecline = document.getElementById('btn-ready-bet-decline');
+    if (btnReadyBetAccept && btnReadyBetDecline) {
+        btnReadyBetAccept.addEventListener(clickEvent, (e) => {
             e.preventDefault();
-            state.nextTeamBetActive = true;
-            btnBetAccept.classList.add('active');
-            btnBetDecline.classList.remove('active');
+            state.isBetActive = true;
+            btnReadyBetAccept.classList.add('active');
+            btnReadyBetDecline.classList.remove('active');
             playVibration(15);
         });
         
-        btnBetDecline.addEventListener(clickEvent, (e) => {
+        btnReadyBetDecline.addEventListener(clickEvent, (e) => {
             e.preventDefault();
-            state.nextTeamBetActive = false;
-            btnBetDecline.classList.add('active');
-            btnBetAccept.classList.remove('active');
+            state.isBetActive = false;
+            btnReadyBetDecline.classList.add('active');
+            btnReadyBetAccept.classList.remove('active');
             playVibration(15);
         });
     }
@@ -632,6 +632,29 @@ function setupRoundReadyView() {
             teamNameSpan.className = 'font-medium text-secondary';
         }
     }
+    
+    // Her tur başlamadan önce varsayılan olarak iddiayı temizle
+    state.isBetActive = false;
+    
+    let betTarget = 5;
+    if (state.timeLimit <= 60) betTarget = 4;
+    else if (state.timeLimit >= 120) betTarget = 6;
+    
+    state.betTarget = betTarget;
+    
+    const readyBetText = document.getElementById('ready-bet-text');
+    if (readyBetText) {
+        readyBetText.innerHTML = `Bu tur en az <strong>${betTarget} DOĞRU</strong> kelime anlatabilir misiniz?`;
+    }
+    
+    // Buton seçimlerini sıfırla
+    const btnAccept = document.getElementById('btn-ready-bet-accept');
+    const btnDecline = document.getElementById('btn-ready-bet-decline');
+    if (btnAccept && btnDecline) {
+        btnAccept.classList.remove('active');
+        btnDecline.classList.add('active');
+    }
+    
     showView(views.roundReady);
 }
 
@@ -668,7 +691,9 @@ function setupPlayingView() {
         if (state.isBetActive) {
             betBadge.classList.remove('hidden');
             betBadge.classList.add('flex');
-            if (betTargetSpan) betTargetSpan.textContent = state.betTarget;
+            if (betTargetSpan) betTargetSpan.textContent = `${state.betTarget} DOĞRU`;
+            // Varsayılan stili geri yükle (turuncu mercan rengi)
+            betBadge.className = "mt-1.5 px-2.5 py-0.5 rounded-full border border-secondary/20 bg-secondary/5 text-secondary text-[9px] tracking-wider uppercase font-medium shadow-[0_0_8px_rgba(255,155,113,0.1)] w-fit flex items-center gap-1";
         } else {
             betBadge.classList.remove('flex');
             betBadge.classList.add('hidden');
@@ -712,6 +737,9 @@ function handleCardAction(decision) {
         
         // Yeni kartı render et
         renderActiveCard(state.activeCard, state.currentPassesUsed, state.passLimit);
+        
+        // İddia hedefini güncelle
+        updatePlayingBetBadge();
     });
 }
 
@@ -952,6 +980,37 @@ function updateStartButtonState() {
             btnStart.disabled = true;
             btnStart.classList.add('opacity-40', 'cursor-not-allowed');
             btnStart.classList.remove('active:scale-95');
+        }
+    }
+}
+
+/**
+ * Aktif oyun sırasında bahis hedefindeki kalan doğru sayısını günceller.
+ */
+function updatePlayingBetBadge() {
+    if (!state.isBetActive) return;
+    
+    const betBadge = document.getElementById('playing-bet-badge');
+    const betTargetSpan = document.getElementById('playing-bet-target');
+    
+    if (betBadge) {
+        let roundCorrects = 0;
+        state.roundHistory.forEach(item => {
+            if (item.result === 'correct') roundCorrects++;
+        });
+        
+        const remaining = state.betTarget - roundCorrects;
+        
+        if (remaining > 0) {
+            if (betTargetSpan) {
+                betTargetSpan.textContent = `${remaining} DOĞRU KALDI`;
+            }
+            betBadge.className = "mt-1.5 px-2.5 py-0.5 rounded-full border border-secondary/20 bg-secondary/5 text-secondary text-[9px] tracking-wider uppercase font-medium shadow-[0_0_8px_rgba(255,155,113,0.1)] w-fit flex items-center gap-1";
+        } else {
+            if (betTargetSpan) {
+                betTargetSpan.textContent = "TAMAMLANDI! 🎉";
+            }
+            betBadge.className = "mt-1.5 px-2.5 py-0.5 rounded-full border border-primary/40 bg-primary/10 text-primary text-[9px] tracking-wider uppercase font-medium shadow-[0_0_12px_rgba(27,153,139,0.3)] w-fit flex items-center gap-1 animate-pulse";
         }
     }
 }

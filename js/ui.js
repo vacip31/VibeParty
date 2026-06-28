@@ -474,30 +474,6 @@ export function renderScoreboardUI(container, teams, currentRound) {
             progressContainer.appendChild(progressRow);
         });
     }
-    
-    // 4. İddia Seçeneklerini Kur
-    state.nextTeamBetActive = false; // Varsayılan olarak iddiaya girilmemiş başla
-    
-    let betTarget = 5;
-    if (state.timeLimit <= 60) betTarget = 4;
-    else if (state.timeLimit >= 120) betTarget = 6;
-    
-    state.nextTeamBetTarget = betTarget;
-    
-    const nextTeamIndex = state.currentTeamIndex;
-    const nextTeamName = state.teams[nextTeamIndex].name;
-    
-    const betText = document.getElementById('scoreboard-bet-text');
-    if (betText) {
-        betText.innerHTML = `Sıradaki turda <strong>${nextTeamName}</strong> takımı en az <strong>${betTarget} DOĞRU</strong> kelime anlatabilir mi?`;
-    }
-    
-    const btnAccept = document.getElementById('btn-bet-accept');
-    const btnDecline = document.getElementById('btn-bet-decline');
-    if (btnAccept && btnDecline) {
-        btnAccept.classList.remove('active');
-        btnDecline.classList.add('active');
-    }
 }
 
 /**

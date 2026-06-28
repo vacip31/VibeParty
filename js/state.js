@@ -127,9 +127,7 @@ export function startRound() {
     state.roundHistory = [];
     state.currentReviewIndex = 0;
     state.roundScoreChange = 0;
-    state.isBetActive = state.nextTeamBetActive;
-    state.betTarget = state.nextTeamBetTarget;
-    state.nextTeamBetActive = false; // Sonraki tur için sıfırla
+    // isBetActive ve betTarget Hazırlık Ekranında (setupRoundReadyView) kurulduğu için doğrudan kullanılıyor
     state.currentState = STATES.PLAYING;
     
     drawNextCard();
