@@ -1,6 +1,6 @@
 /* VibeTabu PWA Service Worker (sw.js) */
 
-const CACHE_NAME = 'vibetabu-cache-v66';
+const CACHE_NAME = 'vibetabu-cache-v67';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
@@ -12,7 +12,9 @@ const ASSETS_TO_CACHE = [
     './data/words.json',
     './manifest.json',
     './icon-192.png',
-    './icon-512.png'
+    './icon-512.png',
+    './screenshot-1.png',
+    './screenshot-2.png'
 ];
 
 // Service Worker Kurulumu ve Önbellekleme

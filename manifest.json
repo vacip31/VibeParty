@@ -4,10 +4,26 @@
   "description": "Mobil öncelikli, siber-minimalist tasarımlı çevrimdışı Tabu oyunu.",
   "id": "/",
   "start_url": "index.html",
+  "scope": "/",
   "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
+  ],
   "background_color": "#000000",
   "theme_color": "#000000",
   "orientation": "portrait-primary",
+  "lang": "tr",
+  "dir": "ltr",
+  "categories": [
+    "games",
+    "entertainment"
+  ],
+  "prefer_related_applications": false,
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
   "icons": [
     {
       "src": "icon-192.png",
@@ -32,6 +48,35 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Yeni Oyun Başlat",
+      "short_name": "Yeni Oyun",
+      "url": "index.html?shortcut=newgame",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot-1.png",
+      "sizes": "2560x1305",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Giriş ve Ayarlar Ekranı"
+    },
+    {
+      "src": "screenshot-2.png",
+      "sizes": "2560x1305",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Kurallar ve Oynanış Rehberi"
     }
   ]
 }
