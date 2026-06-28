@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "app.vercel.vibe_tabu.twa",
+        "sha256_cert_fingerprints": ["A3:A9:15:85:41:FD:BF:4E:E2:7F:1E:91:D0:71:19:66:D6:74:6B:A4:C9:4A:45:5F:6B:C8:F4:D3:39:5E:2D:13"]
+      }
+    }]
