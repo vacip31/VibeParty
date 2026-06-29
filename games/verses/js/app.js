@@ -58,6 +58,18 @@ async function loadCategoriesData() {
         populateCategoriesModal(categoriesData);
     } catch (err) {
         console.error('Kategoriler yüklenirken hata oluştu:', err);
+        // Çevrimdışı/Ağ hatası durumunda fallback kategori ve kelime havuzu
+        categoriesData = [
+            {
+                "category": "Genel Kültür",
+                "words": [
+                    { "w": "Klavye", "synonyms": ["klavye", "tus", "bilgisayar", "yazi", "ekran"] },
+                    { "w": "Futbol", "synonyms": ["futbol", "top", "kale", "mac", "oyuncu"] },
+                    { "w": "İstanbul", "synonyms": ["istanbul", "bogaz", "kopru", "turkiye", "cami"] }
+                ]
+            }
+        ];
+        populateCategoriesModal(categoriesData);
     }
 }
 
