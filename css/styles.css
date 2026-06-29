@@ -361,3 +361,19 @@ body {
         transform: scale(1) translateY(0);
     }
 }
+
+/* Yavaş Pulsar Animasyonu (Ambient Glow Arka Planları İçin) */
+.animate-pulse-slow {
+    animation: pulseSlow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseSlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
