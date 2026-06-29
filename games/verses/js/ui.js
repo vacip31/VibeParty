@@ -518,13 +518,40 @@ export function populateCategoriesModal(categoriesList) {
     listContainer.innerHTML = '';
     listContainer.className = 'flex flex-col gap-sm mt-2';
     
+    const CATEGORY_METADATA = {
+        "Ofis Çilesi & Beyaz Yaka": {
+            desc: "Plaza dili, kurumsal kavramlar, beyaz yaka çileleri ve ofis yaşamına dair popüler kelimeler.",
+            examples: ["Deadline", "LinkedIn", "Yıllık İzin"]
+        },
+        "Milenyum Nostaljisi & Çocukluk": {
+            desc: "90'lar ve 2000'lerin başındaki çocukluk anıları, eski teknolojiler, sokak oyunları ve unutulmaz nostaljik ögeler.",
+            examples: ["MSN Messenger", "Sanal Bebek", "Taso"]
+        },
+        "Kült Türk Dizileri": {
+            desc: "Türk televizyon tarihine damga vurmuş efsanevi diziler, unutulmaz karakterler ve fenomen replikler.",
+            examples: ["Aşk-ı Memnu", "Kurtlar Vadisi", "Avrupa Yakası"]
+        },
+        "Modern İlişkiler & Dating": {
+            desc: "Günümüz flört kültürü, sosyal medya jargonu, ilişki durumları ve dating uygulamalarındaki popüler kavramlar.",
+            examples: ["Ghosting", "Red Flag", "İlk Buluşma"]
+        },
+        "Günlük Hayat & Popüler Kültür": {
+            desc: "Gündelik yaşamın koşturmacası, esnaf kültürü, popüler alışkanlıklar ve sokak lezzetlerine dair tanıdık kelimeler.",
+            examples: ["Airfryer", "Kadıköy Sahil", "Halı Saha Maçı"]
+        }
+    };
+
     categoriesList.forEach((cat) => {
         const item = document.createElement('div');
         item.className = 'category-accordion-item bg-surface-container rounded-lg border border-outline-variant/10 overflow-hidden transition-all duration-200';
         
-        const words = cat.words.map(w => typeof w === 'string' ? w : w.w);
-        const pillsHtml = words.map(w => `
-            <span class="inline-block text-[11px] bg-surface-container-highest/60 text-on-surface-variant/80 px-2.5 py-1 rounded-md border border-outline-variant/10 hover:border-primary/20 hover:text-primary transition-all select-none">
+        const meta = CATEGORY_METADATA[cat.category] || {
+            desc: "Bu kategoriye ait gizli kelimelerle ipucu zinciri oluşturun.",
+            examples: cat.words.slice(0, 3).map(w => typeof w === 'string' ? w : w.w)
+        };
+        
+        const examplesHtml = meta.examples.map(w => `
+            <span class="inline-block text-[11px] bg-primary/5 text-primary px-2.5 py-1 rounded-md border border-primary/20 select-none">
                 ${w}
             </span>
         `).join('');
@@ -535,13 +562,21 @@ export function populateCategoriesModal(categoriesList) {
                     <span class="font-label-caps text-xs font-bold text-on-surface uppercase tracking-wider group-hover:text-primary transition-colors">${cat.category}</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <span class="text-[10px] font-mono-meta text-on-surface-variant/40 bg-surface-container-highest/80 px-2 py-0.5 rounded-full border border-outline-variant/10">${words.length} Kelime</span>
+                    <span class="text-[10px] font-mono-meta text-on-surface-variant/40 bg-surface-container-highest/80 px-2 py-0.5 rounded-full border border-outline-variant/10">${cat.words.length} Kelime</span>
                     <span class="material-symbols-outlined text-primary text-[18px] transition-transform duration-200 accordion-icon">chevron_right</span>
                 </div>
             </button>
             <div class="max-h-0 overflow-hidden transition-all duration-300 ease-out accordion-content">
-                <div class="p-sm pt-0 flex flex-wrap gap-xs border-t border-outline-variant/5 mt-xs pt-sm">
-                    ${pillsHtml}
+                <div class="p-sm pt-0 border-t border-outline-variant/5 mt-xs pt-sm flex flex-col gap-sm">
+                    <p class="font-body text-xs text-on-surface-variant/80 leading-relaxed">
+                        ${meta.desc}
+                    </p>
+                    <div class="flex flex-col gap-1.5">
+                        <span class="text-[9px] font-mono-meta text-white/30 uppercase tracking-widest">Örnek Kelimeler</span>
+                        <div class="flex flex-wrap gap-xs">
+                            ${examplesHtml}
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
