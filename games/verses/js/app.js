@@ -775,6 +775,8 @@ function setupEventListeners() {
                 }, 250);
             });
         }
+    });
+    
     // Geri tuşu basıldığında durum temizliklerini ve sıfırlamaları yönet
     window.addEventListener('popstate', (e) => {
         clearWritingTimer();
