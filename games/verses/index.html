@@ -381,7 +381,7 @@
                 </div>
 
                 <!-- Role Reveal Card (Hidden by Default) -->
-                <div class="absolute inset-0 bg-stone-950/95 backdrop-blur-xl opacity-0 scale-95 pointer-events-none transition-all duration-200 flex flex-col items-center justify-center text-center w-full px-gutter z-20" id="dist-role-card">
+                <div class="absolute inset-0 bg-stone-950/95 backdrop-blur-xl opacity-0 scale-95 pointer-events-none transition-all duration-200 flex flex-col items-center justify-start text-center w-full px-gutter z-20 pt-16" id="dist-role-card">
                     <div class="bg-surface-container/40 border border-primary/20 p-lg rounded-xl flex flex-col items-center gap-base max-w-[320px] mx-auto shadow-2xl">
                         <div class="flex items-center justify-center gap-xs mb-1">
                             <div id="dist-card-color-dot" class="w-3.5 h-3.5 rounded-full border border-background/30 shadow-sm"></div>
@@ -392,6 +392,8 @@
                         <div class="w-12 h-[1px] bg-outline-variant/30 my-xs"></div>
                         <p id="dist-card-instruction" class="font-body text-[13px] text-on-surface-variant leading-relaxed">İpucu yazarken bu kelimeyi gizlice işle.</p>
                     </div>
+                    <!-- Visual hint that fingerprint is still held below -->
+                    <p class="text-on-surface-variant/50 text-xs mt-6 tracking-wide">Parmağını basılı tut</p>
                 </div>
 
                 <!-- Fingerprint Seal Button -->
