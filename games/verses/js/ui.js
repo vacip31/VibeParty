@@ -245,6 +245,7 @@ export function renderRoleDistribution() {
         
     } else if (state.distSubState === 'B') {
         panelB.classList.remove('hidden');
+        panelB.style.display = 'flex';
         
         // Rol kartı verilerini yükle
         const cardCategory = document.getElementById('dist-card-category');

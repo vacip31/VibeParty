@@ -354,7 +354,7 @@
             </div>
         </header>
 
-        <main class="relative z-10 flex-1 flex flex-col items-center justify-center px-gutter max-w-[600px] mx-auto w-full pt-16">
+        <main class="relative z-10 flex-1 flex flex-col items-center justify-start px-gutter max-w-[600px] mx-auto w-full pt-16 h-full">
             
             <!-- AŞAMA A EKRANI (Cihaz Teslimi) -->
             <div id="dist-panel-a" class="w-full flex flex-col items-center text-center gap-6 animate-fade-in">
@@ -374,44 +374,54 @@
             </div>
 
             <!-- AŞAMA B EKRANI (Gizli Bilgi - Basılı Tutma Alanı) -->
-            <div id="dist-panel-b" class="hidden w-full flex flex-col items-center text-center gap-md select-none touch-none animate-fade-in">
-                <div class="mb-lg">
-                    <p class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-[0.2em] mb-xs">Kimliğini Belirle</p>
-                    <h2 class="font-h1-mobile text-h1-mobile text-on-surface">Mühre basılı tutarak rolünü gör</h2>
+            <!-- AŞAMA B EKRANI (Gizli Bilgi - Basılı Tutma Alanı) -->
+            <div id="dist-panel-b" class="hidden w-full flex-col select-none touch-none animate-fade-in" style="flex:1">
+
+                <!-- ÜST YARI: Talimat metni + Rol kartı overlay -->
+                <div class="relative flex-1 flex flex-col items-center justify-center text-center px-gutter overflow-hidden">
+                    <!-- Default talimat (kart açılmadan önce görünür) -->
+                    <div id="dist-hold-hint">
+                        <p class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-[0.2em] mb-xs">Kimliğini Belirle</p>
+                        <h2 class="font-h1-mobile text-h1-mobile text-on-surface">Mühre basılı tutarak rolünü gör</h2>
+                    </div>
+
+                    <!-- Role Reveal Card Overlay (sadece üst yarıyı kaplar) -->
+                    <div class="absolute inset-0 bg-stone-950/98 backdrop-blur-xl opacity-0 scale-95 pointer-events-none transition-all duration-200 flex flex-col items-center justify-center text-center px-gutter" id="dist-role-card">
+                        <div class="bg-surface-container/40 border border-primary/20 p-lg rounded-xl flex flex-col items-center gap-base max-w-[320px] mx-auto shadow-2xl">
+                            <div class="flex items-center justify-center gap-xs mb-1">
+                                <div id="dist-card-color-dot" class="w-3.5 h-3.5 rounded-full border border-background/30 shadow-sm"></div>
+                                <span id="dist-card-color" class="font-label-caps text-xs font-semibold uppercase tracking-wider">Oyuncu Rengin: ...</span>
+                            </div>
+                            <span id="dist-card-category" class="font-mono-meta text-mono-meta text-primary/80 uppercase tracking-widest">Kategori: ...</span>
+                            <span id="dist-card-keyword" class="font-verse-display text-verse-display text-primary italic font-bold">Kelime: ...</span>
+                            <div class="w-12 h-[1px] bg-outline-variant/30 my-xs"></div>
+                            <p id="dist-card-instruction" class="font-body text-[13px] text-on-surface-variant leading-relaxed">İpucu yazarken bu kelimeyi gizlice işle.</p>
+                        </div>
+                        <p class="text-on-surface-variant/50 text-xs mt-5 tracking-wide">↓ Parmağını basılı tut</p>
+                    </div>
                 </div>
 
-                <!-- Role Reveal Card (Hidden by Default) -->
-                <div class="absolute inset-0 bg-stone-950/95 backdrop-blur-xl opacity-0 scale-95 pointer-events-none transition-all duration-200 flex flex-col items-center justify-start text-center w-full px-gutter z-20 pt-16" id="dist-role-card">
-                    <div class="bg-surface-container/40 border border-primary/20 p-lg rounded-xl flex flex-col items-center gap-base max-w-[320px] mx-auto shadow-2xl">
-                        <div class="flex items-center justify-center gap-xs mb-1">
-                            <div id="dist-card-color-dot" class="w-3.5 h-3.5 rounded-full border border-background/30 shadow-sm"></div>
-                            <span id="dist-card-color" class="font-label-caps text-xs font-semibold uppercase tracking-wider">Oyuncu Rengin: ...</span>
-                        </div>
-                        <span id="dist-card-category" class="font-mono-meta text-mono-meta text-primary/80 uppercase tracking-widest">Kategori: ...</span>
-                        <span id="dist-card-keyword" class="font-verse-display text-verse-display text-primary italic font-bold">Kelime: ...</span>
-                        <div class="w-12 h-[1px] bg-outline-variant/30 my-xs"></div>
-                        <p id="dist-card-instruction" class="font-body text-[13px] text-on-surface-variant leading-relaxed">İpucu yazarken bu kelimeyi gizlice işle.</p>
-                    </div>
-                    <!-- Visual hint that fingerprint is still held below -->
-                    <p class="text-on-surface-variant/50 text-xs mt-6 tracking-wide">Parmağını basılı tut</p>
-                </div>
+                <!-- İNCE AYIRICI ÇİZGİ -->
+                <div class="w-full h-px bg-outline-variant/10"></div>
 
-                <!-- Fingerprint Seal Button -->
-                <div class="relative mt-8">
-                    <!-- Pulsing outer rings -->
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300" id="dist-rings">
-                        <div class="absolute w-44 h-44 border border-primary/20 rounded-full pulse-ring"></div>
-                        <div class="absolute w-44 h-44 border border-primary/10 rounded-full pulse-ring" style="animation-delay: 0.5s"></div>
-                    </div>
-                    <!-- The Seal Button -->
-                    <button class="seal-button relative w-36 h-36 rounded-full bg-surface-container-high border border-outline-variant/20 flex items-center justify-center overflow-hidden select-none touch-none" 
-                        id="btn-dist-seal-hold">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-primary/15 to-transparent opacity-50"></div>
-                        <div class="relative flex flex-col items-center text-primary">
-                            <span class="material-symbols-outlined text-[56px] transition-all duration-300" id="dist-seal-icon">fingerprint</span>
+                <!-- ALT YARI: Parmak izi butonu her zaman burada -->
+                <div class="flex-1 flex items-center justify-center">
+                    <div class="relative">
+                        <!-- Pulsing outer rings -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300" id="dist-rings">
+                            <div class="absolute w-44 h-44 border border-primary/20 rounded-full pulse-ring"></div>
+                            <div class="absolute w-44 h-44 border border-primary/10 rounded-full pulse-ring" style="animation-delay: 0.5s"></div>
                         </div>
-                        <div class="absolute bottom-0 left-0 w-full bg-primary/15 h-0 transition-all duration-[1.5s] ease-linear" id="dist-fill-effect"></div>
-                    </button>
+                        <!-- The Seal Button -->
+                        <button class="seal-button relative w-36 h-36 rounded-full bg-surface-container-high border border-outline-variant/20 flex items-center justify-center overflow-hidden select-none touch-none"
+                            id="btn-dist-seal-hold">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-primary/15 to-transparent opacity-50"></div>
+                            <div class="relative flex flex-col items-center text-primary">
+                                <span class="material-symbols-outlined text-[56px] transition-all duration-300" id="dist-seal-icon">fingerprint</span>
+                            </div>
+                            <div class="absolute bottom-0 left-0 w-full bg-primary/15 h-0 transition-all duration-[1.5s] ease-linear" id="dist-fill-effect"></div>
+                        </button>
+                    </div>
                 </div>
             </div>
 
