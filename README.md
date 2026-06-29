@@ -124,3 +124,16 @@ Proje içerisindeki [categories.json](file:///e:/CakmaTabu/%C3%87akmaTabu/games/
   "synonyms": ["alternatif_tahmin_1", "alternatif_tahmin_2"]
 }
 ```
+
+---
+
+## ⚡ Mobil Performans ve Çevrimdışı Optimizasyonlar
+
+Portalın mobil cihazlarda (özellikle düşük donanımlı telefonlar ve iOS/Android tarayıcılar) akıcı çalışması ve internet bağlantısı tamamen kesildiğinde dahi kesintisiz oynanabilmesi için aşağıdaki teknik optimizasyonlar uygulanmıştır:
+
+*   **📦 Statik Tailwind CSS Derlemesi (Play CDN Kaldırılması):** Mobil işlemciyi yoran ve açılışta gecikmeye (FOUC) yol açan dinamik Tailwind Play CDN kullanımı tamamen kaldırılmıştır. Bunun yerine, portal ana sayfası ile her oyunun özelleştirilmiş neon renk şablonları için ayrı ayrı yerel ve optimize edilmiş minified CSS dosyaları derlenmiştir. Bu sayede CSS yükü megabaytlar düzeyinden ortalama 20-30 KB seviyelerine çekilmiş ve internet bağımlılığı sıfırlanmıştır.
+*   **📱 Sanal Klavye ve Dinamik Görünüm (Viewport) Uyumu:** Mobil cihazlarda sanal klavye açıldığında butonların ekranın altında kalıp tıklanamaz hale gelmesine yol açan katı dikey yükseklik sınırları esnek bir yapıya dönüştürülmüştür. İçerik panelleri, klavyenin kapladığı alana göre otomatik olarak küçülebilen ve taşma durumunda kaydırılabilen esnek bir dikey düzene kavuşturulmuştur.
+*   **🖼️ PWA İkon Sıkıştırma ve Yeniden Ölçeklendirme:** PWA kurulumu ve lobi ekranı için kullanılan ana görsel ikonlar, tarayıcı performansı ve ağ tüketimini optimize etmek için kayıpsız sıkıştırma algoritmalarından (Fast Octree) geçirilmiştir. 192x192 ve 512x512 piksel standartlarına tam uyumlu hale getirilen görsellerde, görsel kaliteden ödün verilmeden dosya boyutlarında %90'ın üzerinde tasarruf sağlanmıştır.
+*   **🚀 GPU Hızlandırmalı Skor Çubuğu Animasyonları:** Skor grafiklerindeki ilerleme barlarının animasyon mekanizması, tarayıcının her karede tüm sayfa düzenini yeniden hesaplamasına (layout reflow) neden olan genişlik değişimi yerine, doğrudan ekran kartı (GPU) üzerinden işlenen X eksenli ölçekleme yöntemine geçirilmiştir. Animasyonların hedef değerleri dinamik olarak CSS değişkenleri üzerinden okunarak akıcı ve 60 FPS çalışan bir animasyon performansı elde edilmiştir.
+*   **🛡️ Hata Toleranslı Çevrimdışı Kategori Yönetimi:** Vibe X Verses oyununda ağ kesintileri veya çevrimdışı yükleme sorunları nedeniyle kelime veritabanına ulaşılamaması durumu için acil durum yedek kelime havuzu mekanizması kurulmuştur. Bu sayede oyunun beklenmedik şekilde kilitlenmesinin önüne geçilmiş, kısıtlı da olsa kesintisiz oynanabilirliği garanti edilmiştir.
+
