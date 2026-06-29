@@ -240,7 +240,6 @@ function setupEventListeners() {
                 playSuccess();
                 renderWritingPhase(); // Güncelle (kelimeyi aç)
             } else {
-                playFailure();
                 renderWritingPhase(); // Güncelle (hakkı kilitle ve buton durumunu göster)
                 await showCustomAlert('Yanlış Tahmin', 'Yanlış tahmin! Bu tur için tahmin hakkın kilitlendi.', 'lock_clock');
                 // Zamanlayıcıyı geri başlat

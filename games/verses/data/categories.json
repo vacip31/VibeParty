@@ -56,7 +56,7 @@
         "words": [
             { "w": "MSN Messenger", "synonyms": ["msn", "messenger", "titret", "ne dinliyorum", "msn messenger"] },
             { "w": "Kontör Kartı", "synonyms": ["kontor", "telsim", "turkcell", "kazimak", "100 kontor"] },
-            { "w": "Sanal Bebek", "synonyms": ["sanal bebek", "evcil hayvan", "yumurta", "tamagotchi"] },
+
             { "w": "Taso", "synonyms": ["taso", "cips", "demir taso", "pokemon", "cheetos"] },
             { "w": "Kral TV", "synonyms": ["kral tv", "top 20", "sms", "video klip", "muzik kanali"] },
             { "w": "Hugo ve Tolga Abi", "synonyms": ["hugo", "tolga abi", "cadilar", "bas parmak", "telefonla oyun"] },
@@ -70,7 +70,7 @@
             { "w": "Gazete Kuponu", "synonyms": ["kupon", "gazete", "ansiklopedi", "bisiklet", "biriktirmek"] },
             { "w": "Atari Salonu", "synonyms": ["atari", "jeton", "jetoncu", "taso", "street fighter", "oyun"] },
             { "w": "Winamp", "synonyms": ["winamp", "mp3", "sarki", "muzik", "skin", "list", "player"] },
-            { "w": "Sinegraf Jeneriği", "synonyms": ["ekmek teknesi", "super baba", "dizi", "jenerik", "muzik"] },
+
             { "w": "Işıklı Ayakkabı", "synonyms": ["ayakkabi", "cocuk", "isik", "spor", "basinca yanan"] },
             { "w": "56k Modem", "synonyms": ["modem", "internet", "cevir ses", "cevirmeli", "baglanti"] },
             { "w": "Çizgili Defter", "synonyms": ["defter", "okul", "kitap", "guzel yazi", "kareli", "ders"] },
@@ -82,7 +82,7 @@
             { "w": "Sünnet Düğünü", "synonyms": ["sunnet", "dugun", "pelerin", "asa", "konvoy", "kirve"] },
             { "w": "Çatapat", "synonyms": ["mantar", "catapat", "torpil", "patlayici", "bayram", "cocuk", "sokak"] },
             { "w": "Bayram Harçlığı", "synonyms": ["bayram", "harclik", "para", "el opmek", "bayramlasma"] },
-            { "w": "Tasasız Çocukluk", "synonyms": ["cocuk", "eski", "oyun", "mahalle", "sokak"] },
+
             { "w": "Misafir Terliği", "synonyms": ["terlik", "misafir", "ev", "plastik terlik", "koridor"] },
             { "w": "Tasoları Ütmek", "synonyms": ["taso", "utmek", "kazanmak", "oyun", "pokemon", "cips", "mahalle"] },
             { "w": "Topun İnşaata Kaçması", "synonyms": ["top", "insaat", "kacmak", "patlamak", "komsunun bahcesi"] },
@@ -92,10 +92,7 @@
             { "w": "Mahalle Bakkalı", "synonyms": ["bakkal", "bakkal amca", "veresiye", "abur cubur", "ekmek"] },
             { "w": "Bayramlık Kıyafet", "synonyms": ["bayramlik", "kiyafet", "bayram sabahı", "ayakkabi", "yeni"] },
             { "w": "Su Satmak", "synonyms": ["su", "satmak", "cocukluk", "para kazanmak", "soguk su", "pazar"] },
-            { "w": "Sobalı Ev Odası", "synonyms": ["soba", "kis", "komur", "oda", "boru", "mandalina kabugu", "ev"] },
-            { "w": "Plastik Su Tabancası", "synonyms": ["su", "tabanca", "cocuk", "oyun", "yaz", "park", "plastik"] },
-            { "w": "Sünnet Konvoyu", "synonyms": ["sunnet", "pelerin", "asa", "konvoy", "araba", "kirve", "dugun"] },
-            { "w": "Çatapat Mantar", "synonyms": ["catapat", "mantar", "torpil", "patlayici", "bayram", "cocuk"] },
+
             { "w": "Gazoz Kapağı", "synonyms": ["kapak", "gazoz", "taso", "cocukluk", "oyun", "biriktirmek", "demir"] },
             { "w": "Kaldırım Taşı", "synonyms": ["kaldirim", "tas", "sokak", "yol", "yurumek", "parke"] },
             { "w": "Tofaş Kuş Serisi", "synonyms": ["tofas", "sahin", "dogan", "kartal", "modifiye", "araba", "egzoz"] },
@@ -109,10 +106,6 @@
             { "w": "Gizlice Sigara İçmek", "synonyms": ["sigara", "gizli", "lise", "duman", "koku", "yakalanmak", "nane"] },
             { "w": "Sobanın Borusu", "synonyms": ["soba", "boru", "kurum", "temizlemek", "kis", "is", "ev", "duvar"] },
             { "w": "Ev Anahtarı Boyna Asmak", "synonyms": ["anahtar", "boyun", "cocuk", "okul", "ev", "ip", "kaybetmek"] },
-            { "w": "Tel Örgü", "synonyms": ["tel", "orgu", "bahce", "top kacmasi", "demir", "arsa", "cit"] },
-            { "w": "Kaldırım Kenarı", "synonyms": ["kaldirim", "sokak", "yol", "kenar", "oturmak", "tas", "tretuvar"] },
-            { "w": "Sokak Lambası", "synonyms": ["lamba", "sokak", "gece", "isik", "direk", "aksam", "patlak"] },
-            { "w": "Elektrik Direği", "synonyms": ["direk", "elektrik", "kablo", "sokak", "kuslar", "ilan", "kacak"] },
             { "w": "Mahalle Çeşmesi", "synonyms": ["cesme", "su", "sokak", "mahalle", "kova", "akmak", "buz gibi"] },
             { "w": "Bakkal Çikolatası", "synonyms": ["bakkal", "cikolata", "ucuz", "cocukluk", "bakkal amca", "para"] }
         ]
@@ -260,10 +253,7 @@
             { "w": "Ev Oturması", "synonyms": ["misafirlik", "oturma", "cay", "kek", "kisir", "komsular", "ev"] },
             { "w": "Bereket Duası", "synonyms": ["dükkan", "esnaf", "bereket", "dua", "siftah", "asma tabela"] },
             { "w": "Siftah Parasını Atmak", "synonyms": ["siftah", "para", "yere atmak", "esnaf", "ilk siftah", "sabah"] },
-            { "w": "Mangal Yelpazesi", "synonyms": ["mangal", "yelpaze", "ruzgar", "et", "tavuk", "komur", "piknik"] },
-            { "w": "Çeyrek Altın Takmak", "synonyms": ["ceyrek", "altin", "dugun", "kurdele", "taki toreni", "sunnet"] },
-            { "w": "Dantelli Sehpa Örtüsü", "synonyms": ["dantel", "sehpa", "televizyon", "ev", "anne", "orgu", "beyaz"] },
-            { "w": "Nazar Boncuğu İğnelemek", "synonyms": ["nazar", "boncuk", "iğne", "bebek", "omuz", "mavi", "goz"] },
+
             { "w": "İnce Belli Çay Bardağı", "synonyms": ["cay", "ince belli", "ajda", "bardak", "kahvalti", "esnaf"] },
             { "w": "Anne Terliği", "synonyms": ["terlik", "anne", "terlik firlatmak", "kafa", "cocuk", "isabet"] },
             { "w": "Kına Gecesi", "synonyms": ["kyna", "gelin", "aglatmak", "yuksek yuksek tepeler", "tepsi"] },
@@ -273,8 +263,7 @@
             { "w": "Ehliyet Sınavı", "synonyms": ["ehliyet", "sinav", "direksiyon", "araba", "surucu kursu", "hoca"] },
             { "w": "Amorti Çıkması", "synonyms": ["amorti", "bilet", "milli piyango", "yilbasi", "para", "sans"] },
             { "w": "Kredi Kartı Borcu", "synonyms": ["kart", "borc", "asgari", "banka", "ekstre", "faiz", "para"] },
-            { "w": "Esnaf Lokantası Çorbası", "synonyms": ["corba", "mercimek", "kelle paca", "lokanta", "esnaf", "pilav"] },
-            { "w": "Sahibinden Boyasız Araba", "synonyms": ["araba", "sahibinden", "boyasiz", "orijinal", "galeri", "hasar"] },
+
             { "w": "PTT Sırası", "synonyms": ["ptt", "sira", "kargo", "paket", "emekli", "kuyruk", "postane"] },
             { "w": "KPSS Çalışmak", "synonyms": ["kpss", "sinav", "memur", "atama", "kitap", "test", "ders"] },
             { "w": "Tarla Mirası", "synonyms": ["tarla", "miras", "kavga", "amca", "arsa", "bolusmek", "tapu"] },
@@ -282,8 +271,7 @@
             { "w": "Kestane Kebap", "synonyms": ["kestane", "soba", "kebap", "kis", "pisirmek", "kabuk"] },
             { "w": "Akşam Pazarı", "synonyms": ["pazar", "ucuz", "tezgahi toplamak", "domates", "sebze", "pazar arabasi"] },
             { "w": "Çay Ocağı Taburesi", "synonyms": ["tabure", "cay", "ocak", "kahve", "esnaf", "oturmak"] },
-            { "w": "Halı Saha Baklavası", "synonyms": ["baklava", "mac", "hali saha", "futbol", "yenilen odur", "krampon"] },
-            { "w": "Fincanda Kahve Falı", "synonyms": ["fal", "kahve", "fincan", "telve", "falci", "dilek", "yukari"] },
+
             { "w": "Elektrik Faturası", "synonyms": ["elektrik", "fatura", "para", "zam", "sayac", "odeme", "isik"] },
             { "w": "Limonata Sürahisi", "synonyms": ["limonata", "surahi", "cam", "buz", "yaz", "misafir", "sari"] },
             { "w": "Ev Baklavası", "synonyms": ["baklava", "bayram", "tatli", "anne", "tepsi", "serbet", "ceviz"] },
@@ -337,7 +325,7 @@
             { "w": "Kurutulmuş Patlıcan", "synonyms": ["patlican", "kuru", "kislik", "dolma", "ipe dizili", "biber", "anne"] },
             { "w": "Berber Muhabbeti", "synonyms": ["berber", "tiras", "sac", "sakal", "muhabbet", "kolonya", "futbol"] },
             { "w": "Kahvehane Okey Takımı", "synonyms": ["okey", "tas", "kahvehane", "okey takimi", "masa", "istekne"] },
-            { "w": "Pazar Tezgahı Bağırması", "synonyms": ["pazar", "tezgah", "satici", "domates", "bagirmak", "ucuz", "kilo"] },
+
             { "w": "Veresiye İsteme Utancı", "synonyms": ["veresiye", "borc", "bakkal", "utanc", "para", "yazdirmak"] },
             { "w": "Yarım Ekmek Döner", "synonyms": ["doner", "yarim ekmek", "tavuk doner", "ayran", "sos", "esnaf"] },
             { "w": "Oto Sanayi Çırağı", "synonyms": ["sanayi", "tamir", "araba", "cirak", "usta", "anahtar", "yag"] },
@@ -363,7 +351,7 @@
             { "w": "Çöp Konteyneri", "synonyms": ["cop", "bidon", "kutu", "sokak", "konteyner", "koku", "kedi"] },
             { "w": "Yangın Merdiveni", "synonyms": ["yangin", "merdiven", "bina", "demir", "arkasi", "kacis", "okul"] },
             { "w": "Bahçe Kapısı", "synonyms": ["kapi", "bahce", "demir", "komsunun", "acik", "avlu", "kilit"] },
-            { "w": "Yağmur Mazgalı", "synonyms": ["mazgal", "demir", "yagmur", "su", "sokak", "lahim", "koku", "sel"] },
+
             { "w": "Çamaşır Mandalı", "synonyms": ["mandal", "camasir", "ip", "balkon", "plastik", "ruzgar", "sepet"] },
             { "w": "Gümüşlük Vitrin", "synonyms": ["vitrin", "gumusluk", "bardak", "salon", "fincan", "dantel", "yasak"] },
             { "w": "Düdüklü Tencere", "synonyms": ["tencere", "duduklu", "mutfak", "yemek", "patlama", "ses", "fasulye"] },
@@ -374,10 +362,7 @@
             { "w": "Akbil Sesi", "synonyms": ["akbil", "otobus", "ses", "kart", "istanbul", "kentkart", "bilet"] },
             { "w": "Seyyar Köfteci", "synonyms": ["kofte", "seyyar", "araba", "sokak", "stadyum", "mac cikisi", "sogan"] },
             { "w": "Lokanta Hesabı", "synonyms": ["hesap", "lokanta", "para", "yemek sonrasi", "odeme", "masa", "kurdan"] },
-            { "w": "Telefon Şarjı", "synonyms": ["telefon", "sarj", "batarya", "kablo", "priz", "yuzde", "alet"] },
-            { "w": "Su Deposu", "synonyms": ["su", "depo", "tank", "dam", "cati", "plastik", "musluk", "kesinti"] },
-            { "w": "Çekçekli Paspas", "synonyms": ["paspas", "cekcek", "su", "banyo", "fayans", "temizlik", "kurulamak"] },
-            { "w": "Elbise Askısı", "synonyms": ["aski", "dolap", "elbise", "ceket", "gardrop", "demir", "plastik"] },
+
             { "w": "Kurutulmuş Biber", "synonyms": ["biber", "kuru", "kislik", "dolma", "ipe dizili", "patlican", "anne"] },
             { "w": "Mutfak Tüpü", "synonyms": ["tup", "mutfak tupu", "aygaz", "bitti", "yemek", "usta", "ocak"] },
             { "w": "Kıraathane", "synonyms": ["kahve", "kiraathane", "okey", "cay", "amca", "iskambil", "pispirik"] },
