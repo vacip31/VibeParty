@@ -516,15 +516,54 @@ export function populateCategoriesModal(categoriesList) {
     if (!listContainer) return;
     
     listContainer.innerHTML = '';
+    listContainer.className = 'flex flex-col gap-sm mt-2';
     
     categoriesList.forEach((cat) => {
-        const card = document.createElement('div');
-        card.className = 'p-md bg-surface-container rounded-lg border border-outline-variant/10 flex flex-col gap-xs';
-        card.innerHTML = `
-            <h4 class="font-label-caps text-xs text-primary uppercase tracking-widest">${cat.category}</h4>
-            <p class="font-body text-xs text-on-surface-variant/80 leading-relaxed">${cat.words.map(w => typeof w === 'string' ? w : w.w).join(', ')}</p>
+        const item = document.createElement('div');
+        item.className = 'category-accordion-item bg-surface-container rounded-lg border border-outline-variant/10 overflow-hidden transition-all duration-200';
+        
+        const words = cat.words.map(w => typeof w === 'string' ? w : w.w);
+        const pillsHtml = words.map(w => `
+            <span class="inline-block text-[11px] bg-surface-container-highest/60 text-on-surface-variant/80 px-2.5 py-1 rounded-md border border-outline-variant/10 hover:border-primary/20 hover:text-primary transition-all select-none">
+                ${w}
+            </span>
+        `).join('');
+
+        item.innerHTML = `
+            <button class="w-full flex items-center justify-between p-sm text-left focus:outline-none hover:bg-surface-container-high/40 transition-colors group" type="button">
+                <div class="flex items-center gap-xs">
+                    <span class="font-label-caps text-xs font-bold text-on-surface uppercase tracking-wider group-hover:text-primary transition-colors">${cat.category}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-[10px] font-mono-meta text-on-surface-variant/40 bg-surface-container-highest/80 px-2 py-0.5 rounded-full border border-outline-variant/10">${words.length} Kelime</span>
+                    <span class="material-symbols-outlined text-primary text-[18px] transition-transform duration-200 accordion-icon">chevron_right</span>
+                </div>
+            </button>
+            <div class="max-h-0 overflow-hidden transition-all duration-300 ease-out accordion-content">
+                <div class="p-sm pt-0 flex flex-wrap gap-xs border-t border-outline-variant/5 mt-xs pt-sm">
+                    ${pillsHtml}
+                </div>
+            </div>
         `;
-        listContainer.appendChild(card);
+        
+        const button = item.querySelector('button');
+        const content = item.querySelector('.accordion-content');
+        const icon = item.querySelector('.accordion-icon');
+        
+        button.addEventListener('click', () => {
+            const isOpen = item.classList.contains('accordion-open');
+            if (isOpen) {
+                item.classList.remove('accordion-open');
+                content.style.maxHeight = '0px';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                item.classList.add('accordion-open');
+                content.style.maxHeight = `${content.scrollHeight}px`;
+                icon.style.transform = 'rotate(90deg)';
+            }
+        });
+        
+        listContainer.appendChild(item);
     });
 }
 
