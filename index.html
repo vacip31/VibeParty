@@ -20,7 +20,7 @@
     <!-- Özel Tasarım Sistemimiz (Obsidian Glass) -->
     <link rel="stylesheet" href="./css/styles.css" />
 
-    <!-- Tailwind Yapılandırması (Yeni Neon Turuncu & Neon Turkuaz Paleti) -->
+    <!-- Tailwind Yapılandırması (Yeni Gelişmiş Çok Renkli Neon Paleti) -->
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -31,6 +31,8 @@
                         surface: "#161e31",         /* Dark obsidian blue */
                         primary: "#00f2fe",         /* Neon Turquoise / Cyan */
                         secondary: "#ff7a00",       /* Neon Orange */
+                        accent: "#8b5cf6",          /* Neon Violet / Purple */
+                        fuchsia: "#d946ef",         /* Neon Fuchsia / Pink */
                         neutral: "#a6abc0",
                         error: "#ff7a00",
                         warning: "#00f2fe",
@@ -60,16 +62,17 @@
             --color-soft-emerald: #00f2fe;
             --color-midnight-blue: #161e31;
             --color-coral-red: #ff7a00;
-            --color-outline: rgba(255, 255, 255, 0.06);
+            --color-outline: rgba(255, 255, 255, 0.05);
         }
-        /* Portal İçin Çift Renkli Neon Atmosferik Işıma */
+        /* Portal İçin Üç Renkli Kozmik Neon Nebula Glow */
         .glow-bg {
-            background: radial-gradient(circle at 35% 35%, rgba(0, 242, 254, 0.12) 0%, transparent 60%),
-                        radial-gradient(circle at 65% 65%, rgba(255, 122, 0, 0.12) 0%, transparent 60%) !important;
-            filter: blur(50px) !important;
+            background: radial-gradient(circle at 20% 30%, rgba(0, 242, 254, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 30%, rgba(255, 122, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 60%) !important;
+            filter: blur(60px) !important;
         }
         .ambient-glow {
-            background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, rgba(0,0,0,0) 70%) !important;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, rgba(0,0,0,0) 70%) !important;
         }
     </style>
 </head>
@@ -86,15 +89,15 @@
 
         <!-- Üst Başlık & Marka -->
         <div class="flex flex-col items-center mt-4 animate-float">
-            <!-- PWA Logo Çerçevesi -->
+            <!-- PWA Logo Çerçevesi (Mor & Mavi Çift Halka Gölgeli) -->
             <div
-                class="relative w-20 h-20 mb-5 flex items-center justify-center rounded-[24px] bg-[#161e31]/45 border border-white/10 shadow-[0_8px_32px_rgba(0,242,254,0.15)] overflow-hidden">
+                class="relative w-20 h-20 mb-5 flex items-center justify-center rounded-[24px] bg-[#161e31]/45 border border-white/10 shadow-[0_8px_32px_rgba(139,92,246,0.15),_0_0_16px_rgba(0,242,254,0.1)] overflow-hidden">
                 <img src="./icon-192.png" alt="VibeParty Logo" class="w-[60px] h-[60px] object-contain rounded-[14px]">
             </div>
 
             <h1
-                class="font-display text-[40px] font-extralight tracking-[0.25em] text-white drop-shadow-[0_0_30px_rgba(0,242,254,0.25)]">
-                VİBE<span class="text-primary font-light">PARTY</span>
+                class="font-display text-[40px] font-extralight tracking-[0.25em] text-white drop-shadow-[0_0_30px_rgba(139,92,246,0.25)]">
+                VİBE<span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2fe] via-[#d946ef] to-[#ff7a00] font-semibold">PARTY</span>
             </h1>
             <p class="font-body text-[10px] text-white/30 tracking-[0.2em] mt-3 uppercase">Grup Oyunları Portalı</p>
         </div>
@@ -102,9 +105,9 @@
         <!-- Oyun Seçim Menüsü -->
         <div class="w-full flex flex-col gap-4 my-auto max-w-[360px] mx-auto">
 
-            <!-- VibeTabu Kartı (Turkuaz Işıma) -->
+            <!-- VibeTabu Kartı (Turkuaz Işıma & İndigo Detaylar) -->
             <a href="./games/taboo/index.html"
-                class="glass-panel rounded-2xl p-5 flex items-center justify-between shadow-lg border border-primary/20 hover:border-primary/40 bg-primary/[0.02] active:scale-98 transition-all group relative overflow-hidden text-left">
+                class="glass-panel rounded-2xl p-5 flex items-center justify-between shadow-lg border border-primary/20 hover:border-primary/40 bg-primary/[0.01] active:scale-98 transition-all group relative overflow-hidden text-left">
                 <div
                     class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent">
                 </div>
@@ -123,20 +126,20 @@
                 </div>
                 <div class="flex items-center gap-1 shrink-0 ml-2">
                     <span
-                        class="px-2 py-0.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-[8px] tracking-wider uppercase font-semibold whitespace-nowrap">Aktif
+                        class="px-2 py-0.5 rounded-full border border-violet-500/30 bg-violet-600/10 text-violet-400 text-[8px] tracking-wider uppercase font-semibold whitespace-nowrap">Aktif
                         🎮</span>
                 </div>
             </a>
 
-            <!-- Vibe X Verses (Turuncu Işıma) -->
+            <!-- Vibe X Verses (Turuncu Işıma & Fuşya Detaylar) -->
             <a href="./games/verses/index.html"
-                class="glass-panel rounded-2xl p-5 flex items-center justify-between shadow-lg border border-secondary/20 hover:border-secondary/40 bg-secondary/[0.02] active:scale-98 transition-all group relative overflow-hidden text-left">
+                class="glass-panel rounded-2xl p-5 flex items-center justify-between shadow-lg border border-secondary/20 hover:border-secondary/40 bg-secondary/[0.01] active:scale-98 transition-all group relative overflow-hidden text-left">
                 <div
                     class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-secondary/30 to-transparent">
                 </div>
                 <div class="flex items-center gap-4 min-w-0">
                     <div
-                        class="w-12 h-12 rounded-xl flex items-center justify-center border border-secondary/20 bg-secondary/10 text-secondary shadow-[0_0_12px_rgba(255,122,0,0.25)] shrink-0">
+                        class="w-12 h-12 rounded-xl flex items-center justify-center border border-secondary/20 bg-secondary/10 text-secondary shadow-[0_0_12px_rgba(255,122,0,0.2)] shrink-0">
                         <span class="material-symbols-outlined text-2xl">history_edu</span>
                     </div>
                     <div class="flex flex-col gap-0.5 min-w-0">
@@ -149,25 +152,25 @@
                 </div>
                 <div class="flex items-center gap-1 shrink-0 ml-2">
                     <span
-                        class="px-2 py-0.5 rounded-full border border-secondary/30 bg-secondary/10 text-secondary text-[8px] tracking-wider uppercase font-semibold whitespace-nowrap">Aktif
+                        class="px-2 py-0.5 rounded-full border border-fuchsia-500/30 bg-fuchsia-600/10 text-fuchsia-400 text-[8px] tracking-wider uppercase font-semibold whitespace-nowrap">Aktif
                         🖋️</span>
                 </div>
             </a>
 
-            <!-- Karar Ruleti (Kilitli) -->
+            <!-- Karar Ruleti (Kilitli - Mor/Lila Vurgulu) -->
             <div
-                class="glass-panel rounded-2xl p-5 flex items-center justify-between shadow-md border border-white/5 bg-white/[0.01] opacity-50 text-left cursor-not-allowed select-none">
+                class="glass-panel rounded-2xl p-5 flex items-center justify-between shadow-md border border-violet-500/10 bg-violet-950/[0.02] opacity-50 text-left cursor-not-allowed select-none relative overflow-hidden">
                 <div class="flex items-center gap-4 min-w-0">
                     <div
-                        class="w-12 h-12 rounded-xl flex items-center justify-center border border-white/5 bg-white/5 text-white/40 shrink-0">
+                        class="w-12 h-12 rounded-xl flex items-center justify-center border border-violet-500/20 bg-violet-500/10 text-violet-400 shrink-0 shadow-[0_0_12px_rgba(139,92,246,0.1)]">
                         <span class="material-symbols-outlined text-2xl">track_changes</span>
                     </div>
                     <div class="flex flex-col gap-0.5 min-w-0">
-                        <h2 class="font-display text-base text-white/60 font-medium">Kader Ruleti</h2>
-                        <p class="font-body text-xs text-white/40 font-light">Çarkı çevir!</p>
+                        <h2 class="font-display text-base text-violet-300/80 font-medium">Kader Ruleti</h2>
+                        <p class="font-body text-xs text-white/40 font-light">Çok Yakında...</p>
                     </div>
                 </div>
-                <span class="material-symbols-outlined text-white/30 text-lg shrink-0 ml-2">lock</span>
+                <span class="material-symbols-outlined text-violet-400/50 text-lg shrink-0 ml-2">lock</span>
             </div>
 
         </div>
