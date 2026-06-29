@@ -20,19 +20,20 @@
     <!-- Özel Tasarım Sistemimiz (Obsidian Glass) -->
     <link rel="stylesheet" href="./css/styles.css" />
 
-    <!-- Tailwind Yapılandırması (Görsel uyum için) -->
+    <!-- Tailwind Yapılandırması (Yeni Portal Renk Paleti: 3B1F2B, DB162F, DBDFAC, 5F758E, 383961) -->
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        background: "#121420",
-                        surface: "#2d3047",
-                        primary: "#1b998b",
-                        secondary: "#ff9b71",
-                        error: "#ed217c",
-                        warning: "#fffd82",
+                        background: "#3B1F2B",      /* Dark Eggplant / Burgundy */
+                        surface: "#383961",         /* Dark Indigo / Deep Violet */
+                        primary: "#DB162F",         /* Crimson / Bright Red */
+                        secondary: "#DBDFAC",       /* Sage / Creamy Yellow-Green */
+                        neutral: "#5F758E",         /* Slate / Steel Blue */
+                        error: "#DB162F",
+                        warning: "#DBDFAC",
                         "on-surface-variant": "#a6abc0"
                     },
                     spacing: {
@@ -48,6 +49,27 @@
             }
         }
     </script>
+    
+    <!-- Portal Özel Stil Aşımı -->
+    <style>
+        :root {
+            --color-background: #3B1F2B;
+            --color-surface: #383961;
+            --color-primary: #DB162F;
+            --color-neon-purple: #DBDFAC;
+            --color-soft-emerald: #5F758E;
+            --color-midnight-blue: #383961;
+            --color-coral-red: #DB162F;
+            --color-outline: rgba(255, 255, 255, 0.08);
+        }
+        /* Portal İçin Atmosferik Arka Plan Işıması Renk Aşımı */
+        .glow-bg {
+            background: radial-gradient(circle, rgba(219, 22, 47, 0.15) 0%, rgba(0,0,0,0) 70%) !important;
+        }
+        .ambient-glow {
+            background: radial-gradient(circle, rgba(219, 22, 47, 0.1) 0%, rgba(0,0,0,0) 70%) !important;
+        }
+    </style>
 </head>
 
 <body
@@ -64,7 +86,7 @@
         <div class="flex flex-col items-center mt-4 animate-float">
             <!-- PWA Logo Çerçevesi -->
             <div
-                class="relative w-20 h-20 mb-5 flex items-center justify-center rounded-[24px] bg-[#2D3047]/45 border border-white/10 shadow-[0_8px_32px_rgba(27,153,139,0.15)] overflow-hidden">
+                class="relative w-20 h-20 mb-5 flex items-center justify-center rounded-[24px] bg-[#383961]/45 border border-white/10 shadow-[0_8px_32px_rgba(219,22,47,0.15)] overflow-hidden">
                 <img src="./icon-192.png" alt="VibeParty Logo" class="w-[60px] h-[60px] object-contain rounded-[14px]">
             </div>
 
@@ -86,7 +108,7 @@
                 </div>
                 <div class="flex items-center gap-4 min-w-0">
                     <div
-                        class="w-12 h-12 rounded-xl flex items-center justify-center border border-primary/20 bg-primary/10 text-primary shadow-[0_0_12px_rgba(27,153,139,0.2)] shrink-0">
+                        class="w-12 h-12 rounded-xl flex items-center justify-center border border-primary/20 bg-primary/10 text-primary shadow-[0_0_12px_rgba(219,22,47,0.2)] shrink-0">
                         <span class="material-symbols-outlined text-2xl">casino</span>
                     </div>
                     <div class="flex flex-col gap-0.5 min-w-0">
@@ -106,18 +128,18 @@
 
             <!-- Vibe X Verses (Aktif) -->
             <a href="./games/verses/index.html"
-                class="glass-panel rounded-2xl p-5 flex items-center justify-between shadow-lg border border-primary/20 hover:border-primary/40 bg-primary/[0.02] active:scale-98 transition-all group relative overflow-hidden text-left">
+                class="glass-panel rounded-2xl p-5 flex items-center justify-between shadow-lg border border-secondary/20 hover:border-secondary/40 bg-secondary/[0.02] active:scale-98 transition-all group relative overflow-hidden text-left">
                 <div
-                    class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent">
+                    class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-secondary/30 to-transparent">
                 </div>
                 <div class="flex items-center gap-4 min-w-0">
                     <div
-                        class="w-12 h-12 rounded-xl flex items-center justify-center border border-primary/20 bg-primary/10 text-primary shadow-[0_0_12px_rgba(27,153,139,0.2)] shrink-0">
+                        class="w-12 h-12 rounded-xl flex items-center justify-center border border-secondary/20 bg-secondary/10 text-secondary shadow-[0_0_12px_rgba(219,223,172,0.2)] shrink-0">
                         <span class="material-symbols-outlined text-2xl">history_edu</span>
                     </div>
                     <div class="flex flex-col gap-0.5 min-w-0">
                         <h2
-                            class="font-display text-base text-white font-medium group-hover:text-primary transition-colors">
+                            class="font-display text-base text-white font-medium group-hover:text-secondary transition-colors">
                             Vibe X Verses</h2>
                         <p class="font-body text-xs text-white/50 font-light leading-relaxed">Gizli casus olarak sız
                             veya ekibinle kopmayan bir ipucu zinciri oluştur!</p>
@@ -125,7 +147,7 @@
                 </div>
                 <div class="flex items-center gap-1 shrink-0 ml-2">
                     <span
-                        class="px-2 py-0.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-[8px] tracking-wider uppercase font-semibold whitespace-nowrap">Aktif
+                        class="px-2 py-0.5 rounded-full border border-secondary/30 bg-secondary/10 text-secondary text-[8px] tracking-wider uppercase font-semibold whitespace-nowrap">Aktif
                         🖋️</span>
                 </div>
             </a>
