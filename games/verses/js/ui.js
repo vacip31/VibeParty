@@ -301,6 +301,7 @@ export function renderWritingPhase() {
     
     panelA.classList.add('hidden');
     panelB.classList.add('hidden');
+    panelB.dataset.initialized = ''; // Sonraki oyuncu için sıfırla
     panelC.classList.add('hidden');
     
     const currentWriter = state.shuffledWritingQueue[state.currentWriterIndex];
@@ -353,23 +354,28 @@ export function renderWritingPhase() {
             prevLineText.textContent = `"${lastPoem.line}"`;
         }
         
-        // Sayaç ve input sıfırlama
+        // Sayaç ve input — sadece panel ilk açılırken sıfırla, timer tick'lerinde değil
         const textarea = document.getElementById('input-poetry-verse');
         const counter = document.getElementById('writing-char-counter');
         const btnSubmit = document.getElementById('btn-writing-submit');
         
-        if (textarea) {
-            textarea.value = '';
-            textarea.focus();
+        const isPanelFirstOpen = panelB.dataset.initialized !== 'true';
+        if (isPanelFirstOpen) {
+            panelB.dataset.initialized = 'true';
+            if (textarea) {
+                textarea.value = '';
+                textarea.focus();
+            }
+            if (counter) {
+                counter.textContent = '0 / 35';
+                counter.classList.remove('text-primary');
+            }
+            if (btnSubmit) {
+                btnSubmit.disabled = true;
+                btnSubmit.className = "w-full py-md bg-primary-container text-on-primary font-h2 text-h2 font-bold uppercase tracking-widest opacity-40 cursor-not-allowed rounded-lg active:scale-[0.98] transition-all";
+            }
         }
-        if (counter) {
-            counter.textContent = '0 / 35';
-            counter.classList.remove('text-primary');
-        }
-        if (btnSubmit) {
-            btnSubmit.disabled = true;
-            btnSubmit.className = "w-full py-md bg-primary-container text-on-primary font-h2 text-h2 font-bold uppercase tracking-widest opacity-40 cursor-not-allowed rounded-lg active:scale-[0.98] transition-all";
-        }
+
         
         // Sahte Şair Tahmin Butonu (Tur Başına Sadece 1 Tahmin Hakkı)
         const btnSpyGuess = document.getElementById('btn-writing-spy-guess');
