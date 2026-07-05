@@ -1,0 +1,996 @@
+/* Obsidian Glass Tasarım Sistemi */
+
+:root {
+    --color-background: #0c0c0e;  /* Nötr, ultra-modern koyu kömür arka planı (Sıfır Mavi) */
+    --color-surface: #1a1a1f;     /* Sıcak, temiz antrasit yüzey rengi */
+    --color-primary: #1b998b;
+    --color-midnight-blue: #1a1a1f;
+    --color-neon-purple: #ff9b71;
+    --color-soft-emerald: #1b998b;
+    --color-coral-red: #ed217c;
+    --color-text: #ffffff;
+    --color-text-muted: #a8a8b5;
+    --color-outline: rgba(255, 255, 255, 0.08);
+}
+
+/* Temel Sıfırlama ve Yapı */
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100dvh;
+}
+
+/* Güvenli Alan Alt Dolgusu */
+.pb-safe-area-bottom {
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+}
+
+/* Atmosferik Arka Plan Işıması */
+.glow-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(27, 153, 139, 0.1) 0%, rgba(255, 155, 113, 0.08) 50%, rgba(0,0,0,0) 75%) !important;
+    filter: blur(40px);
+    z-index: 0;
+    animation: pulse-glow 4s infinite alternate ease-in-out;
+    pointer-events: none;
+}
+
+.ambient-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: 80vw;
+    max-width: 500px;
+    max-height: 500px;
+    background: radial-gradient(circle, rgba(27, 153, 139, 0.12) 0%, rgba(0,0,0,0) 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Cam Paneller (Glassmorphism) */
+.glass-panel {
+    background: rgba(26, 26, 32, 0.75); /* Nötr, şık ve mavilik barındırmayan antrasit cam zemin */
+    backdrop-filter: blur(20px);        /* Mavi parlamayı artırabilecek doygunluk filtresi kaldırıldı */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--color-outline);
+}
+
+.liquid-glass {
+    background: rgba(26, 26, 32, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* İç Işıma (Neomorphism 2.0 Edge) */
+.inner-glow {
+    box-shadow: inset 1px 1px 0px 0px rgba(255,255,255,0.08), inset -1px -1px 0px 0px rgba(255,255,255,0.02);
+}
+
+.pulse-border {
+    animation: border-pulse-glow 3s infinite alternate;
+}
+
+/* Buton Tasarımları */
+.glass-btn-primary {
+    background: linear-gradient(180deg, rgba(27, 153, 139, 0.15) 0%, rgba(27, 153, 139, 0.05) 100%);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 4px 12px rgba(0,0,0,0.5), 0 20px 40px rgba(0,0,0,0.3);
+    color: var(--color-primary);
+    transition: all 0.2s ease;
+}
+
+.glass-btn-primary:active {
+    background: linear-gradient(180deg, rgba(27, 153, 139, 0.25) 0%, rgba(27, 153, 139, 0.1) 100%);
+    transform: scale(0.98);
+}
+
+.glass-btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text);
+    transition: all 0.2s ease;
+}
+
+.glass-btn-secondary:active {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.glass-btn-icon {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text-muted);
+    transition: all 0.2s ease;
+}
+
+.glass-btn-icon:active {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, rgba(27, 153, 139, 0.25) 0%, rgba(255, 155, 113, 0.12) 100%) !important;
+    backdrop-filter: saturate(180%) blur(20px) !important;
+    -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.2), 
+        0 4px 15px rgba(27, 153, 139, 0.2), 
+        0 0 25px rgba(27, 153, 139, 0.08) !important;
+    color: #ffffff !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.05em !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.primary-btn:active:not(:disabled) {
+    background: linear-gradient(135deg, rgba(27, 153, 139, 0.35) 0%, rgba(255, 155, 113, 0.22) 100%) !important;
+    transform: scale(0.96) !important;
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.2), 
+        0 2px 8px rgba(27, 153, 139, 0.15) !important;
+}
+
+.primary-btn:disabled,
+.primary-btn.opacity-40 {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: none !important;
+    transform: none !important;
+    cursor: not-allowed !important;
+}
+
+/* Seçenek Hapları (Pills) */
+.option-pill {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.4);
+    transition: all 0.2s ease;
+}
+
+.option-pill.active {
+    border-color: var(--color-primary);
+    background: rgba(27, 153, 139, 0.06);
+    color: var(--color-primary);
+    box-shadow: 0 0 8px rgba(27, 153, 139, 0.1);
+}
+
+/* İlerleme Çubuğu ve Sayaç Işıması */
+.timer-glow {
+    box-shadow: 0 0 12px currentColor;
+}
+
+/* Tam Ekran Durum Overlays */
+.view-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.view-overlay.correct {
+    background: radial-gradient(circle, rgba(27, 153, 139, 0.2) 0%, rgba(0, 0, 0, 0) 80%);
+}
+
+.view-overlay.tabu {
+    background: radial-gradient(circle, rgba(237, 33, 124, 0.2) 0%, rgba(0, 0, 0, 0) 80%);
+}
+
+.view-overlay.active {
+    opacity: 1;
+}
+
+/* Alt Buton Sabitleme Alanı Yumuşak Geçişi (Kara gölgeyi asil arka planla bütünleştirir) */
+#view-round-over div.absolute.bottom-0,
+#view-setup div.absolute.bottom-0,
+#view-setup-step2 div.absolute.bottom-0,
+#view-scoreboard div.absolute.bottom-0 {
+    background: linear-gradient(to top, var(--color-background) 0%, rgba(11, 13, 22, 0.92) 40%, rgba(11, 13, 22, 0) 100%) !important;
+}
+
+/* Ekran Gösterim/Gizleme ve Geçiş Animasyonları (Direction-Aware, 350ms) */
+.game-view {
+    position: absolute;
+    inset: 0;
+    display: none !important;
+    height: 100dvh;
+    width: 100vw;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    filter: blur(0px);
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.3s ease-out;
+    will-change: opacity, transform, filter;
+    flex-direction: column;
+}
+
+.game-view.active-view, .game-view.transitioning {
+    display: flex !important;
+}
+
+.game-view.active-view {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    filter: blur(0px);
+    z-index: 10;
+}
+
+/* Yön Sınıfları */
+.game-view.enter-forward {
+    opacity: 0;
+    transform: translate3d(40px, 0, 0) scale3d(0.96, 0.96, 1);
+    filter: blur(6px);
+}
+
+.game-view.enter-backward {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0) scale3d(0.96, 0.96, 1);
+    filter: blur(6px);
+}
+
+.game-view.exit-forward {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0) scale3d(0.96, 0.96, 1);
+    filter: blur(6px);
+    z-index: 5;
+}
+
+.game-view.exit-backward {
+    opacity: 0;
+    transform: translate3d(40px, 0, 0) scale3d(0.96, 0.96, 1);
+    filter: blur(6px);
+    z-index: 5;
+}
+
+/* Kelime Kartı Animasyonları */
+.card-container {
+    transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.25s ease;
+    will-change: transform, opacity;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 1;
+}
+
+/* Doğru Animasyonu - Sağa kayar ve döner */
+.card-container.slide-correct {
+    transform: translate3d(120%, -10px, 0) rotate(12deg);
+    opacity: 0;
+}
+
+/* Tabu Animasyonu - Sola kayar ve döner */
+.card-container.slide-tabu {
+    transform: translate3d(-120%, -10px, 0) rotate(-12deg);
+    opacity: 0;
+}
+
+/* Pas Animasyonu - Aşağı kayar */
+.card-container.slide-pass {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+}
+
+/* Yeni Kart Giriş Animasyonu */
+.card-container.slide-in {
+    animation: card-enter 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Keyframes */
+@keyframes pulse-glow {
+    0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.9); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@keyframes border-pulse-glow {
+    0% { border-color: rgba(27, 153, 139, 0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 20px 40px rgba(0,0,0,0.3); }
+    100% { border-color: rgba(27, 153, 139, 0.4); box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(27, 153, 139, 0.15); }
+}
+
+#view-playing {
+    perspective: 1000px;
+}
+
+@keyframes card-enter {
+    0% { transform: translate3d(0, 45px, 0) scale(0.92) rotateX(-15deg); opacity: 0; }
+    100% { transform: translate3d(0, 0, 0) scale(1) rotateX(0deg); opacity: 1; }
+}
+
+/* Sayaç Panik Nabız Animasyonu */
+@keyframes panic-pulse {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.1); filter: brightness(1.2); color: var(--color-coral-red); }
+}
+
+.panic-timer {
+    animation: panic-pulse 0.5s infinite ease-in-out;
+}
+
+/* Konfeti Efekti İçin CSS */
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    z-index: 5;
+    pointer-events: none;
+    animation: confetti-fall 3s linear infinite;
+}
+
+@keyframes confetti-fall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+/* Skor Grafiği Büyüme Animasyonu */
+/* NOT: --bar-scale CSS custom property'si inline style ile set edilmeli (0–1 arası) */
+.animate-width {
+    transform-origin: left;
+    animation: expand-width 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes expand-width {
+    0%   { transform: scaleX(0); }
+    100% { transform: scaleX(var(--bar-scale)); }
+}
+
+/* Hedef Kelime Neon Işıma Efekti */
+.target-word {
+    text-shadow: 0 0 25px rgba(27, 153, 139, 0.45);
+    color: #ffffff;
+}
+
+/* Yüzen Logo/Eleman Animasyonu */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-float {
+    animation: float 5s ease-in-out infinite;
+}
+
+/* Sayfa Geçiş Animasyonları (Page Transitions) */
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    animation: pageFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+/* Alt Paneller ve Modallar İçin Yumuşak Geçiş (Fade In) */
+.animate-fade-in {
+    animation: panelFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes panelFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98) translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Kademeli Belirme Animasyonu (Staggered Entrance) */
+.animate-stagger-enter {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0) scale3d(0.97, 0.97, 1);
+    animation: staggerEnter 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes staggerEnter {
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+}
+
+/* Modalların Yumuşak Kapanış Animasyonu (Fade Out & Scale Down) */
+.animate-fade-out {
+    animation: panelFadeOut 0.2s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+}
+
+@keyframes panelFadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.97) translateY(8px);
+    }
+}
+
+/* Toast / Banner Animasyonları (Giriş ve Çıkış) */
+.animate-toast-in {
+    animation: toastIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-toast-out {
+    animation: toastOut 0.2s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+}
+
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translate3d(-50%, -24px, 0) scale3d(0.95, 0.95, 1);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1);
+    }
+}
+
+@keyframes toastOut {
+    from {
+        opacity: 1;
+        transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1);
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(-50%, -16px, 0) scale3d(0.96, 0.96, 1);
+    }
+}
+
+/* Yavaş Pulsar Animasyonu (Ambient Glow Arka Planları İçin) */
+.animate-pulse-slow {
+    animation: pulseSlow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseSlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+/* Güvenli Alan Üst Dolgusu (Status Bar & Notch/Punch-hole Desteği) */
+header.absolute.z-50 {
+    padding-top: env(safe-area-inset-top) !important;
+    height: calc(4rem + env(safe-area-inset-top)) !important;
+    box-sizing: border-box !important;
+}
+
+header.absolute.z-50 button, header.absolute.z-50 a {
+    /* Geri butonlarının notch hizasından aşağı kaydırılması */
+    top: calc(1.25rem + env(safe-area-inset-top)/2) !important;
+}
+
+/* Splash ekranındaki logonun notch'un altına inmesi için üst spacer'ı ayarla */
+#view-splash > div.h-12 {
+    height: calc(3rem + env(safe-area-inset-top)) !important;
+}
+
+/* Oyun esnasındaki üst başlık alanının (flexbox header) notch'tan kaçması için */
+#view-playing > main {
+    padding-top: calc(24px + env(safe-area-inset-top)) !important;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN FOR SHORT HEIGHT DEVICES (e.g. 16:9 Aspect Ratio)
+   ========================================== */
+@media (max-height: 750px) {
+    /* General game views */
+    .game-view > main {
+        padding-top: calc(12px + env(safe-area-inset-top)) !important;
+        gap: 1rem !important;
+    }
+    
+    /* Splash screen */
+    #view-splash {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+    #view-splash .animate-float {
+        margin-top: -12px !important;
+    }
+    #view-splash .animate-float img {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    #view-splash h1 {
+        font-size: 32px !important;
+    }
+    #view-splash #word-count-badge {
+        margin-top: 1rem !important;
+    }
+    #view-splash .gap-3 {
+        gap: 0.5rem !important;
+        padding-bottom: 1rem !important;
+    }
+    #view-splash .gap-3 button {
+        padding-top: 0.625rem !important;
+        padding-bottom: 0.625rem !important;
+        font-size: 0.875rem !important;
+        width: 240px !important;
+    }
+
+    /* Active game view (playing screen) */
+    #view-playing > main {
+        padding-top: calc(12px + env(safe-area-inset-top)) !important;
+        padding-bottom: calc(8px + env(safe-area-inset-bottom)) !important;
+        justify-content: flex-start !important;
+    }
+    #view-playing header {
+        margin-top: 0.5rem !important;
+    }
+    #active-card-container {
+        margin-top: 0.75rem !important;
+        margin-bottom: 0.5rem !important;
+        padding: 1.25rem !important;
+        border-radius: 20px !important;
+    }
+    #active-card-container h1 {
+        margin-bottom: 0.5rem !important;
+        font-size: 1.75rem !important;
+    }
+    #active-card-container .w-2\/3 {
+        margin-bottom: 0.5rem !important;
+    }
+    #active-card-container .space-y-\[12px\] {
+        margin-top: 0 !important;
+    }
+    #active-card-container .space-y-\[12px\] > span {
+        margin-bottom: 0.25rem !important;
+        font-size: 9px !important;
+    }
+    #active-card-container .space-y-\[8px\] {
+        margin-top: 0 !important;
+    }
+    #active-card-container .space-y-\[8px\] > div {
+        padding-top: 0.4rem !important;
+        padding-bottom: 0.4rem !important;
+        border-radius: 12px !important;
+        font-size: 0.875rem !important;
+        margin-bottom: 4px !important;
+    }
+    #view-playing .grid-cols-3 {
+        margin-top: 0.5rem !important;
+        gap: 0.5rem !important;
+    }
+    #view-playing .grid-cols-3 button {
+        padding-top: 0.625rem !important;
+        padding-bottom: 0.625rem !important;
+        border-radius: 14px !important;
+    }
+    #view-playing .grid-cols-3 button span.material-symbols-outlined {
+        font-size: 1.25rem !important;
+    }
+
+    /* Round over (Review screen) */
+    #view-round-over > main {
+        padding-top: calc(8px + env(safe-area-inset-top)) !important;
+        padding-bottom: 96px !important;
+        gap: 0.5rem !important;
+    }
+    #view-round-over .my-2 {
+        margin-top: 0.25rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    #view-round-over .text-3xl {
+        font-size: 1.5rem !important;
+    }
+    #review-card-container .card-container {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        border-radius: 20px !important;
+    }
+    #review-card-container h1 {
+        margin-bottom: 0.35rem !important;
+        font-size: 1.5rem !important;
+    }
+    #review-card-container .w-2\/3 {
+        margin-bottom: 0.35rem !important;
+    }
+    #review-card-container .space-y-\[4px\] {
+        margin-bottom: 0.35rem !important;
+    }
+    #review-card-container .space-y-\[4px\] > span {
+        margin-bottom: 0.15rem !important;
+        font-size: 8px !important;
+    }
+    #review-card-container .space-y-\[3px\] > div {
+        padding-top: 0.25rem !important;
+        padding-bottom: 0.25rem !important;
+        border-radius: 8px !important;
+        font-size: 0.8rem !important;
+    }
+    #review-card-container .grid-cols-3 {
+        gap: 0.35rem !important;
+    }
+    #review-card-container .btn-review-opt {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        border-radius: 12px !important;
+    }
+    #review-card-container .btn-review-opt span.material-symbols-outlined {
+        font-size: 1rem !important;
+    }
+    #view-round-over .pb-28 {
+        padding-bottom: 84px !important;
+    }
+    #view-round-over div.absolute.bottom-0,
+    #view-setup div.absolute.bottom-0,
+    #view-setup-step2 div.absolute.bottom-0,
+    #view-scoreboard div.absolute.bottom-0 {
+        padding-top: 0.5rem !important;
+        padding-bottom: calc(0.75rem + env(safe-area-inset-bottom)) !important;
+    }
+    #view-round-over .primary-btn,
+    #view-setup .primary-btn,
+    #view-setup-step2 .primary-btn,
+    #view-scoreboard .primary-btn {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+        font-size: 0.9rem !important;
+        height: auto !important;
+        width: 240px !important;
+    }
+
+    /* Setup views step 1 & step 2 */
+    #view-setup > main,
+    #view-setup-step2 > main {
+        padding-top: 4.5rem !important;
+        padding-bottom: 6.5rem !important;
+        gap: 1.25rem !important;
+    }
+    #view-setup .glass-panel,
+    #view-setup-step2 .glass-panel {
+        padding: 1rem !important;
+        gap: 0.75rem !important;
+    }
+    #view-setup .flex-col,
+    #view-setup-step2 .flex-col {
+        gap: 0.5rem !important;
+    }
+    #view-setup .mt-4,
+    #view-setup-step2 .mt-4 {
+        margin-top: 0 !important;
+    }
+    #view-setup button.option-pill,
+    #view-setup-step2 button.option-pill {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        font-size: 0.8rem !important;
+    }
+    #view-setup-step2 #categories-container {
+        gap: 0.5rem !important;
+    }
+    #view-setup-step2 #categories-container .option-pill {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        font-size: 0.8rem !important;
+        border-radius: 12px !important;
+    }
+
+    /* Round ready (Waiting screen) */
+    #view-round-ready main {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+    #view-round-ready .space-y-6 {
+        gap: 0.5rem !important;
+    }
+    #view-round-ready h1 {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    #view-round-ready p {
+        margin-bottom: 0.75rem !important;
+        font-size: 0.75rem !important;
+    }
+    #view-round-ready .glass-panel {
+        padding: 1rem !important;
+        margin-bottom: 0.5rem !important;
+        gap: 0.5rem !important;
+    }
+    #view-round-ready .grid-cols-2 {
+        gap: 0.5rem !important;
+    }
+    #view-round-ready .grid-cols-2 button {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        font-size: 0.75rem !important;
+        border-radius: 10px !important;
+    }
+    #view-round-ready #btn-start-turn {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+        height: auto !important;
+    }
+    #view-round-ready #btn-start-turn span.material-symbols-outlined {
+        font-size: 2.25rem !important;
+    }
+    
+    /* Scoreboard */
+    #view-scoreboard > main {
+        padding-top: 4.5rem !important;
+        padding-bottom: 6.5rem !important;
+    }
+    #view-scoreboard .scoreboard-panel {
+        padding: 1rem !important;
+        gap: 0.75rem !important;
+    }
+    
+    /* Modals */
+    .glass-panel {
+        padding: 1.25rem !important;
+        border-radius: 24px !important;
+        gap: 1rem !important;
+    }
+    .glass-panel h2 {
+        font-size: 1.25rem !important;
+    }
+    .glass-panel p {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN FOR EXTRA SHORT DEVICES (≤640px height)
+   ========================================== */
+@media (max-height: 640px) {
+    /* Splash screen - extra small devices */
+    #view-splash {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+    #view-splash .animate-float {
+        margin-top: -28px !important;
+    }
+    #view-splash .animate-float .w-24 {
+        width: 3rem !important;
+        height: 3rem !important;
+        margin-bottom: 0.5rem !important;
+        border-radius: 14px !important;
+    }
+    #view-splash .animate-float img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    #view-splash h1 {
+        font-size: 26px !important;
+    }
+    #view-splash .animate-float p {
+        font-size: 9px !important;
+        margin-top: 0.2rem !important;
+    }
+    #view-splash #word-count-badge {
+        margin-top: 0.5rem !important;
+        font-size: 8px !important;
+        padding: 0.2rem 0.6rem !important;
+    }
+    #view-splash .gap-3 {
+        gap: 0.3rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+    #view-splash .gap-3 button {
+        padding-top: 0.4rem !important;
+        padding-bottom: 0.4rem !important;
+        font-size: 0.75rem !important;
+        width: 200px !important;
+    }
+
+    /* Playing screen */
+    #active-card-container {
+        padding: 1rem !important;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    #active-card-container h1 {
+        font-size: 1.5rem !important;
+    }
+    #active-card-container .space-y-\[8px\] > div {
+        padding-top: 0.3rem !important;
+        padding-bottom: 0.3rem !important;
+        font-size: 0.8rem !important;
+    }
+    #view-playing .grid-cols-3 button {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        border-radius: 12px !important;
+    }
+    #view-playing .grid-cols-3 button span.material-symbols-outlined {
+        font-size: 1.1rem !important;
+    }
+
+    /* Setup & Round screens */
+    #view-setup > main,
+    #view-setup-step2 > main {
+        padding-bottom: 5.5rem !important;
+        gap: 1rem !important;
+    }
+    #view-round-ready #btn-start-turn {
+        padding-top: 0.6rem !important;
+        padding-bottom: 0.6rem !important;
+    }
+    #view-round-ready #btn-start-turn span.material-symbols-outlined {
+        font-size: 1.75rem !important;
+    }
+    #view-round-ready .grid-cols-2 button {
+        padding-top: 0.4rem !important;
+        padding-bottom: 0.4rem !important;
+        font-size: 0.7rem !important;
+    }
+
+    /* Bottom action containers */
+    #view-round-over div.absolute.bottom-0,
+    #view-setup div.absolute.bottom-0,
+    #view-setup-step2 div.absolute.bottom-0,
+    #view-scoreboard div.absolute.bottom-0 {
+        padding-top: 0.35rem !important;
+        padding-bottom: calc(0.5rem + env(safe-area-inset-bottom)) !important;
+    }
+    #view-round-over .primary-btn,
+    #view-setup .primary-btn,
+    #view-setup-step2 .primary-btn,
+    #view-scoreboard .primary-btn {
+        padding-top: 0.6rem !important;
+        padding-bottom: 0.6rem !important;
+        font-size: 0.8rem !important;
+        width: 200px !important;
+    }
+}
+
+/* Tailwind fallback for dynamic card font sizes */
+.text-\[40px\] { font-size: 40px !important; }
+.text-\[30px\] { font-size: 30px !important; }
+.text-\[24px\] { font-size: 24px !important; }
+.text-\[22px\] { font-size: 22px !important; }
+.text-\[18px\] { font-size: 18px !important; }
+.text-\[14px\] { font-size: 14px !important; }
+.text-\[10px\] { font-size: 10px !important; }
+
+@media (min-width: 768px) {
+    .md\:text-\[52px\] { font-size: 52px !important; }
+    .md\:text-\[40px\] { font-size: 40px !important; }
+    .md\:text-\[36px\] { font-size: 36px !important; }
+    .md\:text-\[30px\] { font-size: 30px !important; }
+    .md\:text-\[28px\] { font-size: 28px !important; }
+    .md\:text-\[22px\] { font-size: 22px !important; }
+    .md\:text-\[16px\] { font-size: 16px !important; }
+}
+
+/* Tailwind layout fallbacks */
+.flex-1 { flex: 1 1 0% !important; }
+.min-w-0 { min-width: 0px !important; }
+.whitespace-nowrap { white-space: nowrap !important; }
+.flex-shrink-0 { flex-shrink: 0 !important; }
+.truncate {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* Dynamic Team-2 (Beta - Coral/Peach) Theme Overrides */
+body.theme-team-2 .glass-btn-primary {
+    background: linear-gradient(180deg, rgba(255, 155, 113, 0.15) 0%, rgba(255, 155, 113, 0.05) 100%) !important;
+    color: #ff9b71 !important;
+}
+body.theme-team-2 .glass-btn-primary:active {
+    background: linear-gradient(180deg, rgba(255, 155, 113, 0.25) 0%, rgba(255, 155, 113, 0.1) 100%) !important;
+}
+body.theme-team-2 #playing-round-text,
+body.theme-team-2 #timer-svg-circle,
+body.theme-team-2 #btn-start-turn span,
+body.theme-team-2 #view-round-ready .text-primary,
+body.theme-team-2 #playing-ad-free-badge,
+body.theme-team-2 #timer-click-area .text-primary,
+body.theme-team-2 #pause-overlay .text-primary,
+body.theme-team-2 #review-score-change,
+body.theme-team-2 #btn-confirm-review .text-primary {
+    color: #ff9b71 !important;
+}
+body.theme-team-2 #timer-progress-bar.bg-primary {
+    background-color: #ff9b71 !important;
+}
+body.theme-team-2 #playing-ad-free-badge {
+    background-color: rgba(255, 155, 113, 0.1) !important;
+    border-color: rgba(255, 155, 113, 0.4) !important;
+}
+body.theme-team-2 #view-round-ready .border-primary\/10 {
+    border-color: rgba(255, 155, 113, 0.1) !important;
+}
+body.theme-team-2 #pause-overlay .bg-primary\/15 {
+    background-color: rgba(255, 155, 113, 0.15) !important;
+}
+body.theme-team-2 #btn-pause-resume {
+    box-shadow: 0 4px 15px rgba(255, 155, 113, 0.15) !important;
+}
+body.theme-team-2 #btn-pause-resume:hover {
+    background-color: rgba(255, 155, 113, 0.1) !important;
+    border-color: rgba(255, 155, 113, 0.4) !important;
+}
+body.theme-team-2 .glow-bg {
+    background: radial-gradient(circle, rgba(255, 155, 113, 0.15) 0%, rgba(0,0,0,0) 70%) !important;
+}
+body.theme-team-2 .ambient-glow {
+    background: radial-gradient(circle, rgba(255, 155, 113, 0.08) 0%, rgba(0,0,0,0) 70%) !important;
+}
+
+/* Dynamic Team-1 (Alpha - Teal/Green) Theme Overrides */
+body.theme-team-1 .glow-bg {
+    background: radial-gradient(circle, rgba(27, 153, 139, 0.15) 0%, rgba(0,0,0,0) 70%) !important;
+}
+body.theme-team-1 .ambient-glow {
+    background: radial-gradient(circle, rgba(27, 153, 139, 0.08) 0%, rgba(0,0,0,0) 70%) !important;
+}
+
+/* Splash Screen Secondary Buttons Custom Hover Effects */
+#btn-language-selector {
+    transition: all 0.25s ease !important;
+}
+#btn-language-selector:hover {
+    border-color: rgba(27, 153, 139, 0.3) !important;
+    background: rgba(27, 153, 139, 0.04) !important;
+    box-shadow: 0 4px 15px rgba(27, 153, 139, 0.08) !important;
+}
+
+#btn-splash-rules {
+    transition: all 0.25s ease !important;
+}
+#btn-splash-rules:hover {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.03) !important;
+}
+
+#btn-splash-rate {
+    transition: all 0.25s ease !important;
+}
+#btn-splash-rate:hover {
+    border-color: rgba(255, 155, 113, 0.3) !important;
+    background: rgba(255, 155, 113, 0.04) !important;
+    box-shadow: 0 4px 15px rgba(255, 155, 113, 0.08) !important;
+}

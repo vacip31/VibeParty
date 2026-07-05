@@ -2,6 +2,49 @@
 
 import { playTransition } from './audio.js';
 import { state } from './state.js';
+import { locales } from './locales.js';
+
+/**
+ * Arayüzdeki tüm data-i18n etiketli metinleri seçilen dile göre günceller.
+ */
+export function translateUI(lang) {
+    const translation = locales[lang] || locales.tr;
+    if (!translation) return;
+
+    // Tarayıcı sekme başlığını (title) güncelle
+    if (translation.document_title) {
+        document.title = translation.document_title;
+    }
+
+    // data-i18n özniteliği olan tüm elemanları bul ve çevir
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translation[key]) {
+            el.textContent = translation[key];
+        }
+    });
+
+    // data-i18n-placeholder olan inputları çevir
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translation[key]) {
+            el.setAttribute('placeholder', translation[key]);
+        }
+    });
+}
+
+/**
+ * HTML özel karakterlerini etkisiz hale getirerek XSS açıklarını önler.
+ */
+export function escapeHTML(str) {
+    if (!str) return '';
+    return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
 /**
  * Kelime uzunluğuna göre uygun yazı boyutu ve harf aralığı sınıflarını döndürür.
@@ -14,16 +57,44 @@ function getWordFontSizeClass(word, isReview = false) {
             return 'text-[30px] md:text-[36px] tracking-wide';
         } else if (len <= 12) {
             return 'text-[24px] md:text-[30px] tracking-normal';
-        } else {
+        } else if (len <= 16) {
             return 'text-[18px] md:text-[22px] tracking-tight break-words';
+        } else {
+            return 'text-[14px] md:text-[16px] tracking-tighter break-all';
         }
     } else {
         if (len <= 8) {
-            return 'text-[42px] md:text-[56px] tracking-wider';
+            return 'text-[40px] md:text-[52px] tracking-wider';
         } else if (len <= 12) {
-            return 'text-[32px] md:text-[44px] tracking-wide';
+            return 'text-[30px] md:text-[40px] tracking-wide';
+        } else if (len <= 16) {
+            return 'text-[22px] md:text-[28px] tracking-normal break-words';
         } else {
-            return 'text-[24px] md:text-[32px] tracking-normal break-words';
+            return 'text-[18px] md:text-[22px] tracking-tight break-all';
+        }
+    }
+}
+
+/**
+ * Yasaklı kelimelerin uzunluğuna göre yazı boyutu sınıfını döndürür.
+ */
+function getForbiddenWordFontSizeClass(word, isReview = false) {
+    const len = word ? word.length : 0;
+    if (isReview) {
+        if (len <= 10) {
+            return 'text-sm md:text-base tracking-wide';
+        } else if (len <= 15) {
+            return 'text-xs md:text-sm tracking-normal';
+        } else {
+            return 'text-[10px] md:text-xs tracking-tight break-all';
+        }
+    } else {
+        if (len <= 10) {
+            return 'text-base md:text-lg tracking-wide';
+        } else if (len <= 15) {
+            return 'text-sm md:text-base tracking-normal';
+        } else {
+            return 'text-xs md:text-sm tracking-tight break-all';
         }
     }
 }
@@ -54,25 +125,39 @@ if (typeof window !== 'undefined') {
         const stateVal = e.state;
         if (stateVal && stateVal.view && views[stateVal.view]) {
             isHandlingPopstate = true;
-            showView(views[stateVal.view]);
+            showView(views[stateVal.view], true);
             isHandlingPopstate = false;
         } else {
             isHandlingPopstate = true;
-            showView(views.splash);
+            showView(views.splash, true);
             isHandlingPopstate = false;
         }
     });
 }
 
 /**
- * Belirtilen oyun ekranını yumuşak geçiş animasyonlarıyla gösterir.
+ * Belirtilen oyun ekranını yön duyarlı yumuşak geçiş animasyonlarıyla gösterir.
  */
-export function showView(activeView) {
+export function showView(activeView, isBackward = false) {
     if (!currentActiveView) {
         currentActiveView = document.querySelector('.game-view.active-view') || views.splash;
     }
     
     if (!activeView || activeView === currentActiveView) return;
+
+    // Tema sınıflarını yönet
+    if (activeView === views.roundReady || activeView === views.playing || activeView === views.roundOver) {
+        const isTeam2 = (state.currentTeamIndex % 2 === 1);
+        if (isTeam2) {
+            document.body.classList.remove('theme-team-1');
+            document.body.classList.add('theme-team-2');
+        } else {
+            document.body.classList.remove('theme-team-2');
+            document.body.classList.add('theme-team-1');
+        }
+    } else {
+        document.body.classList.remove('theme-team-1', 'theme-team-2');
+    }
     
     // Geçmiş durumunu güncelle (Eğer popstate tetiklemediyse push et)
     if (!isHandlingPopstate && window.history && window.history.pushState) {
@@ -87,30 +172,34 @@ export function showView(activeView) {
     
     // Geçiş sesini çal
     playTransition();
+
+    // Yön sınıflarını belirle
+    const directionClass = isBackward ? 'backward' : 'forward';
     
     // Eski ekranın çıkış animasyonunu başlat
     if (oldView) {
-        oldView.classList.add('transitioning', 'fade-out');
+        oldView.classList.add('transitioning', `exit-${directionClass}`);
         oldView.classList.remove('active-view');
     }
     
     // Yeni ekranı hazırla
-    activeView.classList.add('transitioning');
-    activeView.classList.remove('fade-out', 'active-view');
+    activeView.classList.add('transitioning', `enter-${directionClass}`);
+    activeView.classList.remove('active-view');
     
     // Tarayıcı reflow tetikle
     void activeView.offsetWidth;
     
-    // Yeni ekranı görünür yap
+    // Yeni ekranı görünür yap ve giriş yön sınıfını kaldır
     activeView.classList.add('active-view');
+    activeView.classList.remove(`enter-${directionClass}`);
     
     // Animasyon tamamlandığında durum sınıflarını temizle
     setTimeout(() => {
         if (oldView) {
-            oldView.classList.remove('transitioning', 'fade-out');
+            oldView.classList.remove('transitioning', `exit-${directionClass}`);
         }
         activeView.classList.remove('transitioning');
-    }, 500);
+    }, 350);
 }
 
 /**
@@ -122,7 +211,8 @@ export function renderTeamInputs(container, teamsCount) {
     // Her takım için bir giriş alanı grubu oluştur
     for (let i = 0; i < teamsCount; i++) {
         const teamDiv = document.createElement('div');
-        teamDiv.className = 'flex flex-col gap-2 relative z-10';
+        teamDiv.className = 'flex flex-col gap-2 relative z-10 animate-stagger-enter';
+        teamDiv.style.animationDelay = `${i * 60}ms`;
         
         // Takım rengi sınıfları (Mavi ve Mor temalı vurgular için)
         const textAccent = i % 2 === 0 ? 'text-primary/80' : 'text-secondary/80';
@@ -130,17 +220,17 @@ export function renderTeamInputs(container, teamsCount) {
         
         teamDiv.innerHTML = `
             <div class="flex justify-between items-center pl-2">
-                <label class="font-label-caps text-label-caps ${textAccent}" for="team-input-${i}">${i + 1}. Takım</label>
+                <label class="font-label-caps text-label-caps ${textAccent}" for="team-input-${i}">${i + 1}. ${locales[state.language || 'tr'].team_label}</label>
                 ${teamsCount > 2 ? `
                     <button type="button" class="text-error/60 hover:text-error text-xs flex items-center gap-1 active:scale-90 transition-transform" data-remove-team="${i}">
-                        <span class="material-symbols-outlined text-sm">delete</span> Kaldır
+                        <span class="material-symbols-outlined text-sm">delete</span> ${locales[state.language || 'tr'].remove_team_btn}
                     </button>
                 ` : ''}
             </div>
             <div class="relative bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-lg flex items-center px-4 py-3 ${borderFocus} transition-colors">
                 <input class="bg-transparent border-none w-full font-title-md text-white focus:ring-0 p-0 placeholder:text-white/20 team-name-input" 
                        id="team-input-${i}" 
-                       placeholder="${i % 2 === 0 ? 'Alfa Takımı' : 'Beta Takımı'}" 
+                       placeholder="${i % 2 === 0 ? locales[state.language || 'tr'].default_team_alpha : locales[state.language || 'tr'].default_team_beta}" 
                        type="text" 
                        value="" />
                 <span class="material-symbols-outlined text-white/30 ml-2">group</span>
@@ -155,11 +245,12 @@ export function renderTeamInputs(container, teamsCount) {
  */
 export function renderCategories(container, categoriesList, selectedCategories) {
     container.innerHTML = '';
-    categoriesList.forEach(cat => {
+    categoriesList.forEach((cat, index) => {
         const isSelected = selectedCategories.includes(cat);
         const button = document.createElement('button');
         button.type = 'button';
-        button.className = `option-pill py-3 px-4 rounded-lg font-body-md text-body-md text-center cursor-pointer select-none transition-all active:scale-95 ${isSelected ? 'active' : ''}`;
+        button.className = `option-pill py-3 px-4 rounded-lg font-body-md text-body-md text-center cursor-pointer select-none transition-all active:scale-95 animate-stagger-enter ${isSelected ? 'active' : ''}`;
+        button.style.animationDelay = `${index * 45}ms`;
         button.textContent = cat;
         button.dataset.category = cat;
         container.appendChild(button);
@@ -182,10 +273,10 @@ export function renderActiveCard(card, passesUsed, passLimit) {
         </h1>
         <div class="w-2/3 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6"></div>
         <div class="flex flex-col items-center space-y-[12px] w-full select-none">
-            <span class="font-label-caps text-label-caps text-outline uppercase tracking-widest mb-2">TABU KELİMELER</span>
+            <span class="font-label-caps text-label-caps text-outline uppercase tracking-widest mb-2">${locales[state.language || 'tr'].forbidden_words_label}</span>
             <div class="w-full flex flex-col items-center space-y-[8px]">
                 ${card.f.map((word) => `
-                    <div class="w-full py-3 px-4 rounded-2xl bg-white/[0.02] border border-white/[0.04] text-on-surface-variant font-light tracking-wide text-center text-base md:text-lg shadow-sm">
+                    <div class="w-full py-3 px-4 rounded-2xl bg-white/[0.02] border border-white/[0.04] text-on-surface-variant font-light tracking-wide text-center ${getForbiddenWordFontSizeClass(word, false)} shadow-sm">
                         ${word}
                     </div>
                 `).join('')}
@@ -196,17 +287,19 @@ export function renderActiveCard(card, passesUsed, passLimit) {
     // Pas butonu durumunu güncelle
     const passBtn = document.getElementById('btn-pass');
     if (passBtn) {
+        const lang = state.language || 'tr';
+        const pasBtnText = locales[lang].pas_btn.toUpperCase();
         if (passLimit !== 'unlimited' && passesUsed >= passLimit) {
             passBtn.disabled = true;
             passBtn.classList.add('opacity-40', 'cursor-not-allowed');
             const passLabel = passBtn.querySelector('.pass-count-label');
-            if (passLabel) passLabel.textContent = 'HAK BİTTİ';
+            if (passLabel) passLabel.textContent = locales[lang].pass_limit_reached.toUpperCase();
         } else {
             passBtn.disabled = false;
             passBtn.classList.remove('opacity-40', 'cursor-not-allowed');
             const passLabel = passBtn.querySelector('.pass-count-label');
             if (passLabel) {
-                passLabel.textContent = passLimit === 'unlimited' ? 'PAS' : `PAS (${passLimit - passesUsed})`;
+                passLabel.textContent = passLimit === 'unlimited' ? pasBtnText : `${pasBtnText} (${passLimit - passesUsed})`;
             }
         }
     }
@@ -327,7 +420,7 @@ export function renderRoundReviewCard(container, history, currentIndex, onDecisi
         container.innerHTML = `
             <div class="text-center text-white/40 py-12 font-body-md glass-card rounded-2xl p-8 border border-white/5">
                 <span class="material-symbols-outlined text-4xl text-white/20 mb-3 block">history_toggle_off</span>
-                Bu turda hiçbir kelime oynanmadı.
+                ${locales[state.language || 'tr'].no_words_played}
             </div>
         `;
         if (navControls) navControls.classList.add('hidden');
@@ -369,10 +462,10 @@ export function renderRoundReviewCard(container, history, currentIndex, onDecisi
         <div class="w-2/3 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-4"></div>
         
         <div class="flex flex-col items-center space-y-[4px] w-full select-none mb-4">
-            <span class="font-label-caps text-[10px] text-white/40 tracking-wider mb-2">YASAKLI KELİMELER</span>
+            <span class="font-label-caps text-[10px] text-white/40 tracking-wider mb-2">${locales[state.language || 'tr'].forbidden_words_label}</span>
             <div class="w-full flex flex-col items-center space-y-[3px]">
                 ${item.forbidden.map((word) => `
-                    <div class="w-full py-2 px-4 rounded-xl bg-white/[0.02] border border-white/[0.04] text-on-surface-variant font-light tracking-wide text-center text-sm md:text-base">
+                    <div class="w-full py-2 px-4 rounded-xl bg-white/[0.02] border border-white/[0.04] text-on-surface-variant font-light tracking-wide text-center ${getForbiddenWordFontSizeClass(word, true)}">
                         ${word}
                     </div>
                 `).join('')}
@@ -381,13 +474,13 @@ export function renderRoundReviewCard(container, history, currentIndex, onDecisi
         
         <div class="w-full grid grid-cols-3 gap-3">
             <button type="button" class="btn-review-opt py-3.5 rounded-2xl border font-label-caps text-[10px] tracking-widest font-semibold flex flex-col items-center justify-center gap-1 active:scale-95 transition-all ${btnTabuClass}" data-type="tabu">
-                <span class="material-symbols-outlined text-lg">close</span> TABU
+                <span class="material-symbols-outlined text-lg">close</span> ${locales[state.language || 'tr'].yasak_stat.toUpperCase()}
             </button>
             <button type="button" class="btn-review-opt py-3.5 rounded-2xl border font-label-caps text-[10px] tracking-widest font-semibold flex flex-col items-center justify-center gap-1 active:scale-95 transition-all ${btnPassClass}" data-type="pass">
-                <span class="material-symbols-outlined text-lg">fast_forward</span> PAS
+                <span class="material-symbols-outlined text-lg">fast_forward</span> ${locales[state.language || 'tr'].pas_stat.toUpperCase()}
             </button>
             <button type="button" class="btn-review-opt py-3.5 rounded-2xl border font-label-caps text-[10px] tracking-widest font-semibold flex flex-col items-center justify-center gap-1 active:scale-95 transition-all ${btnCorrectClass}" data-type="correct">
-                <span class="material-symbols-outlined text-lg">check</span> DOĞRU
+                <span class="material-symbols-outlined text-lg">check</span> ${locales[state.language || 'tr'].correct_stat.toUpperCase()}
             </button>
         </div>
     `;
@@ -452,7 +545,8 @@ export function renderScoreboardUI(container, teams, currentRound) {
             : 'border-white/10 bg-white/5 text-white/50';
         
         const row = document.createElement('div');
-        row.className = `rounded-xl p-5 flex items-center justify-between relative overflow-hidden transition-all border ${cardClass}`;
+        row.className = `rounded-xl p-5 flex items-center justify-between relative overflow-hidden transition-all border animate-stagger-enter ${cardClass}`;
+        row.style.animationDelay = `${index * 80}ms`;
         
         row.innerHTML = `
             ${isLeader ? `<div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>` : ''}
@@ -461,8 +555,8 @@ export function renderScoreboardUI(container, teams, currentRound) {
                     #${index + 1}
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-body-lg font-light text-white">${team.name}</span>
-                    <span class="text-[9px] tracking-wider text-white/40 uppercase mt-1 font-medium">Doğru: <span class="text-white/70">${team.corrects}</span> | Tabu: <span class="text-white/70">${team.tabus}</span> | Pas: <span class="text-white/70">${team.passes}</span></span>
+                    <span class="font-body-lg font-light text-white">${escapeHTML(team.name)}</span>
+                    <span class="text-[9px] tracking-wider text-white/40 uppercase mt-1 font-medium">${locales[state.language || 'tr'].correct_stat}: <span class="text-white/70">${team.corrects}</span> | ${locales[state.language || 'tr'].yasak_stat}: <span class="text-white/70">${team.tabus}</span> | ${locales[state.language || 'tr'].pas_stat}: <span class="text-white/70">${team.passes}</span></span>
                 </div>
             </div>
             <div class="flex items-center gap-2">
@@ -479,11 +573,14 @@ export function renderScoreboardUI(container, teams, currentRound) {
     
     const leaderDist = document.getElementById('scoreboard-leader-dist');
     if (leaderDist) {
+        const lang = state.language || 'tr';
         if (leader.score >= targetScore) {
-            leaderDist.textContent = 'Hedefe Ulaşıldı!';
+            leaderDist.textContent = locales[lang].target_reached;
         } else {
             const remaining = targetScore - leader.score;
-            leaderDist.textContent = `${leader.name} Bitime ${remaining} Puan Yakın`;
+            let distText = locales[lang].leader_distance;
+            distText = distText.replace('{name}', leader.name).replace('{remaining}', remaining);
+            leaderDist.textContent = distText;
         }
     }
     
@@ -496,10 +593,11 @@ export function renderScoreboardUI(container, teams, currentRound) {
             const barColor = index % 2 === 0 ? 'bg-primary' : 'bg-secondary';
             
             const progressRow = document.createElement('div');
-            progressRow.className = 'flex flex-col gap-1.5';
+            progressRow.className = 'flex flex-col gap-1.5 animate-stagger-enter';
+            progressRow.style.animationDelay = `${index * 80}ms`;
             progressRow.innerHTML = `
                 <div class="flex justify-between items-center text-[10px] tracking-wider text-white/50 uppercase">
-                    <span>${team.name}</span>
+                    <span>${escapeHTML(team.name)}</span>
                     <span>%${Math.round(percentage)}</span>
                 </div>
                 <div class="w-full h-2 bg-white/5 rounded-full overflow-hidden border border-white/[0.02]">
@@ -514,22 +612,55 @@ export function renderScoreboardUI(container, teams, currentRound) {
 /**
  * Şampiyon ve son istatistikler ekranını oluşturur.
  */
+function compareFinalRank(a, b) {
+    if (b.score !== a.score) return b.score - a.score;
+    if (a.tabus !== b.tabus) return a.tabus - b.tabus;
+    if (b.corrects !== a.corrects) return b.corrects - a.corrects;
+    return a.id - b.id;
+}
+
+function getDrawLabel(lang) {
+    const labels = {
+        tr: 'Beraberlik',
+        en: 'Draw',
+        de: 'Unentschieden',
+        fr: 'Egalite',
+        es: 'Empate',
+        ru: 'Ничья',
+        zh: '平局'
+    };
+    return labels[lang] || labels.en;
+}
+
 export function renderGameOverUI(teams) {
     const winnerTitle = document.getElementById('winner-team-title');
+    const winnerLabel = document.querySelector('#view-game-over [data-i18n="winner_label"]');
     const winnerStatsContainer = document.getElementById('winner-stats-container');
     
     if (!winnerTitle || !winnerStatsContainer) return;
     
     // Takımları puanlarına göre sırala
-    const sortedTeams = [...teams].sort((a, b) => b.score - a.score);
+    const sortedTeams = [...teams].sort(compareFinalRank);
     const winner = sortedTeams[0];
+    const tiedWinners = sortedTeams.filter(team =>
+        team.score === winner.score &&
+        team.tabus === winner.tabus &&
+        team.corrects === winner.corrects
+    );
+    const isFriendlyDraw = tiedWinners.length > 1;
+    const lang = state.language || 'tr';
     
-    winnerTitle.textContent = winner.name;
+    if (winnerLabel) {
+        winnerLabel.textContent = isFriendlyDraw ? getDrawLabel(lang) : locales[lang].winner_label;
+    }
+    winnerTitle.textContent = isFriendlyDraw ? tiedWinners.map(team => team.name).join(' & ') : winner.name;
     winnerStatsContainer.innerHTML = '';
     
     // Takımları listele
     sortedTeams.forEach((team, index) => {
-        const isWinner = index === 0;
+        const isWinner = isFriendlyDraw
+            ? tiedWinners.some(tiedTeam => tiedTeam.id === team.id)
+            : index === 0;
         const opacityClass = isWinner ? '' : 'opacity-60';
         const cardBorder = isWinner ? 'border-primary/20 bg-primary/5' : 'border-white/5';
         const maxScore = winner.score || 1;
@@ -540,7 +671,7 @@ export function renderGameOverUI(teams) {
         
         card.innerHTML = `
             ${isWinner ? `<div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>` : ''}
-            <span class="font-label-caps text-[10px] tracking-wider text-white/50 mb-4 uppercase">${team.name}</span>
+            <span class="font-label-caps text-[10px] tracking-wider text-white/50 mb-4 uppercase">${escapeHTML(team.name)}</span>
             <span class="font-display text-5xl text-white font-extralight mb-6 tracking-tighter">${team.score}</span>
             
             <!-- Grafik Çubuğu -->
@@ -551,15 +682,15 @@ export function renderGameOverUI(teams) {
             <!-- Detaylı İstatistikler -->
             <div class="w-full space-y-2.5">
                 <div class="flex justify-between items-center text-xs font-light">
-                    <span class="text-white/40">Doğru</span>
+                    <span class="text-white/40">${locales[state.language || 'tr'].correct_stat}</span>
                     <span class="text-white/90">${team.corrects}</span>
                 </div>
                 <div class="flex justify-between items-center text-xs font-light">
-                    <span class="text-white/40">Pas</span>
+                    <span class="text-white/40">${locales[state.language || 'tr'].pas_stat}</span>
                     <span class="text-white/90">${team.passes}</span>
                 </div>
                 <div class="flex justify-between items-center text-xs font-light">
-                    <span class="text-white/40">Tabu</span>
+                    <span class="text-white/40">${locales[state.language || 'tr'].yasak_stat}</span>
                     <span class="text-white/90">${team.tabus}</span>
                 </div>
             </div>
@@ -654,3 +785,8 @@ export function animateReviewTransition(direction, onComplete) {
     }, 200);
 }
 
+// Global test utilities
+if (typeof window !== 'undefined') {
+    window.showView = showView;
+    window.views = views;
+}

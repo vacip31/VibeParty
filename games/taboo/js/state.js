@@ -10,9 +10,12 @@ export const STATES = {
     GAME_OVER: 'GAME_OVER'
 };
 
+import { locales } from './locales.js';
+
 // Merkezi oyun durumu nesnesi
 export const state = {
     currentState: STATES.INIT,
+    language: 'tr',
     
     // Oyun Ayarları
     teams: [], // [{ id, name, score, corrects, tabus, passes }]
@@ -34,6 +37,11 @@ export const state = {
     currentRoundNumber: 1,
     currentTimer: 90,
     currentPassesUsed: 0,
+    adShowCounter: 0,
+    consecutiveAdFailures: 0,
+    nudgeShownCount: 0,
+    adFreeRoundsRemaining: 0,
+    isPremium: true,
     
     // Kelime Havuzları
     allWords: [], // data/words.json dosyasından yüklenen tüm kelimeler
@@ -68,13 +76,13 @@ export function initGame(allWords, teamNames, categories, difficulty, time, pass
     state.selectedCategories = categories;
     state.selectedDifficulty = difficulty;
     state.timeLimit = time;
-    state.passLimit = passes === 'Sınırsız' ? 'unlimited' : parseInt(passes, 10);
+    state.passLimit = passes === 'unlimited' ? 'unlimited' : parseInt(passes, 10);
     state.targetScore = parseInt(target, 10);
     
     // Takımları oluştur
     state.teams = teamNames.map((name, index) => ({
         id: index,
-        name: name.trim() || `Takım ${index + 1}`,
+        name: name.trim() || `${locales[state.language || 'tr'].team_label} ${index + 1}`,
         score: 0,
         corrects: 0,
         tabus: 0,
@@ -83,6 +91,7 @@ export function initGame(allWords, teamNames, categories, difficulty, time, pass
     
     state.currentTeamIndex = 0;
     state.currentRoundNumber = 1;
+    state.nudgeShownCount = 0;
     state.playedWordsHistory.clear();
     state.isBetActive = false;
     state.nextTeamBetActive = false;
@@ -114,7 +123,14 @@ export function prepareWordPool() {
     if (pool.length === 0) {
         pool = [...state.allWords];
     }
-    
+
+    // Aynı oyun oturumunda aynı kartın tekrar gelmemesi için,
+    // mümkün olduğu sürece daha önce oynanmış kartları havuzdan çıkar.
+    const unplayedPool = pool.filter(word => !state.playedWordsHistory.has(word.w));
+    if (unplayedPool.length > 0) {
+        pool = unplayedPool;
+    }
+
     state.filteredWords = shuffle(pool);
 }
 
@@ -139,21 +155,25 @@ export function startRound() {
  */
 export function drawNextCard() {
     if (state.filteredWords.length === 0) {
-        // Havuz bittiğinde sıfırla ve tekrar karıştır
+        // Önce oynanmamış uygun kartlarla havuzu tekrar kur.
         prepareWordPool();
+
+        // Uygun filtrelerde hiç oynanmamış kart kalmadıysa,
+        // artık tüm uygun havuzu yeniden dolaşmaya başla.
+        if (state.filteredWords.length === 0) {
+            state.playedWordsHistory.clear();
+            prepareWordPool();
+        }
     }
-    
+
+    if (state.filteredWords.length === 0) {
+        state.activeCard = null;
+        return null;
+    }
+
     // Havuzdan kelimeyi çek ve geçmişe ekle
-    let nextWord = state.filteredWords.pop();
-    
-    // Eğer kelime bu turda veya yakın zamanda oynandıysa başka kelime dene
-    let attempts = 0;
-    while (state.playedWordsHistory.has(nextWord.w) && attempts < 50 && state.filteredWords.length > 0) {
-        state.filteredWords.unshift(nextWord); // Havuzun arkasına at
-        nextWord = state.filteredWords.pop();
-        attempts++;
-    }
-    
+    const nextWord = state.filteredWords.pop();
+
     state.playedWordsHistory.add(nextWord.w);
     state.activeCard = nextWord;
     return nextWord;
@@ -201,10 +221,15 @@ export function recordDecision(decision) {
  */
 export function updateRoundHistoryDecision(index, newDecision) {
     const historyItem = state.roundHistory[index];
-    if (!historyItem) return;
+    if (!historyItem) return false;
     
     const oldDecision = historyItem.result;
-    if (oldDecision === newDecision) return;
+    if (oldDecision === newDecision) return true;
+    if (newDecision === 'pass' && oldDecision !== 'pass' && state.passLimit !== 'unlimited') {
+        const currentPasses = state.roundHistory.filter(item => item.result === 'pass').length;
+        const limit = parseInt(state.passLimit, 10);
+        if (!isNaN(limit) && currentPasses >= limit) return false;
+    }
     
     // Eski kararın etkisini geri al
     if (oldDecision === 'correct') {
@@ -222,6 +247,7 @@ export function updateRoundHistoryDecision(index, newDecision) {
     
     // Kararı güncelle
     historyItem.result = newDecision;
+    return true;
 }
 
 /**
@@ -305,6 +331,7 @@ export function resetGame() {
     state.currentState = STATES.INIT;
     state.teams = [];
     state.roundHistory = [];
+    state.nudgeShownCount = 0;
     state.playedWordsHistory.clear();
     clearGameStateFromStorage();
 }
@@ -323,7 +350,10 @@ export function saveGameStateToStorage() {
             targetScore: state.targetScore,
             currentTeamIndex: state.currentTeamIndex,
             currentRoundNumber: state.currentRoundNumber,
-            playedWordsHistory: Array.from(state.playedWordsHistory)
+            nudgeShownCount: state.nudgeShownCount,
+            playedWordsHistory: Array.from(state.playedWordsHistory),
+            adShowCounter: state.adShowCounter,
+            consecutiveAdFailures: state.consecutiveAdFailures
         };
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(serializedState));
     } catch (e) {
@@ -347,7 +377,10 @@ export function loadGameStateFromStorage(allWords) {
         state.targetScore = data.targetScore;
         state.currentTeamIndex = data.currentTeamIndex;
         state.currentRoundNumber = data.currentRoundNumber;
+        state.nudgeShownCount = data.nudgeShownCount || 0;
         state.playedWordsHistory = new Set(data.playedWordsHistory);
+        state.adShowCounter = data.adShowCounter || 0;
+        state.consecutiveAdFailures = data.consecutiveAdFailures || 0;
         
         // Güvenlik kontrolü: Oyun oynanırken yarıda kaldıysa, o takımın hazırlık ekranına dön
         if (state.currentState === STATES.PLAYING || state.currentState === STATES.ROUND_OVER) {

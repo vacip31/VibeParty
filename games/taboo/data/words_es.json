@@ -1,0 +1,20 @@
+[
+  {
+    "w": "Computadora",
+    "f": ["Teclado", "Ratón", "Pantalla", "Internet", "Software"],
+    "c": "Tecnología",
+    "d": "K"
+  },
+  {
+    "w": "Fútbol",
+    "f": ["Gol", "Balón", "Partido", "Jugador", "Árbitro"],
+    "c": "Deportes",
+    "d": "K"
+  },
+  {
+    "w": "Café",
+    "f": ["Taza", "Bebida", "Caliente", "Cafeína", "Mañana"],
+    "c": "Comida",
+    "d": "K"
+  }
+]
