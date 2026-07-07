@@ -52,6 +52,7 @@ import {
 
 let categoriesData = [];
 let unsubscribeRoom = null;
+let interrogationAutoRevealTimeout = null;
 
 
 // ES modülleri deferred olarak çalışır — DOM her zaman hazırdır, DOMContentLoaded gerekmez.
@@ -135,7 +136,7 @@ function startWritingTimer() {
             if (!finalLine) {
                 const timeoutVerses = [
                     "Zaman doldu, ipucu eklenemedi... ⏳",
-                    "Düşünürken süre bitti, zincir koptu... ⏳",
+                    "Düşünürken süre bitti, ipucu yazamadım... ⏳",
                     "Zamanın akışında ipucu kayboldu... ⏳",
                     "Kum saati durdu, ipucum yarım kaldı... ⏳"
                 ];
@@ -152,7 +153,7 @@ function startWritingTimer() {
  */
 async function submitPlayerVerse(line) {
     const updates = {
-        [`verses/${state.myPlayerId}`]: line.trim(),
+        [`verses/${state.roundNumber}/${state.myPlayerId}`]: line.trim(),
         [`players/${state.myPlayerId}/submitted`]: true
     };
     await dbUpdateRoom(state.roomCode, updates);
@@ -251,11 +252,15 @@ function handleHostStateTransitions() {
         // Herkes mısrayı okuyup hazır oldu mu?
         const allReady = playerEntries.every(([id, p]) => p.isReady);
         if (allReady && totalCount >= 4) {
-            const prompt = generateInterrogationPrompt();
-            dbUpdateRoom(state.roomCode, {
-                currentState: STATES.INTERROGATION,
-                "interrogation/prompt": prompt
-            });
+            if (state.roundNumber < state.totalRounds) {
+                startWritingRound(state.roundNumber + 1);
+            } else {
+                const prompt = generateInterrogationPrompt();
+                dbUpdateRoom(state.roomCode, {
+                    currentState: STATES.INTERROGATION,
+                    "interrogation/prompt": prompt
+                });
+            }
         }
     }
 }
@@ -266,7 +271,7 @@ function handleHostStateTransitions() {
 const INTERROGATION_PROMPTS = [
     "{P1}, {P2} oyuncusunun yazdığı ipucunun gizli kelimeyle alakasını sorgulasın! 🧐",
     "{P1}, {P2} oyuncusundan ipucundaki şüpheli detayı açıklamasını istesin! 🔍",
-    "{P1}, casusun ipucu zincirine nasıl sızdığına dair teorisini açıklasın! 🕵️‍♂️",
+    "{P1}, casusun ipuçlarında nasıl açık verdiğine dair teorisini açıklasın! 🕵️‍♂️",
     "{P1}, {P2} oyuncusunun yazdığı cümlenin kelimeyi ele verip vermediğini tartışsın! 💬",
     "{P1}, şu an en çok kimden şüphelendiğini ve nedenini açıklasın! 🤔",
     "Casus(lar) kendini gizlemek için nasıl bir taktik izlemiş olabilir? Tartışın! 🤫",
@@ -323,8 +328,18 @@ function renderCurrentStateView(oldState) {
             break;
         case STATES.INTERROGATION:
             renderInterrogationPhase();
+            if (state.isHost && oldState !== STATES.INTERROGATION) {
+                clearTimeout(interrogationAutoRevealTimeout);
+                interrogationAutoRevealTimeout = setTimeout(() => {
+                    if (state.currentState === STATES.INTERROGATION) {
+                        clearInterrogationTimer();
+                        dbUpdateRoom(state.roomCode, { currentState: STATES.REVEAL });
+                    }
+                }, 45000);
+            }
             break;
         case STATES.REVEAL:
+            clearTimeout(interrogationAutoRevealTimeout);
             renderRevealPhase();
             break;
         case STATES.GAMEOVER:
@@ -913,6 +928,7 @@ function setupEventListeners() {
         btnInterrogationSkip.addEventListener(clickEvent, (e) => {
             e.preventDefault();
             if (state.isHost) {
+                clearTimeout(interrogationAutoRevealTimeout);
                 clearInterrogationTimer();
                 dbUpdateRoom(state.roomCode, { currentState: STATES.REVEAL });
             }
@@ -922,14 +938,13 @@ function setupEventListeners() {
     // --- EKRAN 6: İFŞA VE TARTIŞMA ---
     const btnRevealReset = document.getElementById('btn-reveal-reset');
     const btnRevealExpose = document.getElementById('btn-reveal-expose');
-    const btnExposeFound = document.getElementById('btn-expose-found');
-    const btnExposeEscaped = document.getElementById('btn-expose-escaped');
+    const btnSubmitExposeDecision = document.getElementById('btn-submit-expose-decision');
     const btnCloseExposeDecision = document.getElementById('btn-close-expose-decision');
 
     if (btnRevealReset) {
         btnRevealReset.addEventListener(clickEvent, async (e) => {
             e.preventDefault();
-            if (await showCustomConfirm('Zinciri Sıfırla', 'Lobiye dönmek istiyor musunuz?', 'warning')) {
+            if (await showCustomConfirm('Oyunu Sıfırla', 'Lobiye dönmek istiyor musunuz?', 'warning')) {
                 if (state.isHost) {
                     dbUpdateRoom(state.roomCode, { currentState: STATES.LOBBY });
                 }
@@ -942,43 +957,69 @@ function setupEventListeners() {
             e.preventDefault();
             if (!state.isHost) return;
             playVibration(20);
+            
             if (exposeDecisionModal) {
+                const listContainer = document.getElementById('expose-spies-list-container');
+                if (listContainer) {
+                    listContainer.innerHTML = '';
+                    
+                    const spyEntries = Object.entries(state.playersRaw).filter(([id, p]) => p.role === "Casus");
+                    
+                    spyEntries.forEach(([id, p]) => {
+                        const row = document.createElement('label');
+                        row.style.display = 'flex';
+                        row.style.alignItems = 'center';
+                        row.style.gap = '10px';
+                        row.style.padding = '10px 12px';
+                        row.style.borderRadius = '8px';
+                        row.style.background = 'rgba(255,255,255,0.03)';
+                        row.style.border = '1px solid rgba(255,255,255,0.08)';
+                        row.style.cursor = 'pointer';
+                        row.className = 'hover:bg-white/5 transition-colors text-on-surface text-sm';
+                        
+                        row.innerHTML = `
+                            <input type="checkbox" name="exposed-spy-checkbox" value="${id}" style="width:18px; height:18px; accent-color:#efc72d; cursor:pointer;">
+                            <span style="font-weight:600;">${p.name}</span>
+                        `;
+                        listContainer.appendChild(row);
+                    });
+                }
                 exposeDecisionModal.classList.remove('hidden');
                 exposeDecisionModal.style.display = 'flex';
             }
         });
     }
 
-    if (btnExposeFound) {
-        btnExposeFound.addEventListener(clickEvent, (e) => {
+    if (btnSubmitExposeDecision) {
+        btnSubmitExposeDecision.addEventListener(clickEvent, (e) => {
             e.preventDefault();
             if (!state.isHost) return;
             
-            exposeDecisionModal.classList.add('hidden');
-            exposeDecisionModal.style.display = 'none';
+            const checkboxes = document.querySelectorAll('input[name="exposed-spy-checkbox"]');
+            const checkedIds = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
             
-            // Firebase'de oylama sonucunu kaydet
-            dbUpdateRoom(state.roomCode, {
-                "results/spyExposedByGroup": true,
-                currentState: STATES.GAMEOVER
-            });
-            playSuccess();
-        });
-    }
-    
-    if (btnExposeEscaped) {
-        btnExposeEscaped.addEventListener(clickEvent, (e) => {
-            e.preventDefault();
-            if (!state.isHost) return;
+            const spyIds = Object.keys(state.playersRaw).filter(id => state.playersRaw[id].role === "Casus");
+            const allSpiesExposed = spyIds.length > 0 && spyIds.every(id => checkedIds.includes(id));
+            
+            state.exposedSpyIds = checkedIds;
+            state.spyExposedByGroup = allSpiesExposed;
+            
+            calculateScores();
             
             exposeDecisionModal.classList.add('hidden');
             exposeDecisionModal.style.display = 'none';
             
             dbUpdateRoom(state.roomCode, {
-                "results/spyExposedByGroup": false,
+                "results/exposedSpyIds": checkedIds,
+                "results/spyExposedByGroup": allSpiesExposed,
                 currentState: STATES.GAMEOVER
             });
-            playFailure();
+            
+            if (allSpiesExposed) {
+                playSuccess();
+            } else {
+                playFailure();
+            }
         });
     }
     
@@ -1010,17 +1051,20 @@ function setupEventListeners() {
                     score: p.score || 0,
                     isReady: false,
                     submitted: false,
+                    hasDetectiveUsedSkill: false,
                     role: "LOBBY"
                 };
             });
             
             dbUpdateRoom(state.roomCode, {
                 currentState: STATES.LOBBY,
+                roundNumber: 1,
                 players: updatedPlayers,
                 verses: {},
                 readingAssignments: {},
                 results: {
                     spyExposedByGroup: false,
+                    exposedSpyIds: [],
                     spyGuessedCorrectly: false,
                     spyGuessText: ""
                 }

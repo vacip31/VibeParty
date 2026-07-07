@@ -36,6 +36,7 @@ export const state = {
     totalRounds: 2, // Ayarlanabilir Tur Sayısı
     roundNumber: 1, // Aktif tur sayısı
     writingHistory: [], // [{ player: string, line: string }]
+    currentRoundVerses: {}, // Active round verses (playerId -> line)
     spyCandidateWords: [], // Casus için aday kelimeler
     
     // Multiplayer için eklenenler
@@ -46,7 +47,9 @@ export const state = {
     readingAssignments: {}, // Benim okumam gereken mısra verisi
     allAssignments: {}, // Tüm oyuncuların okuma mısraları
     submittedVersesCount: 0,
-    playedWordsHistory: []
+    playedWordsHistory: [],
+    interrogationPrompt: "",
+    exposedSpyIds: []
 };
 
 /**
@@ -77,10 +80,13 @@ export function resetGame() {
     state.spyGuessText = "";
     state.roundNumber = 1;
     state.writingHistory = [];
+    state.currentRoundVerses = {};
     state.playersRaw = {};
     state.readingAssignments = {};
     state.allAssignments = {};
     state.submittedVersesCount = 0;
+    state.interrogationPrompt = "";
+    state.exposedSpyIds = [];
     
     if (state.timerIntervalId) {
         clearInterval(state.timerIntervalId);
@@ -130,17 +136,40 @@ export function syncStateFromFirebase(roomData) {
         if (p.role === "Dedektif") state.detectivePlayer = p.name;
         if (p.role === "Köstebek") state.informantPlayer = p.name;
     });
+    state.hasDetectiveUsedSkill = !!state.playersRaw[state.myPlayerId]?.hasDetectiveUsedSkill;
     
     // Mısra Geçmişi
     const verses = roomData.verses || {};
-    state.submittedVersesCount = Object.keys(verses).length;
-    state.writingHistory = Object.entries(verses).map(([id, line]) => {
-        const playerObj = state.playersRaw[id] || { name: "Bilinmeyen Şair" };
-        return {
-            player: playerObj.name,
-            line: line
-        };
-    });
+    const isRoundBasedVerses = Object.values(verses).some(value => value && typeof value === 'object' && !Array.isArray(value));
+    state.currentRoundVerses = isRoundBasedVerses ? (verses[state.roundNumber] || {}) : verses;
+    state.submittedVersesCount = Object.keys(state.currentRoundVerses).length;
+    state.writingHistory = [];
+
+    if (isRoundBasedVerses) {
+        Object.entries(verses).forEach(([round, roundVerses]) => {
+            Object.entries(roundVerses || {}).forEach(([id, line]) => {
+                const playerObj = state.playersRaw[id] || { name: "Bilinmeyen Şair" };
+                state.writingHistory.push({
+                    round: Number(round),
+                    playerId: id,
+                    player: playerObj.name,
+                    line: line
+                });
+            });
+        });
+    } else {
+        state.writingHistory = Object.entries(verses).map(([id, line]) => {
+            const playerObj = state.playersRaw[id] || { name: "Bilinmeyen Şair" };
+            return {
+                round: 1,
+                playerId: id,
+                player: playerObj.name,
+                line: line
+            };
+        });
+    }
+
+    state.writingHistory.sort((a, b) => (a.round || 1) - (b.round || 1));
     
     // Atanan Okumalar
     state.allAssignments = roomData.readingAssignments || {};
@@ -151,7 +180,9 @@ export function syncStateFromFirebase(roomData) {
     state.spyGuessedCorrectly = results.spyGuessedCorrectly || false;
     state.spyGuessText = results.spyGuessText || "";
     state.spyExposedByGroup = results.spyExposedByGroup || false;
+    state.exposedSpyIds = results.exposedSpyIds || [];
     state.gameStartTime = roomData.gameStartTime || null;
+    state.interrogationPrompt = roomData.interrogation?.prompt || "";
 }
 
 /**
@@ -214,7 +245,7 @@ export function initializeGameFlow(categoriesList) {
     const remainingIds = shuffledIds.slice(spyCount);
     
     playerIds.forEach(id => {
-        updatedPlayers[id] = { ...state.playersRaw[id], isReady: false, submitted: false, role: "Masum" };
+        updatedPlayers[id] = { ...state.playersRaw[id], isReady: false, submitted: false, hasDetectiveUsedSkill: false, role: "Masum" };
     });
     
     spyPlayerIds.forEach(id => {
@@ -266,7 +297,7 @@ export function initializeGameFlow(categoriesList) {
 /**
  * Şiir yazma turunu başlatır (Eşzamanlı yazma için hazırlar)
  */
-export function startWritingRound() {
+export function startWritingRound(nextRoundNumber = state.roundNumber) {
     const updatedPlayers = {};
     Object.entries(state.playersRaw).forEach(([id, p]) => {
         updatedPlayers[id] = { ...p, isReady: false, submitted: false };
@@ -274,8 +305,8 @@ export function startWritingRound() {
 
     const updates = {
         currentState: STATES.WRITING,
+        roundNumber: nextRoundNumber,
         players: updatedPlayers,
-        verses: {},
         readingAssignments: {}
     };
     
@@ -288,48 +319,86 @@ export function startWritingRound() {
  */
 export function assignRandomVerses() {
     const playerIds = Object.keys(state.playersRaw);
-    const spyIds = playerIds.filter(id => state.playersRaw[id].role === 'Casus');
-    const innocentIds = playerIds.filter(id => state.playersRaw[id].role !== 'Casus');
-    
-    const verses = {};
-    innocentIds.forEach(id => {
-        // Casus olmayanların yazdığı geçerli mısralar
-        const line = state.writingHistory.find(item => item.player === state.playersRaw[id].name);
-        if (line) {
-            verses[id] = line.line;
-        }
+    const currentVerses = state.currentRoundVerses || {};
+    const eligibleWriterIds = playerIds.filter(id => {
+        const hasVerse = !!currentVerses[id];
+        const isSpy = state.playersRaw[id]?.role === 'Casus';
+        return hasVerse && !(state.roundNumber === 1 && isSpy);
     });
 
+    if (eligibleWriterIds.length === 0) return;
+
+    const readers = shuffle([...playerIds]);
+    const writers = shuffle([...eligibleWriterIds]);
+    const assignmentsTemp = {};
+
+    // 1. Her mısrayı (writer) bir okuyucuya (reader) eşleştir
+    for (let i = 0; i < writers.length; i++) {
+        const writerId = writers[i];
+        const readerId = readers[i];
+        assignmentsTemp[readerId] = writerId;
+    }
+
+    // 2. Kendi mısrasını okuma durumlarını (self-assignment) gider
+    for (let i = 0; i < writers.length; i++) {
+        const readerId = readers[i];
+        const writerId = assignmentsTemp[readerId];
+        if (readerId === writerId) {
+            for (let j = 0; j < writers.length; j++) {
+                if (i === j) continue;
+                const otherReaderId = readers[j];
+                const otherWriterId = assignmentsTemp[otherReaderId];
+                if (readerId !== otherWriterId && otherReaderId !== writerId) {
+                    assignmentsTemp[readerId] = otherWriterId;
+                    assignmentsTemp[otherReaderId] = writerId;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Okunma sayılarını takip et
+    const readCounts = {};
+    eligibleWriterIds.forEach(id => { readCounts[id] = 0; });
+    Object.values(assignmentsTemp).forEach(writerId => { readCounts[writerId]++; });
+
+    // 3. Kalan okuyuculara en az okunmuş mısraları dağıt
+    for (let i = writers.length; i < readers.length; i++) {
+        const readerId = readers[i];
+        const candidates = eligibleWriterIds
+            .filter(writerId => writerId !== readerId)
+            .sort((a, b) => readCounts[a] - readCounts[b]);
+        const chosenId = candidates[0] || eligibleWriterIds[0];
+        assignmentsTemp[readerId] = chosenId;
+        readCounts[chosenId]++;
+    }
+
+    // 4. Son bir güvenlik kontrolü (kendi mısrasını okuma kalmasın diye)
+    const finalReaderIds = Object.keys(assignmentsTemp);
+    for (const readerId of finalReaderIds) {
+        const writerId = assignmentsTemp[readerId];
+        if (readerId === writerId) {
+            for (const otherReaderId of finalReaderIds) {
+                if (readerId === otherReaderId) continue;
+                const otherWriterId = assignmentsTemp[otherReaderId];
+                if (readerId !== otherWriterId && otherReaderId !== writerId) {
+                    assignmentsTemp[readerId] = otherWriterId;
+                    assignmentsTemp[otherReaderId] = writerId;
+                    break;
+                }
+            }
+        }
+    }
+
+    // 5. Firebase formatına dönüştür
     const assignments = {};
-    const innocentVerseIds = Object.keys(verses);
-
-    if (innocentVerseIds.length === 0) return;
-
-    // Casuslara: rastgele bir masumun mısrasını ver (kopyalayabilmesi/çalabilmesi için)
-    spyIds.forEach(spyId => {
-        const randomInnocentId = innocentVerseIds[Math.floor(Math.random() * innocentVerseIds.length)];
-        assignments[spyId] = {
-            writerName: state.playersRaw[randomInnocentId].name,
-            line: verses[randomInnocentId]
+    Object.entries(assignmentsTemp).forEach(([readerId, writerId]) => {
+        assignments[readerId] = {
+            round: state.roundNumber,
+            writerId,
+            writerName: state.playersRaw[writerId].name,
+            line: currentVerses[writerId]
         };
-    });
-
-    // Masumlara: kendilerininki hariç rastgele bir masumun mısrasını ver
-    innocentIds.forEach(innocentId => {
-        const candidates = innocentVerseIds.filter(id => id !== innocentId);
-        if (candidates.length > 0) {
-            const chosenId = candidates[Math.floor(Math.random() * candidates.length)];
-            assignments[innocentId] = {
-                writerName: state.playersRaw[chosenId].name,
-                line: verses[chosenId]
-            };
-        } else {
-            // Güvenlik amaçlı tek masum kalırsa kendi mısrasını ver
-            assignments[innocentId] = {
-                writerName: state.playersRaw[innocentId].name,
-                line: verses[innocentId] || "..."
-            };
-        }
     });
 
     // Herkesin hazır olma durumunu sıfırla (Okuma aşamasına geçiliyor)
@@ -415,9 +484,15 @@ function normalizeText(text) {
  * Oyun sonu puanlamasını hesaplar (Firebase verilerine göre)
  */
 export function calculateScores() {
-    const isSpyExposed = state.spyExposedByGroup;
+    const exposedSpyIds = state.exposedSpyIds || [];
     const isSpyGuessedCorrect = state.spyGuessedCorrectly;
-    const isSpyVictory = !isSpyExposed || isSpyGuessedCorrect;
+    
+    // Find all Spies in the room
+    const spyEntries = Object.entries(state.playersRaw).filter(([id, p]) => p.role === "Casus");
+    
+    // A spy team victory happens if at least one spy escapes OR at least one spy guesses correctly
+    const escapedSpiesCount = spyEntries.filter(([id, p]) => !exposedSpyIds.includes(id)).length;
+    const isSpyVictory = escapedSpiesCount > 0 || isSpyGuessedCorrect;
 
     const updatedPlayers = { ...state.playersRaw };
 
@@ -428,12 +503,16 @@ export function calculateScores() {
         if (isSpyVictory) {
             // Casus Kazandı
             if (role === "Casus") {
-                currentScore += 15;
+                // Sadece kaçan veya kelimeyi doğru tahmin eden casus puan alır!
+                const hasEscaped = !exposedSpyIds.includes(id);
+                if (hasEscaped || isSpyGuessedCorrect) {
+                    currentScore += 15;
+                }
             } else if (role === "Köstebek") {
                 currentScore += 10;
             }
         } else {
-            // Ekip Kazandı
+            // Ekip Kazandı (Tüm casuslar ifşa edildi ve kelimeyi bilemediler)
             if (role !== "Casus" && role !== "Köstebek") {
                 currentScore += 10;
             }

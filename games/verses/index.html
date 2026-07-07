@@ -286,7 +286,7 @@
                     <div class="flex-grow pt-base">
                         <h3 class="font-h2 text-h2 text-on-surface mb-xs">2. İpucu Yaz</h3>
                         <p class="font-body text-on-surface-variant text-[15px] leading-relaxed">
-                            Tüm oyuncular sırayla en fazla 35 karakterlik cümleler yazar. Her oyuncu sadece kendisinden bir önceki oyuncunun son ipucunu görebilir. Casus ise bu ipucuna bakarak kelimeyi tahmin etmeye ve zincire kaynamaya çalışır.
+                            Tüm oyuncular aynı anda en fazla 35 karakterlik bir ipucu yazar. Ekip gizli kelimeyi bilir; Casus ilk turda kelimeyi bilmeden sahte bir metin yazar ve kimse bu metni okumaz.
                         </p>
                     </div>
                 </div>
@@ -299,7 +299,7 @@
                     <div class="flex-grow pt-base">
                         <h3 class="font-h2 text-h2 text-on-surface mb-xs">3. Casusu Oyla</h3>
                         <p class="font-body text-on-surface-variant text-[15px] leading-relaxed">
-                            Turlar bittiğinde tüm ipucu zinciri baştan sona sesli okunur. Zinciri koparan, kelimeyi yediremeyen Casus bulunmaya çalışılır.
+                            Her turda oyunculara başka birinin ipucu okutulur. Turlar bitene kadar kimin yazısını okuduğunuzu söylemeyin; tartışmada açık veren Casus bulunmaya çalışılır.
                         </p>
                     </div>
                 </div>
@@ -351,12 +351,12 @@
                 </div>
                 
                 <!-- Double Spy Settings -->
-                <div id="setup-double-spy-row" class="pt-sm border-t border-outline-variant/10 flex items-center justify-between opacity-30 transition-all duration-300">
+                <div id="setup-double-spy-row" class="pt-sm border-t border-outline-variant/10 flex items-center justify-between transition-all duration-300">
                     <div class="flex flex-col">
                         <span class="font-h2 text-h2 text-on-surface">Çift Casus Modu</span>
                         <span id="setup-double-spy-desc" class="font-mono-meta text-xs text-on-surface-variant mt-0.5">En az 6 oyuncu gereklidir</span>
                     </div>
-                    <button type="button" id="btn-toggle-double-spy" class="w-12 h-6 rounded-full bg-outline-variant/30 relative transition-all duration-300 flex items-center px-0.5 cursor-not-allowed" disabled>
+                    <button type="button" id="btn-toggle-double-spy" class="w-12 h-6 rounded-full bg-outline-variant/30 relative transition-all duration-300 flex items-center px-0.5">
                         <div class="w-5 h-5 rounded-full bg-on-surface-variant/60 shadow-sm transition-all duration-300" id="btn-toggle-double-spy-knob"></div>
                     </button>
                 </div>
@@ -398,7 +398,7 @@
             <!-- Decorative Quote -->
             <section class="py-sm">
                 <div class="text-center italic opacity-60">
-                    <p class="font-verse-body text-verse-body text-on-surface text-[15px]">"Dikkat et, tek bir alakasız kelime zinciri koparır."</p>
+                    <p class="font-verse-body text-verse-body text-on-surface text-[15px]">"Dikkat et, tek bir alakasız ipucu masada iz bırakır."</p>
                     <p class="font-mono-meta text-xs mt-xs text-primary uppercase tracking-widest">— Salon Rehberi</p>
                 </div>
             </section>
@@ -580,7 +580,7 @@
         </header>
 
         <!-- EKRAN A (Sıra Bildirimi) -->
-        <main id="writing-panel-a" class="pt-24 pb-32 px-gutter w-full max-w-[600px] mx-auto flex-1 overflow-y-auto flex flex-col items-center justify-center text-center gap-6 animate-fade-in">
+        <main id="writing-panel-a" class="hidden pt-24 pb-32 px-gutter w-full max-w-[600px] mx-auto flex-1 overflow-y-auto flex flex-col items-center justify-center text-center gap-6 animate-fade-in">
             <span class="material-symbols-outlined text-[64px] text-primary animate-bounce">swap_horizontal_circle</span>
             <div>
                 <p class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-[0.2em] mb-xs">Sıra Rastgele Seçildi</p>
@@ -688,7 +688,7 @@
                 </div>
 
                 <p id="writing-footer-meta" class="mt-md font-mono-meta text-xs text-on-surface-variant/40 italic">
-                    Sıradaki oyuncu bekleniyor...
+                    Diğer oyuncular bekleniyor...
                 </p>
             </div>
         </main>
@@ -720,7 +720,7 @@
             <div>
                 <span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.2em] mb-xs">Sana Atanan Mısra</span>
                 <p class="font-body text-xs text-on-surface-variant opacity-70 italic max-w-sm mx-auto leading-relaxed mt-1">
-                    Bu mısrayı kimin yazdığını tahmin etmeye çalışın. Eğer Casus iseniz, bu mısra sizin blöf mısranızdır, onu kendi mısranız gibi savunmalısınız!
+                    Sana atanan ipucunu oku ve gerekirse savun. Turlar bitene kadar kimin ipucunu okuduğunu masaya söyleme.
                 </p>
             </div>
 
@@ -832,7 +832,7 @@
 
             <!-- Debate Callout -->
             <p class="font-body text-xs text-on-surface-variant/70 text-center mt-sm max-w-[320px] leading-relaxed">
-                İpucu zincirini sesli okuyun ve aranızdaki Casus'u tartışarak bulun!
+                Tüm tur ipuçlarını sesli okuyun ve aranızdaki Casus'u tartışarak bulun!
             </p>
 
             <!-- Expose Action -->
@@ -914,7 +914,7 @@
             </div>
 
                 <div class="glass-card rounded-lg p-md flex flex-col items-center justify-center text-center">
-                    <span class="font-label-caps text-[10px] text-on-surface-variant mb-xs tracking-wider">ZİNCİR UZUNLUĞU</span>
+                    <span class="font-label-caps text-[10px] text-on-surface-variant mb-xs tracking-wider">İPUCU SAYISI</span>
                     <span id="stat-poetry-lines" class="font-h1 text-h1 text-primary">0 İpucu</span>
                 </div>
                 <div class="glass-card rounded-lg p-md flex flex-col items-center justify-center text-center">
@@ -977,15 +977,16 @@
         <div class="custom-modal-content" style="text-align:center;">
             <h3 style="font-size:16px; font-weight:700; color:#efc72d; text-transform:uppercase; letter-spacing:0.15em; margin:0;">🕵️ Masa Oylaması Kararı</h3>
             <p style="font-size:13px; color:#a8a29e; margin:0; line-height:1.5;">
-                Masa kararını verdi mi? Ekip tartışma sonucunda Casus'u bulabildi mi?
+                Masa kararını verdi mi? Ekip tartışma sonucunda hangi casusları bulabildi?
             </p>
 
+            <div id="expose-spies-list-container" style="display:flex; flex-direction:column; gap:12px; margin:15px 0; text-align:left;">
+                <!-- Dinamik Casus Listesi Buraya Gelecek -->
+            </div>
+
             <div class="flex flex-col gap-sm mt-3" style="display:flex; flex-direction:column; gap:10px; width:100%;">
-                <button id="btn-expose-found" class="w-full py-md bg-primary text-on-primary font-h2 text-h2 rounded-lg flex items-center justify-center gap-xs uppercase active:scale-95 transition-all shadow-md" style="padding:14px; border-radius:8px; border:none; background:#efc72d; color:#1c1917; font-weight:700; cursor:pointer; width:100%;">
-                    <span>Evet, Casusu Bulduk</span>
-                </button>
-                <button id="btn-expose-escaped" class="w-full py-md border border-outline-variant text-on-surface font-h2 text-h2 rounded-lg flex items-center justify-center gap-xs uppercase active:scale-95 transition-all hover:bg-white/5" style="padding:14px; border-radius:8px; border:1px solid rgba(255,255,255,0.1); background:transparent; color:#e7e5e4; cursor:pointer; width:100%;">
-                    <span>Hayır, Casus Sıyrıldı</span>
+                <button id="btn-submit-expose-decision" class="w-full py-md bg-primary text-on-primary font-h2 text-h2 rounded-lg flex items-center justify-center gap-xs uppercase active:scale-95 transition-all shadow-md" style="padding:14px; border-radius:8px; border:none; background:#efc72d; color:#1c1917; font-weight:700; cursor:pointer; width:100%;">
+                    <span>Kararı Kaydet ve Bitir</span>
                 </button>
             </div>
             
@@ -1042,40 +1043,34 @@
                 <p class="text-primary font-bold text-sm">Kategori: Modern İlişkiler | Kelime: Ghosting</p>
                 
                 <p class="text-xs opacity-70">
-                    Ahmet, Burcu, Can (Casus), Deniz, Elif ve Furkan toplanmışlar. Telefon sırayla elden ele geziyor:
+                    Ahmet, Burcu, Can (Casus), Deniz, Elif ve Furkan eşzamanlı olarak ipuçlarını yazar.
                 </p>
 
                 <div class="space-y-sm border-l-2 border-primary/20 pl-sm my-sm">
                     <div>
-                        <span class="font-semibold text-on-surface block text-[12px]">1. Sıra — Elif (Ekip):</span>
-                        <p class="italic text-secondary bg-surface-container/20 px-2 py-1 rounded">"Mavi tik oldu"</p>
+                        <span class="font-semibold text-on-surface block text-[12px]">1. Tur Yazma Aşaması:</span>
+                        <p class="text-secondary bg-surface-container/20 px-2 py-1 rounded text-[12px]">
+                            Tüm ekip kelimeye uygun ipuçları yazar. Can (Casus) kelimeyi bilmediği için rastgele/sahte bir ipucu yazar: <span class="italic text-error font-semibold">"Mesaj hakkı bitti"</span>.
+                        </p>
                     </div>
                     <div>
-                        <span class="font-semibold text-error block text-[12px]">2. Sıra — Can (CASUS):</span>
-                        <p class="italic text-error font-semibold bg-error/5 border border-error/10 px-2 py-1 rounded">"Mesaj hakkı bitti" <span class="text-[10px] text-on-surface-variant/50 font-normal">(WhatsApp'ı düşündü, panikledi!)</span></p>
+                        <span class="font-semibold text-on-surface block text-[12px]">Çapraz Okuma Ataması:</span>
+                        <p class="text-secondary bg-surface-container/20 px-2 py-1 rounded text-[12px]">
+                            Can'ın sahte ipucu 1. turda kimseye atanmaz. Elif'in yazdığı <span class="italic">"Mavi tik oldu"</span> ipucu Can'a (Casus) atanır. Can bu ipucunu kendi ipucuymuş gibi savunmak zorundadır!
+                        </p>
                     </div>
                     <div>
-                        <span class="font-semibold text-on-surface block text-[12px]">3. Sıra — Burcu (Ekip):</span>
-                        <p class="italic text-secondary bg-surface-container/20 px-2 py-1 rounded">"Sinyal koptu" <span class="text-[10px] text-on-surface-variant/50 font-normal">(Kurtarmaya çalışıyor)</span></p>
-                    </div>
-                    <div>
-                        <span class="font-semibold text-on-surface block text-[12px]">4. Sıra — Furkan (Ekip):</span>
-                        <p class="italic text-secondary bg-surface-container/20 px-2 py-1 rounded">"Aniden sır oldu"</p>
-                    </div>
-                    <div>
-                        <span class="font-semibold text-on-surface block text-[12px]">5. Sıra — Ahmet (Ekip):</span>
-                        <p class="italic text-secondary bg-surface-container/20 px-2 py-1 rounded">"Casper mübarek"</p>
-                    </div>
-                    <div>
-                        <span class="font-semibold text-on-surface block text-[12px]">6. Sıra — Deniz (Ekip):</span>
-                        <p class="italic text-secondary bg-surface-container/20 px-2 py-1 rounded">"İzi bile kalmadı"</p>
+                        <span class="font-semibold text-on-surface block text-[12px]">2. Tur Yazma Aşaması (Casus Kelimeyi Arıyor):</span>
+                        <p class="text-secondary bg-surface-container/20 px-2 py-1 rounded text-[12px]">
+                            Can kendisine gelen "Mavi tik" ipucundan yola çıkarak kelimenin "Ghosting" veya "WhatsApp" olabileceğini tahmin eder ve 2. turda daha iyi bir blöf yazar.
+                        </p>
                     </div>
                 </div>
 
                 <div class="bg-surface-container-high/40 border border-outline-variant/10 rounded-lg p-sm space-y-xs">
-                    <span class="font-bold text-on-surface uppercase tracking-wider text-[11px] block">🗣️ Masa Tartışması:</span>
+                    <span class="font-bold text-on-surface uppercase tracking-wider text-[11px] block">🗣️ İtiraf ve Oylama:</span>
                     <p class="italic text-[12px]">
-                        "Mavi tikten sonra 'Mesaj hakkı bitti' yazan kimse resmen sıçramış! Yıl 2006 mı, kontör mü bitti? Casper ve görünmezlik ile ne alakası var? Kesin casus o!"
+                        Turlar bittiğinde tüm ipuçları sahipleriyle ifşa edilir. Can'ın 1. turda yazdığı "Mesaj hakkı bitti" ipucunu gören masa: "Yıl 2006 mı, kontör mü bitti? Can'ın 1. tur yazısı resmen kelimeyi bilmediğini kanıtlyor!" diyerek Can'ı suçlar.
                     </p>
                     <p class="font-semibold text-[#10b981] text-[12px] mt-xs">
                         🎯 Sonuç: Masa Can'ı ifşa eder. Can kelimeyi tahmin edemez. Ekip KAZANIR!

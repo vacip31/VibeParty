@@ -481,9 +481,13 @@ export function renderInterrogationPhase() {
     // (Bunu Host başlatırken rastgele üretip veritabanına yazar, biz sadece okuruz)
     // Eğer veritabanında yoksa fallback kullanırız.
     if (promptTextEl) {
+        promptTextEl.textContent = state.interrogationPrompt || "Şairlerin ipuçlarını sorgulayın. Kim kendi savunmasında açık veriyor?";
         promptTextEl.textContent = "Şairlerin mısralarını sorgulayın. Kim kendi mısrasını savunurken yalan söylüyor? 🧐";
     }
     
+    if (promptTextEl) {
+        promptTextEl.textContent = state.interrogationPrompt || "Şairlerin ipuçlarını sorgulayın. Kim kendi savunmasında açık veriyor?";
+    }
     startInterrogationTimer();
 }
 
@@ -704,7 +708,7 @@ export function populateCategoriesModal(categoriesList) {
         item.className = 'category-accordion-item bg-surface-container rounded-lg border border-outline-variant/10 overflow-hidden transition-all duration-200';
         
         const meta = CATEGORY_METADATA[cat.category] || {
-            desc: "Bu kategoriye ait gizli kelimelerle ipucu zinciri oluşturun.",
+            desc: "Bu kategoriye ait gizli kelimelerle ipuçları yazın ve casusu bulun.",
             examples: cat.words.slice(0, 3).map(w => typeof w === 'string' ? w : w.w)
         };
         
