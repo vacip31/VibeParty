@@ -501,9 +501,14 @@
             </div>
 
             <!-- Category Banner -->
-            <div class="text-center mb-lg mt-4">
-                <span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-[0.2em] block">KATEGORİ:</span>
-                <h2 id="writing-panel-category" class="font-h2 text-h2 text-primary mt-base uppercase">...</h2>
+            <div class="text-center mb-lg mt-md flex flex-col gap-sm">
+                <div class="px-md py-xs rounded-full border border-primary/25 bg-primary/5 text-primary text-[11px] tracking-[0.15em] uppercase font-bold w-fit mx-auto shadow-[0_0_12px_rgba(210,180,0,0.05)]">
+                    ŞAİR: <span id="writing-panel-writer" class="text-on-surface uppercase font-normal ml-xs">...</span>
+                </div>
+                <div>
+                    <span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-[0.2em] block">KATEGORİ:</span>
+                    <h2 id="writing-panel-category" class="font-h2 text-h2 text-primary mt-xs uppercase">...</h2>
+                </div>
             </div>
 
             <!-- Exquisite Corpse context -->
@@ -527,15 +532,40 @@
                 </div>
             </div>
 
-            <!-- Text typing input area -->
-            <div class="flex-grow flex flex-col items-center justify-center">
-                <div class="w-full verse-input-underline py-base mb-sm">
-                    <textarea class="w-full bg-transparent border-none text-center font-verse-display text-verse-display text-on-surface placeholder:text-on-surface-variant/30 resize-none focus:ring-0 focus:outline-none" 
-                        id="input-poetry-verse" maxlength="35" placeholder="İpucunu buraya yaz..." rows="2"></textarea>
+            <!-- Text typing input area / Detective Inquiry Area (Stealth) -->
+            <div class="flex-grow flex flex-col items-center justify-center w-full">
+                <!-- Normal Typing Area -->
+                <div id="writing-input-wrapper" class="w-full">
+                    <div class="w-full verse-input-underline py-base mb-sm">
+                        <textarea class="w-full bg-transparent border-none text-center font-verse-display text-verse-display text-on-surface placeholder:text-on-surface-variant/30 resize-none focus:ring-0 focus:outline-none" 
+                            id="input-poetry-verse" maxlength="35" placeholder="İpucunu buraya yaz..." rows="2"></textarea>
+                    </div>
+                </div>
+
+                <!-- Spy Candidate Words Helper (Only shown to spy) -->
+                <div id="spy-candidates-helper" class="hidden text-center py-xs px-md rounded-lg bg-primary/5 border border-primary/10 text-primary font-mono-meta text-xs tracking-wider uppercase mb-sm">
+                    Aday Kelimeler: ...
+                </div>
+
+                <!-- Detective Inquiry Area (Stealth) -->
+                <div id="writing-detective-wrapper" class="hidden w-full flex flex-col items-center gap-sm">
+                    <p class="font-label-caps text-[10px] text-on-surface-variant/60 tracking-wider">ANALİZ EDİLECEK ŞAİR</p>
+                    <div class="relative verse-input-underline py-2 w-full max-w-[280px]">
+                        <select id="stealth-detective-select" class="w-full bg-transparent border-none text-center font-verse-display text-[18px] text-on-surface focus:ring-0 focus:outline-none appearance-none cursor-pointer">
+                            <!-- Dynamic player options will be injected here by ui.js -->
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-primary">
+                            <span class="material-symbols-outlined">arrow_drop_down</span>
+                        </div>
+                    </div>
+                    <!-- Subtle result field -->
+                    <div id="stealth-detective-result" class="hidden text-sm font-semibold tracking-wide py-xs px-md rounded-lg animate-pulse">
+                        Sorgulanıyor...
+                    </div>
                 </div>
                 
                 <!-- Indicators & Actions -->
-                <div class="flex justify-between items-center w-full px-base">
+                <div class="flex justify-between items-center w-full px-base mt-2">
                     <span class="font-mono-meta text-mono-meta text-on-surface-variant/60" id="writing-char-counter">0 / 35</span>
                     
                     <!-- Spy Bluff Guess Button -->
@@ -543,14 +573,32 @@
                         <span class="material-symbols-outlined text-[18px]">visibility_off</span>
                         <span class="font-label-caps text-label-caps uppercase group-hover:underline decoration-primary underline-offset-4">Anahtar Kelimeyi Tahmin Et</span>
                     </button>
+
+                    <!-- Detective Inquiry Action -->
+                    <button id="btn-writing-detective-skill" class="hidden items-center gap-xs text-[#d1ac00] hover:text-primary transition-colors group">
+                        <span class="material-symbols-outlined text-[18px]">saved_search</span>
+                        <span class="font-label-caps text-label-caps uppercase group-hover:underline decoration-primary underline-offset-4">Sorgu Yeteneği (1)</span>
+                    </button>
                 </div>
             </div>
 
             <!-- Action buttons -->
-            <div class="mt-xl text-center">
+            <div class="mt-xl text-center w-full">
+                <!-- Normal Submit -->
                 <button id="btn-writing-submit" class="w-full py-md bg-primary-container text-on-primary font-h2 text-h2 font-bold uppercase tracking-widest opacity-40 cursor-not-allowed rounded-lg active:scale-[0.98] transition-all" disabled>
                     İpucunu Onayla
                 </button>
+                
+                <!-- Detective Action Buttons -->
+                <div id="writing-detective-actions" class="hidden flex gap-sm w-full">
+                    <button id="btn-stealth-detective-cancel" class="flex-1 py-md border border-outline-variant text-on-surface font-h2 text-h2 uppercase rounded-lg active:scale-95 transition-all">
+                        İptal
+                    </button>
+                    <button id="btn-stealth-detective-query" class="flex-1 py-md bg-primary text-on-primary font-h2 text-h2 uppercase rounded-lg active:scale-95 transition-all shadow-md">
+                        Analiz Et
+                    </button>
+                </div>
+
                 <p id="writing-footer-meta" class="mt-md font-mono-meta text-xs text-on-surface-variant/40 italic">
                     Sıradaki oyuncu bekleniyor...
                 </p>
@@ -571,8 +619,54 @@
                 <span class="material-symbols-outlined">arrow_forward</span>
             </button>
         </main>
-    </section>
+    <!-- 5.5. GÖRÜNÜM: TARTIŞMA ÖNCESİ SORGU ODASI (THE INTERROGATION ROOM) -->
+    <section id="view-interrogation" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden" style="display:none;">
+        <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/10 h-16">
+            <div class="flex items-center justify-between px-md h-full w-full max-w-[600px] mx-auto">
+                <div class="w-6"></div>
+                <h1 class="font-h1-mobile text-h1-mobile font-bold text-primary tracking-tight">Sorgu Odası 🕵️‍♂️</h1>
+                <div class="w-6"></div>
+            </div>
+        </header>
 
+        <main class="relative z-10 w-full max-w-[600px] mx-auto min-h-screen pt-24 pb-32 px-gutter flex flex-col items-center justify-center text-center gap-lg">
+            <!-- Timer countdown animation -->
+            <div class="relative w-40 h-40 flex items-center justify-center mx-auto mb-sm">
+                <!-- SVG circular progress bar -->
+                <svg class="absolute inset-0 w-full h-full -rotate-90">
+                    <circle cx="80" cy="80" r="70" stroke="rgba(255,255,255,0.05)" stroke-width="6" fill="transparent" />
+                    <circle id="interrogation-timer-circle" cx="80" cy="80" r="70" stroke="#efc72d" stroke-width="6" fill="transparent" 
+                            stroke-dasharray="440" stroke-dashoffset="0" stroke-linecap="round" class="transition-all duration-1000 ease-linear" />
+                </svg>
+                <div class="flex flex-col items-center">
+                    <span id="interrogation-timer-text" class="text-h1 text-[36px] font-bold text-primary font-mono tracking-wider">45</span>
+                    <span class="text-[10px] font-mono-meta text-on-surface-variant uppercase tracking-widest">Saniye</span>
+                </div>
+            </div>
+
+            <!-- Header Text -->
+            <div class="mb-sm">
+                <h2 class="font-h2 text-h2 text-primary mb-xs uppercase tracking-widest">ŞÜPHELİLERİ SORGULAYIN!</h2>
+                <p class="font-mono-meta text-xs text-on-surface-variant opacity-70 italic max-w-sm mx-auto leading-relaxed">
+                    Casusu yakalamak için birbirinize şüphe duyduğunuz ipuçlarını sorun. Zaman bitmeden gerçeği ortaya çıkarın!
+                </p>
+            </div>
+
+            <!-- Dynamic Prompt Card -->
+            <div class="glass-card w-full rounded-lg p-lg text-center shadow-xl border border-primary/10 relative overflow-hidden flex flex-col gap-sm animate-pulse">
+                <span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.2em] text-xs">Sorgu Direktifi:</span>
+                <p id="interrogation-prompt-text" class="font-verse-display text-verse-display text-on-surface leading-normal text-glow py-xs px-sm">
+                    Yükleniyor...
+                </p>
+            </div>
+
+            <!-- Skip/Start Vote Button -->
+            <button id="btn-interrogation-skip" class="w-full max-w-xs py-md bg-surface-container-high border border-outline-variant text-on-surface font-h2 text-h2 rounded-lg flex items-center justify-center gap-xs uppercase active:scale-[0.98] transition-all shadow-lg mt-base">
+                <span>Tartışmaya Geç</span>
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+        </main>
+    </section>
 
     <!-- 6. GÖRÜNÜM: İFŞA VE TARTIŞMA EKRANI (THE DEBATE ROOM) -->
     <section id="view-reveal" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden" style="display:none;">
@@ -670,6 +764,16 @@
                 
                 <div id="gameover-poetry-lines" class="space-y-lg relative z-10">
                     <!-- Dynamic lines showing writer names and roles will be injected here by ui.js -->
+            </div>
+
+            <!-- Liderlik Tablosu (Cumulative Leaderboard) -->
+            <div class="glass-card w-full rounded-xl p-lg mb-xl relative overflow-hidden flex flex-col gap-sm">
+                <div class="flex items-center gap-xs mb-xs">
+                    <span class="material-symbols-outlined text-primary">emoji_events</span>
+                    <span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.2em] text-xs">TURNAVA LİDERLİK TABLOSU</span>
+                </div>
+                <div id="gameover-leaderboard-list" class="space-y-sm">
+                    <!-- Dynamic scores will be injected here by ui.js -->
                 </div>
             </div>
 

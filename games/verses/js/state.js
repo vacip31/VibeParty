@@ -5,6 +5,7 @@ export const STATES = {
     SETUP: 'SETUP',
     ROLE_DISTRIBUTION: 'ROLE_DISTRIBUTION',
     WRITING: 'WRITING',
+    INTERROGATION: 'INTERROGATION',
     REVEAL: 'REVEAL',
     GAMEOVER: 'GAMEOVER'
 };
@@ -13,6 +14,10 @@ export const STATES = {
 export const state = {
     currentState: STATES.WELCOME,
     players: [], // Oyuncu isimleri listesi (unique strings)
+    playerScores: {}, // Oyuncu skorları (bireysel puanlama)
+    detectivePlayer: "", // Dedektif oyuncu adı
+    informantPlayer: "", // Köstebek oyuncu adı
+    hasDetectiveUsedSkill: false, // Dedektif ipucunu sorguladı mı
     spyPlayer: "", // Geriye dönük uyumluluk için (ilk casus)
     spyPlayers: [], // Sahte şairler listesi (Çift casus modu desteği)
     doubleSpyMode: false, // Çift casus modu aktif mi (Sadece >= 6 oyuncu için)
@@ -30,6 +35,7 @@ export const state = {
     shuffledWritingQueue: [], // O turdaki karıştırılmış yazma sırası
     currentWriterIndex: 0, // Sıradaki yazıcının queue içindeki indeksi
     writingHistory: [], // [{ player: string, line: string }]
+    spyCandidateWords: [], // Casus için 1 doğru, 4 yanlış kelimeden oluşan ipucu listesi (Oyun içi analiz için)
     
     // Zaman Takibi
     gameStartTime: null,
@@ -89,6 +95,10 @@ export function setTotalRounds(count) {
 export function resetGame() {
     state.currentState = STATES.WELCOME;
     state.players = [];
+    state.playerScores = {};
+    state.detectivePlayer = "";
+    state.informantPlayer = "";
+    state.hasDetectiveUsedSkill = false;
     state.spyPlayer = "";
     state.category = "";
     state.selectedCategory = null;
@@ -123,6 +133,9 @@ export function resetGame() {
  */
 export function resetGameKeepPlayers() {
     state.currentState = STATES.SETUP;
+    state.detectivePlayer = "";
+    state.informantPlayer = "";
+    state.hasDetectiveUsedSkill = false;
     state.spyPlayer = "";
     state.category = "";
     state.keyword = "";
@@ -195,6 +208,17 @@ export function initializeGameFlow(categoriesList) {
         state.keywordSynonyms = (pickedWord.synonyms || []).map(s => s.toLowerCase());
     }
     
+    // Casus ipuçları için 5 aday kelime seç (Gerçek kelime + 4 adet sahte kelime)
+    const allCategoryWords = randomCat.words.map(w => typeof w === 'string' ? w : w.w);
+    const decoyPool = allCategoryWords.filter(w => w !== state.keyword);
+    
+    // Karıştır ve 4 tane seç
+    const shuffledDecoys = shuffle([...decoyPool]);
+    const selectedDecoys = shuffledDecoys.slice(0, Math.min(4, shuffledDecoys.length));
+    
+    // Gerçek kelimeyle birleştirip karıştır
+    state.spyCandidateWords = shuffle([state.keyword, ...selectedDecoys]);
+    
     // Casus(ları) seç
     state.spyPlayers = [];
     const shuffledPlayers = shuffle([...state.players]);
@@ -205,6 +229,29 @@ export function initializeGameFlow(categoriesList) {
         state.spyPlayers = [shuffledPlayers[0]];
     }
     state.spyPlayer = state.spyPlayers[0]; // Geriye dönük uyumluluk
+    
+    // Dedektif ve Köstebek ata
+    state.detectivePlayer = "";
+    state.informantPlayer = "";
+    state.hasDetectiveUsedSkill = false;
+    
+    const nonSpyPlayers = shuffledPlayers.filter(p => !state.spyPlayers.includes(p));
+    if (nonSpyPlayers.length > 0) {
+        // En az 4 oyuncu varsa Dedektif atayalım
+        state.detectivePlayer = nonSpyPlayers[0];
+        
+        // En az 5 oyuncu varsa Köstebek atayalım
+        if (state.players.length >= 5 && nonSpyPlayers.length > 1) {
+            state.informantPlayer = nonSpyPlayers[1];
+        }
+    }
+    
+    // Oyuncu skorlarını sıfırla/başlat
+    state.players.forEach(p => {
+        if (state.playerScores[p] === undefined) {
+            state.playerScores[p] = 0;
+        }
+    });
     
     // Rol dağıtım değişkenlerini kur
     state.distIndex = 0;
@@ -251,16 +298,69 @@ export function startWritingRound() {
     let queue = shuffle([...state.players]);
     
     // Algoritmik Sınırlamalar:
-    // 1. Turun 1. sırasına Sahte Şair gelemez.
-    // Turlar arası geçişte son yazan ile ilk yazan aynı kişi olamaz.
+    // 1. Turlar arası geçişte son yazan ile ilk yazan aynı kişi olamaz.
+    // 2. Casusun kopyaladığı kurban, yeni turda doğrudan casusun arkasına gelemez (ifşa olmaması için).
     let attempts = 0;
-    while (
-        (state.roundNumber === 1 && state.spyPlayers.includes(queue[0])) ||
-        (lastWriter && queue[0] === lastWriter)
-    ) {
+    while (attempts < 100) {
+        let isValid = true;
+        
+        // 1. Sınırlama: Turlar arası geçişte son yazan ile ilk yazan aynı kişi olamaz
+        if (isValid && lastWriter && queue[0] === lastWriter) {
+            isValid = false;
+        }
+        
+        // 3. Sınırlama: Casusun bir önceki turda ipucunu kopyaladığı kişi (kurban), yeni turda doğrudan casusun arkasına gelemez
+        if (isValid && state.writingHistory.length > 0) {
+            for (const spy of state.spyPlayers) {
+                // Casusun en son yazdığı mısranın indeksini bulalım
+                let spyLineIdx = -1;
+                for (let j = state.writingHistory.length - 1; j >= 0; j--) {
+                    if (state.writingHistory[j].player === spy) {
+                        spyLineIdx = j;
+                        break;
+                    }
+                }
+                
+                if (spyLineIdx > 0) {
+                    const victim = state.writingHistory[spyLineIdx - 1].player;
+                    
+                    // Yeni sırada victim casusun hemen arkasında olmamalı
+                    for (let i = 0; i < queue.length - 1; i++) {
+                        if (queue[i] === spy && queue[i + 1] === victim) {
+                            isValid = false;
+                            break;
+                        }
+                    }
+                    if (!isValid) break;
+                    
+                    // Turlar arası geçişte: eğer önceki turun son yazarı casus ise ve yeni turun ilk yazarı kurban ise
+                    if (lastWriter === spy && queue[0] === victim) {
+                        isValid = false;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        // 3. Sınırlama: Casus, Köstebek'in (informantPlayer) hemen arkasında yazamaz (doğrudan tüyo almasını engellemek için)
+        if (isValid && state.informantPlayer) {
+            for (let i = 0; i < queue.length - 1; i++) {
+                if (queue[i] === state.informantPlayer && state.spyPlayers.includes(queue[i + 1])) {
+                    isValid = false;
+                    break;
+                }
+            }
+            if (isValid && lastWriter === state.informantPlayer && state.spyPlayers.includes(queue[0])) {
+                isValid = false;
+            }
+        }
+        
+        if (isValid) {
+            break;
+        }
+        
         queue = shuffle([...state.players]);
         attempts++;
-        if (attempts > 100) break; // Güvenlik kilidi
     }
     
     state.shuffledWritingQueue = queue;
@@ -301,8 +401,8 @@ export function confirmWritingPass() {
             state.roundNumber++;
             startWritingRound();
         } else {
-            // Belirlenen turlar bitti! Tartışma/İfşa Odasına Geç.
-            state.currentState = STATES.REVEAL;
+            // Belirlenen turlar bitti! Sorgu Odasına Geç.
+            state.currentState = STATES.INTERROGATION;
         }
     }
     saveGameStateToStorage();
@@ -403,6 +503,10 @@ export function saveGameStateToStorage() {
         const serializedState = {
             currentState: state.currentState,
             players: state.players,
+            playerScores: state.playerScores,
+            detectivePlayer: state.detectivePlayer,
+            informantPlayer: state.informantPlayer,
+            hasDetectiveUsedSkill: state.hasDetectiveUsedSkill,
             spyPlayer: state.spyPlayer,
             spyPlayers: state.spyPlayers,
             doubleSpyMode: state.doubleSpyMode,
@@ -440,6 +544,10 @@ export function loadGameStateFromStorage() {
         const data = JSON.parse(saved);
         state.currentState = data.currentState;
         state.players = data.players;
+        state.playerScores = data.playerScores || {};
+        state.detectivePlayer = data.detectivePlayer || "";
+        state.informantPlayer = data.informantPlayer || "";
+        state.hasDetectiveUsedSkill = data.hasDetectiveUsedSkill || false;
         state.spyPlayer = data.spyPlayer;
         state.spyPlayers = data.spyPlayers || [data.spyPlayer];
         state.doubleSpyMode = data.doubleSpyMode || false;
@@ -473,6 +581,51 @@ export function loadGameStateFromStorage() {
     } catch (e) {
         console.error("Load error:", e);
         return false;
+    }
+}
+
+/**
+ * Oyun sonu puanlamasını hesaplar
+ */
+export function calculateScores() {
+    // Skor alanlarını garanti et
+    state.players.forEach(p => {
+        if (state.playerScores[p] === undefined) {
+            state.playerScores[p] = 0;
+        }
+    });
+
+    const isSpyExposed = state.spyExposedByGroup;
+    const isSpyGuessedCorrect = state.spyGuessedCorrectly;
+    const isSpyVictory = !isSpyExposed || isSpyGuessedCorrect;
+
+    if (isSpyVictory) {
+        // Casus Kazandı:
+        // - Casus(lar) +15 puan alır
+        // - Köstebek +10 puan alır
+        // - Ekip üyeleri 0 puan alır
+        state.spyPlayers.forEach(spy => {
+            state.playerScores[spy] += 15;
+        });
+        if (state.informantPlayer && state.players.includes(state.informantPlayer)) {
+            state.playerScores[state.informantPlayer] += 10;
+        }
+    } else {
+        // Ekip Kazandı:
+        // - Tüm masumlar (Dedektif dahil, Köstebek hariç) +10 puan alır
+        // - Casus ve Köstebek 0 puan alır
+        state.players.forEach(p => {
+            if (!state.spyPlayers.includes(p) && p !== state.informantPlayer) {
+                state.playerScores[p] += 10;
+            }
+        });
+    }
+
+    // Ekstra Bonus: Casus kelimeyi doğru bildiyse (yakalansa bile) ekstra +10 puan alır!
+    if (isSpyGuessedCorrect) {
+        state.spyPlayers.forEach(spy => {
+            state.playerScores[spy] += 10;
+        });
     }
 }
 

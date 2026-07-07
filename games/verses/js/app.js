@@ -23,6 +23,9 @@ import {
     renderSetupPlayersList, 
     renderRoleDistribution, 
     renderWritingPhase, 
+    renderInterrogationPhase,
+    clearInterrogationTimer,
+    populateDetectiveModal,
     renderRevealPhase,
     renderGameOverPhase,
     populateCategoriesModal,
@@ -293,6 +296,98 @@ function setupEventListeners() {
         });
     }
 
+    // --- DEDEKTİF SORGULAMA (STEALTH PANEL) YÖNETİMİ ---
+    const btnOpenDetective = document.getElementById('btn-writing-detective-skill');
+    const btnCloseDetective = document.getElementById('btn-stealth-detective-cancel');
+    const btnSubmitDetectiveQuery = document.getElementById('btn-stealth-detective-query');
+    const selectDetectivePlayer = document.getElementById('stealth-detective-select');
+    const boxDetectiveResult = document.getElementById('stealth-detective-result');
+    
+    const writingInputWrapper = document.getElementById('writing-input-wrapper');
+    const writingDetectiveWrapper = document.getElementById('writing-detective-wrapper');
+    const btnWritingSubmit = document.getElementById('btn-writing-submit');
+    const writingDetectiveActions = document.getElementById('writing-detective-actions');
+
+    if (btnOpenDetective) {
+        btnOpenDetective.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            playVibration(20);
+            populateDetectiveModal();
+            
+            // Gizli analiz moduna geç
+            if (writingInputWrapper) writingInputWrapper.classList.add('hidden');
+            if (writingDetectiveWrapper) writingDetectiveWrapper.classList.remove('hidden');
+            if (btnWritingSubmit) btnWritingSubmit.classList.add('hidden');
+            if (writingDetectiveActions) writingDetectiveActions.classList.remove('hidden');
+            
+            if (boxDetectiveResult) {
+                boxDetectiveResult.classList.add('hidden');
+                boxDetectiveResult.textContent = 'Sorgulanıyor...';
+            }
+        });
+    }
+
+    if (btnCloseDetective) {
+        btnCloseDetective.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            
+            // Normal yazım moduna geri dön
+            if (writingInputWrapper) writingInputWrapper.classList.remove('hidden');
+            if (writingDetectiveWrapper) writingDetectiveWrapper.classList.add('hidden');
+            if (btnWritingSubmit) btnWritingSubmit.classList.remove('hidden');
+            if (writingDetectiveActions) writingDetectiveActions.classList.add('hidden');
+        });
+    }
+
+    if (btnSubmitDetectiveQuery) {
+        btnSubmitDetectiveQuery.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            const targetPlayer = selectDetectivePlayer.value;
+            if (!targetPlayer) return;
+
+            playVibration([40, 20, 40]);
+            
+            // Yeteneği kullanıldı olarak işaretle
+            state.hasDetectiveUsedSkill = true;
+            
+            // Casus veya Köstebek olup olmadığını kontrol et
+            const isSpy = state.spyPlayers.includes(targetPlayer);
+            const isInformant = (targetPlayer === state.informantPlayer);
+            
+            // Sonucu kutuda göster
+            if (boxDetectiveResult) {
+                boxDetectiveResult.classList.remove('hidden');
+                if (isSpy) {
+                    boxDetectiveResult.innerHTML = `⚠️ <span class="text-error font-bold">${targetPlayer}</span> şüpheli bulundu! (Rolü: Casus 🤫)`;
+                    boxDetectiveResult.className = "text-sm font-semibold tracking-wide py-xs px-md rounded-lg animate-pulse text-error bg-error/10 border border-error/20";
+                } else if (isInformant) {
+                    boxDetectiveResult.innerHTML = `⚠️ <span class="text-error font-bold">${targetPlayer}</span> şüpheli bulundu! (Rolü: Köstebek 😈)`;
+                    boxDetectiveResult.className = "text-sm font-semibold tracking-wide py-xs px-md rounded-lg animate-pulse text-error bg-error/10 border border-error/20";
+                } else {
+                    boxDetectiveResult.innerHTML = `✅ <span class="text-[#10b981] font-bold">${targetPlayer}</span> temiz bulundu. (Rolü: Güvenilir)`;
+                    boxDetectiveResult.className = "text-sm font-semibold tracking-wide py-xs px-md rounded-lg text-[#10b981] bg-[#10b981]/10 border border-[#10b981]/20";
+                }
+            }
+
+            // Durumu hemen kaydet
+            saveGameStateToStorage();
+
+            // Ana paneldeki yetenek açma butonunu gizle (zaten kullanıldı)
+            if (btnOpenDetective) {
+                btnOpenDetective.classList.add('hidden');
+                btnOpenDetective.classList.remove('flex');
+            }
+
+            // 3.5 saniye sonra otomatik olarak yazım ekranına geri dön
+            setTimeout(() => {
+                if (writingInputWrapper) writingInputWrapper.classList.remove('hidden');
+                if (writingDetectiveWrapper) writingDetectiveWrapper.classList.add('hidden');
+                if (btnWritingSubmit) btnWritingSubmit.classList.remove('hidden');
+                if (writingDetectiveActions) writingDetectiveActions.classList.add('hidden');
+            }, 3500);
+        });
+    }
+
     // --- 1. EKRAN: ANA MENÜ ---
     const btnWelcomeStart = document.getElementById('btn-welcome-start');
     const btnWelcomeRules = document.getElementById('btn-welcome-rules');
@@ -315,6 +410,9 @@ function setupEventListeners() {
                 } else if (state.currentState === STATES.WRITING) {
                     showView(views.writing);
                     renderWritingPhase();
+                } else if (state.currentState === STATES.INTERROGATION) {
+                    showView(views.interrogation);
+                    renderInterrogationPhase();
                 } else if (state.currentState === STATES.REVEAL) {
                     showView(views.reveal);
                     renderRevealPhase();
@@ -515,13 +613,10 @@ function setupEventListeners() {
     
     // Can Simidi: Oyunu İptal Et
     if (btnDistCancel) {
-        btnDistCancel.addEventListener(clickEvent, async (e) => {
+        btnDistCancel.addEventListener(clickEvent, (e) => {
             e.preventDefault();
-            if (await showCustomConfirm('Oyunu İptal Et', 'Oyunu iptal etmek ve kurulum ekranına geri dönmek istiyor musunuz?', 'help')) {
-                resetGameKeepPlayers();
-                showView(views.setup);
-                renderSetupPlayersList(handleRemovePlayer);
-            }
+            resetGameKeepPlayers();
+            showView(views.welcome);
         });
     }
     
@@ -620,7 +715,6 @@ function setupEventListeners() {
     // --- 5. EKRAN: ŞİİR YAZMA EKRANI ---
     const btnWritingStartTrigger = document.getElementById('btn-writing-start-trigger');
     const inputPoetryVerse = document.getElementById('input-poetry-verse');
-    const btnWritingSubmit = document.getElementById('btn-writing-submit');
     const btnWritingConfirmPass = document.getElementById('btn-writing-confirm-pass');
     
     // Yazmaya Başla (Kurye)
@@ -628,6 +722,24 @@ function setupEventListeners() {
         btnWritingStartTrigger.addEventListener(clickEvent, (e) => {
             e.preventDefault();
             initAudio();
+            
+            // Sıra başladığında input alanını sıfırla
+            const textarea = document.getElementById('input-poetry-verse');
+            if (textarea) {
+                textarea.value = '';
+                textarea.focus();
+            }
+            const counter = document.getElementById('writing-char-counter');
+            if (counter) {
+                counter.textContent = '0 / 35';
+                counter.classList.remove('text-primary');
+            }
+            const btnSubmit = document.getElementById('btn-writing-submit');
+            if (btnSubmit) {
+                btnSubmit.disabled = true;
+                btnSubmit.className = "w-full py-md bg-primary-container text-on-primary font-h2 text-h2 font-bold uppercase tracking-widest opacity-40 cursor-not-allowed rounded-lg active:scale-[0.98] transition-all";
+            }
+
             state.isWritingTurnActive = true;
             state.writingSubState = 'B';
             playVibration(25);
@@ -708,9 +820,23 @@ function setupEventListeners() {
             
             if (state.currentState === STATES.WRITING) {
                 renderWritingPhase();
+            } else if (state.currentState === STATES.INTERROGATION) {
+                renderInterrogationPhase();
             } else if (state.currentState === STATES.REVEAL) {
                 renderRevealPhase();
             }
+        });
+    }
+
+    // --- 5.5. EKRAN: TARTIŞMA ÖNCESİ SORGU ODASI ---
+    const btnInterrogationSkip = document.getElementById('btn-interrogation-skip');
+    if (btnInterrogationSkip) {
+        btnInterrogationSkip.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            playVibration(20);
+            clearInterrogationTimer();
+            state.currentState = STATES.REVEAL;
+            renderRevealPhase();
         });
     }
 

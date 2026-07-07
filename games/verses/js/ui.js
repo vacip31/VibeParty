@@ -1,7 +1,7 @@
 /* Vibe X Verses Arayüz Güncelleme Modülü (ui.js) */
 
-import { state, STATES, calculateGameDuration } from './state.js';
-import { playTransition, playVibration } from './audio.js';
+import { state, STATES, calculateGameDuration, calculateScores, saveGameStateToStorage } from './state.js';
+import { playTransition, playVibration, playTick } from './audio.js';
 
 // Görünüm Seçiciler
 export const views = {
@@ -10,6 +10,7 @@ export const views = {
     setup: document.getElementById('view-setup'),
     roleDistribution: document.getElementById('view-role-distribution'),
     writing: document.getElementById('view-writing'),
+    interrogation: document.getElementById('view-interrogation'),
     reveal: document.getElementById('view-reveal'),
     gameOver: document.getElementById('view-game-over')
 };
@@ -270,12 +271,20 @@ export function renderRoleDistribution() {
         
         if (isSpy) {
             cardKeyword.innerHTML = `CASUS! 🤫`;
-            cardKeyword.className = "font-verse-display text-verse-display text-error font-bold italic";
-            cardInstruction.textContent = "Kelimeyi bilmiyorsan çaktırmadan zincire uyumlu bir cümle yaz!";
+            cardKeyword.className = "font-verse-display text-verse-display text-error font-bold italic text-glow";
+            cardInstruction.innerHTML = `Kelimeyi bilmiyorsun! Olası Kelimeler:<br><strong class="text-primary text-[15px] my-1 block">${state.spyCandidateWords.join('  |  ')}</strong><span class="text-xs text-on-surface-variant/80 mt-1 block">Gerçek kelime yukarıdakilerden biridir! İpucunu bu kelimelere göre blöf yaparak kurgula.</span>`;
+        } else if (activePlayer === state.detectivePlayer) {
+            cardKeyword.innerHTML = `DEDEKTİF 🔍`;
+            cardKeyword.className = "font-verse-display text-verse-display text-primary font-bold italic text-glow";
+            cardInstruction.innerHTML = `Kelime: <strong>${state.keyword}</strong> 🔑<br><span class="text-xs text-on-surface-variant/80 mt-1 block">Gizli kelimeyi biliyorsun. Oyun içi yazma ekranında 1 kez bir oyuncunun rolünü sorgulayabilirsin!</span>`;
+        } else if (activePlayer === state.informantPlayer) {
+            cardKeyword.innerHTML = `KÖSTEBEK 😈`;
+            cardKeyword.className = "font-verse-display text-verse-display text-[#f59e0b] font-bold italic text-glow";
+            cardInstruction.innerHTML = `Kelime: <strong>${state.keyword}</strong> 🔑<br><span class="text-xs text-on-surface-variant/80 mt-1 block">GİZLİ ORTAK! Amacın casusun kelimeyi tahmin etmesine yardımcı olmak ve ekibi sabote etmektir.</span>`;
         } else {
             cardKeyword.innerHTML = `Kelime: ${state.keyword} 🔑`;
             cardKeyword.className = "font-verse-display text-verse-display text-primary font-bold italic";
-            cardInstruction.textContent = "İpucu yazarken bu kelimeyi cümlede gizlice geçir.";
+            cardInstruction.textContent = "Gizli kelimeyi biliyorsun. İpucu yazarken bu kelimeyi cümlede gizlice geçir.";
         }
         
     } else if (state.distSubState === 'C') {
@@ -301,7 +310,6 @@ export function renderWritingPhase() {
     
     panelA.classList.add('hidden');
     panelB.classList.add('hidden');
-    panelB.dataset.initialized = ''; // Sonraki oyuncu için sıfırla
     panelC.classList.add('hidden');
     
     const currentWriter = state.shuffledWritingQueue[state.currentWriterIndex];
@@ -338,6 +346,12 @@ export function renderWritingPhase() {
     } else if (state.writingSubState === 'B') {
         panelB.classList.remove('hidden');
         
+        // Aktif Şair Banner
+        const writerEl = document.getElementById('writing-panel-writer');
+        if (writerEl) {
+            writerEl.textContent = currentWriter;
+        }
+        
         // Kategori Banner
         document.getElementById('writing-panel-category').textContent = `[ ${state.category} ]`;
         
@@ -354,23 +368,28 @@ export function renderWritingPhase() {
             prevLineText.textContent = `"${lastPoem.line}"`;
         }
         
-        // Sayaç ve input — sadece panel ilk açılırken sıfırla, timer tick'lerinde değil
+        // Sayaç ve input durumu dinamik güncellenir (değer silinmez)
         const textarea = document.getElementById('input-poetry-verse');
         const counter = document.getElementById('writing-char-counter');
         const btnSubmit = document.getElementById('btn-writing-submit');
         
-        const isPanelFirstOpen = panelB.dataset.initialized !== 'true';
-        if (isPanelFirstOpen) {
-            panelB.dataset.initialized = 'true';
-            if (textarea) {
-                textarea.value = '';
-                textarea.focus();
-            }
-            if (counter) {
-                counter.textContent = '0 / 35';
+        const textVal = textarea ? textarea.value.trim() : "";
+        const charsCount = textVal.length;
+        
+        if (counter) {
+            counter.textContent = `${charsCount} / 35`;
+            if (charsCount >= 35) {
+                counter.classList.add('text-primary');
+            } else {
                 counter.classList.remove('text-primary');
             }
-            if (btnSubmit) {
+        }
+        
+        if (btnSubmit) {
+            if (charsCount > 0 && charsCount <= 35) {
+                btnSubmit.disabled = false;
+                btnSubmit.className = "w-full py-md bg-primary text-on-primary font-h2 text-h2 font-bold uppercase tracking-widest rounded-lg active:scale-[0.98] transition-all shadow-md";
+            } else {
                 btnSubmit.disabled = true;
                 btnSubmit.className = "w-full py-md bg-primary-container text-on-primary font-h2 text-h2 font-bold uppercase tracking-widest opacity-40 cursor-not-allowed rounded-lg active:scale-[0.98] transition-all";
             }
@@ -410,6 +429,29 @@ export function renderWritingPhase() {
             }
         }
         
+        // Sahte Şair Aday Kelime İpuçları Görünürlüğü
+        const candidatesHelper = document.getElementById('spy-candidates-helper');
+        if (candidatesHelper) {
+            if (state.spyPlayers.includes(currentWriter)) {
+                candidatesHelper.classList.remove('hidden');
+                candidatesHelper.innerHTML = `Olası Kelimeler:<br><span class="font-bold text-on-surface text-[14px] mt-xs block tracking-widest">${state.spyCandidateWords.join('  |  ')}</span>`;
+            } else {
+                candidatesHelper.classList.add('hidden');
+            }
+        }
+        
+        // Dedektif Sorgu Yeteneği Butonu (Oyun Boyu 1 Defa)
+        const btnDetectiveSkill = document.getElementById('btn-writing-detective-skill');
+        if (btnDetectiveSkill) {
+            if (currentWriter === state.detectivePlayer && !state.hasDetectiveUsedSkill) {
+                btnDetectiveSkill.classList.remove('hidden');
+                btnDetectiveSkill.classList.add('flex');
+            } else {
+                btnDetectiveSkill.classList.add('hidden');
+                btnDetectiveSkill.classList.remove('flex');
+            }
+        }
+        
         // Footer bilgi
         const footerMeta = document.getElementById('writing-footer-meta');
         if (footerMeta) {
@@ -419,6 +461,88 @@ export function renderWritingPhase() {
     } else if (state.writingSubState === 'C') {
         panelC.classList.remove('hidden');
     }
+}
+
+const INTERROGATION_PROMPTS = [
+    "{P1}, {P2} oyuncusunun yazdığı ipucunun gizli kelimeyle alakasını sorgulasın! 🧐",
+    "{P1}, {P2} oyuncusundan ipucundaki şüpheli detayı açıklamasını istesin! 🔍",
+    "{P1}, casusun ipucu zincirine nasıl sızdığına dair teorisini açıklasın! 🕵️‍♂️",
+    "{P1}, {P2} oyuncusunun yazdığı cümlenin kelimeyi ele verip vermediğini tartışsın! 💬",
+    "{P1}, şu an en çok kimden şüphelendiğini ve nedenini açıklasın! 🤔",
+    "Casus(lar) kendini gizlemek için nasıl bir taktik izlemiş olabilir? Tartışın! 🤫",
+    "{P1}, {P2} oyuncusunun son yazdığı ipucu hakkında dedektiflik yapsın! 🖋️"
+];
+
+let interrogationIntervalId = null;
+
+export function clearInterrogationTimer() {
+    if (interrogationIntervalId) {
+        clearInterval(interrogationIntervalId);
+        interrogationIntervalId = null;
+    }
+}
+
+export function startInterrogationTimer() {
+    clearInterrogationTimer();
+    
+    let seconds = 45;
+    const textEl = document.getElementById('interrogation-timer-text');
+    const circleEl = document.getElementById('interrogation-timer-circle');
+    
+    if (textEl) textEl.textContent = seconds;
+    if (circleEl) {
+        circleEl.style.strokeDashoffset = '0';
+    }
+    
+    const dashArray = 440;
+    
+    interrogationIntervalId = setInterval(() => {
+        if (seconds > 0) {
+            seconds--;
+            if (textEl) textEl.textContent = seconds;
+            if (circleEl) {
+                const offset = dashArray - (dashArray * seconds) / 45;
+                circleEl.style.strokeDashoffset = `${offset}`;
+            }
+            
+            // Son 10 saniyede her saniye dokunsal geri bildirim ve tık sesi çal
+            if (seconds <= 10 && seconds > 0) {
+                playVibration(15);
+                playTick();
+            }
+        } else {
+            clearInterrogationTimer();
+            playVibration([50, 30, 50]);
+            playTick();
+            state.currentState = STATES.REVEAL;
+            renderRevealPhase();
+        }
+    }, 1000);
+}
+
+export function renderInterrogationPhase() {
+    showView(views.interrogation);
+    
+    // Rastgele sorgu direktifi üret
+    const promptTextEl = document.getElementById('interrogation-prompt-text');
+    if (promptTextEl && state.players.length >= 2) {
+        const idx1 = Math.floor(Math.random() * state.players.length);
+        let idx2 = Math.floor(Math.random() * state.players.length);
+        while (idx2 === idx1) {
+            idx2 = Math.floor(Math.random() * state.players.length);
+        }
+        const p1 = state.players[idx1];
+        const p2 = state.players[idx2];
+        
+        const randomTemplate = INTERROGATION_PROMPTS[Math.floor(Math.random() * INTERROGATION_PROMPTS.length)];
+        const finalPrompt = randomTemplate.replace(/{P1}/g, p1).replace(/{P2}/g, p2);
+        promptTextEl.textContent = finalPrompt;
+    } else if (promptTextEl) {
+        promptTextEl.textContent = "Casus(lar) kendini gizlemek için nasıl bir taktik izlemiş olabilir? Tartışın! 🤫";
+    }
+    
+    // Zamanlayıcıyı başlat
+    startInterrogationTimer();
 }
 
 /**
@@ -459,6 +583,15 @@ export function renderRevealPhase() {
 export function renderGameOverPhase() {
     showView(views.gameOver);
     
+    // Skorları hesapla ve kaydet (sadece bu aşamaya ilk geçişte)
+    if (state.currentState !== STATES.GAMEOVER) {
+        state.currentState = STATES.GAMEOVER;
+        calculateScores();
+        
+        // LocalStorage kaydet
+        saveGameStateToStorage();
+    }
+    
     // Zamanı hesapla
     calculateGameDuration();
     
@@ -487,6 +620,66 @@ export function renderGameOverPhase() {
         spyStatus.textContent = `Casus(lar) (${state.spyPlayers.join(', ')}) kendini gizlemeyi başardı ve kelimeyi deşifre edememiş olsa da kazandı!`;
     }
     
+    // Liderlik tablosunu listele
+    const leaderboardContainer = document.getElementById('gameover-leaderboard-list');
+    if (leaderboardContainer) {
+        leaderboardContainer.innerHTML = '';
+        
+        // Oyuncuları skorlarına göre sırala
+        const sortedPlayers = [...state.players].sort((a, b) => {
+            const scoreA = state.playerScores[a] || 0;
+            const scoreB = state.playerScores[b] || 0;
+            return scoreB - scoreA;
+        });
+        
+        sortedPlayers.forEach((player, index) => {
+            const score = state.playerScores[player] || 0;
+            const playerIndex = state.players.indexOf(player);
+            const colorSet = SHAIER_COLORS[playerIndex % SHAIER_COLORS.length];
+            
+            // Medal styles
+            let medalColor = 'text-on-surface-variant/40';
+            if (index === 0) {
+                medalColor = 'text-primary text-glow';
+            } else if (index === 1) {
+                medalColor = 'text-on-surface/80';
+            } else if (index === 2) {
+                medalColor = 'text-[#b45309]';
+            }
+            
+            // Rol belirteci
+            let roleBadge = '';
+            if (state.spyPlayers.includes(player)) {
+                roleBadge = '<span class="text-xs text-error font-semibold ml-xs opacity-80">(Casus)</span>';
+            } else if (player === state.detectivePlayer) {
+                roleBadge = '<span class="text-xs text-primary font-semibold ml-xs opacity-80">(Dedektif)</span>';
+            } else if (player === state.informantPlayer) {
+                roleBadge = '<span class="text-xs text-[#f59e0b] font-semibold ml-xs opacity-80">(Köstebek)</span>';
+            }
+            
+            const row = document.createElement('div');
+            row.className = 'flex items-center justify-between py-xs px-sm rounded-lg bg-surface/30 border border-outline-variant/5';
+            
+            // Display icon/medal
+            const iconHtml = (index < 3) 
+                ? `<span class="material-symbols-outlined ${medalColor} text-[18px]">workspace_premium</span>`
+                : `<span class="font-mono text-xs ${medalColor} w-[18px] text-center">${index + 1}</span>`;
+                
+            row.innerHTML = `
+                <div class="flex items-center gap-xs">
+                    ${iconHtml}
+                    <span class="font-h2 text-sm text-on-surface font-semibold uppercase tracking-wider">${player}</span>
+                    ${roleBadge}
+                </div>
+                <div class="flex items-center gap-xs font-mono-meta text-xs text-primary font-bold">
+                    <span>${score}</span>
+                    <span class="text-on-surface-variant/50 font-normal ml-xs">Puan</span>
+                </div>
+            `;
+            leaderboardContainer.appendChild(row);
+        });
+    }
+
     // Şiir mısralarını gerçek isimlerle listele
     const linesContainer = document.getElementById('gameover-poetry-lines');
     if (!linesContainer) return;
@@ -498,6 +691,11 @@ export function renderGameOverPhase() {
         const colorSet = SHAIER_COLORS[playerIndex % SHAIER_COLORS.length];
         const isSpy = state.spyPlayers.includes(item.player);
         
+        let roleName = 'Ekip';
+        if (isSpy) roleName = 'Casus 🤫';
+        else if (item.player === state.detectivePlayer) roleName = 'Dedektif 🔍';
+        else if (item.player === state.informantPlayer) roleName = 'Köstebek 😈';
+        
         const lineBlock = document.createElement('div');
         lineBlock.className = 'text-center py-2 border-b border-outline-variant/5 last:border-0';
         lineBlock.innerHTML = `
@@ -507,7 +705,7 @@ export function renderGameOverPhase() {
             <div class="flex items-center justify-center gap-xs">
                 <span class="h-[1px] w-4 ${isSpy ? 'bg-primary/30' : 'bg-outline-variant/30'}"></span>
                 <span class="font-mono-meta text-[11px] ${isSpy ? 'text-primary font-bold tracking-widest' : 'text-secondary'} uppercase">
-                    ${colorSet.name} — ${item.player} (${isSpy ? 'Casus 🤫' : 'Ekip'})
+                    ${colorSet.name} — ${item.player} (${roleName})
                 </span>
                 <span class="h-[1px] w-4 ${isSpy ? 'bg-primary/30' : 'bg-outline-variant/30'}"></span>
             </div>
@@ -705,5 +903,25 @@ export function showCustomConfirm(title, message, icon = 'help') {
         
         okBtn.addEventListener('click', okHandler);
         cancelBtn.addEventListener('click', cancelHandler);
+    });
+}
+
+/**
+ * Dedektif için sorgulama listesini doldurur
+ */
+export function populateDetectiveModal() {
+    const selectEl = document.getElementById('stealth-detective-select');
+    if (!selectEl) return;
+    
+    selectEl.innerHTML = '';
+    
+    // Dedektif hariç diğer tüm oyuncuları ekle
+    const candidates = state.players.filter(p => p !== state.detectivePlayer);
+    candidates.forEach(player => {
+        const option = document.createElement('option');
+        option.value = player;
+        option.textContent = player;
+        option.className = "bg-surface text-on-surface";
+        selectEl.appendChild(option);
     });
 }
