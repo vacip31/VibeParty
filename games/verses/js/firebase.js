@@ -22,7 +22,7 @@ let _initializeApp, _getDatabase, _ref, _set, _get, _onValue, _push, _remove, _u
  * Firebase SDK'yı dinamik olarak yükler.
  * CDN erişilemezse uygulama çökmez, sadece Firebase özellikleri devre dışı kalır.
  */
-async function loadFirebase() {
+export async function loadFirebase() {
     if (isFirebaseInitialized) return true;
     try {
         const appModule = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js");

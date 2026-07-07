@@ -40,6 +40,7 @@ import {
 } from './audio.js';
 
 import {
+    loadFirebase,
     isFirebaseInitialized,
     dbCreateRoom,
     dbJoinRoom,
@@ -567,7 +568,8 @@ function setupEventListeners() {
                 return;
             }
             
-            if (!isFirebaseInitialized) {
+            const firebaseReady = isFirebaseInitialized || await loadFirebase();
+            if (!firebaseReady) {
                 await showCustomAlert('Bağlantı Yok', 'Firebase bağlantısı kurulamadı. Lütfen API bilgilerini ayarlayın.', 'cloud_off');
                 return;
             }
