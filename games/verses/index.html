@@ -471,7 +471,7 @@
             </div>
         </header>
 
-        <main class="relative z-10 flex-1 flex flex-col items-center justify-center px-gutter max-w-[600px] mx-auto w-full pt-16 h-full">
+        <main class="relative z-10 flex-1 flex flex-col items-center justify-center px-gutter max-w-[600px] mx-auto w-full pt-16 pb-12 h-full overflow-y-auto">
             
             <!-- AŞAMA A EKRANI (Cihaz Teslimi) -->
             <div id="dist-panel-a" class="w-full flex flex-col items-center text-center gap-6 animate-fade-in">
@@ -716,7 +716,7 @@
             </div>
         </header>
 
-        <main class="relative z-10 w-full max-w-[600px] mx-auto min-h-screen pt-24 pb-32 px-gutter flex flex-col items-center justify-center text-center gap-lg">
+        <main class="relative z-10 w-full max-w-[600px] mx-auto flex-1 overflow-y-auto pt-20 pb-24 px-gutter flex flex-col items-center justify-center text-center gap-base">
             <div>
                 <span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.2em] mb-xs">Sana Atanan Mısra</span>
                 <p class="font-body text-xs text-on-surface-variant opacity-70 italic max-w-sm mx-auto leading-relaxed mt-1">
@@ -750,7 +750,7 @@
             </div>
         </header>
 
-        <main class="relative z-10 w-full max-w-[600px] mx-auto min-h-screen pt-24 pb-32 px-gutter flex flex-col items-center justify-center text-center gap-lg">
+        <main class="relative z-10 w-full max-w-[600px] mx-auto flex-1 overflow-y-auto pt-20 pb-24 px-gutter flex flex-col items-center justify-center text-center gap-base">
             <!-- Timer countdown animation -->
             <div class="relative w-40 h-40 flex items-center justify-center mx-auto mb-sm">
                 <!-- SVG circular progress bar -->
@@ -776,7 +776,7 @@
             <!-- Dynamic Prompt Card -->
             <div class="glass-card w-full rounded-lg p-lg text-center shadow-xl border border-primary/10 relative overflow-hidden flex flex-col gap-sm animate-pulse">
                 <span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.2em] text-xs">Sorgu Direktifi:</span>
-                <p id="interrogation-prompt-text" class="font-verse-display text-verse-display text-on-surface leading-normal text-glow py-xs px-sm">
+                <p id="interrogation-prompt-text" class="font-body text-[16px] sm:text-[20px] text-on-surface leading-relaxed text-glow py-xs px-sm">
                     Yükleniyor...
                 </p>
             </div>
@@ -802,7 +802,7 @@
             </div>
         </nav>
 
-        <main class="relative z-10 w-full max-w-[600px] mx-auto min-h-screen pt-24 pb-32 px-gutter flex flex-col items-center overflow-y-auto">
+        <main class="relative z-10 w-full max-w-[600px] mx-auto flex-1 overflow-y-auto pt-20 pb-24 px-gutter flex flex-col items-center">
             
             <!-- Header Text -->
             <header class="text-center mb-lg mt-2">
@@ -900,12 +900,17 @@
 
             <!-- Action Buttons -->
             <div class="w-full space-y-md px-base">
-                <button id="btn-gameover-same-players" class="w-full py-md bg-primary-container text-on-primary font-h2 text-h2 uppercase rounded-lg hover:opacity-90 transition-all active:scale-[0.98] duration-200 shadow-lg shadow-primary/10">
-                    Aynı Kadroyla Yeniden Oyna
-                </button>
-                <button id="btn-gameover-new-players" class="w-full py-md bg-transparent border border-outline-variant/30 text-on-surface font-h2 text-h2 uppercase rounded-lg hover:bg-white/5 transition-all active:scale-[0.98] duration-200">
-                    Yeni Oyuncularla Başla
-                </button>
+                <div id="gameover-host-actions" class="space-y-md">
+                    <button id="btn-gameover-same-players" class="w-full py-md bg-primary-container text-on-primary font-h2 text-h2 uppercase rounded-lg hover:opacity-90 transition-all active:scale-[0.98] duration-200 shadow-lg shadow-primary/10">
+                        Aynı Kadroyla Yeniden Oyna
+                    </button>
+                    <button id="btn-gameover-new-players" class="w-full py-md bg-transparent border border-outline-variant/30 text-on-surface font-h2 text-h2 uppercase rounded-lg hover:bg-white/5 transition-all active:scale-[0.98] duration-200">
+                        Yeni Oyuncularla Başla
+                    </button>
+                </div>
+                <div id="gameover-client-message" class="hidden text-center py-xs px-md rounded-lg bg-surface-container border border-outline-variant/10 text-on-surface-variant text-xs tracking-wider italic mb-xs">
+                    Oda yöneticisinin yeni oyunu başlatması bekleniyor...
+                </div>
                 <div class="pt-sm text-center">
                     <button id="btn-gameover-home" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase underline decoration-primary/30 underline-offset-4">
                         Ana Menüye Dön

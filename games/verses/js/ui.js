@@ -128,6 +128,7 @@ export function renderLobbyPhase() {
             card.innerHTML = `
                 <div class="flex items-center gap-xs">
                     <span class="font-h2 text-sm text-on-surface font-semibold ${isMe ? 'text-primary' : ''}">${p.name} ${isMe ? '(Sen)' : ''}</span>
+                    <span class="text-xs text-primary/80 font-mono font-bold ml-xs">${p.score || 0} Puan</span>
                     ${isHostPlayer ? '<span class="text-[10px] font-label-caps bg-primary/20 text-primary border border-primary/30 px-1.5 py-0.5 rounded">HOST</span>' : ''}
                 </div>
                 <span class="text-[10px] font-label-caps border px-2 py-1 rounded ${readyColor}">${readyText}</span>
@@ -185,6 +186,16 @@ export function renderRoleDistribution() {
     panelB.classList.add('hidden');
     panelB.style.display = '';
     panelC.classList.add('hidden');
+
+    // Host değilse oyunu iptal etme butonunu gizle
+    const btnDistCancel = document.getElementById('btn-dist-cancel');
+    if (btnDistCancel) {
+        if (state.isHost) {
+            btnDistCancel.classList.remove('hidden');
+        } else {
+            btnDistCancel.classList.add('hidden');
+        }
+    }
     
     const myData = state.playersRaw[state.myPlayerId] || { role: "LOBBY", isReady: false };
     const playerIndex = Object.keys(state.playersRaw).indexOf(state.myPlayerId);
@@ -215,7 +226,7 @@ export function renderRoleDistribution() {
         if (myData.role === "Casus") {
             cardKeyword.innerHTML = `CASUS! 🤫`;
             cardKeyword.className = "font-verse-display text-verse-display text-glow text-error font-bold italic";
-            cardInstruction.innerHTML = `Kelimeyi bilmiyorsun! Olası Kelimeler:<br><strong class="text-primary text-[15px] my-1 block">${state.spyCandidateWords.join('  |  ')}</strong><span class="text-xs text-on-surface-variant/80 mt-1 block">Gerçek kelime yukarıdakilerden biridir! İpucunu bu kelimelere göre blöf yaparak kurgula.</span>`;
+            cardInstruction.innerHTML = `Kelimeyi bilmiyorsun! Yazılan ipuçlarından kelimeyi tahmin etmeye çalış ve masadaki mısraları savunarak kendini gizle. 🤫`;
         } else if (myData.role === "Dedektif") {
             cardKeyword.innerHTML = `DEDEKTİF 🔍`;
             cardKeyword.className = "font-verse-display text-verse-display text-glow text-primary font-bold italic";
@@ -255,6 +266,16 @@ export function renderWritingPhase() {
     
     panelB.classList.add('hidden');
     panelC.classList.add('hidden');
+
+    // Host değilse yazma iptal butonunu gizle
+    const btnWritingCancel = document.getElementById('btn-writing-cancel');
+    if (btnWritingCancel) {
+        if (state.isHost) {
+            btnWritingCancel.classList.remove('hidden');
+        } else {
+            btnWritingCancel.classList.add('hidden');
+        }
+    }
     
     const myData = state.playersRaw[state.myPlayerId] || { submitted: false, role: "Masum" };
     const myName = myData.name || "...";
@@ -351,12 +372,7 @@ export function renderWritingPhase() {
         // Sahte Şair Aday Kelime İpuçları Görünürlüğü
         const candidatesHelper = document.getElementById('spy-candidates-helper');
         if (candidatesHelper) {
-            if (myData.role === "Casus") {
-                candidatesHelper.classList.remove('hidden');
-                candidatesHelper.innerHTML = `Olası Kelimeler:<br><span class="font-bold text-on-surface text-[14px] mt-xs block tracking-widest">${state.spyCandidateWords.join('  |  ')}</span>`;
-            } else {
-                candidatesHelper.classList.add('hidden');
-            }
+            candidatesHelper.classList.add('hidden');
         }
         
         // Dedektif Sorgu Yeteneği Butonu
@@ -531,6 +547,16 @@ export function renderRevealPhase() {
             btnRevealExpose.classList.add('hidden');
         }
     }
+
+    // Host değilse oyunu sıfırlama butonunu gizle
+    const btnRevealReset = document.getElementById('btn-reveal-reset');
+    if (btnRevealReset) {
+        if (state.isHost) {
+            btnRevealReset.classList.remove('hidden');
+        } else {
+            btnRevealReset.classList.add('hidden');
+        }
+    }
 }
 
 /**
@@ -556,17 +582,17 @@ export function renderGameOverPhase() {
         gameOverTitle.textContent = "KAZANAN: CASUS! 🤫";
         gameOverTitle.className = "font-h1 text-[32px] md:text-h1 font-extrabold text-primary mb-xs leading-none tracking-tight text-glow";
         spyStatus.classList.remove('hidden');
-        spyStatus.textContent = `Casuslardan biri anahtar kelimeyi bildi ve sıyrıldı! (Casuslar: ${state.spyPlayers.join(', ')})`;
+        spyStatus.textContent = `Casuslardan biri anahtar kelimeyi bildi ve sıyrıldı! (Casuslar: ${state.spyPlayers.join(', ') || 'Ayrıldı'})`;
     } else if (state.spyExposedByGroup) {
         gameOverTitle.textContent = "KAZANAN: EKİP! 🏆";
         gameOverTitle.className = "font-h1 text-[32px] md:text-h1 font-extrabold text-[#10b981] mb-xs leading-none tracking-tight text-glow";
         spyStatus.classList.remove('hidden');
-        spyStatus.textContent = `Ekip, Casus(lar)ın (${state.spyPlayers.join(', ')}) kimliğini buldu ve casuslar kelimeyi tahmin edemedi!`;
+        spyStatus.textContent = `Ekip, Casus(lar)ın (${state.spyPlayers.join(', ') || 'Ayrıldı'}) kimliğini buldu ve casuslar kelimeyi tahmin edemedi!`;
     } else {
         gameOverTitle.textContent = "KAZANAN: CASUS! 🤫";
         gameOverTitle.className = "font-h1 text-[32px] md:text-h1 font-extrabold text-primary mb-xs leading-none tracking-tight text-glow";
         spyStatus.classList.remove('hidden');
-        spyStatus.textContent = `Casus(lar) (${state.spyPlayers.join(', ')}) kendini gizlemeyi başardı ve kazandı!`;
+        spyStatus.textContent = `Casus(lar) (${state.spyPlayers.join(', ') || 'Ayrıldı'}) kendini gizlemeyi başardı ve kazandı!`;
     }
     
     // Liderlik tablosunu listele
@@ -659,13 +685,16 @@ export function renderGameOverPhase() {
         linesContainer.appendChild(lineBlock);
     });
     
-    // Host değilse yeniden başlatma seçeneklerini gizle (Sadece Host odayı sıfırlayabilir)
-    const gameOverActions = document.getElementById('gameover-actions');
-    if (gameOverActions) {
+    // Host ise başlatıcı butonları göster, değilse bekleme mesajını göster
+    const hostActions = document.getElementById('gameover-host-actions');
+    const clientMessage = document.getElementById('gameover-client-message');
+    if (hostActions && clientMessage) {
         if (state.isHost) {
-            gameOverActions.classList.remove('hidden');
+            hostActions.classList.remove('hidden');
+            clientMessage.classList.add('hidden');
         } else {
-            gameOverActions.classList.add('hidden');
+            hostActions.classList.add('hidden');
+            clientMessage.classList.remove('hidden');
         }
     }
 }
@@ -787,8 +816,8 @@ export function showCustomAlert(title, message, icon = 'info') {
         titleEl.textContent = title;
         messageEl.textContent = message;
         
-        alertActions.classList.remove('hidden');
-        confirmActions.classList.add('hidden');
+        alertActions.style.display = 'block';
+        confirmActions.style.display = 'none';
         
         modal.classList.remove('hidden');
         modal.style.display = 'flex';
@@ -833,8 +862,8 @@ export function showCustomConfirm(title, message, icon = 'help') {
         titleEl.textContent = title;
         messageEl.textContent = message;
         
-        alertActions.classList.add('hidden');
-        confirmActions.classList.remove('hidden');
+        alertActions.style.display = 'none';
+        confirmActions.style.display = 'flex';
         
         modal.classList.remove('hidden');
         modal.style.display = 'flex';
