@@ -573,6 +573,10 @@ function setupEventListeners() {
     const inputWelcomeName = document.getElementById('input-welcome-name');
     const inputWelcomeRoomCode = document.getElementById('input-welcome-room-code');
 
+    if (inputWelcomeName) {
+        inputWelcomeName.value = localStorage.getItem('verses_player_name') || '';
+    }
+
     if (btnCreateRoom) {
         btnCreateRoom.addEventListener(clickEvent, async (e) => {
             e.preventDefault();
@@ -582,6 +586,7 @@ function setupEventListeners() {
                 inputWelcomeName.focus();
                 return;
             }
+            localStorage.setItem('verses_player_name', name);
             
             const firebaseReady = isFirebaseInitialized || await loadFirebase();
             if (!firebaseReady) {
@@ -611,6 +616,7 @@ function setupEventListeners() {
                 inputWelcomeRoomCode.focus();
                 return;
             }
+            localStorage.setItem('verses_player_name', name);
             
             initAudio();
             const res = await dbJoinRoom(code, name);
@@ -719,6 +725,29 @@ function setupEventListeners() {
     const btnLobbyLeave = document.getElementById('btn-lobby-leave');
     const btnLobbyReady = document.getElementById('btn-lobby-ready');
     const btnLobbyStart = document.getElementById('btn-lobby-start');
+    const btnLobbyCopy = document.getElementById('btn-lobby-copy-code');
+
+    if (btnLobbyCopy) {
+        btnLobbyCopy.addEventListener(clickEvent, async (e) => {
+            e.preventDefault();
+            if (!state.roomCode) return;
+            try {
+                await navigator.clipboard.writeText(state.roomCode);
+                playVibration(20);
+                const icon = document.getElementById('icon-lobby-copy');
+                if (icon) {
+                    icon.textContent = 'done';
+                    icon.classList.add('text-emerald-400');
+                    setTimeout(() => {
+                        icon.textContent = 'content_copy';
+                        icon.classList.remove('text-emerald-400');
+                    }, 2000);
+                }
+            } catch (err) {
+                console.error('Kopyalama hatası:', err);
+            }
+        });
+    }
 
     if (btnLobbyLeave) {
         btnLobbyLeave.addEventListener(clickEvent, async (e) => {
@@ -883,8 +912,13 @@ function setupEventListeners() {
             
             if (counter) {
                 counter.textContent = `${charsCount} / 35`;
-                if (charsCount >= 35) counter.classList.add('text-primary');
-                else counter.classList.remove('text-primary');
+                if (charsCount === 35) {
+                    counter.className = "font-mono-meta text-mono-meta text-error font-bold animate-pulse";
+                } else if (charsCount >= 30) {
+                    counter.className = "font-mono-meta text-mono-meta text-primary font-semibold";
+                } else {
+                    counter.className = "font-mono-meta text-mono-meta text-on-surface-variant/60";
+                }
             }
             
             if (btnWritingSubmit) {

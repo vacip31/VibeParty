@@ -117,16 +117,18 @@ export function renderLobbyPhase() {
     
     if (listEl) {
         listEl.innerHTML = '';
-        playerEntries.forEach(([id, p]) => {
+        playerEntries.forEach(([id, p], index) => {
             const isHostPlayer = id === state.playersRaw[state.myPlayerId]?.isHost || id === Object.keys(state.playersRaw)[0]; // İlk giren hosttur veya hostId eşleşir
             const isMe = id === state.myPlayerId;
             const readyText = p.isReady ? "HAZIR" : "BEKLİYOR";
             const readyColor = p.isReady ? "text-emerald-400 bg-emerald-500/10 border-emerald-500/20" : "text-on-surface-variant/40 bg-surface-container-high/40 border-outline-variant/10";
             
             const card = document.createElement('div');
-            card.className = 'flex items-center justify-between w-full bg-surface-container-high px-md py-sm rounded-lg border border-outline-variant/10';
+            card.className = 'flex items-center justify-between w-full bg-surface-container-high px-md py-sm rounded-lg border border-outline-variant/10 animate-fade-in';
+            card.style.animationDelay = `${index * 80}ms`;
+            card.style.animationFillMode = 'both';
             card.innerHTML = `
-                <div class="flex items-center gap-xs">
+                <div class="flex flex-wrap items-center gap-xs">
                     <span class="font-h2 text-sm text-on-surface font-semibold ${isMe ? 'text-primary' : ''}">${p.name} ${isMe ? '(Sen)' : ''}</span>
                     <span class="text-xs text-primary/80 font-mono font-bold ml-xs">${p.score || 0} Puan</span>
                     ${isHostPlayer ? '<span class="text-[10px] font-label-caps bg-primary/20 text-primary border border-primary/30 px-1.5 py-0.5 rounded">HOST</span>' : ''}
@@ -326,10 +328,12 @@ export function renderWritingPhase() {
         
         if (counter) {
             counter.textContent = `${charsCount} / 35`;
-            if (charsCount >= 35) {
-                counter.classList.add('text-primary');
+            if (charsCount === 35) {
+                counter.className = "font-mono-meta text-mono-meta text-error font-bold animate-pulse";
+            } else if (charsCount >= 30) {
+                counter.className = "font-mono-meta text-mono-meta text-primary font-semibold";
             } else {
-                counter.classList.remove('text-primary');
+                counter.className = "font-mono-meta text-mono-meta text-on-surface-variant/60";
             }
         }
         
@@ -497,12 +501,7 @@ export function renderInterrogationPhase() {
     // (Bunu Host başlatırken rastgele üretip veritabanına yazar, biz sadece okuruz)
     // Eğer veritabanında yoksa fallback kullanırız.
     if (promptTextEl) {
-        promptTextEl.textContent = state.interrogationPrompt || "Şairlerin ipuçlarını sorgulayın. Kim kendi savunmasında açık veriyor?";
-        promptTextEl.textContent = "Şairlerin mısralarını sorgulayın. Kim kendi mısrasını savunurken yalan söylüyor? 🧐";
-    }
-    
-    if (promptTextEl) {
-        promptTextEl.textContent = state.interrogationPrompt || "Şairlerin ipuçlarını sorgulayın. Kim kendi savunmasında açık veriyor?";
+        promptTextEl.textContent = state.interrogationPrompt || "Şairlerin mısralarını sorgulayın. Kim kendi mısrasını savunurken yalan söylüyor? 🧐";
     }
     startInterrogationTimer();
 }
@@ -518,12 +517,14 @@ export function renderRevealPhase() {
     
     poetryContainer.innerHTML = '';
     
-    state.writingHistory.forEach((item) => {
+    state.writingHistory.forEach((item, index) => {
         const playerIndex = state.players.indexOf(item.player);
         const colorSet = SHAIER_COLORS[playerIndex >= 0 ? playerIndex % SHAIER_COLORS.length : 0];
         
         const verseBlock = document.createElement('div');
         verseBlock.className = 'flex items-start gap-md group animate-fade-in';
+        verseBlock.style.animationDelay = `${index * 150}ms`;
+        verseBlock.style.animationFillMode = 'both';
         verseBlock.innerHTML = `
             <div class="shrink-0 pt-2.5">
                 <div class="w-5 h-5 rounded-full ${colorSet.dot} border-2 border-background/50 shadow-sm"></div>
