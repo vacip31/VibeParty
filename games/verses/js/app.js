@@ -52,16 +52,22 @@ import {
 let categoriesData = [];
 let unsubscribeRoom = null;
 
-// Sayfa yüklendiğinde çalıştır
-window.addEventListener('DOMContentLoaded', () => {
-    loadCategoriesData();
+
+// ES modülleri deferred olarak çalışır — DOM her zaman hazırdır, DOMContentLoaded gerekmez.
+loadCategoriesData();
+
+try {
     setupEventListeners();
-    
-    // Eğer tarayıcıda aktif bir oda bilgisi kaldıysa temizle (temiz başlangıç)
-    sessionStorage.removeItem("verses_room_code");
-    sessionStorage.removeItem("verses_player_id");
-    sessionStorage.removeItem("verses_is_host");
-});
+    console.log("✅ Event Listeners kuruldu.");
+} catch (err) {
+    console.error("❌ setupEventListeners HATA:", err);
+}
+
+// Eğer tarayıcıda aktif bir oda bilgisi kaldıysa temizle (temiz başlangıç)
+sessionStorage.removeItem("verses_room_code");
+sessionStorage.removeItem("verses_player_id");
+sessionStorage.removeItem("verses_is_host");
+
 
 /**
  * categories.json dosyasından kelime havuzunu çeker.
@@ -190,12 +196,12 @@ function renderCategoryPills(categories) {
 /**
  * Firebase Realtime Database oda durum dinleyicisi
  */
-function setupRoomListener(roomCode) {
+async function setupRoomListener(roomCode) {
     if (unsubscribeRoom) {
         unsubscribeRoom();
     }
     
-    unsubscribeRoom = dbListenToRoom(roomCode, (roomData) => {
+    unsubscribeRoom = await dbListenToRoom(roomCode, (roomData) => {
         if (!roomData) {
             // Oda silindiyse veya host ayrıldıysa lobiye/ana menüye at
             if (state.currentState !== STATES.WELCOME) {
@@ -357,14 +363,21 @@ function setupEventListeners() {
     // Kategoriler
     const btnOpenCategories = document.getElementById('btn-welcome-categories');
     const btnCloseCategories = document.getElementById('btn-close-categories');
-    if (btnOpenCategories) {
+    if (btnOpenCategories && categoriesModal) {
         btnOpenCategories.addEventListener(clickEvent, (e) => {
             e.preventDefault();
             categoriesModal.classList.remove('hidden');
             categoriesModal.style.display = 'flex';
         });
+    } else if (btnOpenCategories) {
+        // Modal yok ama butona basıldı - debug
+        console.warn('categories-modal elementi bulunamadı!');
+        btnOpenCategories.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            alert('Kategori modalı yüklenemedi.');
+        });
     }
-    if (btnCloseCategories) {
+    if (btnCloseCategories && categoriesModal) {
         btnCloseCategories.addEventListener(clickEvent, (e) => {
             e.preventDefault();
             categoriesModal.classList.add('hidden');
@@ -380,6 +393,12 @@ function setupEventListeners() {
             e.preventDefault();
             scenarioModal.classList.remove('hidden');
             scenarioModal.style.display = 'flex';
+        });
+    } else if (btnOpenScenario) {
+        console.warn('scenario-modal elementi bulunamadı!');
+        btnOpenScenario.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            alert('Senaryo modalı yüklenemedi.');
         });
     }
     if (btnCloseScenario && scenarioModal) {
@@ -411,7 +430,13 @@ function setupEventListeners() {
     if (btnCloseGuess) {
         btnCloseGuess.addEventListener(clickEvent, (e) => {
             e.preventDefault();
-            guessModal.classList.add('hidden');
+            guessModal.style.display = 'none';
+        });
+    }
+    const btnCloseGuessCancel = document.getElementById('btn-close-guess-cancel');
+    if (btnCloseGuessCancel) {
+        btnCloseGuessCancel.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
             guessModal.style.display = 'none';
         });
     }

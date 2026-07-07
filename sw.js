@@ -78,8 +78,16 @@ self.addEventListener('activate', event => {
 
 // İstekleri Yakalama ve Önbellekten Sunma (Cache-First)
 self.addEventListener('fetch', event => {
+    // Localhost veya 127.0.0.1 üzerinde geliştirken önbellek sorunlarını önlemek için SW'yi bypass et
+    if (self.location.hostname === 'localhost' || self.location.hostname === '127.0.0.1') return;
+
     // Sadece GET isteklerini ve http/https protokollerini yönet
     if (event.request.method !== 'GET' || !event.request.url.startsWith('http')) return;
+
+    // Firebase CDN isteklerini ve veritabanı bağlantılarını Service Worker dışında bırak (CORS ve yükleme sorunlarını önlemek için)
+    if (event.request.url.includes('gstatic.com') || event.request.url.includes('firebase')) {
+        return;
+    }
 
     // Harici antivirüs veya yerel güvenlik tarayıcı scriptlerini yoksay
     if (event.request.url.includes('kaspersky-labs') || event.request.url.includes('kis.v2.scr')) {

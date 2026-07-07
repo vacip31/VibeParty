@@ -1,0 +1,113 @@
+- generic [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - generic [ref=f3e4]:
+      - link "arrow_back" [ref=f3e5] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=f3e6]: arrow_back
+      - heading "Vibe X Verses" [level=1] [ref=f3e7]
+    - main [ref=f3e8]:
+      - generic [ref=f3e9]:
+        - heading "VIBE X VERSES" [level=2] [ref=f3e10]
+        - paragraph [ref=f3e11]: İpuçlarının Arkasındaki Casusu Bul.
+      - generic [ref=f3e12]:
+        - generic [ref=f3e13]:
+          - generic [ref=f3e14]: Adınız
+          - textbox "Adınız" [ref=f3e15]:
+            - /placeholder: İsminizi yazın...
+        - button "Oda Kur (Host) add_circle" [ref=f3e16] [cursor=pointer]:
+          - generic [ref=f3e17]: Oda Kur (Host)
+          - generic [ref=f3e18]: add_circle
+        - generic [ref=f3e19]:
+          - textbox "Oda Kodu" [ref=f3e20]
+          - button "Odaya Katıl login" [ref=f3e21] [cursor=pointer]:
+            - generic [ref=f3e22]: Odaya Katıl
+            - generic [ref=f3e23]: login
+        - button "help_center Nasıl Oynanır?" [ref=f3e24] [cursor=pointer]:
+          - generic [ref=f3e25]: help_center
+          - generic [ref=f3e26]: Nasıl Oynanır?
+        - button "theater_comedy Örnek Senaryo" [ref=f3e27] [cursor=pointer]:
+          - generic [ref=f3e28]: theater_comedy
+          - generic [ref=f3e29]: Örnek Senaryo
+        - button "menu_book Kategori Kılavuzu" [active] [ref=f3e30] [cursor=pointer]:
+          - generic [ref=f3e31]: menu_book
+          - generic [ref=f3e32]: Kategori Kılavuzu
+        - link "home Ana Menüye Dön" [ref=f3e33] [cursor=pointer]:
+          - /url: ../../index.html
+          - generic [ref=f3e34]: home
+          - generic [ref=f3e35]: Ana Menüye Dön
+  - generic [ref=f3e71]:
+    - generic [ref=f3e72]:
+      - heading "📚 KATEGORİLER" [level=3] [ref=f3e73]
+      - button "close" [ref=f3e74] [cursor=pointer]:
+        - generic [ref=f3e75]: close
+    - generic [ref=f3e76]:
+      - generic [ref=f3e77]:
+        - button "Ofis Çilesi & Beyaz Yaka 47 Kelime chevron_right" [ref=f3e78] [cursor=pointer]:
+          - generic [ref=f3e80]: Ofis Çilesi & Beyaz Yaka
+          - generic [ref=f3e81]:
+            - generic [ref=f3e82]: 47 Kelime
+            - generic [ref=f3e83]: chevron_right
+        - generic [ref=f3e85]:
+          - paragraph [ref=f3e86]: Plaza dili, kurumsal kavramlar, beyaz yaka çileleri ve ofis yaşamına dair popüler kelimeler.
+          - generic [ref=f3e87]:
+            - generic [ref=f3e88]: Örnek Kelimeler
+            - generic [ref=f3e89]:
+              - generic [ref=f3e90]: Deadline
+              - generic [ref=f3e91]: LinkedIn
+              - generic [ref=f3e92]: Yıllık İzin
+      - generic [ref=f3e93]:
+        - button "Milenyum Nostaljisi & Çocukluk 50 Kelime chevron_right" [ref=f3e94] [cursor=pointer]:
+          - generic [ref=f3e96]: Milenyum Nostaljisi & Çocukluk
+          - generic [ref=f3e97]:
+            - generic [ref=f3e98]: 50 Kelime
+            - generic [ref=f3e99]: chevron_right
+        - generic [ref=f3e101]:
+          - paragraph [ref=f3e102]: 90'lar ve 2000'lerin başındaki çocukluk anıları, eski teknolojiler, sokak oyunları ve unutulmaz nostaljik ögeler.
+          - generic [ref=f3e103]:
+            - generic [ref=f3e104]: Örnek Kelimeler
+            - generic [ref=f3e105]:
+              - generic [ref=f3e106]: MSN Messenger
+              - generic [ref=f3e107]: Sanal Bebek
+              - generic [ref=f3e108]: Taso
+      - generic [ref=f3e109]:
+        - button "Kült Türk Dizileri 42 Kelime chevron_right" [ref=f3e110] [cursor=pointer]:
+          - generic [ref=f3e112]: Kült Türk Dizileri
+          - generic [ref=f3e113]:
+            - generic [ref=f3e114]: 42 Kelime
+            - generic [ref=f3e115]: chevron_right
+        - generic [ref=f3e117]:
+          - paragraph [ref=f3e118]: Türk televizyon tarihine damga vurmuş efsanevi diziler, unutulmaz karakterler ve fenomen replikler.
+          - generic [ref=f3e119]:
+            - generic [ref=f3e120]: Örnek Kelimeler
+            - generic [ref=f3e121]:
+              - generic [ref=f3e122]: Aşk-ı Memnu
+              - generic [ref=f3e123]: Kurtlar Vadisi
+              - generic [ref=f3e124]: Avrupa Yakası
+      - generic [ref=f3e125]:
+        - button "Modern İlişkiler & Dating 31 Kelime chevron_right" [ref=f3e126] [cursor=pointer]:
+          - generic [ref=f3e128]: Modern İlişkiler & Dating
+          - generic [ref=f3e129]:
+            - generic [ref=f3e130]: 31 Kelime
+            - generic [ref=f3e131]: chevron_right
+        - generic [ref=f3e133]:
+          - paragraph [ref=f3e134]: Günümüz flört kültürü, sosyal medya jargonu, ilişki durumları ve dating uygulamalarındaki popüler kavramlar.
+          - generic [ref=f3e135]:
+            - generic [ref=f3e136]: Örnek Kelimeler
+            - generic [ref=f3e137]:
+              - generic [ref=f3e138]: Ghosting
+              - generic [ref=f3e139]: Red Flag
+              - generic [ref=f3e140]: İlk Buluşma
+      - generic [ref=f3e141]:
+        - button "Günlük Hayat & Popüler Kültür 171 Kelime chevron_right" [ref=f3e142] [cursor=pointer]:
+          - generic [ref=f3e144]: Günlük Hayat & Popüler Kültür
+          - generic [ref=f3e145]:
+            - generic [ref=f3e146]: 171 Kelime
+            - generic [ref=f3e147]: chevron_right
+        - generic [ref=f3e149]:
+          - paragraph [ref=f3e150]: Gündelik yaşamın koşturmacası, esnaf kültürü, popüler alışkanlıklar ve sokak lezzetlerine dair tanıdık kelimeler.
+          - generic [ref=f3e151]:
+            - generic [ref=f3e152]: Örnek Kelimeler
+            - generic [ref=f3e153]:
+              - generic [ref=f3e154]: Airfryer
+              - generic [ref=f3e155]: Kadıköy Sahil
+              - generic [ref=f3e156]: Halı Saha Maçı

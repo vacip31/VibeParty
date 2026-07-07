@@ -1,0 +1,36 @@
+- generic [ref=f3e2]:
+  - generic [ref=f3e4]:
+    - link "arrow_back" [ref=f3e5] [cursor=pointer]:
+      - /url: ../../index.html
+      - generic [ref=f3e6]: arrow_back
+    - heading "Vibe X Verses" [level=1] [ref=f3e7]
+  - main [ref=f3e8]:
+    - generic [ref=f3e9]:
+      - heading "VIBE X VERSES" [level=2] [ref=f3e10]
+      - paragraph [ref=f3e11]: İpuçlarının Arkasındaki Casusu Bul.
+    - generic [ref=f3e12]:
+      - generic [ref=f3e13]:
+        - generic [ref=f3e14]: Adınız
+        - textbox "Adınız" [ref=f3e15]:
+          - /placeholder: İsminizi yazın...
+      - button "Oda Kur (Host) add_circle" [ref=f3e16] [cursor=pointer]:
+        - generic [ref=f3e17]: Oda Kur (Host)
+        - generic [ref=f3e18]: add_circle
+      - generic [ref=f3e19]:
+        - textbox "Oda Kodu" [ref=f3e20]
+        - button "Odaya Katıl login" [ref=f3e21] [cursor=pointer]:
+          - generic [ref=f3e22]: Odaya Katıl
+          - generic [ref=f3e23]: login
+      - button "help_center Nasıl Oynanır?" [ref=f3e24] [cursor=pointer]:
+        - generic [ref=f3e25]: help_center
+        - generic [ref=f3e26]: Nasıl Oynanır?
+      - button "theater_comedy Örnek Senaryo" [ref=f3e27] [cursor=pointer]:
+        - generic [ref=f3e28]: theater_comedy
+        - generic [ref=f3e29]: Örnek Senaryo
+      - button "menu_book Kategori Kılavuzu" [ref=f3e30] [cursor=pointer]:
+        - generic [ref=f3e31]: menu_book
+        - generic [ref=f3e32]: Kategori Kılavuzu
+      - link "home Ana Menüye Dön" [ref=f3e33] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=f3e34]: home
+        - generic [ref=f3e35]: Ana Menüye Dön

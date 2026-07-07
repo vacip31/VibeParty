@@ -1,0 +1,70 @@
+- generic [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - generic [ref=f3e4]:
+      - link "arrow_back" [ref=f3e5] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=f3e6]: arrow_back
+      - heading "Vibe X Verses" [level=1] [ref=f3e7]
+    - main [ref=f3e8]:
+      - generic [ref=f3e9]:
+        - heading "VIBE X VERSES" [level=2] [ref=f3e10]
+        - paragraph [ref=f3e11]: İpuçlarının Arkasındaki Casusu Bul.
+      - generic [ref=f3e12]:
+        - generic [ref=f3e13]:
+          - generic [ref=f3e14]: Adınız
+          - textbox "Adınız" [ref=f3e15]:
+            - /placeholder: İsminizi yazın...
+        - button "Oda Kur (Host) add_circle" [ref=f3e16] [cursor=pointer]:
+          - generic [ref=f3e17]: Oda Kur (Host)
+          - generic [ref=f3e18]: add_circle
+        - generic [ref=f3e19]:
+          - textbox "Oda Kodu" [ref=f3e20]
+          - button "Odaya Katıl login" [ref=f3e21] [cursor=pointer]:
+            - generic [ref=f3e22]: Odaya Katıl
+            - generic [ref=f3e23]: login
+        - button "help_center Nasıl Oynanır?" [ref=f3e24] [cursor=pointer]:
+          - generic [ref=f3e25]: help_center
+          - generic [ref=f3e26]: Nasıl Oynanır?
+        - button "theater_comedy Örnek Senaryo" [active] [ref=f3e27] [cursor=pointer]:
+          - generic [ref=f3e28]: theater_comedy
+          - generic [ref=f3e29]: Örnek Senaryo
+        - button "menu_book Kategori Kılavuzu" [ref=f3e30] [cursor=pointer]:
+          - generic [ref=f3e31]: menu_book
+          - generic [ref=f3e32]: Kategori Kılavuzu
+        - link "home Ana Menüye Dön" [ref=f3e33] [cursor=pointer]:
+          - /url: ../../index.html
+          - generic [ref=f3e34]: home
+          - generic [ref=f3e35]: Ana Menüye Dön
+  - generic [ref=f3e37]:
+    - generic [ref=f3e38]:
+      - heading "theater_comedy 🎭 ÖRNEK SENARYO" [level=3] [ref=f3e39]:
+        - generic [ref=f3e40]: theater_comedy
+        - generic [ref=f3e41]: 🎭 ÖRNEK SENARYO
+      - button "close" [ref=f3e42] [cursor=pointer]:
+        - generic [ref=f3e43]: close
+    - generic [ref=f3e44]:
+      - paragraph [ref=f3e45]: "Kategori: Modern İlişkiler | Kelime: Ghosting"
+      - paragraph [ref=f3e46]: "Ahmet, Burcu, Can (Casus), Deniz, Elif ve Furkan toplanmışlar. Telefon sırayla elden ele geziyor:"
+      - generic [ref=f3e47]:
+        - generic [ref=f3e48]:
+          - generic [ref=f3e49]: "1. Sıra — Elif (Ekip):"
+          - paragraph [ref=f3e50]: "\"Mavi tik oldu\""
+        - generic [ref=f3e51]:
+          - generic [ref=f3e52]: "2. Sıra — Can (CASUS):"
+          - paragraph [ref=f3e53]: "\"Mesaj hakkı bitti\" (WhatsApp'ı düşündü, panikledi!)"
+        - generic [ref=f3e54]:
+          - generic [ref=f3e55]: "3. Sıra — Burcu (Ekip):"
+          - paragraph [ref=f3e56]: "\"Sinyal koptu\" (Kurtarmaya çalışıyor)"
+        - generic [ref=f3e57]:
+          - generic [ref=f3e58]: "4. Sıra — Furkan (Ekip):"
+          - paragraph [ref=f3e59]: "\"Aniden sır oldu\""
+        - generic [ref=f3e60]:
+          - generic [ref=f3e61]: "5. Sıra — Ahmet (Ekip):"
+          - paragraph [ref=f3e62]: "\"Casper mübarek\""
+        - generic [ref=f3e63]:
+          - generic [ref=f3e64]: "6. Sıra — Deniz (Ekip):"
+          - paragraph [ref=f3e65]: "\"İzi bile kalmadı\""
+      - generic [ref=f3e66]:
+        - generic [ref=f3e67]: "🗣️ Masa Tartışması:"
+        - paragraph [ref=f3e68]: "\"Mavi tikten sonra 'Mesaj hakkı bitti' yazan kimse resmen sıçramış! Yıl 2006 mı, kontör mü bitti? Casper ve görünmezlik ile ne alakası var? Kesin casus o!\""
+        - paragraph [ref=f3e69]: "🎯 Sonuç: Masa Can'ı ifşa eder. Can kelimeyi tahmin edemez. Ekip KAZANIR!"

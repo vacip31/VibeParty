@@ -1,20 +1,6 @@
 /* Vibe X Verses Firebase Entegrasyon Modülü (firebase.js) */
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { 
-    getDatabase, 
-    ref, 
-    set, 
-    get,
-    onValue, 
-    push, 
-    remove, 
-    update, 
-    onDisconnect 
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-// Firebase Yapılandırması (Kullanıcı kendi bilgileriyle doldurmalıdır)
-// NOT: Kendi Firebase projenizi oluşturup buradaki bilgileri güncelleyin.
+// Firebase Yapılandırması
 const firebaseConfig = {
     apiKey: "AIzaSyB-GxsGGIU43pvd_Xc0t-k2xUx66WmhdL8",
     authDomain: "vibeverses.firebaseapp.com",
@@ -29,19 +15,41 @@ let app;
 let db;
 let isFirebaseInitialized = false;
 
-try {
-    // API anahtarı girilmediyse veya varsayılan değerdeyse uyarı ver ama çökme
-    if (firebaseConfig.apiKey && firebaseConfig.apiKey !== "YOUR_API_KEY") {
-        app = initializeApp(firebaseConfig);
-        db = getDatabase(app);
+// Firebase SDK fonksiyonları (dinamik olarak yüklenecek)
+let _initializeApp, _getDatabase, _ref, _set, _get, _onValue, _push, _remove, _update, _onDisconnect;
+
+/**
+ * Firebase SDK'yı dinamik olarak yükler.
+ * CDN erişilemezse uygulama çökmez, sadece Firebase özellikleri devre dışı kalır.
+ */
+async function loadFirebase() {
+    if (isFirebaseInitialized) return true;
+    try {
+        const appModule = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js");
+        const dbModule = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js");
+
+        _initializeApp = appModule.initializeApp;
+        _getDatabase = dbModule.getDatabase;
+        _ref = dbModule.ref;
+        _set = dbModule.set;
+        _get = dbModule.get;
+        _onValue = dbModule.onValue;
+        _push = dbModule.push;
+        _remove = dbModule.remove;
+        _update = dbModule.update;
+        _onDisconnect = dbModule.onDisconnect;
+
+        app = _initializeApp(firebaseConfig);
+        db = _getDatabase(app);
         isFirebaseInitialized = true;
         console.log("Firebase başarıyla başlatıldı.");
-    } else {
-        console.warn("Firebase yapılandırması henüz ayarlanmadı! Lütfen js/firebase.js dosyasındaki API bilgilerini doldurun.");
+        return true;
+    } catch (e) {
+        console.error("Firebase yüklenemedi:", e);
+        return false;
     }
-} catch (e) {
-    console.error("Firebase başlatılırken hata oluştu:", e);
 }
+
 
 /**
  * UUID üreten yardımcı fonksiyon
@@ -54,10 +62,11 @@ function generateUUID() {
  * Yeni bir oda oluşturur (Host)
  */
 export async function dbCreateRoom(roomCode, hostName, settings) {
-    if (!isFirebaseInitialized) return { success: false, error: "Firebase başlatılamadı. Lütfen API bilgilerini ayarlayın." };
+    const ok = await loadFirebase();
+    if (!ok) return { success: false, error: "Firebase yüklenemedi. İnternet bağlantınızı kontrol edin." };
     
     const playerId = generateUUID();
-    const roomRef = ref(db, `rooms/${roomCode}`);
+    const roomRef = _ref(db, `rooms/${roomCode}`);
     
     const initialRoomData = {
         hostId: playerId,
@@ -89,19 +98,14 @@ export async function dbCreateRoom(roomCode, hostName, settings) {
             spyGuessedCorrectly: false,
             spyGuessText: ""
         }
-      };
+    };
 
     try {
-        await set(roomRef, initialRoomData);
-        
-        // Host çıkarsa veya interneti koparsa odayı komple veritabanından temizle
-        await onDisconnect(roomRef).remove();
-        
-        // Kendi bilgimizi yerel tarayıcıda saklayalım
+        await _set(roomRef, initialRoomData);
+        await _onDisconnect(roomRef).remove();
         sessionStorage.setItem("verses_room_code", roomCode);
         sessionStorage.setItem("verses_player_id", playerId);
         sessionStorage.setItem("verses_is_host", "true");
-        
         return { success: true, playerId };
     } catch (e) {
         console.error("Oda oluşturulurken hata:", e);
@@ -113,12 +117,13 @@ export async function dbCreateRoom(roomCode, hostName, settings) {
  * Mevcut bir odaya katılır (Player)
  */
 export async function dbJoinRoom(roomCode, playerName) {
-    if (!isFirebaseInitialized) return { success: false, error: "Firebase başlatılamadı. Lütfen API bilgilerini ayarlayın." };
+    const ok = await loadFirebase();
+    if (!ok) return { success: false, error: "Firebase yüklenemedi. İnternet bağlantınızı kontrol edin." };
     
-    const roomRef = ref(db, `rooms/${roomCode}`);
+    const roomRef = _ref(db, `rooms/${roomCode}`);
     
     try {
-        const snapshot = await get(roomRef);
+        const snapshot = await _get(roomRef);
         if (!snapshot.exists()) {
             return { success: false, error: "Oda bulunamadı! Lütfen oda kodunu kontrol edin." };
         }
@@ -128,7 +133,6 @@ export async function dbJoinRoom(roomCode, playerName) {
             return { success: false, error: "Bu oyun zaten başlamış!" };
         }
         
-        // Oyuncu adı çakışma kontrolü
         const players = roomData.players || {};
         const nameExists = Object.values(players).some(p => p.name.toLowerCase() === playerName.trim().toLowerCase());
         if (nameExists) {
@@ -140,9 +144,9 @@ export async function dbJoinRoom(roomCode, playerName) {
         }
         
         const playerId = generateUUID();
-        const playerRef = ref(db, `rooms/${roomCode}/players/${playerId}`);
+        const playerRef = _ref(db, `rooms/${roomCode}/players/${playerId}`);
         
-        await set(playerRef, {
+        await _set(playerRef, {
             name: playerName.trim(),
             score: 0,
             isReady: false,
@@ -150,14 +154,10 @@ export async function dbJoinRoom(roomCode, playerName) {
             role: "LOBBY"
         });
         
-        // Oyuncu çıkarsa odadaki kendi kaydını temizle (Host değilse sadece kendi kaydı silinir)
-        await onDisconnect(playerRef).remove();
-        
-        // Kendi bilgimizi saklayalım
+        await _onDisconnect(playerRef).remove();
         sessionStorage.setItem("verses_room_code", roomCode);
         sessionStorage.setItem("verses_player_id", playerId);
         sessionStorage.setItem("verses_is_host", "false");
-        
         return { success: true, playerId };
     } catch (e) {
         console.error("Odaya katılırken hata:", e);
@@ -168,14 +168,15 @@ export async function dbJoinRoom(roomCode, playerName) {
 /**
  * Oda verilerini gerçek zamanlı dinler
  */
-export function dbListenToRoom(roomCode, callback) {
-    if (!isFirebaseInitialized) return null;
-    const roomRef = ref(db, `rooms/${roomCode}`);
-    return onValue(roomRef, (snapshot) => {
+export async function dbListenToRoom(roomCode, callback) {
+    const ok = await loadFirebase();
+    if (!ok) return null;
+    const roomRef = _ref(db, `rooms/${roomCode}`);
+    return _onValue(roomRef, (snapshot) => {
         if (snapshot.exists()) {
             callback(snapshot.val());
         } else {
-            callback(null); // Oda kapandıysa veya silindiyse null döner
+            callback(null);
         }
     });
 }
@@ -185,9 +186,9 @@ export function dbListenToRoom(roomCode, callback) {
  */
 export async function dbUpdateRoom(roomCode, updates) {
     if (!isFirebaseInitialized) return;
-    const roomRef = ref(db, `rooms/${roomCode}`);
+    const roomRef = _ref(db, `rooms/${roomCode}`);
     try {
-        await update(roomRef, updates);
+        await _update(roomRef, updates);
     } catch (e) {
         console.error("Veritabanı güncelleme hatası:", e);
     }
@@ -198,9 +199,9 @@ export async function dbUpdateRoom(roomCode, updates) {
  */
 export async function dbDestroyRoom(roomCode) {
     if (!isFirebaseInitialized) return;
-    const roomRef = ref(db, `rooms/${roomCode}`);
+    const roomRef = _ref(db, `rooms/${roomCode}`);
     try {
-        await remove(roomRef);
+        await _remove(roomRef);
         sessionStorage.removeItem("verses_room_code");
         sessionStorage.removeItem("verses_player_id");
         sessionStorage.removeItem("verses_is_host");
@@ -214,9 +215,9 @@ export async function dbDestroyRoom(roomCode) {
  */
 export async function dbLeaveRoom(roomCode, playerId) {
     if (!isFirebaseInitialized) return;
-    const playerRef = ref(db, `rooms/${roomCode}/players/${playerId}`);
+    const playerRef = _ref(db, `rooms/${roomCode}/players/${playerId}`);
     try {
-        await remove(playerRef);
+        await _remove(playerRef);
         sessionStorage.removeItem("verses_room_code");
         sessionStorage.removeItem("verses_player_id");
         sessionStorage.removeItem("verses_is_host");

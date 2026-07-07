@@ -151,6 +151,7 @@ export function syncStateFromFirebase(roomData) {
     state.spyGuessedCorrectly = results.spyGuessedCorrectly || false;
     state.spyGuessText = results.spyGuessText || "";
     state.spyExposedByGroup = results.spyExposedByGroup || false;
+    state.gameStartTime = roomData.gameStartTime || null;
 }
 
 /**
@@ -236,6 +237,7 @@ export function initializeGameFlow(categoriesList) {
     // Veritabanını güncelle
     const updates = {
         currentState: STATES.ROLE_DISTRIBUTION,
+        gameStartTime: Date.now(),
         settings: {
             category: randomCat.category,
             selectedCategory: state.selectedCategory,
@@ -449,4 +451,19 @@ export function calculateScores() {
     dbUpdateRoom(state.roomCode, {
         players: updatedPlayers
     });
+}
+
+/**
+ * Süre hesaplamasını yapar ve string olarak kaydeder.
+ */
+export function calculateGameDuration() {
+    if (!state.gameStartTime) return "00:00";
+    
+    const diffMs = Date.now() - state.gameStartTime;
+    const diffSec = Math.floor(diffMs / 1000);
+    const mins = Math.floor(diffSec / 60);
+    const secs = diffSec % 60;
+    
+    state.gameDurationString = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    return state.gameDurationString;
 }
