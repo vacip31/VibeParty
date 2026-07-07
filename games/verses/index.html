@@ -627,14 +627,19 @@
                 <span id="writing-timer-seconds" class="font-mono-meta text-[13px] text-error font-bold tracking-wider">00:45</span>
             </div>
 
-            <!-- Category Banner -->
-            <div class="text-center mb-lg mt-md flex flex-col gap-sm">
-                <div class="px-md py-xs rounded-full border border-primary/25 bg-primary/5 text-primary text-[11px] tracking-[0.15em] uppercase font-bold w-fit mx-auto shadow-[0_0_12px_rgba(210,180,0,0.05)]">
+            <!-- Category & Keyword Banner -->
+            <div class="text-center mb-lg mt-md flex flex-col gap-xs">
+                <div class="px-md py-xs rounded-full border border-primary/25 bg-primary/5 text-primary text-[11px] tracking-[0.15em] uppercase font-bold w-fit mx-auto shadow-[0_0_12px_rgba(210,180,0,0.05)] mb-xs">
                     ŞAİR: <span id="writing-panel-writer" class="text-on-surface uppercase font-normal ml-xs">...</span>
                 </div>
                 <div>
-                    <span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-[0.2em] block">KATEGORİ:</span>
+                    <span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-[0.2em] block text-[10px]">KATEGORİ:</span>
                     <h2 id="writing-panel-category" class="font-h2 text-h2 text-primary mt-xs uppercase">...</h2>
+                </div>
+                <div id="writing-panel-keyword-container" class="mt-xs">
+                    <span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-[0.2em] block text-[10px]" id="writing-panel-keyword-label">GİZLİ KELİME:</span>
+                    <h3 id="writing-panel-keyword-val" class="font-h2 text-lg text-primary font-semibold tracking-wide mt-xs">...</h3>
+                    <p id="writing-panel-keyword-instruction" class="font-body text-[11px] text-on-surface-variant/70 mt-1 max-w-[320px] mx-auto leading-relaxed"></p>
                 </div>
             </div>
 
@@ -921,7 +926,10 @@
 
             <!-- Action Buttons -->
             <div class="w-full space-y-md px-base">
-                <div id="gameover-host-actions" class="space-y-md">
+                <button id="btn-gameover-continue" class="w-full py-md bg-primary text-on-primary font-h2 text-h2 uppercase rounded-lg hover:opacity-90 transition-all active:scale-[0.98] duration-200 shadow-lg">
+                    Devam Et (Lobiye Dön)
+                </button>
+                <div id="gameover-host-actions" class="hidden space-y-md">
                     <button id="btn-gameover-same-players" class="w-full py-md bg-primary-container text-on-primary font-h2 text-h2 uppercase rounded-lg hover:opacity-90 transition-all active:scale-[0.98] duration-200 shadow-lg shadow-primary/10">
                         Aynı Kadroyla Yeniden Oyna
                     </button>
@@ -939,6 +947,7 @@
                 </div>
             </div>
 
+            <div class="w-full grid grid-cols-2 gap-sm mt-xl px-base">
                 <div class="glass-card rounded-lg p-md flex flex-col items-center justify-center text-center">
                     <span class="font-label-caps text-[10px] text-on-surface-variant mb-xs tracking-wider">İPUCU SAYISI</span>
                     <span id="stat-poetry-lines" class="font-h1 text-h1 text-primary">0 İpucu</span>

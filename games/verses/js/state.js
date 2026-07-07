@@ -244,8 +244,18 @@ export function initializeGameFlow(categoriesList) {
     const spyPlayerIds = shuffledIds.slice(0, spyCount);
     const remainingIds = shuffledIds.slice(spyCount);
     
-    playerIds.forEach(id => {
-        updatedPlayers[id] = { ...state.playersRaw[id], isReady: false, submitted: false, hasDetectiveUsedSkill: false, role: "Masum" };
+    // Renk indekslerini karıştır ve dağıt (Rastgele renk atama)
+    const colorIndices = shuffle([0, 1, 2, 3, 4, 5, 6, 7]);
+    
+    playerIds.forEach((id, idx) => {
+        updatedPlayers[id] = { 
+            ...state.playersRaw[id], 
+            isReady: false, 
+            submitted: false, 
+            hasDetectiveUsedSkill: false, 
+            role: "Masum",
+            colorIndex: colorIndices[idx % colorIndices.length]
+        };
     });
     
     spyPlayerIds.forEach(id => {
@@ -328,69 +338,51 @@ export function assignRandomVerses() {
 
     if (eligibleWriterIds.length === 0) return;
 
-    const readers = shuffle([...playerIds]);
-    const writers = shuffle([...eligibleWriterIds]);
-    const assignmentsTemp = {};
+    let assignmentsTemp = {};
+    let success = false;
+    let attempts = 0;
 
-    // 1. Her mısrayı (writer) bir okuyucuya (reader) eşleştir
-    for (let i = 0; i < writers.length; i++) {
-        const writerId = writers[i];
-        const readerId = readers[i];
-        assignmentsTemp[readerId] = writerId;
-    }
-
-    // 2. Kendi mısrasını okuma durumlarını (self-assignment) gider
-    for (let i = 0; i < writers.length; i++) {
-        const readerId = readers[i];
-        const writerId = assignmentsTemp[readerId];
-        if (readerId === writerId) {
-            for (let j = 0; j < writers.length; j++) {
-                if (i === j) continue;
-                const otherReaderId = readers[j];
-                const otherWriterId = assignmentsTemp[otherReaderId];
-                if (readerId !== otherWriterId && otherReaderId !== writerId) {
-                    assignmentsTemp[readerId] = otherWriterId;
-                    assignmentsTemp[otherReaderId] = writerId;
-                    break;
-                }
+    while (!success && attempts < 200) {
+        attempts++;
+        assignmentsTemp = {};
+        
+        const shuffledReaders = shuffle([...playerIds]);
+        const shuffledWriters = shuffle([...eligibleWriterIds]);
+        
+        let possible = true;
+        
+        for (const readerId of shuffledReaders) {
+            const candidates = shuffledWriters.filter(wId => wId !== readerId);
+            if (candidates.length === 0) {
+                possible = false;
+                break;
             }
+            
+            const minReadCount = Math.min(...candidates.map(wId => {
+                return Object.values(assignmentsTemp).filter(id => id === wId).length;
+            }));
+            const bestCandidates = candidates.filter(wId => {
+                const count = Object.values(assignmentsTemp).filter(id => id === wId).length;
+                return count === minReadCount;
+            });
+            
+            const chosenId = bestCandidates[Math.floor(Math.random() * bestCandidates.length)];
+            assignmentsTemp[readerId] = chosenId;
         }
-    }
-
-    // Okunma sayılarını takip et
-    const readCounts = {};
-    eligibleWriterIds.forEach(id => { readCounts[id] = 0; });
-    Object.values(assignmentsTemp).forEach(writerId => { readCounts[writerId]++; });
-
-    // 3. Kalan okuyuculara en az okunmuş mısraları dağıt
-    for (let i = writers.length; i < readers.length; i++) {
-        const readerId = readers[i];
-        const candidates = eligibleWriterIds
-            .filter(writerId => writerId !== readerId)
-            .sort((a, b) => readCounts[a] - readCounts[b]);
-        const chosenId = candidates[0] || eligibleWriterIds[0];
-        assignmentsTemp[readerId] = chosenId;
-        readCounts[chosenId]++;
-    }
-
-    // 4. Son bir güvenlik kontrolü (kendi mısrasını okuma kalmasın diye)
-    const finalReaderIds = Object.keys(assignmentsTemp);
-    for (const readerId of finalReaderIds) {
-        const writerId = assignmentsTemp[readerId];
-        if (readerId === writerId) {
-            for (const otherReaderId of finalReaderIds) {
-                if (readerId === otherReaderId) continue;
-                const otherWriterId = assignmentsTemp[otherReaderId];
-                if (readerId !== otherWriterId && otherReaderId !== writerId) {
-                    assignmentsTemp[readerId] = otherWriterId;
-                    assignmentsTemp[otherReaderId] = writerId;
-                    break;
-                }
-            }
+        
+        if (!possible) continue;
+        
+        const selfRead = Object.entries(assignmentsTemp).some(([rId, wId]) => rId === wId);
+        if (selfRead) continue;
+        
+        if (shuffledReaders.length >= shuffledWriters.length) {
+            const allRead = shuffledWriters.every(wId => Object.values(assignmentsTemp).includes(wId));
+            if (!allRead) continue;
         }
+        
+        success = true;
     }
 
-    // 5. Firebase formatına dönüştür
     const assignments = {};
     Object.entries(assignmentsTemp).forEach(([readerId, writerId]) => {
         assignments[readerId] = {
@@ -401,7 +393,6 @@ export function assignRandomVerses() {
         };
     });
 
-    // Herkesin hazır olma durumunu sıfırla (Okuma aşamasına geçiliyor)
     const updatedPlayers = {};
     playerIds.forEach(id => {
         updatedPlayers[id] = { ...state.playersRaw[id], isReady: false };
@@ -444,10 +435,18 @@ export function checkSpyGuess(guess) {
     }
     
     // Durumu Firebase'de güncelle
-    dbUpdateRoom(state.roomCode, {
+    const updates = {
         "results/spyGuessedCorrectly": isCorrect,
         "results/spyGuessText": guess.trim()
-    });
+    };
+    if (isCorrect) {
+        updates.currentState = STATES.GAMEOVER;
+        // Reset everyone's ready status
+        Object.keys(state.playersRaw).forEach(id => {
+            updates[`players/${id}/isReady`] = false;
+        });
+    }
+    dbUpdateRoom(state.roomCode, updates);
     
     return isCorrect;
 }
@@ -455,7 +454,7 @@ export function checkSpyGuess(guess) {
 /**
  * Fisher-Yates Shuffle karıştırma algoritması
  */
-function shuffle(array) {
+export function shuffle(array) {
     const arr = [...array];
     for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));

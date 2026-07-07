@@ -1043,11 +1043,15 @@ function setupEventListeners() {
             exposeDecisionModal.classList.add('hidden');
             exposeDecisionModal.style.display = 'none';
             
-            dbUpdateRoom(state.roomCode, {
+            const updates = {
                 "results/exposedSpyIds": checkedIds,
                 "results/spyExposedByGroup": allSpiesExposed,
                 currentState: STATES.GAMEOVER
+            };
+            Object.keys(state.playersRaw).forEach(id => {
+                updates[`players/${id}/isReady`] = false;
             });
+            dbUpdateRoom(state.roomCode, updates);
             
             if (allSpiesExposed) {
                 playSuccess();
@@ -1077,13 +1081,13 @@ function setupEventListeners() {
             
             playVibration(40);
             
-            // Oyuncu durumlarını sıfırla
+            // Oyuncu durumlarını sıfırla (Skorları koru ve Lobi için hazır olarak işaretle)
             const updatedPlayers = {};
             Object.entries(state.playersRaw).forEach(([id, p]) => {
                 updatedPlayers[id] = {
                     name: p.name,
                     score: p.score || 0,
-                    isReady: false,
+                    isReady: true,
                     submitted: false,
                     hasDetectiveUsedSkill: false,
                     role: "LOBBY"
@@ -1102,6 +1106,17 @@ function setupEventListeners() {
                     spyGuessedCorrectly: false,
                     spyGuessText: ""
                 }
+            });
+        });
+    }
+
+    const btnGameOverContinue = document.getElementById('btn-gameover-continue');
+    if (btnGameOverContinue) {
+        btnGameOverContinue.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            playVibration(40);
+            dbUpdateRoom(state.roomCode, {
+                [`players/${state.myPlayerId}/isReady`]: true
             });
         });
     }
