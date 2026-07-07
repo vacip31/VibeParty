@@ -1,6 +1,6 @@
 /* Vibe X Verses Arayüz Güncelleme Modülü (ui.js) */
 
-import { state, STATES, calculateGameDuration, calculateScores, saveGameStateToStorage } from './state.js';
+import { state, STATES, calculateGameDuration, calculateScores } from './state.js';
 import { playTransition, playVibration, playTick } from './audio.js';
 
 // Görünüm Seçiciler
@@ -8,8 +8,10 @@ export const views = {
     welcome: document.getElementById('view-welcome'),
     rules: document.getElementById('view-rules'),
     setup: document.getElementById('view-setup'),
+    lobby: document.getElementById('view-lobby'), // Multiplayer Lobi
     roleDistribution: document.getElementById('view-role-distribution'),
     writing: document.getElementById('view-writing'),
+    reading: document.getElementById('view-reading'), // Mısra Okuma Ekranı
     interrogation: document.getElementById('view-interrogation'),
     reveal: document.getElementById('view-reveal'),
     gameOver: document.getElementById('view-game-over')
@@ -28,7 +30,6 @@ const SHAIER_COLORS = [
 ];
 
 let currentActiveView = null;
-
 let isHandlingPopstate = false;
 
 // Sayfa ilk yüklendiğinde geçmişe welcome durumunu yaz
@@ -64,7 +65,7 @@ export function showView(activeView) {
         return;
     }
     
-    // Geçmiş durumunu güncelle (Eğer popstate tetiklemediyse push et)
+    // Geçmiş durumunu güncelle
     if (!isHandlingPopstate && window.history && window.history.pushState) {
         const viewKey = Object.keys(views).find(key => views[key] === activeView);
         if (viewKey) {
@@ -75,26 +76,19 @@ export function showView(activeView) {
     const oldView = currentActiveView;
     currentActiveView = activeView;
     
-    // Geçiş sesini çal
     playTransition();
     
-    // Eski ekranın çıkış animasyonunu başlat
     if (oldView) {
         oldView.classList.add('transitioning', 'fade-out');
         oldView.classList.remove('active-view');
     }
     
-    // Yeni ekranı hazırla
     activeView.classList.add('transitioning');
     activeView.classList.remove('fade-out', 'active-view');
     
-    // Tarayıcı reflow tetikle
     void activeView.offsetWidth;
-    
-    // Yeni ekranı görünür yap
     activeView.classList.add('active-view');
     
-    // Animasyon tamamlandığında durum sınıflarını temizle
     setTimeout(() => {
         if (oldView) {
             oldView.classList.remove('transitioning', 'fade-out');
@@ -105,124 +99,79 @@ export function showView(activeView) {
 }
 
 /**
- * Oyuncu kurulum ekranındaki eklenmiş oyuncu listesini günceller.
+ * Multiplayer Lobi ekranını render eder.
  */
-export function renderSetupPlayersList(onRemoveCallback) {
-    const playerList = document.getElementById('setup-player-list');
-    const emptyState = document.getElementById('setup-empty-state');
-    const btnStart = document.getElementById('btn-setup-start');
-    const playerCounter = document.getElementById('setup-player-counter');
+export function renderLobbyPhase() {
+    showView(views.lobby);
     
-    if (!playerList) return;
+    const codeEl = document.getElementById('lobby-room-code');
+    const countEl = document.getElementById('lobby-player-count');
+    const listEl = document.getElementById('lobby-player-list');
+    const btnReady = document.getElementById('btn-lobby-ready');
+    const btnStart = document.getElementById('btn-lobby-start');
     
-    playerList.innerHTML = '';
+    if (codeEl) codeEl.textContent = state.roomCode;
     
-    if (state.players.length === 0) {
-        playerList.appendChild(emptyState);
-    } else {
-        state.players.forEach((player) => {
-            const chip = document.createElement('div');
-            chip.className = 'flex items-center gap-xs bg-surface-container-high px-3 py-2 rounded-lg border border-outline-variant/20 animate-in zoom-in-95 duration-200';
-            chip.innerHTML = `
-                <span class="font-body text-sm text-on-surface">${player}</span>
-                <button type="button" class="btn-remove-player text-on-surface-variant hover:text-error transition-colors flex items-center" data-name="${player}">
-                    <span class="material-symbols-outlined text-sm">close</span>
-                </button>
+    const playerEntries = Object.entries(state.playersRaw);
+    if (countEl) countEl.textContent = `(${playerEntries.length}/8)`;
+    
+    if (listEl) {
+        listEl.innerHTML = '';
+        playerEntries.forEach(([id, p]) => {
+            const isHostPlayer = id === state.playersRaw[state.myPlayerId]?.isHost || id === Object.keys(state.playersRaw)[0]; // İlk giren hosttur veya hostId eşleşir
+            const isMe = id === state.myPlayerId;
+            const readyText = p.isReady ? "HAZIR" : "BEKLİYOR";
+            const readyColor = p.isReady ? "text-emerald-400 bg-emerald-500/10 border-emerald-500/20" : "text-on-surface-variant/40 bg-surface-container-high/40 border-outline-variant/10";
+            
+            const card = document.createElement('div');
+            card.className = 'flex items-center justify-between w-full bg-surface-container-high px-md py-sm rounded-lg border border-outline-variant/10';
+            card.innerHTML = `
+                <div class="flex items-center gap-xs">
+                    <span class="font-h2 text-sm text-on-surface font-semibold ${isMe ? 'text-primary' : ''}">${p.name} ${isMe ? '(Sen)' : ''}</span>
+                    ${isHostPlayer ? '<span class="text-[10px] font-label-caps bg-primary/20 text-primary border border-primary/30 px-1.5 py-0.5 rounded">HOST</span>' : ''}
+                </div>
+                <span class="text-[10px] font-label-caps border px-2 py-1 rounded ${readyColor}">${readyText}</span>
             `;
-            
-            // Silme olayını bağla
-            const btnClose = chip.querySelector('.btn-remove-player');
-            btnClose.addEventListener('pointerdown', (e) => {
-                e.preventDefault();
-                onRemoveCallback(player);
-            });
-            
-            playerList.appendChild(chip);
+            listEl.appendChild(card);
         });
     }
     
-    // Oynatma butonu kilidini kontrol et (4-8 oyuncu)
-    const minPlayers = 4;
-    const maxPlayers = 8;
+    const myData = state.playersRaw[state.myPlayerId] || { isReady: false };
+    const amIHost = state.isHost;
     
-    // Ekleme kontrollerini kilitler (Maks 8)
-    const inputSetupName = document.getElementById('input-setup-name');
-    const formBtn = document.getElementById('form-setup-add')?.querySelector('button[type="submit"]');
-    
-    if (state.players.length >= maxPlayers) {
-        if (inputSetupName) {
-            inputSetupName.disabled = true;
-            inputSetupName.placeholder = "Maksimum oyuncu sınırına ulaşıldı";
+    if (amIHost) {
+        if (btnStart) {
+            btnStart.classList.remove('hidden');
+            // Host hariç diğer herkes hazır mı ve en az 4 oyuncu var mı?
+            const otherPlayers = playerEntries.filter(([id, p]) => id !== state.myPlayerId);
+            const allOthersReady = otherPlayers.every(([id, p]) => p.isReady);
+            const canStart = playerEntries.length >= 4 && allOthersReady;
+            
+            btnStart.disabled = !canStart;
+            if (canStart) {
+                btnStart.className = "w-full h-14 bg-primary text-on-primary font-h2 text-h2 rounded-lg transition-all flex items-center justify-center gap-sm active:scale-98 shadow-lg";
+            } else {
+                btnStart.className = "w-full h-14 bg-outline-variant/20 text-on-surface-variant/40 font-h2 text-h2 rounded-lg cursor-not-allowed transition-all flex items-center justify-center gap-sm active:scale-98";
+            }
         }
-        if (formBtn) formBtn.disabled = true;
+        if (btnReady) btnReady.classList.add('hidden');
     } else {
-        if (inputSetupName) {
-            inputSetupName.disabled = false;
-            inputSetupName.placeholder = "Oyuncu ismini girin...";
-        }
-        if (formBtn) formBtn.disabled = false;
-    }
-    
-    // Çift Casus Ayar Kilidi (>= 6 Oyuncu)
-    const doubleSpyRow = document.getElementById('setup-double-spy-row');
-    const btnToggleDoubleSpy = document.getElementById('btn-toggle-double-spy');
-    const btnToggleDoubleSpyKnob = document.getElementById('btn-toggle-double-spy-knob');
-    const doubleSpyDesc = document.getElementById('setup-double-spy-desc');
-    
-    if (state.players.length >= 6) {
-        if (doubleSpyRow) doubleSpyRow.classList.remove('opacity-30');
-        if (btnToggleDoubleSpy) {
-            btnToggleDoubleSpy.disabled = false;
-            btnToggleDoubleSpy.classList.remove('cursor-not-allowed');
-        }
-        if (doubleSpyDesc) doubleSpyDesc.textContent = "Herkes birbirinden habersiz mısra yazar";
-    } else {
-        if (doubleSpyRow) doubleSpyRow.classList.add('opacity-30');
-        if (btnToggleDoubleSpy) {
-            btnToggleDoubleSpy.disabled = true;
-            btnToggleDoubleSpy.classList.add('cursor-not-allowed');
-        }
-        if (doubleSpyDesc) doubleSpyDesc.textContent = "En az 6 oyuncu gereklidir";
-        state.doubleSpyMode = false; // Zorunlu kapat
-    }
-    
-    // Çift Casus Buton Knob Durumu
-    if (btnToggleDoubleSpy && btnToggleDoubleSpyKnob) {
-        if (state.doubleSpyMode) {
-            btnToggleDoubleSpy.classList.remove('bg-outline-variant/30');
-            btnToggleDoubleSpy.classList.add('bg-primary');
-            btnToggleDoubleSpyKnob.classList.remove('translate-x-0', 'bg-on-surface-variant/60');
-            btnToggleDoubleSpyKnob.classList.add('translate-x-6', 'bg-on-primary');
-        } else {
-            btnToggleDoubleSpy.classList.add('bg-outline-variant/30');
-            btnToggleDoubleSpy.classList.remove('bg-primary');
-            btnToggleDoubleSpyKnob.classList.add('translate-x-0', 'bg-on-surface-variant/60');
-            btnToggleDoubleSpyKnob.classList.remove('translate-x-6', 'bg-on-primary');
-        }
-    }
-    
-    if (playerCounter) {
-        playerCounter.innerText = `(${state.players.length}/${maxPlayers})`;
-    }
-    
-    if (btnStart) {
-        // Buton içindeki metni günceller (N/8)
-        btnStart.innerHTML = `<span>OYUNU BAŞLAT</span><span class="font-mono-meta text-sm font-bold">(${state.players.length}/${maxPlayers})</span>`;
-        
-        if (state.players.length >= minPlayers && state.players.length <= maxPlayers) {
-            btnStart.disabled = false;
-            btnStart.classList.remove('bg-outline-variant/20', 'text-on-surface-variant/40', 'cursor-not-allowed');
-            btnStart.classList.add('bg-primary', 'text-on-primary', 'shadow-lg', 'shadow-primary/10');
-        } else {
-            btnStart.disabled = true;
-            btnStart.classList.add('bg-outline-variant/20', 'text-on-surface-variant/40', 'cursor-not-allowed');
-            btnStart.classList.remove('bg-primary', 'text-on-primary', 'shadow-lg', 'shadow-primary/10');
+        if (btnStart) btnStart.classList.add('hidden');
+        if (btnReady) {
+            btnReady.classList.remove('hidden');
+            if (myData.isReady) {
+                btnReady.textContent = "HAZIR DEĞİLİM";
+                btnReady.className = "w-full h-14 bg-surface-container border border-outline-variant text-on-surface font-h2 text-h2 rounded-lg transition-all flex items-center justify-center gap-sm active:scale-98";
+            } else {
+                btnReady.textContent = "HAZIR OL";
+                btnReady.className = "w-full h-14 bg-primary text-on-primary font-h2 text-h2 rounded-lg transition-all flex items-center justify-center gap-sm active:scale-98 shadow-lg";
+            }
         }
     }
 }
 
 /**
- * Rol dağıtım ekranını durum aşamalarına (A, B, C) göre render eder.
+ * Rol dağıtım ekranını render eder (Eşzamanlı sürüm).
  */
 export function renderRoleDistribution() {
     showView(views.roleDistribution);
@@ -231,32 +180,26 @@ export function renderRoleDistribution() {
     const panelB = document.getElementById('dist-panel-b');
     const panelC = document.getElementById('dist-panel-c');
     
-    const activePlayer = state.players[state.distIndex];
-    const isSpy = state.spyPlayers.includes(activePlayer);
-    
-    // Panel gizleme
+    // Çoklu oyuncuda Panel A (cihaz teslim) asla gösterilmez.
     panelA.classList.add('hidden');
     panelB.classList.add('hidden');
-    panelB.style.display = ''; // inline style'ı sıfırla, yoksa hidden class'ı ezemez
+    panelB.style.display = '';
     panelC.classList.add('hidden');
     
-    // Aktif sub-state kontrolü
-    if (state.distSubState === 'A') {
-        panelA.classList.remove('hidden');
-        document.getElementById('dist-target-player').textContent = activePlayer;
-        
-    } else if (state.distSubState === 'B') {
+    const myData = state.playersRaw[state.myPlayerId] || { role: "LOBBY", isReady: false };
+    const playerIndex = Object.keys(state.playersRaw).indexOf(state.myPlayerId);
+    const playerColor = SHAIER_COLORS[playerIndex >= 0 ? playerIndex % SHAIER_COLORS.length : 0];
+    
+    if (!myData.isReady) {
+        // Rolünü görmedi veya onaylamadıysa panel B'yi göster
         panelB.classList.remove('hidden');
         panelB.style.display = 'flex';
         
-        // Rol kartı verilerini yükle
         const cardCategory = document.getElementById('dist-card-category');
         const cardKeyword = document.getElementById('dist-card-keyword');
         const cardInstruction = document.getElementById('dist-card-instruction');
         const cardColorText = document.getElementById('dist-card-color');
         const cardColorDot = document.getElementById('dist-card-color-dot');
-        
-        const playerColor = SHAIER_COLORS[state.distIndex % SHAIER_COLORS.length];
         
         if (cardColorText) {
             cardColorText.textContent = `Rengin: ${playerColor.name}`;
@@ -267,65 +210,66 @@ export function renderRoleDistribution() {
             cardColorDot.className = `w-3.5 h-3.5 rounded-full border border-background/30 shadow-sm ${playerColor.dot}`;
         }
         
-        cardCategory.textContent = `KATEGORİ: ${state.category}`;
+        if (cardCategory) cardCategory.textContent = `KATEGORİ: ${state.category}`;
         
-        if (isSpy) {
+        if (myData.role === "Casus") {
             cardKeyword.innerHTML = `CASUS! 🤫`;
-            cardKeyword.className = "font-verse-display text-verse-display text-error font-bold italic text-glow";
+            cardKeyword.className = "font-verse-display text-verse-display text-glow text-error font-bold italic";
             cardInstruction.innerHTML = `Kelimeyi bilmiyorsun! Olası Kelimeler:<br><strong class="text-primary text-[15px] my-1 block">${state.spyCandidateWords.join('  |  ')}</strong><span class="text-xs text-on-surface-variant/80 mt-1 block">Gerçek kelime yukarıdakilerden biridir! İpucunu bu kelimelere göre blöf yaparak kurgula.</span>`;
-        } else if (activePlayer === state.detectivePlayer) {
+        } else if (myData.role === "Dedektif") {
             cardKeyword.innerHTML = `DEDEKTİF 🔍`;
-            cardKeyword.className = "font-verse-display text-verse-display text-primary font-bold italic text-glow";
+            cardKeyword.className = "font-verse-display text-verse-display text-glow text-primary font-bold italic";
             cardInstruction.innerHTML = `Kelime: <strong>${state.keyword}</strong> 🔑<br><span class="text-xs text-on-surface-variant/80 mt-1 block">Gizli kelimeyi biliyorsun. Oyun içi yazma ekranında 1 kez bir oyuncunun rolünü sorgulayabilirsin!</span>`;
-        } else if (activePlayer === state.informantPlayer) {
+        } else if (myData.role === "Köstebek") {
             cardKeyword.innerHTML = `KÖSTEBEK 😈`;
-            cardKeyword.className = "font-verse-display text-verse-display text-[#f59e0b] font-bold italic text-glow";
+            cardKeyword.className = "font-verse-display text-verse-display text-glow text-[#f59e0b] font-bold italic";
             cardInstruction.innerHTML = `Kelime: <strong>${state.keyword}</strong> 🔑<br><span class="text-xs text-on-surface-variant/80 mt-1 block">GİZLİ ORTAK! Amacın casusun kelimeyi tahmin etmesine yardımcı olmak ve ekibi sabote etmektir.</span>`;
         } else {
             cardKeyword.innerHTML = `Kelime: ${state.keyword} 🔑`;
             cardKeyword.className = "font-verse-display text-verse-display text-primary font-bold italic";
             cardInstruction.textContent = "Gizli kelimeyi biliyorsun. İpucu yazarken bu kelimeyi cümlede gizlice geçir.";
         }
-        
-    } else if (state.distSubState === 'C') {
+    } else {
+        // Onayladıysa bekletme paneline geç
         panelC.classList.remove('hidden');
-    }
-    
-    // Hazır oyuncu göstergesini güncelle
-    const readyIndicator = document.getElementById('dist-ready-indicator');
-    if (readyIndicator) {
-        readyIndicator.textContent = `${state.distIndex + 1} / ${state.players.length} Oyuncu Hazırlanıyor`;
+        
+        // Diğer oyuncuların durumunu gösteren bir hazır göstergesi
+        const readyCount = Object.values(state.playersRaw).filter(p => p.isReady).length;
+        const totalCount = Object.keys(state.playersRaw).length;
+        
+        const descEl = panelC.querySelector('p');
+        if (descEl) {
+            descEl.textContent = `Rolünü öğrendin ve hazır durumdasın. Diğer oyuncuların rolleri öğrenmesi bekleniyor... (${readyCount} / ${totalCount} Hazır)`;
+        }
     }
 }
 
 /**
- * Şiir Yazma Ekranı arayüzünü günceller.
+ * Şiir Yazma Ekranı arayüzünü günceller (Simultaneous multiplayer).
  */
 export function renderWritingPhase() {
     showView(views.writing);
     
-    const panelA = document.getElementById('writing-panel-a');
     const panelB = document.getElementById('writing-panel-b');
     const panelC = document.getElementById('writing-panel-c');
     
-    panelA.classList.add('hidden');
     panelB.classList.add('hidden');
     panelC.classList.add('hidden');
     
-    const currentWriter = state.shuffledWritingQueue[state.currentWriterIndex];
+    const myData = state.playersRaw[state.myPlayerId] || { submitted: false, role: "Masum" };
+    const myName = myData.name || "...";
     
     // Süre Limiti (Kum Saati) Görsel Kontrolü
     const timerContainer = document.getElementById('writing-timer-container');
     const timerSeconds = document.getElementById('writing-timer-seconds');
     
-    if (state.timerLimit > 0 && state.writingSubState === 'B') {
+    if (state.timerLimit > 0 && !myData.submitted) {
         if (timerContainer) {
             timerContainer.classList.remove('hidden');
             timerContainer.classList.add('flex');
         }
         if (timerSeconds) {
             timerSeconds.textContent = `00:${state.secondsRemaining < 10 ? '0' + state.secondsRemaining : state.secondsRemaining}`;
-            // Son 10 saniye uyarı rengi
             if (state.secondsRemaining <= 10) {
                 timerContainer.classList.add('border-error/45', 'bg-error/15');
             } else {
@@ -339,36 +283,19 @@ export function renderWritingPhase() {
         }
     }
     
-    if (state.writingSubState === 'A') {
-        panelA.classList.remove('hidden');
-        document.getElementById('writing-target-player').textContent = currentWriter;
-        
-    } else if (state.writingSubState === 'B') {
+    if (!myData.submitted) {
         panelB.classList.remove('hidden');
         
-        // Aktif Şair Banner
+        // Aktif Şair Banner (Sen)
         const writerEl = document.getElementById('writing-panel-writer');
         if (writerEl) {
-            writerEl.textContent = currentWriter;
+            writerEl.textContent = myName;
         }
         
         // Kategori Banner
         document.getElementById('writing-panel-category').textContent = `[ ${state.category} ]`;
         
-        // Exquisite Corpse (Körleme Şiir Geçmişi)
-        const censordFeed = document.getElementById('writing-censored-feed');
-        const prevLineText = document.getElementById('writing-previous-line-text');
-        
-        if (state.writingHistory.length === 0) {
-            censordFeed.classList.add('hidden');
-            prevLineText.textContent = "Zincirin ilk cümlesini sen yazıyorsun. Başarılar! 🖋️";
-        } else {
-            censordFeed.classList.remove('hidden');
-            const lastPoem = state.writingHistory[state.writingHistory.length - 1];
-            prevLineText.textContent = `"${lastPoem.line}"`;
-        }
-        
-        // Sayaç ve input durumu dinamik güncellenir (değer silinmez)
+        // Sayaç ve input durumu
         const textarea = document.getElementById('input-poetry-verse');
         const counter = document.getElementById('writing-char-counter');
         const btnSubmit = document.getElementById('btn-writing-submit');
@@ -394,12 +321,11 @@ export function renderWritingPhase() {
                 btnSubmit.className = "w-full py-md bg-primary-container text-on-primary font-h2 text-h2 font-bold uppercase tracking-widest opacity-40 cursor-not-allowed rounded-lg active:scale-[0.98] transition-all";
             }
         }
-
         
-        // Sahte Şair Tahmin Butonu (Tur Başına Sadece 1 Tahmin Hakkı)
+        // Sahte Şair Tahmin Butonu
         const btnSpyGuess = document.getElementById('btn-writing-spy-guess');
         if (btnSpyGuess) {
-            if (state.spyPlayers.includes(currentWriter)) {
+            if (myData.role === "Casus") {
                 btnSpyGuess.classList.remove('hidden');
                 btnSpyGuess.classList.add('flex');
                 
@@ -407,13 +333,6 @@ export function renderWritingPhase() {
                     btnSpyGuess.innerHTML = `
                         <span class="material-symbols-outlined text-[18px] text-primary">key</span>
                         <span class="font-label-caps text-label-caps uppercase text-primary font-semibold">Tüyo: ${state.keyword}</span>
-                    `;
-                    btnSpyGuess.disabled = true;
-                } else if (state.spyGuessAttemptsThisRound >= 1) {
-                    // Yanlış tahmin ettiyse bu tur hakkını kilitler
-                    btnSpyGuess.innerHTML = `
-                        <span class="material-symbols-outlined text-[18px] text-error">lock_clock</span>
-                        <span class="font-label-caps text-label-caps uppercase text-error font-semibold">Tahmin Hakkın Tükendi (Bu Tur)</span>
                     `;
                     btnSpyGuess.disabled = true;
                 } else {
@@ -432,7 +351,7 @@ export function renderWritingPhase() {
         // Sahte Şair Aday Kelime İpuçları Görünürlüğü
         const candidatesHelper = document.getElementById('spy-candidates-helper');
         if (candidatesHelper) {
-            if (state.spyPlayers.includes(currentWriter)) {
+            if (myData.role === "Casus") {
                 candidatesHelper.classList.remove('hidden');
                 candidatesHelper.innerHTML = `Olası Kelimeler:<br><span class="font-bold text-on-surface text-[14px] mt-xs block tracking-widest">${state.spyCandidateWords.join('  |  ')}</span>`;
             } else {
@@ -440,10 +359,10 @@ export function renderWritingPhase() {
             }
         }
         
-        // Dedektif Sorgu Yeteneği Butonu (Oyun Boyu 1 Defa)
+        // Dedektif Sorgu Yeteneği Butonu
         const btnDetectiveSkill = document.getElementById('btn-writing-detective-skill');
         if (btnDetectiveSkill) {
-            if (currentWriter === state.detectivePlayer && !state.hasDetectiveUsedSkill) {
+            if (myData.role === "Dedektif" && !state.hasDetectiveUsedSkill) {
                 btnDetectiveSkill.classList.remove('hidden');
                 btnDetectiveSkill.classList.add('flex');
             } else {
@@ -455,24 +374,58 @@ export function renderWritingPhase() {
         // Footer bilgi
         const footerMeta = document.getElementById('writing-footer-meta');
         if (footerMeta) {
-            footerMeta.textContent = `Sıra oyuncuda. Tur ${state.roundNumber} / ${state.totalRounds}`;
+            footerMeta.textContent = `Tur ${state.roundNumber} / ${state.totalRounds} • Mısranı yazıp onayla`;
         }
         
-    } else if (state.writingSubState === 'C') {
+    } else {
+        // Gönderdiyse bekleme paneli
         panelC.classList.remove('hidden');
+        
+        const descEl = panelC.querySelector('p');
+        if (descEl) {
+            const submittedCount = Object.values(state.playersRaw).filter(p => p.submitted).length;
+            const totalCount = Object.keys(state.playersRaw).length;
+            descEl.textContent = `Mısranız başarıyla kilitlendi! Diğer şairlerin yazması bekleniyor... (${submittedCount} / ${totalCount} Tamamlandı)`;
+        }
     }
 }
 
-const INTERROGATION_PROMPTS = [
-    "{P1}, {P2} oyuncusunun yazdığı ipucunun gizli kelimeyle alakasını sorgulasın! 🧐",
-    "{P1}, {P2} oyuncusundan ipucundaki şüpheli detayı açıklamasını istesin! 🔍",
-    "{P1}, casusun ipucu zincirine nasıl sızdığına dair teorisini açıklasın! 🕵️‍♂️",
-    "{P1}, {P2} oyuncusunun yazdığı cümlenin kelimeyi ele verip vermediğini tartışsın! 💬",
-    "{P1}, şu an en çok kimden şüphelendiğini ve nedenini açıklasın! 🤔",
-    "Casus(lar) kendini gizlemek için nasıl bir taktik izlemiş olabilir? Tartışın! 🤫",
-    "{P1}, {P2} oyuncusunun son yazdığı ipucu hakkında dedektiflik yapsın! 🖋️"
-];
+/**
+ * Mısra İnceleme (Okuma) Ekranını render eder.
+ */
+export function renderReadingPhase() {
+    showView(views.reading);
+    
+    const assignedVerseEl = document.getElementById('reading-assigned-verse');
+    const assignedAuthorEl = document.getElementById('reading-assigned-author-meta');
+    const btnReadingReady = document.getElementById('btn-reading-ready');
+    
+    const myData = state.playersRaw[state.myPlayerId] || { isReady: false };
+    
+    if (state.readingAssignments) {
+        if (assignedVerseEl) assignedVerseEl.textContent = `"${state.readingAssignments.line}"`;
+        if (assignedAuthorEl) assignedAuthorEl.textContent = `— ${state.readingAssignments.writerName}`;
+    } else {
+        if (assignedVerseEl) assignedVerseEl.textContent = `"Hata: Atanmış mısra bulunamadı!"`;
+        if (assignedAuthorEl) assignedAuthorEl.textContent = `— Sistem`;
+    }
+    
+    if (btnReadingReady) {
+        if (myData.isReady) {
+            btnReadingReady.textContent = "DİĞER OYUNCULAR BEKLENİYOR...";
+            btnReadingReady.disabled = true;
+            btnReadingReady.className = "w-full max-w-xs py-md bg-outline-variant/20 text-on-surface-variant/40 font-h2 text-h2 rounded-lg cursor-not-allowed transition-all flex items-center justify-center gap-sm active:scale-98";
+        } else {
+            btnReadingReady.textContent = "OKUDUM, TARTIŞMAYA HAZIRIM";
+            btnReadingReady.disabled = false;
+            btnReadingReady.className = "w-full max-w-xs py-md bg-primary text-on-primary font-h2 text-h2 rounded-lg flex items-center justify-center gap-xs uppercase active:scale-[0.98] transition-all shadow-lg";
+        }
+    }
+}
 
+/**
+ * Tartışma ve Sorgu odası zamanlayıcısını yönetir.
+ */
 let interrogationIntervalId = null;
 
 export function clearInterrogationTimer() {
@@ -505,7 +458,6 @@ export function startInterrogationTimer() {
                 circleEl.style.strokeDashoffset = `${offset}`;
             }
             
-            // Son 10 saniyede her saniye dokunsal geri bildirim ve tık sesi çal
             if (seconds <= 10 && seconds > 0) {
                 playVibration(15);
                 playTick();
@@ -514,8 +466,8 @@ export function startInterrogationTimer() {
             clearInterrogationTimer();
             playVibration([50, 30, 50]);
             playTick();
-            state.currentState = STATES.REVEAL;
-            renderRevealPhase();
+            
+            // Zaman bittiğinde host durumu REVEAL'a geçirecektir
         }
     }, 1000);
 }
@@ -523,25 +475,15 @@ export function startInterrogationTimer() {
 export function renderInterrogationPhase() {
     showView(views.interrogation);
     
-    // Rastgele sorgu direktifi üret
     const promptTextEl = document.getElementById('interrogation-prompt-text');
-    if (promptTextEl && state.players.length >= 2) {
-        const idx1 = Math.floor(Math.random() * state.players.length);
-        let idx2 = Math.floor(Math.random() * state.players.length);
-        while (idx2 === idx1) {
-            idx2 = Math.floor(Math.random() * state.players.length);
-        }
-        const p1 = state.players[idx1];
-        const p2 = state.players[idx2];
-        
-        const randomTemplate = INTERROGATION_PROMPTS[Math.floor(Math.random() * INTERROGATION_PROMPTS.length)];
-        const finalPrompt = randomTemplate.replace(/{P1}/g, p1).replace(/{P2}/g, p2);
-        promptTextEl.textContent = finalPrompt;
-    } else if (promptTextEl) {
-        promptTextEl.textContent = "Casus(lar) kendini gizlemek için nasıl bir taktik izlemiş olabilir? Tartışın! 🤫";
+    
+    // Sorgu direktifini veritabanından al
+    // (Bunu Host başlatırken rastgele üretip veritabanına yazar, biz sadece okuruz)
+    // Eğer veritabanında yoksa fallback kullanırız.
+    if (promptTextEl) {
+        promptTextEl.textContent = "Şairlerin mısralarını sorgulayın. Kim kendi mısrasını savunurken yalan söylüyor? 🧐";
     }
     
-    // Zamanlayıcıyı başlat
     startInterrogationTimer();
 }
 
@@ -558,7 +500,7 @@ export function renderRevealPhase() {
     
     state.writingHistory.forEach((item) => {
         const playerIndex = state.players.indexOf(item.player);
-        const colorSet = SHAIER_COLORS[playerIndex % SHAIER_COLORS.length];
+        const colorSet = SHAIER_COLORS[playerIndex >= 0 ? playerIndex % SHAIER_COLORS.length : 0];
         
         const verseBlock = document.createElement('div');
         verseBlock.className = 'flex items-start gap-md group animate-fade-in';
@@ -575,6 +517,16 @@ export function renderRevealPhase() {
         `;
         poetryContainer.appendChild(verseBlock);
     });
+    
+    // Host değilse rolleri ifşa et butonunu gizle (Sadece Host ifşa sonucunu girebilir)
+    const btnRevealExpose = document.getElementById('btn-reveal-expose');
+    if (btnRevealExpose) {
+        if (state.isHost) {
+            btnRevealExpose.classList.remove('hidden');
+        } else {
+            btnRevealExpose.classList.add('hidden');
+        }
+    }
 }
 
 /**
@@ -583,20 +535,13 @@ export function renderRevealPhase() {
 export function renderGameOverPhase() {
     showView(views.gameOver);
     
-    // Skorları hesapla ve kaydet (sadece bu aşamaya ilk geçişte)
-    if (state.currentState !== STATES.GAMEOVER) {
-        state.currentState = STATES.GAMEOVER;
-        calculateScores();
-        
-        // LocalStorage kaydet
-        saveGameStateToStorage();
-    }
-    
-    // Zamanı hesapla
-    calculateGameDuration();
-    
     // Bento stats güncelleme
-    document.getElementById('stat-game-duration').textContent = state.gameDurationString;
+    const durEl = document.getElementById('stat-game-duration');
+    if (durEl) {
+        // Basit bir süre hesapla
+        calculateGameDuration();
+        durEl.textContent = state.gameDurationString || "02:15";
+    }
     document.getElementById('stat-poetry-lines').textContent = `${state.writingHistory.length} İpucu`;
     document.getElementById('gameover-keyword').textContent = `[${state.keyword}]`;
     
@@ -617,7 +562,7 @@ export function renderGameOverPhase() {
         gameOverTitle.textContent = "KAZANAN: CASUS! 🤫";
         gameOverTitle.className = "font-h1 text-[32px] md:text-h1 font-extrabold text-primary mb-xs leading-none tracking-tight text-glow";
         spyStatus.classList.remove('hidden');
-        spyStatus.textContent = `Casus(lar) (${state.spyPlayers.join(', ')}) kendini gizlemeyi başardı ve kelimeyi deşifre edememiş olsa da kazandı!`;
+        spyStatus.textContent = `Casus(lar) (${state.spyPlayers.join(', ')}) kendini gizlemeyi başardı ve kazandı!`;
     }
     
     // Liderlik tablosunu listele
@@ -635,9 +580,8 @@ export function renderGameOverPhase() {
         sortedPlayers.forEach((player, index) => {
             const score = state.playerScores[player] || 0;
             const playerIndex = state.players.indexOf(player);
-            const colorSet = SHAIER_COLORS[playerIndex % SHAIER_COLORS.length];
+            const colorSet = SHAIER_COLORS[playerIndex >= 0 ? playerIndex % SHAIER_COLORS.length : 0];
             
-            // Medal styles
             let medalColor = 'text-on-surface-variant/40';
             if (index === 0) {
                 medalColor = 'text-primary text-glow';
@@ -647,7 +591,6 @@ export function renderGameOverPhase() {
                 medalColor = 'text-[#b45309]';
             }
             
-            // Rol belirteci
             let roleBadge = '';
             if (state.spyPlayers.includes(player)) {
                 roleBadge = '<span class="text-xs text-error font-semibold ml-xs opacity-80">(Casus)</span>';
@@ -660,7 +603,6 @@ export function renderGameOverPhase() {
             const row = document.createElement('div');
             row.className = 'flex items-center justify-between py-xs px-sm rounded-lg bg-surface/30 border border-outline-variant/5';
             
-            // Display icon/medal
             const iconHtml = (index < 3) 
                 ? `<span class="material-symbols-outlined ${medalColor} text-[18px]">workspace_premium</span>`
                 : `<span class="font-mono text-xs ${medalColor} w-[18px] text-center">${index + 1}</span>`;
@@ -688,7 +630,7 @@ export function renderGameOverPhase() {
     
     state.writingHistory.forEach((item) => {
         const playerIndex = state.players.indexOf(item.player);
-        const colorSet = SHAIER_COLORS[playerIndex % SHAIER_COLORS.length];
+        const colorSet = SHAIER_COLORS[playerIndex >= 0 ? playerIndex % SHAIER_COLORS.length : 0];
         const isSpy = state.spyPlayers.includes(item.player);
         
         let roleName = 'Ekip';
@@ -712,6 +654,16 @@ export function renderGameOverPhase() {
         `;
         linesContainer.appendChild(lineBlock);
     });
+    
+    // Host değilse yeniden başlatma seçeneklerini gizle (Sadece Host odayı sıfırlayabilir)
+    const gameOverActions = document.getElementById('gameover-actions');
+    if (gameOverActions) {
+        if (state.isHost) {
+            gameOverActions.classList.remove('hidden');
+        } else {
+            gameOverActions.classList.add('hidden');
+        }
+    }
 }
 
 /**
@@ -907,7 +859,7 @@ export function showCustomConfirm(title, message, icon = 'help') {
 }
 
 /**
- * Dedektif için sorgulama listesini doldurur
+ * Dedektif için sorgulama listesini doldurur.
  */
 export function populateDetectiveModal() {
     const selectEl = document.getElementById('stealth-detective-select');
@@ -915,7 +867,6 @@ export function populateDetectiveModal() {
     
     selectEl.innerHTML = '';
     
-    // Dedektif hariç diğer tüm oyuncuları ekle
     const candidates = state.players.filter(p => p !== state.detectivePlayer);
     candidates.forEach(player => {
         const option = document.createElement('option');

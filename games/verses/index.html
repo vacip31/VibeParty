@@ -126,16 +126,32 @@
                 </p>
             </div>
 
-            <!-- Action Buttons -->
-            <div class="flex flex-col gap-sm w-full max-w-xs">
-                <button id="btn-welcome-resume" class="hidden w-full bg-transparent border border-primary text-primary font-h2 text-h2 py-md rounded-lg flex items-center justify-center gap-xs uppercase active:scale-95 transition-all hover:bg-primary/5 duration-200 shadow-lg">
-                    <span>Oyuna Devam Et</span>
-                    <span class="material-symbols-outlined">history</span>
+            <!-- Player Name & Multi-Device Action Buttons -->
+            <div class="flex flex-col gap-md w-full max-w-xs px-base">
+                <!-- Name input -->
+                <div class="relative group flex flex-col w-full gap-xs">
+                    <label for="input-welcome-name" class="font-label-caps text-[10px] text-primary uppercase tracking-widest pl-1">Adınız</label>
+                    <input class="w-full bg-surface-container border border-outline-variant/30 rounded-lg px-4 py-3 text-h2 font-h2 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary transition-all duration-300" 
+                         id="input-welcome-name" placeholder="İsminizi yazın..." type="text" maxlength="12" required/>
+                </div>
+
+                <div class="w-full h-px bg-outline-variant/10 my-xs"></div>
+
+                <button id="btn-welcome-create-room" class="w-full bg-primary text-on-primary font-h2 text-h2 py-md rounded-lg flex items-center justify-center gap-xs uppercase active:scale-95 duration-200 shadow-xl shadow-primary/10">
+                    <span>Oda Kur (Host)</span>
+                    <span class="material-symbols-outlined">add_circle</span>
                 </button>
-                <button id="btn-welcome-start" class="w-full bg-primary-container text-on-primary font-h2 text-h2 py-md rounded-lg flex items-center justify-center gap-xs uppercase active:scale-95 duration-200 shadow-xl shadow-primary/10">
-                    <span>Oyunu Başlat</span>
-                    <span class="material-symbols-outlined">play_arrow</span>
-                </button>
+
+                <div class="flex items-center gap-xs w-full">
+                    <input class="w-2/3 bg-surface-container border border-outline-variant/30 rounded-lg px-4 py-3 text-h2 font-h2 text-on-surface placeholder:text-on-surface-variant/40 text-center tracking-widest focus:outline-none focus:border-primary uppercase" 
+                         id="input-welcome-room-code" placeholder="Oda Kodu" type="text" maxlength="4" />
+                    <button id="btn-welcome-join-room" class="w-1/3 bg-primary-container text-on-primary font-h2 text-h2 py-3 rounded-lg flex items-center justify-center uppercase active:scale-95 duration-200">
+                        <span>Katıl</span>
+                    </button>
+                </div>
+
+                <div class="w-full h-px bg-outline-variant/10 my-xs"></div>
+
                 <button id="btn-welcome-rules" class="w-full border border-outline-variant text-on-surface font-h2 text-h2 py-md rounded-lg flex items-center justify-center gap-xs uppercase active:scale-95 transition-all hover:bg-surface-container-high duration-200">
                     <span class="material-symbols-outlined text-[20px]">help_center</span>
                     <span>Nasıl Oynanır?</span>
@@ -249,26 +265,10 @@
             <!-- Setup Title -->
             <section class="text-center space-y-xs animate-in fade-in slide-in-from-bottom-4 duration-700">
                 <span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.2em]">Oda Hazırlığı</span>
-                <h2 class="font-h1 text-[26px] text-on-surface">Oyuncuları Çağır</h2>
+                <h2 class="font-h1 text-[26px] text-on-surface">Oyun Ayarları</h2>
                 <p class="font-mono-meta text-mono-meta text-on-surface-variant max-w-[400px] mx-auto mt-1">
-                    Kelime oyununun başladığı yer. En az 4 oyuncu ile ipucu zincirini kurmaya başlayabilirsiniz.
+                    Oyun modunu ve sürelerini seçerek yeni bir oda oluşturun.
                 </p>
-            </section>
-
-            <!-- Name Input Field -->
-            <section class="space-y-md px-base">
-                <form id="form-setup-add" class="relative group flex items-center w-full">
-                    <input class="w-full bg-transparent border-0 border-b border-outline-variant/30 py-4 pr-12 text-h2 font-h2 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:ring-0 focus:border-primary transition-all duration-300" 
-                         id="input-setup-name" placeholder="Oyuncu ismini girin..." type="text" maxlength="12" required/>
-                    <button type="submit" class="absolute right-0 top-1/2 -translate-y-1/2 bg-primary-container text-on-primary-container p-2 rounded-lg hover:opacity-90 active:scale-90 transition-all flex items-center justify-center">
-                        <span class="material-symbols-outlined">add</span>
-                    </button>
-                </form>
-
-                <!-- Added Players list -->
-                <div class="flex flex-wrap gap-xs min-h-[48px] pt-2" id="setup-player-list">
-                    <p class="text-on-surface-variant/40 font-mono-meta text-sm italic py-2" id="setup-empty-state">Henüz kimse katılmadı...</p>
-                </div>
             </section>
 
             <!-- Game Settings Card -->
@@ -343,10 +343,52 @@
         <!-- Fixed Footer Action -->
         <footer class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[600px] p-md z-40">
             <div class="bg-surface/90 backdrop-blur-xl border-t border-outline-variant/10 p-sm rounded-t-xl">
-                <button class="w-full h-14 bg-outline-variant/20 text-on-surface-variant/40 font-h2 text-h2 rounded-lg cursor-not-allowed transition-all flex items-center justify-center gap-sm active:scale-98" 
-                    disabled id="btn-setup-start">
+                <button class="w-full h-14 bg-primary text-on-primary font-h2 text-h2 rounded-lg transition-all flex items-center justify-center gap-sm active:scale-98 shadow-lg" id="btn-setup-create-room">
+                    <span>ODA OLUŞTUR</span>
+                </button>
+            </div>
+        </footer>
+    </section>
+
+    <!-- 3.5. GÖRÜNÜM: MULTIPLAYER LOBİ EKRANI (MULTIPLAYER LOBBY SCREEN) -->
+    <section id="view-lobby" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden" style="display:none;">
+        <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/10 h-16">
+            <div class="flex items-center justify-between px-md h-full w-full max-w-[600px] mx-auto">
+                <button id="btn-lobby-leave" class="hover:opacity-80 transition-opacity active:scale-95 duration-200 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary">arrow_back</span>
+                </button>
+                <h1 class="font-h1-mobile text-h1-mobile font-bold text-primary tracking-tight">Oyun Lobisi</h1>
+                <div class="w-10"></div>
+            </div>
+        </header>
+
+        <main class="w-full max-w-[600px] px-sm pt-24 pb-32 flex flex-col gap-lg mt-4 mx-auto overflow-y-auto">
+            <section class="text-center space-y-xs animate-in fade-in duration-300">
+                <span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.2em]">Oda Kodu</span>
+                <h2 class="font-h1 text-[40px] text-glow text-primary tracking-widest" id="lobby-room-code">----</h2>
+                <p class="font-mono-meta text-mono-meta text-on-surface-variant max-w-[400px] mx-auto mt-1">
+                    Arkadaşlarınızın bu kod ile odaya katılması gerekiyor.
+                </p>
+            </section>
+
+            <section class="space-y-md px-base">
+                <h3 class="font-h2 text-h2 text-on-surface">Katılan Oyuncular <span id="lobby-player-count">(0/8)</span></h3>
+                <div class="flex flex-wrap gap-xs min-h-[48px] pt-2" id="lobby-player-list">
+                    <!-- Dinamik olarak doldurulur -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Fixed Footer Action for Lobby -->
+        <footer class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[600px] p-md z-40">
+            <div class="bg-surface/90 backdrop-blur-xl border-t border-outline-variant/10 p-sm rounded-t-xl flex gap-sm">
+                <!-- Oyuncular için Hazır Ol butonu -->
+                <button class="w-full h-14 bg-primary text-on-primary font-h2 text-h2 rounded-lg transition-all flex items-center justify-center gap-sm active:scale-98 shadow-lg animate-in slide-in-from-bottom duration-300" id="btn-lobby-ready">
+                    <span>HAZIR OL</span>
+                </button>
+                <!-- Host için Başlat butonu (Sadece hostta görünür) -->
+                <button class="w-full h-14 bg-outline-variant/20 text-on-surface-variant/40 font-h2 text-h2 rounded-lg cursor-not-allowed transition-all flex items-center justify-center gap-sm active:scale-98 hidden" disabled id="btn-lobby-start">
                     <span>OYUNU BAŞLAT</span>
-                    <span class="font-mono-meta text-sm" id="setup-player-counter">(0/4)</span>
                 </button>
             </div>
         </footer>
@@ -441,12 +483,12 @@
                 <div>
                     <h2 class="font-h1-mobile text-2xl text-on-surface font-light tracking-wide">Rolün Güvende</h2>
                     <p class="font-body text-sm text-on-surface-variant mt-2 leading-relaxed">
-                        Rolün başarıyla kaydedildi ve ekrandan temizlendi! Telefonu ters çevirip masaya bırakabilirsin.
+                        Rolünü başarıyla öğrendin! Diğer oyuncuların da rollerini öğrenmesi bekleniyor.
                     </p>
                 </div>
-                <button id="btn-dist-next" class="w-full max-w-xs py-md bg-primary text-on-primary font-h2 text-h2 rounded-lg flex items-center justify-center gap-xs uppercase active:scale-[0.98] transition-all mt-4">
-                    <span>Sıradaki Oyuncu</span>
-                    <span class="material-symbols-outlined">arrow_forward</span>
+                <button id="btn-dist-ready" class="w-full max-w-xs py-md bg-primary text-on-primary font-h2 text-h2 rounded-lg flex items-center justify-center gap-xs uppercase active:scale-[0.98] transition-all mt-4">
+                    <span>HAZIRIM</span>
+                    <span class="material-symbols-outlined">done</span>
                 </button>
             </div>
 
@@ -511,26 +553,8 @@
                 </div>
             </div>
 
-            <!-- Exquisite Corpse context -->
-            <div class="space-y-sm mb-lg">
-                <!-- Censored older verses -->
-                <div id="writing-censored-feed" class="glass-card rounded-lg p-lg text-center relative overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center bg-surface/40 backdrop-blur-md z-10">
-                        <span class="font-mono-meta text-mono-meta text-on-surface-variant/80 italic">[Önceki İpuçları Gizlendi 🔒]</span>
-                    </div>
-                    <p class="font-verse-body text-verse-body opacity-20">
-                        Bir sabah uyandım mailler arasında,<br/>
-                        KPI'lar dans ederken excel masasında.
-                    </p>
-                </div>
-                <!-- Net last verse line -->
-                <div id="writing-last-line-container" class="text-center px-sm">
-                    <span class="font-label-caps text-label-caps uppercase text-on-surface-variant/60 block mb-xs">Son İpucu:</span>
-                    <p id="writing-previous-line-text" class="font-verse-display text-verse-display text-on-surface italic">
-                        "..."
-                    </p>
-                </div>
-            </div>
+            <!-- Simultaneous writing mode does not show previous verses -->
+            <div class="h-6"></div>
 
             <!-- Text typing input area / Detective Inquiry Area (Stealth) -->
             <div class="flex-grow flex flex-col items-center justify-center w-full">
@@ -605,20 +629,51 @@
             </div>
         </main>
 
-        <!-- EKRAN C (Geçiş Ekranı) -->
+        <!-- EKRAN C (Geçiş Ekranı / Bekleme Ekranı) -->
         <main id="writing-panel-c" class="hidden pt-24 pb-32 px-gutter w-full max-w-[600px] mx-auto flex-1 overflow-y-auto flex flex-col items-center justify-center text-center gap-6 animate-fade-in">
-            <span class="material-symbols-outlined text-[64px] text-primary animate-pulse">lock_person</span>
+            <span class="material-symbols-outlined text-[64px] text-primary animate-pulse">check_circle</span>
             <div>
-                <h2 class="font-h1-mobile text-2xl text-on-surface font-light tracking-wide">İpucun Kilitlendi</h2>
+                <h2 class="font-h1-mobile text-2xl text-on-surface font-light tracking-wide">Mısranız Gönderildi</h2>
                 <p class="font-body text-sm text-on-surface-variant mt-2 leading-relaxed">
-                    İpucun başarıyla zincire eklendi ve gizlendi! Telefonu şimdi ters çevirip masaya bırakabilir veya sıradakine verebilirsin.
+                    Mısranız başarıyla kilitlendi! Diğer şairlerin yazması bekleniyor...
                 </p>
             </div>
-            <button id="btn-writing-confirm-pass" class="w-full max-w-xs py-md bg-primary text-on-primary font-h2 text-h2 rounded-lg flex items-center justify-center gap-xs uppercase active:scale-[0.98] transition-all mt-4">
-                <span>Sıradaki Oyuncuya Geç</span>
-                <span class="material-symbols-outlined">arrow_forward</span>
+        </main>
+
+    <!-- 5.2. GÖRÜNÜM: OKUMA VE HEDEF BELİRLEME EKRANI (READING ASSIGNMENT SCREEN) -->
+    <section id="view-reading" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden" style="display:none;">
+        <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/10 h-16">
+            <div class="flex items-center justify-between px-md h-full w-full max-w-[600px] mx-auto">
+                <div class="w-6"></div>
+                <h1 class="font-h1-mobile text-h1-mobile font-bold text-primary tracking-tight">Mısra İnceleme</h1>
+                <div class="w-6"></div>
+            </div>
+        </header>
+
+        <main class="relative z-10 w-full max-w-[600px] mx-auto min-h-screen pt-24 pb-32 px-gutter flex flex-col items-center justify-center text-center gap-lg">
+            <div>
+                <span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.2em] mb-xs">Sana Atanan Mısra</span>
+                <p class="font-body text-xs text-on-surface-variant opacity-70 italic max-w-sm mx-auto leading-relaxed mt-1">
+                    Bu mısrayı kimin yazdığını tahmin etmeye çalışın. Eğer Casus iseniz, bu mısra sizin blöf mısranızdır, onu kendi mısranız gibi savunmalısınız!
+                </p>
+            </div>
+
+            <!-- Verse Display Card -->
+            <div class="glass-card w-full rounded-lg p-lg text-center shadow-2xl border border-primary/20 relative overflow-hidden flex flex-col gap-sm">
+                <blockquote id="reading-assigned-verse" class="font-verse-display text-verse-display text-on-surface leading-normal text-glow py-md px-sm italic">
+                    "Yükleniyor..."
+                </blockquote>
+                <p id="reading-assigned-author-meta" class="font-mono-meta text-[11px] text-on-surface-variant opacity-50 uppercase tracking-wider">
+                    — Gizemli Şair
+                </p>
+            </div>
+
+            <button id="btn-reading-ready" class="w-full max-w-xs py-md bg-primary text-on-primary font-h2 text-h2 rounded-lg flex items-center justify-center gap-xs uppercase active:scale-[0.98] transition-all shadow-lg mt-base">
+                <span>Okudum, Tartışmaya Hazırım</span>
+                <span class="material-symbols-outlined">done_all</span>
             </button>
         </main>
+    </section>
     <!-- 5.5. GÖRÜNÜM: TARTIŞMA ÖNCESİ SORGU ODASI (THE INTERROGATION ROOM) -->
     <section id="view-interrogation" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden" style="display:none;">
         <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/10 h-16">
