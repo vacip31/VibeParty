@@ -24,6 +24,7 @@ import {
     clearInterrogationTimer,
     populateDetectiveModal,
     renderRevealPhase,
+    renderVotingPhase,
     renderGameOverPhase,
     populateCategoriesModal,
     showCustomAlert,
@@ -341,6 +342,9 @@ function renderCurrentStateView(oldState) {
         case STATES.REVEAL:
             clearTimeout(interrogationAutoRevealTimeout);
             renderRevealPhase();
+            break;
+        case STATES.VOTING:
+            renderVotingPhase();
             break;
         case STATES.GAMEOVER:
             renderGameOverPhase();
@@ -992,65 +996,77 @@ function setupEventListeners() {
             if (!state.isHost) return;
             playVibration(20);
             
-            if (exposeDecisionModal) {
-                const listContainer = document.getElementById('expose-spies-list-container');
-                if (listContainer) {
-                    listContainer.innerHTML = '';
-                    
-                    const spyEntries = Object.entries(state.playersRaw).filter(([id, p]) => p.role === "Casus");
-                    
-                    spyEntries.forEach(([id, p]) => {
-                        const row = document.createElement('label');
-                        row.style.display = 'flex';
-                        row.style.alignItems = 'center';
-                        row.style.gap = '10px';
-                        row.style.padding = '10px 12px';
-                        row.style.borderRadius = '8px';
-                        row.style.background = 'rgba(255,255,255,0.03)';
-                        row.style.border = '1px solid rgba(255,255,255,0.08)';
-                        row.style.cursor = 'pointer';
-                        row.className = 'hover:bg-white/5 transition-colors text-on-surface text-sm';
-                        
-                        row.innerHTML = `
-                            <input type="checkbox" name="exposed-spy-checkbox" value="${id}" style="width:18px; height:18px; accent-color:#efc72d; cursor:pointer;">
-                            <span style="font-weight:600;">${p.name}</span>
-                        `;
-                        listContainer.appendChild(row);
-                    });
-                }
-                exposeDecisionModal.classList.remove('hidden');
-                exposeDecisionModal.style.display = 'flex';
-            }
+            dbUpdateRoom(state.roomCode, {
+                currentState: STATES.VOTING,
+                votes: null
+            });
         });
     }
 
-    if (btnSubmitExposeDecision) {
-        btnSubmitExposeDecision.addEventListener(clickEvent, (e) => {
+    // --- EKRAN 6.5: BİREYSEL OYLAMA (VOTING) ---
+    const btnVotingSubmit = document.getElementById('btn-voting-submit');
+    const btnVotingFinish = document.getElementById('btn-voting-finish');
+
+    if (btnVotingSubmit) {
+        btnVotingSubmit.addEventListener(clickEvent, (e) => {
+            e.preventDefault();
+            const selectedRadio = document.querySelector('input[name="voting-candidate"]:checked');
+            if (!selectedRadio) {
+                showCustomAlert('Hata', 'Lütfen oy vermek istediğiniz şairi seçin!', 'warning');
+                return;
+            }
+            playVibration(20);
+            const votedId = selectedRadio.value;
+            dbUpdateRoom(state.roomCode, {
+                [`votes/${state.myPlayerId}`]: votedId
+            });
+        });
+    }
+
+    if (btnVotingFinish) {
+        btnVotingFinish.addEventListener(clickEvent, (e) => {
             e.preventDefault();
             if (!state.isHost) return;
-            
-            const checkboxes = document.querySelectorAll('input[name="exposed-spy-checkbox"]');
-            const checkedIds = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
-            
-            const spyIds = Object.keys(state.playersRaw).filter(id => state.playersRaw[id].role === "Casus");
-            const allSpiesExposed = spyIds.length > 0 && spyIds.every(id => checkedIds.includes(id));
-            
-            state.exposedSpyIds = checkedIds;
-            state.spyExposedByGroup = allSpiesExposed;
-            
+            playVibration(20);
+
+            // Skorları hesapla
             calculateScores();
+
+            // Oylamayı bitir ve GameOver durumuna geç
+            const spyIds = Object.keys(state.playersRaw).filter(id => state.playersRaw[id].role === "Casus");
+            const votes = state.votes || {};
             
-            exposeDecisionModal.classList.add('hidden');
-            exposeDecisionModal.style.display = 'none';
+            // Oy çokluğu ile en çok oyu alan kişi(ler)yi bul
+            const voteCounts = {};
+            Object.values(votes).forEach(votedId => {
+                voteCounts[votedId] = (voteCounts[votedId] || 0) + 1;
+            });
             
+            let maxVotes = 0;
+            let mostVotedIds = [];
+            Object.entries(voteCounts).forEach(([votedId, count]) => {
+                if (count > maxVotes) {
+                    maxVotes = count;
+                    mostVotedIds = [votedId];
+                } else if (count === maxVotes) {
+                    mostVotedIds.push(votedId);
+                }
+            });
+
+            // En çok oy alan kişi(ler) casus mu?
+            const allSpiesExposed = spyIds.length > 0 && spyIds.every(id => mostVotedIds.includes(id));
+
             const updates = {
-                "results/exposedSpyIds": checkedIds,
+                "results/exposedSpyIds": mostVotedIds,
                 "results/spyExposedByGroup": allSpiesExposed,
                 currentState: STATES.GAMEOVER
             };
-            Object.keys(state.playersRaw).forEach(id => {
+            // Oyuncuların skorlarını veritabanında güncelle
+            Object.entries(state.playersRaw).forEach(([id, p]) => {
+                updates[`players/${id}/score`] = p.score || 0;
                 updates[`players/${id}/isReady`] = false;
             });
+
             dbUpdateRoom(state.roomCode, updates);
             
             if (allSpiesExposed) {
@@ -1058,14 +1074,6 @@ function setupEventListeners() {
             } else {
                 playFailure();
             }
-        });
-    }
-    
-    if (btnCloseExposeDecision) {
-        btnCloseExposeDecision.addEventListener(clickEvent, (e) => {
-            e.preventDefault();
-            exposeDecisionModal.classList.add('hidden');
-            exposeDecisionModal.style.display = 'none';
         });
     }
 

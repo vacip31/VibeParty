@@ -14,6 +14,7 @@ export const views = {
     reading: document.getElementById('view-reading'), // Mısra Okuma Ekranı
     interrogation: document.getElementById('view-interrogation'),
     reveal: document.getElementById('view-reveal'),
+    voting: document.getElementById('view-voting'),
     gameOver: document.getElementById('view-game-over')
 };
 
@@ -240,9 +241,13 @@ export function renderRoleDistribution() {
             cardKeyword.className = "font-verse-display text-verse-display text-glow text-primary font-bold italic";
             cardInstruction.innerHTML = `Kelime: <strong>${state.keyword}</strong> 🔑<br><span class="text-xs text-on-surface-variant/80 mt-1 block">Gizli kelimeyi biliyorsun. Oyun içi yazma ekranında 1 kez bir oyuncunun rolünü sorgulayabilirsin!</span>`;
         } else if (myData.role === "Köstebek") {
+            const spyNames = Object.values(state.playersRaw)
+                .filter(p => p.role === "Casus")
+                .map(p => p.name)
+                .join(', ');
             cardKeyword.innerHTML = `KÖSTEBEK 😈`;
             cardKeyword.className = "font-verse-display text-verse-display text-glow text-[#f59e0b] font-bold italic";
-            cardInstruction.innerHTML = `Kelime: <strong>${state.keyword}</strong> 🔑<br><span class="text-xs text-on-surface-variant/80 mt-1 block">GİZLİ ORTAK! Amacın casusun kelimeyi tahmin etmesine yardımcı olmak ve ekibi sabote etmektir.</span>`;
+            cardInstruction.innerHTML = `Kelime: <strong>${state.keyword}</strong> 🔑<br>Casus: <strong>${spyNames || 'Bilinmiyor'}</strong><br><span class="text-xs text-on-surface-variant/80 mt-1.5 block">GİZLİ ORTAK! Amacın casusun kelimeyi tahmin etmesine yardımcı olmak, onu korumak ve ekibi sabote etmektir.</span>`;
         } else {
             cardKeyword.innerHTML = `Kelime: ${state.keyword} 🔑`;
             cardKeyword.className = "font-verse-display text-verse-display text-primary font-bold italic";
@@ -592,6 +597,86 @@ export function renderRevealPhase() {
             btnRevealReset.classList.add('hidden');
         }
     }
+}
+
+/**
+ * Bireysel Oylama (VOTING) Ekranını render eder.
+ */
+export function renderVotingPhase() {
+    showView(views.voting);
+
+    const listContainer = document.getElementById('voting-players-list');
+    const btnSubmit = document.getElementById('btn-voting-submit');
+    const btnFinish = document.getElementById('btn-voting-finish');
+    const statusText = document.getElementById('voting-status-text');
+
+    if (!listContainer) return;
+    listContainer.innerHTML = '';
+
+    // Firebase oylarını ve oyuncular listesini çek
+    const votes = state.votes || {};
+    const hasVoted = votes[state.myPlayerId] !== undefined;
+
+    // Oy verenlerin sayısını güncelle
+    const voteCount = Object.keys(votes).length;
+    const totalCount = Object.keys(state.playersRaw).length;
+    if (statusText) {
+        statusText.textContent = `Oylar Bekleniyor... (${voteCount} / ${totalCount})`;
+    }
+
+    // Host ise "Oylamayı Bitir" butonunu sadece herkes oy verince (veya en azından 1 oy olunca) görünür yapalım
+    if (btnFinish) {
+        if (state.isHost) {
+            btnFinish.classList.remove('hidden');
+            btnFinish.style.display = 'flex';
+            // Herkes oy verdiyse daha belirgin hale getir
+            if (voteCount >= totalCount) {
+                btnFinish.className = "w-full py-md bg-primary-container text-on-primary font-h2 text-h2 uppercase rounded-lg hover:opacity-90 transition-all active:scale-[0.98] duration-200 shadow-lg shadow-primary/10";
+            } else {
+                btnFinish.className = "w-full border border-primary/30 text-primary hover:bg-primary/5 font-h2 text-h2 py-md rounded-lg active:scale-[0.98] transition-all duration-300 uppercase flex items-center justify-center gap-xs";
+            }
+        } else {
+            btnFinish.classList.add('hidden');
+            btnFinish.style.display = 'none';
+        }
+    }
+
+    // Eğer oyuncu zaten oy verdiyse listedeki butonları pasif yapalım ve bekleme uyarısı gösterelim
+    if (btnSubmit) {
+        if (hasVoted) {
+            btnSubmit.disabled = true;
+            btnSubmit.textContent = "Oyunu Gönderdin";
+            btnSubmit.className = "w-full py-md bg-outline-variant/20 text-on-surface-variant/40 font-h2 text-h2 uppercase rounded-lg cursor-not-allowed transition-all duration-200";
+        } else {
+            btnSubmit.disabled = false;
+            btnSubmit.textContent = "Oyumu Gönder";
+            btnSubmit.className = "w-full bg-primary text-on-primary font-h2 text-h2 py-md rounded-lg shadow-lg active:scale-[0.98] transition-all duration-300 uppercase flex items-center justify-center gap-xs";
+        }
+    }
+
+    // Oy verilebilecek adayları listele (Kendisi hariç herkes)
+    const candidates = Object.entries(state.playersRaw).filter(([id, p]) => id !== state.myPlayerId);
+
+    candidates.forEach(([id, p]) => {
+        const colorSet = getPlayerColor(p.name);
+        const card = document.createElement('label');
+        card.className = `flex items-center justify-between w-full bg-surface-container-high px-md py-sm rounded-lg border border-outline-variant/10 cursor-pointer hover:bg-white/5 transition-all duration-200 ${hasVoted ? 'opacity-60 cursor-not-allowed' : ''}`;
+        
+        // Eğer oylamada bu kişiyi seçtiyse görsel olarak işaretle
+        const isTargetOfMyVote = votes[state.myPlayerId] === id;
+        
+        card.innerHTML = `
+            <div class="flex items-center gap-md">
+                <input type="radio" name="voting-candidate" value="${id}" ${hasVoted ? 'disabled' : ''} ${isTargetOfMyVote ? 'checked' : ''} class="w-5 h-5 accent-color-[#efc72d]">
+                <div class="flex flex-col text-left">
+                    <span class="font-h2 text-sm text-on-surface font-semibold uppercase tracking-wider">${p.name}</span>
+                    <span class="text-[10px] font-mono-meta text-secondary uppercase">${colorSet.name}</span>
+                </div>
+            </div>
+            <div class="w-5 h-5 rounded-full ${colorSet.dot} border-2 border-background/50 shadow-sm"></div>
+        `;
+        listContainer.appendChild(card);
+    });
 }
 
 /**

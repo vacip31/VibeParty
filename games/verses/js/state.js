@@ -11,6 +11,7 @@ export const STATES = {
     READING: 'READING',
     INTERROGATION: 'INTERROGATION',
     REVEAL: 'REVEAL',
+    VOTING: 'VOTING',
     GAMEOVER: 'GAMEOVER'
 };
 
@@ -46,6 +47,7 @@ export const state = {
     playersRaw: {}, // Firebase'den gelen ham oyuncu verileri (id -> data)
     readingAssignments: {}, // Benim okumam gereken mısra verisi
     allAssignments: {}, // Tüm oyuncuların okuma mısraları
+    votes: {}, // Oylama ekranındaki oylar
     submittedVersesCount: 0,
     playedWordsHistory: [],
     interrogationPrompt: "",
@@ -84,6 +86,7 @@ export function resetGame() {
     state.playersRaw = {};
     state.readingAssignments = {};
     state.allAssignments = {};
+    state.votes = {};
     state.submittedVersesCount = 0;
     state.interrogationPrompt = "";
     state.exposedSpyIds = [];
@@ -174,6 +177,9 @@ export function syncStateFromFirebase(roomData) {
     // Atanan Okumalar
     state.allAssignments = roomData.readingAssignments || {};
     state.readingAssignments = state.allAssignments[state.myPlayerId] || null;
+    
+    // Oylar
+    state.votes = roomData.votes || {};
     
     // Sonuçlar
     const results = roomData.results || {};
@@ -293,6 +299,7 @@ export function initializeGameFlow(categoriesList) {
         roundNumber: 1,
         verses: {},
         readingAssignments: {},
+        votes: null,
         results: {
             spyExposedByGroup: false,
             spyGuessedCorrectly: false,
@@ -483,15 +490,40 @@ function normalizeText(text) {
  * Oyun sonu puanlamasını hesaplar (Firebase verilerine göre)
  */
 export function calculateScores() {
-    const exposedSpyIds = state.exposedSpyIds || [];
-    const isSpyGuessedCorrect = state.spyGuessedCorrectly;
+    const votes = state.votes || {};
+    const isSpyGuessedCorrect = state.spyGuessedCorrectly || false;
     
-    // Find all Spies in the room
-    const spyEntries = Object.entries(state.playersRaw).filter(([id, p]) => p.role === "Casus");
+    // Tüm casus ve köstebekleri tespit et
+    const spyIds = Object.keys(state.playersRaw).filter(id => state.playersRaw[id].role === "Casus");
     
-    // A spy team victory happens if at least one spy escapes OR at least one spy guesses correctly
-    const escapedSpiesCount = spyEntries.filter(([id, p]) => !exposedSpyIds.includes(id)).length;
-    const isSpyVictory = escapedSpiesCount > 0 || isSpyGuessedCorrect;
+    // Oy çokluğu ile en çok oyu alan kişi(ler)yi bul
+    const voteCounts = {};
+    Object.values(votes).forEach(votedId => {
+        voteCounts[votedId] = (voteCounts[votedId] || 0) + 1;
+    });
+    
+    let maxVotes = 0;
+    let mostVotedIds = [];
+    Object.entries(voteCounts).forEach(([votedId, count]) => {
+        if (count > maxVotes) {
+            maxVotes = count;
+            mostVotedIds = [votedId];
+        } else if (count === maxVotes) {
+            mostVotedIds.push(votedId);
+        }
+    });
+
+    // En çok oy alan kişi(ler) casus mu?
+    const allSpiesExposed = spyIds.length > 0 && spyIds.every(id => mostVotedIds.includes(id));
+    
+    // Masumların (Masum & Dedektif) yanlış verdiği oy sayısını hesapla (Aldatma Primi)
+    let nonSpyDeceivedVotes = 0;
+    Object.entries(votes).forEach(([voterId, votedId]) => {
+        const voterRole = state.playersRaw[voterId]?.role;
+        if ((voterRole === "Masum" || voterRole === "Dedektif") && !spyIds.includes(votedId)) {
+            nonSpyDeceivedVotes++;
+        }
+    });
 
     const updatedPlayers = { ...state.playersRaw };
 
@@ -499,36 +531,38 @@ export function calculateScores() {
         let currentScore = p.score || 0;
         const role = p.role;
 
-        if (isSpyVictory) {
-            // Casus Kazandı
-            if (role === "Casus") {
-                // Sadece kaçan veya kelimeyi doğru tahmin eden casus puan alır!
-                const hasEscaped = !exposedSpyIds.includes(id);
-                if (hasEscaped || isSpyGuessedCorrect) {
-                    currentScore += 15;
-                }
-            } else if (role === "Köstebek") {
-                currentScore += 10;
+        // --- İYİ TAKIM PUANLAMASI ---
+        if (role === "Masum" || role === "Dedektif") {
+            // Bireysel doğru oylama ödülü (+3)
+            const myVote = votes[id];
+            if (myVote && spyIds.includes(myVote)) {
+                currentScore += 3;
             }
-        } else {
-            // Ekip Kazandı (Tüm casuslar ifşa edildi ve kelimeyi bilemediler)
-            if (role !== "Casus" && role !== "Köstebek") {
-                currentScore += 10;
+            // Grup başarısı ödülü (+2)
+            if (allSpiesExposed) {
+                currentScore += 2;
             }
         }
+        
+        // --- KÖTÜ TAKIM PUANLAMASI (CASUS & KÖSTEBEK) ---
+        if (role === "Casus" || role === "Köstebek") {
+            // Casus yakalanmadıysa (+4)
+            if (!allSpiesExposed) {
+                currentScore += 4;
+            }
+            // Aldatma primi (Masumların her yanlış oyu için +1)
+            currentScore += nonSpyDeceivedVotes;
 
-        // Casus kelimeyi bildiyse ekstra bonus
-        if (role === "Casus" && isSpyGuessedCorrect) {
-            currentScore += 10;
+            // Kelimeyi doğru bildilerse (+3)
+            if (isSpyGuessedCorrect) {
+                currentScore += 3;
+            }
         }
 
         updatedPlayers[id].score = currentScore;
     });
 
-    // Puanları veritabanına kaydet
-    dbUpdateRoom(state.roomCode, {
-        players: updatedPlayers
-    });
+    state.playersRaw = updatedPlayers;
 }
 
 /**
