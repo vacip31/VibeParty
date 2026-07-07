@@ -818,7 +818,6 @@ function setupEventListeners() {
 
     // --- EKRAN 5: ŞİİR YAZMA ---
     const inputPoetryVerse = document.getElementById('input-poetry-verse');
-    const btnWritingSubmit = document.getElementById('btn-writing-submit');
     const btnWritingCancel = document.getElementById('btn-writing-cancel');
 
     if (btnWritingCancel) {
