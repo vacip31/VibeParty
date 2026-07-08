@@ -1,6 +1,6 @@
 /* Vibe X Verses Oyun Durum Yönetimi (state.js) */
 
-import { isFirebaseInitialized, dbUpdateRoom } from './firebase.js';
+import { isFirebaseInitialized, dbUpdateRoom, dbRunTransaction } from './firebase.js';
 
 export const STATES = {
     WELCOME: 'WELCOME',
@@ -8,7 +8,6 @@ export const STATES = {
     LOBBY: 'LOBBY',
     ROLE_DISTRIBUTION: 'ROLE_DISTRIBUTION',
     WRITING: 'WRITING',
-    READING: 'READING',
     INTERROGATION: 'INTERROGATION',
     REVEAL: 'REVEAL',
     VOTING: 'VOTING',
@@ -34,11 +33,11 @@ export const state = {
     keywordSynonyms: [], // Aktif kelimenin alternatif eş anlamlı kelimeleri
     spyGuessedCorrectly: false, // Herhangi bir sahte şair kelimeyi bildi mi
     spyGuessText: "", // Sahte şairin tahmini
+    guessDeadline: 0, // Casus'un son tahmin süresi (zaman damgası)
     totalRounds: 2, // Ayarlanabilir Tur Sayısı
     roundNumber: 1, // Aktif tur sayısı
     writingHistory: [], // [{ player: string, line: string }]
     currentRoundVerses: {}, // Active round verses (playerId -> line)
-    spyCandidateWords: [], // Casus için aday kelimeler
     
     // Multiplayer için eklenenler
     roomCode: "",
@@ -117,7 +116,7 @@ export function syncStateFromFirebase(roomData) {
     state.selectedCategory = settings.selectedCategory || null;
     state.keyword = settings.keyword || "";
     state.keywordSynonyms = settings.keywordSynonyms || [];
-    state.spyCandidateWords = settings.spyCandidateWords || [];
+
     state.totalRounds = settings.totalRounds || 2;
     state.timerLimit = settings.timerLimit || 0;
     state.doubleSpyMode = settings.doubleSpyMode || false;
@@ -187,6 +186,7 @@ export function syncStateFromFirebase(roomData) {
     state.spyGuessText = results.spyGuessText || "";
     state.spyExposedByGroup = results.spyExposedByGroup || false;
     state.exposedSpyIds = results.exposedSpyIds || [];
+    state.guessDeadline = results.guessDeadline || 0;
     state.gameStartTime = roomData.gameStartTime || null;
     state.interrogationPrompt = roomData.interrogation?.prompt || "";
 }
@@ -234,12 +234,6 @@ export function initializeGameFlow(categoriesList) {
         keywordSynonyms = (pickedWord.synonyms || []).map(s => s.toLowerCase());
     }
     
-    // Casus aday kelimeler
-    const allCategoryWords = randomCat.words.map(w => typeof w === 'string' ? w : w.w);
-    const decoyPool = allCategoryWords.filter(w => w !== keyword);
-    const shuffledDecoys = shuffle([...decoyPool]);
-    const selectedDecoys = shuffledDecoys.slice(0, Math.min(4, shuffledDecoys.length));
-    const spyCandidateWords = shuffle([keyword, ...selectedDecoys]);
     
     // Rolleri Dağıt
     const shuffledIds = shuffle([...playerIds]);
@@ -290,7 +284,6 @@ export function initializeGameFlow(categoriesList) {
             selectedCategory: state.selectedCategory,
             keyword: keyword,
             keywordSynonyms: keywordSynonyms,
-            spyCandidateWords: spyCandidateWords,
             totalRounds: state.totalRounds,
             timerLimit: state.timerLimit,
             doubleSpyMode: state.doubleSpyMode
@@ -303,7 +296,8 @@ export function initializeGameFlow(categoriesList) {
         results: {
             spyExposedByGroup: false,
             spyGuessedCorrectly: false,
-            spyGuessText: ""
+            spyGuessText: "",
+            guessDeadline: 0
         }
     };
     
@@ -330,132 +324,140 @@ export function startWritingRound(nextRoundNumber = state.roundNumber) {
     dbUpdateRoom(state.roomCode, updates);
 }
 
+
+
+// Genel kategori/ortam kelimelerini tahmin eşleşmesinde engellemek için stop-words listesi
+const GENERIC_STOP_WORDS = new Set([
+    "whatsapp", "instagram", "esnaf", "bakkal", "ik", "para", "is", "okul", "dizi", 
+    "telefon", "top", "mac", "ask", "flort", "sevgili", "yaz", "kis", "sokak", "mahalle",
+    "gun", "grup", "profil", "mesaj", "türk", "turk", "karakter", "oyun"
+]);
+
 /**
- * Herkese başkasının yazdığı rastgele bir mısrayı atar.
- * (Tüm mısralar bittiğinde Host tarafından çalıştırılır)
+ * İki metin arasındaki Levenshtein düzenleme mesafesini hesaplar.
  */
-export function assignRandomVerses() {
-    const playerIds = Object.keys(state.playersRaw);
-    const currentVerses = state.currentRoundVerses || {};
-    const eligibleWriterIds = playerIds.filter(id => {
-        const hasVerse = !!currentVerses[id];
-        const isSpy = state.playersRaw[id]?.role === 'Casus';
-        return hasVerse && !(state.roundNumber === 1 && isSpy);
-    });
-
-    if (eligibleWriterIds.length === 0) return;
-
-    let assignmentsTemp = {};
-    let success = false;
-    let attempts = 0;
-
-    while (!success && attempts < 200) {
-        attempts++;
-        assignmentsTemp = {};
-        
-        const shuffledReaders = shuffle([...playerIds]);
-        const shuffledWriters = shuffle([...eligibleWriterIds]);
-        
-        let possible = true;
-        
-        for (const readerId of shuffledReaders) {
-            const candidates = shuffledWriters.filter(wId => wId !== readerId);
-            if (candidates.length === 0) {
-                possible = false;
-                break;
+function getLevenshteinDistance(a, b) {
+    const matrix = [];
+    for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+    for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+    
+    for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j - 1] + 1, // değiştirme
+                    Math.min(
+                        matrix[i][j - 1] + 1, // ekleme
+                        matrix[i - 1][j] + 1  // silme
+                    )
+                );
             }
-            
-            const minReadCount = Math.min(...candidates.map(wId => {
-                return Object.values(assignmentsTemp).filter(id => id === wId).length;
-            }));
-            const bestCandidates = candidates.filter(wId => {
-                const count = Object.values(assignmentsTemp).filter(id => id === wId).length;
-                return count === minReadCount;
-            });
-            
-            const chosenId = bestCandidates[Math.floor(Math.random() * bestCandidates.length)];
-            assignmentsTemp[readerId] = chosenId;
         }
-        
-        if (!possible) continue;
-        
-        const selfRead = Object.entries(assignmentsTemp).some(([rId, wId]) => rId === wId);
-        if (selfRead) continue;
-        
-        if (shuffledReaders.length >= shuffledWriters.length) {
-            const allRead = shuffledWriters.every(wId => Object.values(assignmentsTemp).includes(wId));
-            if (!allRead) continue;
-        }
-        
-        success = true;
     }
+    return matrix[b.length][a.length];
+}
 
-    const assignments = {};
-    Object.entries(assignmentsTemp).forEach(([readerId, writerId]) => {
-        assignments[readerId] = {
-            round: state.roundNumber,
-            writerId,
-            writerName: state.playersRaw[writerId].name,
-            line: currentVerses[writerId]
-        };
-    });
-
-    const updatedPlayers = {};
-    playerIds.forEach(id => {
-        updatedPlayers[id] = { ...state.playersRaw[id], isReady: false };
-    });
-
-    dbUpdateRoom(state.roomCode, {
-        currentState: STATES.READING,
-        readingAssignments: assignments,
-        players: updatedPlayers
-    });
+/**
+ * Tahminin hedef kelimeye/eş anlamlıya yeterince yakın olup olmadığını denetler.
+ */
+function isCloseMatch(guess, target) {
+    const g = normalizeText(guess);
+    const t = normalizeText(target);
+    if (!g || !t) return false;
+    
+    // 1. Birebir eşitlik veya çoğul/iyelik eki farkı
+    if (g === t || g === t + 'lar' || g === t + 'ler' || g === t + 'i' || g === t + 'ı' || g === t + 'u' || g === t + 'ü') {
+        return true;
+    }
+    
+    // 2. Çok kelimeli hedeflerde (örn: "Maaş Günü"), tahmin kelimelerden birine tam eşit mi?
+    // "is", "gun" gibi çok kısa genel kelimelerin eşleşmesini önlemek için >= 4 harf sınırı uyguluyoruz.
+    const tWords = t.split(/\s+/).filter(w => w.length >= 4);
+    if (tWords.includes(g)) {
+        return true;
+    }
+    
+    // 3. Levenshtein mesafesi (Küçük yazım hatalarını tolere et)
+    if (t.length >= 4) {
+        const dist = getLevenshteinDistance(g, t);
+        const maxAllowed = t.length <= 6 ? 1 : 2;
+        if (dist <= maxAllowed) return true;
+    }
+    
+    return false;
 }
 
 /**
  * Sahte şairin kelime tahminini doğrular.
  */
-export function checkSpyGuess(guess) {
+export async function checkSpyGuess(guess) {
     const normalizedGuess = normalizeText(guess);
     const normalizedKeyword = normalizeText(state.keyword);
     
     let isCorrect = false;
     
+    // 1. Doğrudan kelime anahtarı ile eşleştir
     if (normalizedGuess && normalizedKeyword) {
-        if (normalizedGuess === normalizedKeyword || 
-            normalizedGuess.includes(normalizedKeyword) || 
-            normalizedKeyword.includes(normalizedGuess)) {
+        if (isCloseMatch(normalizedGuess, normalizedKeyword)) {
             isCorrect = true;
         }
     }
     
+    // 2. Eş anlamlı kelimeler (synonyms) listesi ile eşleştir (Genel stop-words'leri eleyerek)
     if (!isCorrect && normalizedGuess && state.keywordSynonyms) {
         for (const syn of state.keywordSynonyms) {
             const normalizedSyn = normalizeText(syn);
-            if (normalizedGuess === normalizedSyn || 
-                normalizedGuess.includes(normalizedSyn) || 
-                normalizedSyn.includes(normalizedGuess)) {
+            if (GENERIC_STOP_WORDS.has(normalizedSyn)) {
+                continue; // "whatsapp", "para" gibi genel kavramları tahmin eşleşmesinde es geç
+            }
+            if (isCloseMatch(normalizedGuess, normalizedSyn)) {
                 isCorrect = true;
                 break;
             }
         }
     }
     
-    // Durumu Firebase'de güncelle
-    const updates = {
-        "results/spyGuessedCorrectly": isCorrect,
-        "results/spyGuessText": guess.trim()
-    };
-    if (isCorrect) {
-        updates.currentState = STATES.GAMEOVER;
-        // Reset everyone's ready status
-        Object.keys(state.playersRaw).forEach(id => {
-            updates[`players/${id}/isReady`] = false;
-        });
-    }
-    dbUpdateRoom(state.roomCode, updates);
+    // Atomik Transaction ile çakışmayı (yarış durumunu) önle
+    const result = await dbRunTransaction(state.roomCode, "results", (currentResults) => {
+        if (!currentResults) return currentResults;
+        // Eğer zaten bir süre aşımı veya tahmin kaydedilmişse, bu tahmini iptal et!
+        if (currentResults.spyGuessText && currentResults.spyGuessText !== "") {
+            return; // Abort
+        }
+        currentResults.spyGuessText = guess.trim();
+        currentResults.spyGuessedCorrectly = isCorrect;
+        return currentResults;
+    });
     
-    return isCorrect;
+    if (result.committed) {
+        const updates = {};
+        if (isCorrect) {
+            state.spyGuessedCorrectly = true;
+            updates.currentState = STATES.GAMEOVER;
+            // Sadece Casus olan oyuncuların mevcut skoruna +3 puan ekle (Çifte hesaplamayı önlemek için)
+            Object.entries(state.playersRaw).forEach(([id, p]) => {
+                let score = p.score || 0;
+                if (p.role === "Casus") {
+                    score += 3;
+                }
+                updates[`players/${id}/score`] = score;
+                updates[`players/${id}/isReady`] = false;
+            });
+            await dbUpdateRoom(state.roomCode, updates);
+        } else {
+            // Yanlış tahminde sadece hazır olma durumunu sıfırla
+            Object.keys(state.playersRaw).forEach(id => {
+                updates[`players/${id}/isReady`] = false;
+            });
+            await dbUpdateRoom(state.roomCode, updates);
+        }
+        return isCorrect;
+    } else {
+        // Kilit alınamadı (süre dolumu veya başka bir cihaz daha önce yazdı)
+        return false;
+    }
 }
 
 /**
@@ -513,8 +515,9 @@ export function calculateScores() {
         }
     });
 
-    // En çok oy alan kişi(ler) casus mu?
-    const allSpiesExposed = spyIds.length > 0 && spyIds.every(id => mostVotedIds.includes(id));
+    // Tek başına en çok oy alan (sole top vote getter) oyuncu Casus mu?
+    const isSpyCaught = mostVotedIds.length === 1 && spyIds.includes(mostVotedIds[0]);
+    const isSpyEscaped = !isSpyCaught;
     
     // Masumların (Masum & Dedektif) yanlış verdiği oy sayısını hesapla (Aldatma Primi)
     let nonSpyDeceivedVotes = 0;
@@ -533,28 +536,27 @@ export function calculateScores() {
 
         // --- İYİ TAKIM PUANLAMASI ---
         if (role === "Masum" || role === "Dedektif") {
-            // Bireysel doğru oylama ödülü (+3)
+            // Bireysel doğru oylama ödülü (+3) - Yakalanmadan bağımsız
             const myVote = votes[id];
             if (myVote && spyIds.includes(myVote)) {
                 currentScore += 3;
             }
-            // Grup başarısı ödülü (+2)
-            if (allSpiesExposed) {
+            // Grup başarısı ödülü (+2) - Casus en çok oyu alan tek kişi ise
+            if (isSpyCaught) {
                 currentScore += 2;
             }
         }
         
         // --- KÖTÜ TAKIM PUANLAMASI (CASUS & KÖSTEBEK) ---
         if (role === "Casus" || role === "Köstebek") {
-            // Casus yakalanmadıysa (+4)
-            if (!allSpiesExposed) {
+            // Casus yakalanmadıysa (+4) ve Aldatma primi (Masumların her yanlış oyu için +1)
+            if (isSpyEscaped) {
                 currentScore += 4;
+                currentScore += nonSpyDeceivedVotes;
             }
-            // Aldatma primi (Masumların her yanlış oyu için +1)
-            currentScore += nonSpyDeceivedVotes;
 
-            // Kelimeyi doğru bildilerse (+3)
-            if (isSpyGuessedCorrect) {
+            // Kelimeyi doğru bildilerse (+3) - Sadece Casus alır
+            if (role === "Casus" && isSpyGuessedCorrect) {
                 currentScore += 3;
             }
         }

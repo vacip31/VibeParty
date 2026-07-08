@@ -1,4 +1,4 @@
-/* Vibe X Verses Ana Uygulama Modülü (app.js) */
+﻿/* Vibe X Verses Ana Uygulama ModÃ¼lÃ¼ (app.js) */
 
 import { 
     state, 
@@ -7,7 +7,6 @@ import {
     resetGame, 
     initializeGameFlow, 
     startWritingRound,
-    assignRandomVerses,
     checkSpyGuess,
     syncStateFromFirebase,
     calculateScores
@@ -19,7 +18,6 @@ import {
     renderLobbyPhase,
     renderRoleDistribution, 
     renderWritingPhase, 
-    renderReadingPhase,
     renderInterrogationPhase,
     clearInterrogationTimer,
     populateDetectiveModal,
@@ -48,7 +46,9 @@ import {
     dbListenToRoom,
     dbUpdateRoom,
     dbDestroyRoom,
-    dbLeaveRoom
+    dbLeaveRoom,
+    dbRunTransaction,
+    dbGetServerTime
 } from './firebase.js';
 
 let categoriesData = [];
@@ -56,24 +56,24 @@ let unsubscribeRoom = null;
 let interrogationAutoRevealTimeout = null;
 
 
-// ES modülleri deferred olarak çalışır — DOM her zaman hazırdır, DOMContentLoaded gerekmez.
+// ES modÃ¼lleri deferred olarak Ã§alÄ±ÅŸÄ±r â€” DOM her zaman hazÄ±rdÄ±r, DOMContentLoaded gerekmez.
 loadCategoriesData();
 
 try {
     setupEventListeners();
-    console.log("✅ Event Listeners kuruldu.");
+    console.log("âœ… Event Listeners kuruldu.");
 } catch (err) {
-    console.error("❌ setupEventListeners HATA:", err);
+    console.error("âŒ setupEventListeners HATA:", err);
 }
 
-// Eğer tarayıcıda aktif bir oda bilgisi kaldıysa temizle (temiz başlangıç)
+// EÄŸer tarayÄ±cÄ±da aktif bir oda bilgisi kaldÄ±ysa temizle (temiz baÅŸlangÄ±Ã§)
 sessionStorage.removeItem("verses_room_code");
 sessionStorage.removeItem("verses_player_id");
 sessionStorage.removeItem("verses_is_host");
 
 
 /**
- * categories.json dosyasından kelime havuzunu çeker.
+ * categories.json dosyasÄ±ndan kelime havuzunu Ã§eker.
  */
 async function loadCategoriesData() {
     try {
@@ -82,15 +82,15 @@ async function loadCategoriesData() {
         populateCategoriesModal(categoriesData);
         renderCategoryPills(categoriesData);
     } catch (err) {
-        console.error('Kategoriler yüklenirken hata oluştu:', err);
+        console.error('Kategoriler yÃ¼klenirken hata oluÅŸtu:', err);
         // Fallback
         categoriesData = [
             {
-                "category": "Genel Kültür",
+                "category": "Genel KÃ¼ltÃ¼r",
                 "words": [
                     { "w": "Klavye", "synonyms": ["klavye", "tus", "bilgisayar"] },
                     { "w": "Futbol", "synonyms": ["futbol", "top", "kale"] },
-                    { "w": "İstanbul", "synonyms": ["istanbul", "bogaz", "kopru"] }
+                    { "w": "Ä°stanbul", "synonyms": ["istanbul", "bogaz", "kopru"] }
                 ]
             }
         ];
@@ -99,7 +99,7 @@ async function loadCategoriesData() {
 }
 
 /**
- * Yazma süresini (Kum Saati) başlatır.
+ * Yazma sÃ¼resini (Kum Saati) baÅŸlatÄ±r.
  */
 function clearWritingTimer() {
     if (state.timerIntervalId) {
@@ -126,7 +126,7 @@ function startWritingTimer() {
             
             renderWritingPhase();
         } else {
-            // SÜRE DOLDU!
+            // SÃœRE DOLDU!
             clearWritingTimer();
             playVibration([50, 30, 50]);
             playFailure();
@@ -136,10 +136,10 @@ function startWritingTimer() {
             
             if (!finalLine) {
                 const timeoutVerses = [
-                    "Zaman doldu, ipucu eklenemedi... ⏳",
-                    "Düşünürken süre bitti, ipucu yazamadım... ⏳",
-                    "Zamanın akışında ipucu kayboldu... ⏳",
-                    "Kum saati durdu, ipucum yarım kaldı... ⏳"
+                    "Zaman doldu, ipucu eklenemedi... â³",
+                    "DÃ¼ÅŸÃ¼nÃ¼rken sÃ¼re bitti, ipucu yazamadÄ±m... â³",
+                    "ZamanÄ±n akÄ±ÅŸÄ±nda ipucu kayboldu... â³",
+                    "Kum saati durdu, ipucum yarÄ±m kaldÄ±... â³"
                 ];
                 finalLine = timeoutVerses[Math.floor(Math.random() * timeoutVerses.length)];
             }
@@ -150,7 +150,7 @@ function startWritingTimer() {
 }
 
 /**
- * Mısrayı veritabanına gönderir.
+ * MÄ±srayÄ± veritabanÄ±na gÃ¶nderir.
  */
 async function submitPlayerVerse(line) {
     const updates = {
@@ -161,7 +161,7 @@ async function submitPlayerVerse(line) {
 }
 
 /**
- * Setup ekranındaki kategori pill'lerini doldurur.
+ * Setup ekranÄ±ndaki kategori pill'lerini doldurur.
  */
 function renderCategoryPills(categories) {
     const container = document.getElementById('setup-category-pills');
@@ -173,7 +173,7 @@ function renderCategoryPills(categories) {
     randomBtn.type = 'button';
     randomBtn.dataset.category = 'random';
     randomBtn.className = 'category-pill px-sm py-xs font-label-caps text-[10px] rounded-full border border-outline-variant/30 text-on-surface-variant/70 transition-all active:scale-95 hover:border-primary/50 hover:text-on-surface';
-    randomBtn.textContent = '🎲 Rastgele';
+    randomBtn.textContent = 'ğŸ² Rastgele';
     container.appendChild(randomBtn);
 
     categories.forEach(cat => {
@@ -206,13 +206,13 @@ async function setupRoomListener(roomCode) {
     
     unsubscribeRoom = await dbListenToRoom(roomCode, (roomData) => {
         if (!roomData) {
-            // Oda silindiyse veya host ayrıldıysa lobiye/ana menüye at
+            // Oda silindiyse veya host ayrÄ±ldÄ±ysa lobiye/ana menÃ¼ye at
             if (state.currentState !== STATES.WELCOME) {
                 clearWritingTimer();
                 clearInterrogationTimer();
                 resetGame();
                 showView(views.welcome);
-                showCustomAlert("Oda Kapatıldı", "Oda kurucusu oyundan ayrıldı veya oda kapatıldı.", "info");
+                showCustomAlert("Oda KapatÄ±ldÄ±", "Oda kurucusu oyundan ayrÄ±ldÄ± veya oda kapatÄ±ldÄ±.", "info");
             }
             return;
         }
@@ -220,63 +220,59 @@ async function setupRoomListener(roomCode) {
         const oldState = state.currentState;
         syncStateFromFirebase(roomData);
         
-        // Host-özel otomatik durum geçişlerini yönet (Sadece Host çalıştırır)
+        // Host-Ã¶zel otomatik durum geÃ§iÅŸlerini yÃ¶net (Sadece Host Ã§alÄ±ÅŸtÄ±rÄ±r)
         if (state.isHost) {
             handleHostStateTransitions();
         }
         
-        // Yeni duruma göre arayüzü render et
+        // Yeni duruma gÃ¶re arayÃ¼zÃ¼ render et
         renderCurrentStateView(oldState);
     });
 }
 
 /**
- * Host'un otomatik durum geçişlerini yönettiği yer.
+ * Host'un otomatik durum geÃ§iÅŸlerini yÃ¶nettiÄŸi yer.
  */
 function handleHostStateTransitions() {
     const playerEntries = Object.entries(state.playersRaw);
     const totalCount = playerEntries.length;
     
     if (state.currentState === STATES.ROLE_DISTRIBUTION) {
-        // Herkes rolünü okuyup "hazırım" dedi mi?
+        // Herkes rolÃ¼nÃ¼ okuyup "hazÄ±rÄ±m" dedi mi?
         const allReady = playerEntries.every(([id, p]) => p.isReady);
         if (allReady && totalCount >= 4) {
-            startWritingRound(); // Yazma aşamasını başlat
+            startWritingRound(); // Yazma aÅŸamasÄ±nÄ± baÅŸlat
         }
     } else if (state.currentState === STATES.WRITING) {
-        // Herkes mısrasını gönderdi mi?
+        // Herkes mÄ±srasÄ±nÄ± gÃ¶nderdi mi?
         const allSubmitted = playerEntries.every(([id, p]) => p.submitted);
         if (allSubmitted && totalCount >= 4) {
-            assignRandomVerses(); // Okuma aşamasını başlat
-        }
-    } else if (state.currentState === STATES.READING) {
-        // Herkes mısrayı okuyup hazır oldu mu?
-        const allReady = playerEntries.every(([id, p]) => p.isReady);
-        if (allReady && totalCount >= 4) {
-            if (state.roundNumber < state.totalRounds) {
-                startWritingRound(state.roundNumber + 1);
-            } else {
-                const prompt = generateInterrogationPrompt();
-                dbUpdateRoom(state.roomCode, {
-                    currentState: STATES.INTERROGATION,
-                    "interrogation/prompt": prompt
-                });
+            if (state.isHost) {
+                if (state.roundNumber < state.totalRounds) {
+                    startWritingRound(state.roundNumber + 1);
+                } else {
+                    const prompt = generateInterrogationPrompt();
+                    dbUpdateRoom(state.roomCode, {
+                        currentState: STATES.INTERROGATION,
+                        "interrogation/prompt": prompt
+                    });
+                }
             }
         }
     }
 }
 
 /**
- * Rastgele sorgu yönlendirmesi üretir.
+ * Rastgele sorgu yÃ¶nlendirmesi Ã¼retir.
  */
 const INTERROGATION_PROMPTS = [
-    "{P1}, {P2} oyuncusunun yazdığı ipucunun gizli kelimeyle alakasını sorgulasın! 🧐",
-    "{P1}, {P2} oyuncusundan ipucundaki şüpheli detayı açıklamasını istesin! 🔍",
-    "{P1}, casusun ipuçlarında nasıl açık verdiğine dair teorisini açıklasın! 🕵️‍♂️",
-    "{P1}, {P2} oyuncusunun yazdığı cümlenin kelimeyi ele verip vermediğini tartışsın! 💬",
-    "{P1}, şu an en çok kimden şüphelendiğini ve nedenini açıklasın! 🤔",
-    "Casus(lar) kendini gizlemek için nasıl bir taktik izlemiş olabilir? Tartışın! 🤫",
-    "{P1}, {P2} oyuncusunun son yazdığı ipucu hakkında dedektiflik yapsın! 🖋️"
+    "{P1}, {P2} oyuncusunun yazdÄ±ÄŸÄ± ipucunun gizli kelimeyle alakasÄ±nÄ± sorgulasÄ±n! ğŸ§",
+    "{P1}, {P2} oyuncusundan ipucundaki ÅŸÃ¼pheli detayÄ± aÃ§Ä±klamasÄ±nÄ± istesin! ğŸ”",
+    "{P1}, casusun ipuÃ§larÄ±nda nasÄ±l aÃ§Ä±k verdiÄŸine dair teorisini aÃ§Ä±klasÄ±n! ğŸ•µï¸â€â™‚ï¸",
+    "{P1}, {P2} oyuncusunun yazdÄ±ÄŸÄ± cÃ¼mlenin kelimeyi ele verip vermediÄŸini tartÄ±ÅŸsÄ±n! ğŸ’¬",
+    "{P1}, ÅŸu an en Ã§ok kimden ÅŸÃ¼phelendiÄŸini ve nedenini aÃ§Ä±klasÄ±n! ğŸ¤”",
+    "Casus(lar) kendini gizlemek iÃ§in nasÄ±l bir taktik izlemiÅŸ olabilir? TartÄ±ÅŸÄ±n! ğŸ¤«",
+    "{P1}, {P2} oyuncusunun son yazdÄ±ÄŸÄ± ipucu hakkÄ±nda dedektiflik yapsÄ±n! ğŸ–‹ï¸"
 ];
 
 function generateInterrogationPrompt() {
@@ -292,11 +288,11 @@ function generateInterrogationPrompt() {
         const randomTemplate = INTERROGATION_PROMPTS[Math.floor(Math.random() * INTERROGATION_PROMPTS.length)];
         return randomTemplate.replace(/{P1}/g, p1).replace(/{P2}/g, p2);
     }
-    return "Casus(lar) kendini gizlemek için nasıl bir taktik izlemiş olabilir? Tartışın! 🤫";
+    return "Casus(lar) kendini gizlemek iÃ§in nasÄ±l bir taktik izlemiÅŸ olabilir? TartÄ±ÅŸÄ±n! ğŸ¤«";
 }
 
 /**
- * Yeni duruma göre arayüz görünümlerini kontrol eder.
+ * Yeni duruma gÃ¶re arayÃ¼z gÃ¶rÃ¼nÃ¼mlerini kontrol eder.
  */
 function renderCurrentStateView(oldState) {
     switch (state.currentState) {
@@ -314,7 +310,7 @@ function renderCurrentStateView(oldState) {
             break;
         case STATES.WRITING:
             renderWritingPhase();
-            // Yeni yazma aşamasına geçildiyse ve ben henüz yazmadıysam zamanlayıcıyı başlat
+            // Yeni yazma aÅŸamasÄ±na geÃ§ildiyse ve ben henÃ¼z yazmadÄ±ysam zamanlayÄ±cÄ±yÄ± baÅŸlat
             if (oldState !== STATES.WRITING) {
                 const myData = state.playersRaw[state.myPlayerId];
                 if (myData && !myData.submitted) {
@@ -323,9 +319,6 @@ function renderCurrentStateView(oldState) {
                     startWritingTimer();
                 }
             }
-            break;
-        case STATES.READING:
-            renderReadingPhase();
             break;
         case STATES.INTERROGATION:
             renderInterrogationPhase();
@@ -353,12 +346,12 @@ function renderCurrentStateView(oldState) {
 }
 
 /**
- * Tüm DOM etkileşimlerini bağlar.
+ * TÃ¼m DOM etkileÅŸimlerini baÄŸlar.
  */
 function setupEventListeners() {
     const clickEvent = 'click';
     
-    // Genel tık sesi
+    // Genel tÄ±k sesi
     document.addEventListener(clickEvent, (e) => {
         const button = e.target.closest('button, .option-pill, [role="button"], a');
         if (button) {
@@ -390,11 +383,11 @@ function setupEventListeners() {
             categoriesModal.style.display = 'flex';
         });
     } else if (btnOpenCategories) {
-        // Modal yok ama butona basıldı - debug
-        console.warn('categories-modal elementi bulunamadı!');
+        // Modal yok ama butona basÄ±ldÄ± - debug
+        console.warn('categories-modal elementi bulunamadÄ±!');
         btnOpenCategories.addEventListener(clickEvent, (e) => {
             e.preventDefault();
-            alert('Kategori modalı yüklenemedi.');
+            alert('Kategori modalÄ± yÃ¼klenemedi.');
         });
     }
     if (btnCloseCategories && categoriesModal) {
@@ -405,7 +398,7 @@ function setupEventListeners() {
         });
     }
     
-    // Örnek Senaryo
+    // Ã–rnek Senaryo
     const btnOpenScenario = document.getElementById('btn-welcome-scenario');
     const btnCloseScenario = document.getElementById('btn-close-scenario');
     if (btnOpenScenario && scenarioModal) {
@@ -415,10 +408,10 @@ function setupEventListeners() {
             scenarioModal.style.display = 'flex';
         });
     } else if (btnOpenScenario) {
-        console.warn('scenario-modal elementi bulunamadı!');
+        console.warn('scenario-modal elementi bulunamadÄ±!');
         btnOpenScenario.addEventListener(clickEvent, (e) => {
             e.preventDefault();
-            alert('Senaryo modalı yüklenemedi.');
+            alert('Senaryo modalÄ± yÃ¼klenemedi.');
         });
     }
     if (btnCloseScenario && scenarioModal) {
@@ -429,7 +422,7 @@ function setupEventListeners() {
         });
     }
     
-    // Casus Kelime Tahmin Modalı
+    // Casus Kelime Tahmin ModalÄ±
     const btnOpenGuess = document.getElementById('btn-writing-spy-guess');
     const btnCloseGuess = document.getElementById('btn-close-guess');
     const btnSubmitSpyGuess = document.getElementById('btn-submit-spy-guess');
@@ -466,22 +459,32 @@ function setupEventListeners() {
             const guess = inputSpyGuess.value;
             if (!guess.trim()) return;
             
+            if (window.spyGuessTimerInterval) {
+                clearInterval(window.spyGuessTimerInterval);
+                window.spyGuessTimerInterval = null;
+            }
+            
             clearWritingTimer();
-            const correct = checkSpyGuess(guess);
+            const correct = await checkSpyGuess(guess);
             guessModal.classList.add('hidden');
             guessModal.style.display = 'none';
             
             if (correct) {
                 playSuccess();
-                await showCustomAlert('Tebrikler', 'Gizli kelimeyi doğru tahmin ettin!', 'emoji_emotions');
+                await showCustomAlert('Tebrikler', 'Gizli kelimeyi doÄŸru tahmin ettin!', 'emoji_emotions');
             } else {
-                await showCustomAlert('Yanlış Tahmin', 'Yanlış tahmin! Casus blöf yapmaya devam etmeli.', 'warning');
-                startWritingTimer();
+                if (state.currentState === STATES.GAMEOVER) {
+                    playFailure();
+                    await showCustomAlert('YanlÄ±ÅŸ Tahmin', 'YanlÄ±ÅŸ tahmin! Ekip kazandÄ±.', 'warning');
+                } else {
+                    await showCustomAlert('YanlÄ±ÅŸ Tahmin', 'YanlÄ±ÅŸ tahmin! Casus blÃ¶f yapmaya devam etmeli.', 'warning');
+                    startWritingTimer();
+                }
             }
         });
     }
 
-    // Dedektif Sorgu Ekranı olayları
+    // Dedektif Sorgu EkranÄ± olaylarÄ±
     const btnOpenDetective = document.getElementById('btn-writing-detective-skill');
     const btnCloseDetective = document.getElementById('btn-stealth-detective-cancel');
     const btnSubmitDetectiveQuery = document.getElementById('btn-stealth-detective-query');
@@ -506,7 +509,7 @@ function setupEventListeners() {
             
             if (boxDetectiveResult) {
                 boxDetectiveResult.classList.add('hidden');
-                boxDetectiveResult.textContent = 'Sorgulanıyor...';
+                boxDetectiveResult.textContent = 'SorgulanÄ±yor...';
             }
         });
     }
@@ -531,28 +534,24 @@ function setupEventListeners() {
             
             state.hasDetectiveUsedSkill = true;
             
-            // Firebase'de yeteneği kullanıldı işaretle
+            // Firebase'de yeteneÄŸi kullanÄ±ldÄ± iÅŸaretle
             dbUpdateRoom(state.roomCode, {
                 [`players/${state.myPlayerId}/hasDetectiveUsedSkill`]: true
             });
             
-            // İsme karşılık gelen oyuncunun verisini bul
+            // Ä°sme karÅŸÄ±lÄ±k gelen oyuncunun verisini bul
             const targetPlayerId = Object.keys(state.playersRaw).find(id => state.playersRaw[id].name === targetPlayerName);
             const targetData = state.playersRaw[targetPlayerId] || {};
             
             const isSpy = targetData.role === "Casus";
-            const isInformant = targetData.role === "Köstebek";
             
             if (boxDetectiveResult) {
                 boxDetectiveResult.classList.remove('hidden');
                 if (isSpy) {
-                    boxDetectiveResult.innerHTML = `⚠️ <span class="text-error font-bold">${targetPlayerName}</span> şüpheli bulundu! (Rolü: Casus 🤫)`;
-                    boxDetectiveResult.className = "text-sm font-semibold tracking-wide py-xs px-md rounded-lg animate-pulse text-error bg-error/10 border border-error/20";
-                } else if (isInformant) {
-                    boxDetectiveResult.innerHTML = `⚠️ <span class="text-error font-bold">${targetPlayerName}</span> şüpheli bulundu! (Rolü: Köstebek 😈)`;
+                    boxDetectiveResult.innerHTML = `âš ï¸ <span class="text-error font-bold">${targetPlayerName}</span> ÅŸÃ¼pheli bulundu! (RolÃ¼: Casus ğŸ¤«)`;
                     boxDetectiveResult.className = "text-sm font-semibold tracking-wide py-xs px-md rounded-lg animate-pulse text-error bg-error/10 border border-error/20";
                 } else {
-                    boxDetectiveResult.innerHTML = `✅ <span class="text-[#10b981] font-bold">${targetPlayerName}</span> temiz bulundu. (Rolü: Güvenilir)`;
+                    boxDetectiveResult.innerHTML = `âœ… <span class="text-[#10b981] font-bold">${targetPlayerName}</span> temiz bulundu. (RolÃ¼: GÃ¼venilir)`;
                     boxDetectiveResult.className = "text-sm font-semibold tracking-wide py-xs px-md rounded-lg text-[#10b981] bg-[#10b981]/10 border border-[#10b981]/20";
                 }
             }
@@ -570,7 +569,7 @@ function setupEventListeners() {
         });
     }
 
-    // --- EKRAN 1: WELCOME / GİRİŞ ---
+    // --- EKRAN 1: WELCOME / GÄ°RÄ°Å ---
     const btnCreateRoom = document.getElementById('btn-welcome-create-room');
     const btnJoinRoom = document.getElementById('btn-welcome-join-room');
     const btnRules = document.getElementById('btn-welcome-rules');
@@ -586,7 +585,7 @@ function setupEventListeners() {
             e.preventDefault();
             const name = inputWelcomeName.value.trim();
             if (!name) {
-                await showCustomAlert('Giriş Hatası', 'Lütfen oda kurmak için önce adınızı yazın.', 'warning');
+                await showCustomAlert('GiriÅŸ HatasÄ±', 'LÃ¼tfen oda kurmak iÃ§in Ã¶nce adÄ±nÄ±zÄ± yazÄ±n.', 'warning');
                 inputWelcomeName.focus();
                 return;
             }
@@ -594,12 +593,12 @@ function setupEventListeners() {
             
             const firebaseReady = isFirebaseInitialized || await loadFirebase();
             if (!firebaseReady) {
-                await showCustomAlert('Bağlantı Yok', 'Firebase bağlantısı kurulamadı. Lütfen API bilgilerini ayarlayın.', 'cloud_off');
+                await showCustomAlert('BaÄŸlantÄ± Yok', 'Firebase baÄŸlantÄ±sÄ± kurulamadÄ±. LÃ¼tfen API bilgilerini ayarlayÄ±n.', 'cloud_off');
                 return;
             }
             
             initAudio();
-            // Ayarlar ekranına (view-setup) yönlendir. Host burada oda ayarlarını seçecek.
+            // Ayarlar ekranÄ±na (view-setup) yÃ¶nlendir. Host burada oda ayarlarÄ±nÄ± seÃ§ecek.
             showView(views.setup);
         });
     }
@@ -611,12 +610,12 @@ function setupEventListeners() {
             const code = inputWelcomeRoomCode.value.trim().toUpperCase();
             
             if (!name) {
-                await showCustomAlert('Giriş Hatası', 'Lütfen odaya katılmak için adınızı yazın.', 'warning');
+                await showCustomAlert('GiriÅŸ HatasÄ±', 'LÃ¼tfen odaya katÄ±lmak iÃ§in adÄ±nÄ±zÄ± yazÄ±n.', 'warning');
                 inputWelcomeName.focus();
                 return;
             }
             if (code.length !== 4) {
-                await showCustomAlert('Giriş Hatası', 'Lütfen 4 haneli oda kodunu girin.', 'warning');
+                await showCustomAlert('GiriÅŸ HatasÄ±', 'LÃ¼tfen 4 haneli oda kodunu girin.', 'warning');
                 inputWelcomeRoomCode.focus();
                 return;
             }
@@ -627,7 +626,7 @@ function setupEventListeners() {
             if (res.success) {
                 setupRoomListener(code);
             } else {
-                await showCustomAlert('Katılım Başarısız', res.error, 'error');
+                await showCustomAlert('KatÄ±lÄ±m BaÅŸarÄ±sÄ±z', res.error, 'error');
             }
         });
     }
@@ -668,7 +667,7 @@ function setupEventListeners() {
     if (btnRound2) btnRound2.addEventListener(clickEvent, (e) => { e.preventDefault(); setTotalRounds(2); updateRoundPills(btnRound2); });
     if (btnRound3) btnRound3.addEventListener(clickEvent, (e) => { e.preventDefault(); setTotalRounds(3); updateRoundPills(btnRound3); });
 
-    // Çift casus butonu (Görsel toggle işlemi)
+    // Ã‡ift casus butonu (GÃ¶rsel toggle iÅŸlemi)
     if (btnToggleDoubleSpy) {
         btnToggleDoubleSpy.addEventListener(clickEvent, (e) => {
             e.preventDefault();
@@ -705,12 +704,12 @@ function setupEventListeners() {
             e.preventDefault();
             const hostName = inputWelcomeName.value.trim();
             
-            // 4 Haneli rastgele oda kodu üret
+            // 4 Haneli rastgele oda kodu Ã¼ret
             const roomCode = Math.floor(1000 + Math.random() * 9000).toString();
             
-            // Firebase'de odayı başlat
+            // Firebase'de odayÄ± baÅŸlat
             const res = await dbCreateRoom(roomCode, hostName, {
-                category: state.category || "Ofis Çilesi & Beyaz Yaka",
+                category: state.category || "Ofis Ã‡ilesi & Beyaz Yaka",
                 selectedCategory: state.selectedCategory,
                 totalRounds: state.totalRounds || 2,
                 timerLimit: state.timerLimit || 0,
@@ -725,7 +724,7 @@ function setupEventListeners() {
         });
     }
 
-    // --- EKRAN 3.5: LOBİ İŞLEMLERİ ---
+    // --- EKRAN 3.5: LOBÄ° Ä°ÅLEMLERÄ° ---
     const btnLobbyLeave = document.getElementById('btn-lobby-leave');
     const btnLobbyReady = document.getElementById('btn-lobby-ready');
     const btnLobbyStart = document.getElementById('btn-lobby-start');
@@ -748,7 +747,7 @@ function setupEventListeners() {
                     }, 2000);
                 }
             } catch (err) {
-                console.error('Kopyalama hatası:', err);
+                console.error('Kopyalama hatasÄ±:', err);
             }
         });
     }
@@ -756,7 +755,7 @@ function setupEventListeners() {
     if (btnLobbyLeave) {
         btnLobbyLeave.addEventListener(clickEvent, async (e) => {
             e.preventDefault();
-            if (await showCustomConfirm('Lobiden Ayrıl', 'Odayı kapatmak veya ayrılmak istediğinizden emin misiniz?', 'warning')) {
+            if (await showCustomConfirm('Lobiden AyrÄ±l', 'OdayÄ± kapatmak veya ayrÄ±lmak istediÄŸinizden emin misiniz?', 'warning')) {
                 if (unsubscribeRoom) unsubscribeRoom();
                 if (state.isHost) {
                     await dbDestroyRoom(state.roomCode);
@@ -782,20 +781,62 @@ function setupEventListeners() {
     if (btnLobbyStart) {
         btnLobbyStart.addEventListener(clickEvent, (e) => {
             e.preventDefault();
-            // Host oyunu resmen başlatır, rolleri dağıtır
+            // Host oyunu resmen baÅŸlatÄ±r, rolleri daÄŸÄ±tÄ±r
             initializeGameFlow(categoriesData);
         });
     }
 
-    // --- EKRAN 4: ROL DAĞITIM EKLEMLERİ ---
+    // --- EKRAN 4: ROL DAÄITIM EKLEMLERÄ° ---
     const btnDistSealHold = document.getElementById('btn-dist-seal-hold');
     const btnDistReady = document.getElementById('btn-dist-ready');
     const btnDistCancel = document.getElementById('btn-dist-cancel');
+    const btnDistReroll = document.getElementById('btn-dist-reroll');
+
+    if (btnDistReroll) {
+        btnDistReroll.addEventListener(clickEvent, async (e) => {
+            e.preventDefault();
+            if (state.isHost) {
+                if (!categoriesData || categoriesData.length === 0) {
+                    showCustomAlert("Hata", "Kategoriler yÃ¼klenemedi!", "error");
+                    return;
+                }
+                const currentCategory = categoriesData.find(c => c.category === state.category);
+                if (currentCategory && currentCategory.words) {
+                    const possibleWords = currentCategory.words.filter(w => (typeof w === 'string' ? w : w.w) !== state.keyword);
+                    if (possibleWords.length > 0) {
+                        const newPicked = possibleWords[Math.floor(Math.random() * possibleWords.length)];
+                        let newKeyword = "";
+                        let newSynonyms = [];
+                        if (typeof newPicked === 'string') {
+                            newKeyword = newPicked;
+                        } else {
+                            newKeyword = newPicked.w;
+                            newSynonyms = (newPicked.synonyms || []).map(s => s.toLowerCase());
+                        }
+                        
+                        const updates = {
+                            "settings/keyword": newKeyword,
+                            "settings/keywordSynonyms": newSynonyms
+                        };
+                        // Herkesin hazÄ±r durumunu sÄ±fÄ±rla ki yeni kelimeyi kontrol etsinler
+                        Object.keys(state.playersRaw).forEach(pid => {
+                            updates[`players/${pid}/isReady`] = false;
+                        });
+                        
+                        await dbUpdateRoom(state.roomCode, updates);
+                        showCustomAlert("Kelime DeÄŸiÅŸtirildi ğŸ”„", "Yeni bir kelime seÃ§ildi! TÃ¼m oyuncularÄ±n mÃ¼hÃ¼r onaylarÄ± sÄ±fÄ±rlandÄ±. LÃ¼tfen mÃ¼hre tekrar basÄ±p yeni kelimenizi Ã¶ÄŸrenin.", "info");
+                    } else {
+                        showCustomAlert("Hata", "Kategoride baÅŸka kelime bulunamadÄ±!", "warning");
+                    }
+                }
+            }
+        });
+    }
 
     if (btnDistCancel) {
         btnDistCancel.addEventListener(clickEvent, async (e) => {
             e.preventDefault();
-            if (await showCustomConfirm('Oyunu İptal Et', 'Oyun sonlandırılacak ve lobiye dönülecektir, emin misiniz?', 'warning')) {
+            if (await showCustomConfirm('Oyunu Ä°ptal Et', 'Oyun sonlandÄ±rÄ±lacak ve lobiye dÃ¶nÃ¼lecektir, emin misiniz?', 'warning')) {
                 if (state.isHost) {
                     dbUpdateRoom(state.roomCode, { currentState: STATES.LOBBY });
                 }
@@ -810,11 +851,14 @@ function setupEventListeners() {
         const roleCard = document.getElementById('dist-role-card');
         
         let revealTimeout = null;
-        let triggersFired = false;
+        let isPressingSeal = false;
+        let hasRoleBeenRevealed = false;
         
         const triggerReveal = (e) => {
             e.preventDefault();
-            if (triggersFired) return;
+            if (isPressingSeal) return;
+            isPressingSeal = true;
+            hasRoleBeenRevealed = false;
             
             btnDistSealHold.classList.add('border-primary/45');
             if (fillEffect) fillEffect.style.height = '100%';
@@ -830,6 +874,7 @@ function setupEventListeners() {
             playVibration(25);
             
             revealTimeout = setTimeout(() => {
+                hasRoleBeenRevealed = true;
                 if (roleCard) {
                     roleCard.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
                     roleCard.classList.add('opacity-100', 'scale-100');
@@ -841,8 +886,8 @@ function setupEventListeners() {
         
         const triggerDestroy = (e) => {
             e.preventDefault();
-            if (triggersFired) return;
-            triggersFired = true;
+            if (!isPressingSeal) return;
+            isPressingSeal = false;
             
             btnDistSealHold.classList.remove('border-primary/45');
             if (fillEffect) fillEffect.style.height = '0%';
@@ -865,21 +910,24 @@ function setupEventListeners() {
             
             playVibration([20, 10, 20]);
             
-            // Parmağını bıraktığı an Panel C'ye geçir
+            if (!hasRoleBeenRevealed) {
+                return;
+            }
+            
+            // ParmaÄŸÄ±nÄ± bÄ±raktÄ±ÄŸÄ± an Panel C'ye geÃ§ir
             setTimeout(() => {
                 const panelB = document.getElementById('dist-panel-b');
                 const panelC = document.getElementById('dist-panel-c');
                 if (panelB) panelB.classList.add('hidden');
                 if (panelC) panelC.classList.remove('hidden');
-                triggersFired = false;
+                hasRoleBeenRevealed = false;
             }, 100);
         };
         
         btnDistSealHold.addEventListener('pointerdown', triggerReveal);
         btnDistSealHold.addEventListener('pointerup', triggerDestroy);
         btnDistSealHold.addEventListener('pointerleave', triggerDestroy);
-        btnDistSealHold.addEventListener('touchstart', triggerReveal, { passive: false });
-        btnDistSealHold.addEventListener('touchend', triggerDestroy, { passive: false });
+        btnDistSealHold.addEventListener('pointercancel', triggerDestroy);
     }
 
     if (btnDistReady) {
@@ -891,14 +939,14 @@ function setupEventListeners() {
         });
     }
 
-    // --- EKRAN 5: ŞİİR YAZMA ---
+    // --- EKRAN 5: ÅÄ°Ä°R YAZMA ---
     const inputPoetryVerse = document.getElementById('input-poetry-verse');
     const btnWritingCancel = document.getElementById('btn-writing-cancel');
 
     if (btnWritingCancel) {
         btnWritingCancel.addEventListener(clickEvent, async (e) => {
             e.preventDefault();
-            if (await showCustomConfirm('Oyunu İptal Et', 'Oyun iptal edilecek ve lobiye dönülecektir, emin misiniz?', 'warning')) {
+            if (await showCustomConfirm('Oyunu Ä°ptal Et', 'Oyun iptal edilecek ve lobiye dÃ¶nÃ¼lecektir, emin misiniz?', 'warning')) {
                 clearWritingTimer();
                 if (state.isHost) {
                     dbUpdateRoom(state.roomCode, { currentState: STATES.LOBBY });
@@ -949,17 +997,6 @@ function setupEventListeners() {
         });
     }
 
-    // --- EKRAN 5.2: MISRA İNCELEME (OKUMA) ---
-    const btnReadingReady = document.getElementById('btn-reading-ready');
-    if (btnReadingReady) {
-        btnReadingReady.addEventListener(clickEvent, (e) => {
-            e.preventDefault();
-            dbUpdateRoom(state.roomCode, {
-                [`players/${state.myPlayerId}/isReady`]: true
-            });
-        });
-    }
-
     // --- EKRAN 5.5: SORGU ODASI ---
     const btnInterrogationSkip = document.getElementById('btn-interrogation-skip');
     if (btnInterrogationSkip) {
@@ -973,7 +1010,7 @@ function setupEventListeners() {
         });
     }
 
-    // --- EKRAN 6: İFŞA VE TARTIŞMA ---
+    // --- EKRAN 6: Ä°FÅA VE TARTIÅMA ---
     const btnRevealReset = document.getElementById('btn-reveal-reset');
     const btnRevealExpose = document.getElementById('btn-reveal-expose');
     const btnSubmitExposeDecision = document.getElementById('btn-submit-expose-decision');
@@ -982,7 +1019,7 @@ function setupEventListeners() {
     if (btnRevealReset) {
         btnRevealReset.addEventListener(clickEvent, async (e) => {
             e.preventDefault();
-            if (await showCustomConfirm('Oyunu Sıfırla', 'Lobiye dönmek istiyor musunuz?', 'warning')) {
+            if (await showCustomConfirm('Oyunu SÄ±fÄ±rla', 'Lobiye dÃ¶nmek istiyor musunuz?', 'warning')) {
                 if (state.isHost) {
                     dbUpdateRoom(state.roomCode, { currentState: STATES.LOBBY });
                 }
@@ -1003,7 +1040,7 @@ function setupEventListeners() {
         });
     }
 
-    // --- EKRAN 6.5: BİREYSEL OYLAMA (VOTING) ---
+    // --- EKRAN 6.5: BÄ°REYSEL OYLAMA (VOTING) ---
     const btnVotingSubmit = document.getElementById('btn-voting-submit');
     const btnVotingFinish = document.getElementById('btn-voting-finish');
 
@@ -1012,7 +1049,7 @@ function setupEventListeners() {
             e.preventDefault();
             const selectedRadio = document.querySelector('input[name="voting-candidate"]:checked');
             if (!selectedRadio) {
-                showCustomAlert('Hata', 'Lütfen oy vermek istediğiniz şairi seçin!', 'warning');
+                showCustomAlert('Hata', 'LÃ¼tfen oy vermek istediÄŸiniz ÅŸairi seÃ§in!', 'warning');
                 return;
             }
             playVibration(20);
@@ -1027,16 +1064,22 @@ function setupEventListeners() {
         btnVotingFinish.addEventListener(clickEvent, (e) => {
             e.preventDefault();
             if (!state.isHost) return;
+            const voteCount = Object.keys(state.votes || {}).length;
+            const totalCount = Object.keys(state.playersRaw || {}).length;
+            if (voteCount < totalCount) {
+                showCustomAlert('Oylar Bekleniyor', `Oylamayi bitirmek icin herkesin oy vermesi gerekiyor. (${voteCount}/${totalCount})`, 'hourglass_empty');
+                return;
+            }
             playVibration(20);
 
-            // Skorları hesapla
+            // SkorlarÄ± hesapla
             calculateScores();
 
-            // Oylamayı bitir ve GameOver durumuna geç
+            // OylamayÄ± bitir ve GameOver durumuna geÃ§
             const spyIds = Object.keys(state.playersRaw).filter(id => state.playersRaw[id].role === "Casus");
             const votes = state.votes || {};
             
-            // Oy çokluğu ile en çok oyu alan kişi(ler)yi bul
+            // Oy Ã§okluÄŸu ile en Ã§ok oyu alan kiÅŸi(ler)yi bul
             const voteCounts = {};
             Object.values(votes).forEach(votedId => {
                 voteCounts[votedId] = (voteCounts[votedId] || 0) + 1;
@@ -1053,15 +1096,18 @@ function setupEventListeners() {
                 }
             });
 
-            // En çok oy alan kişi(ler) casus mu?
-            const allSpiesExposed = spyIds.length > 0 && spyIds.every(id => mostVotedIds.includes(id));
+            // Tek baÅŸÄ±na en Ã§ok oy alan oyuncu Casus mu? (Unique Plurality)
+            const allSpiesExposed = mostVotedIds.length === 1 && spyIds.includes(mostVotedIds[0]);
 
             const updates = {
                 "results/exposedSpyIds": mostVotedIds,
                 "results/spyExposedByGroup": allSpiesExposed,
                 currentState: STATES.GAMEOVER
             };
-            // Oyuncuların skorlarını veritabanında güncelle
+            if (allSpiesExposed) {
+                updates["results/guessDeadline"] = dbGetServerTime() + 30000;
+            }
+            // OyuncularÄ±n skorlarÄ±nÄ± veritabanÄ±nda gÃ¼ncelle
             Object.entries(state.playersRaw).forEach(([id, p]) => {
                 updates[`players/${id}/score`] = p.score || 0;
                 updates[`players/${id}/isReady`] = false;
@@ -1089,7 +1135,7 @@ function setupEventListeners() {
             
             playVibration(40);
             
-            // Oyuncu durumlarını sıfırla (Skorları koru ve Lobi için hazır olarak işaretle)
+            // Oyuncu durumlarÄ±nÄ± sÄ±fÄ±rla (SkorlarÄ± koru ve Lobi iÃ§in hazÄ±r olarak iÅŸaretle)
             const updatedPlayers = {};
             Object.entries(state.playersRaw).forEach(([id, p]) => {
                 updatedPlayers[id] = {

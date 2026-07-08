@@ -16,7 +16,9 @@ let db;
 let isFirebaseInitialized = false;
 
 // Firebase SDK fonksiyonları (dinamik olarak yüklenecek)
-let _initializeApp, _getDatabase, _ref, _set, _get, _onValue, _push, _remove, _update, _onDisconnect;
+let _initializeApp, _getDatabase, _ref, _set, _get, _onValue, _push, _remove, _update, _onDisconnect, _runTransaction;
+
+let serverTimeOffset = 0;
 
 /**
  * Firebase SDK'yı dinamik olarak yükler.
@@ -38,16 +40,31 @@ export async function loadFirebase() {
         _remove = dbModule.remove;
         _update = dbModule.update;
         _onDisconnect = dbModule.onDisconnect;
+        _runTransaction = dbModule.runTransaction;
 
         app = _initializeApp(firebaseConfig);
         db = _getDatabase(app);
         isFirebaseInitialized = true;
+
+        // Cihaz saati kaymalarını Firebase Server Saati ile senkronize et (NTP drift koruması)
+        const offsetRef = _ref(db, ".info/serverTimeOffset");
+        _onValue(offsetRef, (snap) => {
+            serverTimeOffset = snap.val() || 0;
+        });
+
         console.log("Firebase başarıyla başlatıldı.");
         return true;
     } catch (e) {
         console.error("Firebase yüklenemedi:", e);
         return false;
     }
+}
+
+/**
+ * Cihaz saatindeki sapmaları gidererek kalibre edilmiş Firebase Sunucu Saatini milisaniye olarak döner.
+ */
+export function dbGetServerTime() {
+    return Date.now() + serverTimeOffset;
 }
 
 
@@ -76,7 +93,6 @@ export async function dbCreateRoom(roomCode, hostName, settings) {
             selectedCategory: settings.selectedCategory || null,
             keyword: settings.keyword || "",
             keywordSynonyms: settings.keywordSynonyms || [],
-            spyCandidateWords: settings.spyCandidateWords || [],
             totalRounds: settings.totalRounds || 2,
             timerLimit: settings.timerLimit || 0,
             doubleSpyMode: settings.doubleSpyMode || false
@@ -223,6 +239,21 @@ export async function dbLeaveRoom(roomCode, playerId) {
         sessionStorage.removeItem("verses_is_host");
     } catch (e) {
         console.error("Odadan ayrılırken hata:", e);
+    }
+}
+
+/**
+ * Belirtilen referansta bir Firebase transaction çalıştırır.
+ */
+export async function dbRunTransaction(roomCode, path, transactionUpdateFn) {
+    if (!isFirebaseInitialized) return { committed: false, error: "Firebase initialized değil" };
+    const pathRef = _ref(db, `rooms/${roomCode}/${path}`);
+    try {
+        const result = await _runTransaction(pathRef, transactionUpdateFn);
+        return result;
+    } catch (e) {
+        console.error("Transaction hatası:", e);
+        return { committed: false, error: e };
     }
 }
 

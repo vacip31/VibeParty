@@ -357,10 +357,9 @@
                             <span class="material-symbols-outlined text-primary text-[24px]">visibility</span>
                         </div>
                         <div class="flex-grow pt-xs">
-                            <h4 class="font-h2 text-[14px] text-on-surface mb-xs">1. Rolünü Gör ve Mısra Yaz</h4>
+                            <h4 class="font-h2 text-[14px] text-on-surface mb-xs">1. Rolünü Gör ve Yaz</h4>
                             <p class="font-body text-on-surface-variant text-[13px] leading-relaxed">
-                                Gizli kelimeniz doğrultusunda 35 karakterlik bir mısra yazın. İlk turda Casus'un mısrası
-                                elenir, diğer turlarda tüm mısralar havuza girer.
+                                Gizli kelimeniz doğrultusunda 35 karakterlik bir mısra yazın. İlk turda Casus'un mısrası elenir, diğer turlarda tüm mısralar havuza kaydedilir.
                             </p>
                         </div>
                     </div>
@@ -372,9 +371,9 @@
                             <span class="material-symbols-outlined text-primary text-[24px]">edit_note</span>
                         </div>
                         <div class="flex-grow pt-xs">
-                            <h4 class="font-h2 text-[14px] text-on-surface mb-xs">2. Mısra Oku & Sun</h4>
+                            <h4 class="font-h2 text-[14px] text-on-surface mb-xs">2. Savun ve Tartış</h4>
                             <p class="font-body text-on-surface-variant text-[13px] leading-relaxed">
-                                Cihazınıza gelen mısrayı sesli olarak gruba okuyun (spikerlik yapın). Tartışmada ise herkes kendi yazdığı mısrayı savunarak masumiyetini kanıtlamaya çalışır.
+                                Turlar bittiğinde tüm mısralar anonim renk mahlaslarıyla (Sarı Şair vb.) listelenir. Herkes kendi yazdığı mısraları savunur, Casus ise rol çalmaya çalışır.
                             </p>
                         </div>
                     </div>
@@ -388,8 +387,7 @@
                         <div class="flex-grow pt-xs">
                             <h4 class="font-h2 text-[14px] text-on-surface mb-xs">3. Bireysel Oylama</h4>
                             <p class="font-body text-on-surface-variant text-[13px] leading-relaxed">
-                                Turlar bittiğinde her oyuncu kendi cihazından casus olduğunu düşündüğü kişiyi seçip
-                                gizlice oy verir.
+                                Herkes kendi cihazından casus olduğunu düşündüğü kişiyi seçip gizlice oy verir. Eşitlik durumunda Casus sıyrılır!
                             </p>
                         </div>
                     </div>
@@ -401,13 +399,13 @@
                 <h3 class="font-h2 text-sm text-primary uppercase tracking-wider">🏆 PUANLAMA SİSTEMİ</h3>
                 <div
                     class="bg-surface-container/30 border border-outline-variant/10 rounded-lg p-sm space-y-xs text-[12px] leading-relaxed text-secondary">
-                    <p>🔵 <strong class="text-on-surface">Masum & Dedektif:</strong> Casus'u oylarlarsa <strong
-                            class="text-primary">+3 Puan</strong>, oy çokluğuyla casus ifşa edilirse ek olarak <strong
-                            class="text-primary">+2 Puan</strong> kazanırlar.</p>
+                    <p>🔵 <strong class="text-on-surface">Masum & Dedektif:</strong> Casus'u oylarlarsa (grup sonucundan bağımsız) <strong
+                            class="text-primary">+3 Puan</strong>. Casus tek başına en çok oyu alıp yakalanırsa ek olarak <strong
+                            class="text-primary">+2 Puan</strong> (grup bonusu) kazanırlar.</p>
                     <p>🔴 <strong class="text-on-surface">Casus & Köstebek:</strong> Casus yakalanmazsa <strong
-                            class="text-primary">+4 Puan</strong>, aldatılan her masumun oyu başına <strong
-                            class="text-primary">+1 Puan</strong> ve casus gizli kelimeyi bilirse <strong
-                            class="text-primary">+3 Puan</strong> kazanırlar.</p>
+                            class="text-primary">+4 Puan</strong> (sıyrılma) ve aldatılan her masum oyu başına <strong
+                            class="text-primary">+1 Puan</strong> (aldatma primi) kazanırlar. Ayrıca Casus kelimeyi bilirse (sadece Casus'a) ek olarak <strong
+                            class="text-primary">+3 Puan</strong> eklenir.</p>
                 </div>
             </div>
 
@@ -618,7 +616,10 @@
                     <span class="material-symbols-outlined text-primary">close</span>
                 </button>
                 <h1 class="font-h1-mobile text-h1-mobile font-bold text-primary tracking-tight">Vibe X Verses</h1>
-                <div class="w-6"></div>
+                <button id="btn-dist-reroll" class="hidden text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200 flex items-center justify-center gap-1 text-xs font-semibold bg-surface-container-high px-2.5 py-1.5 rounded-full border border-outline-variant/20">
+                    <span class="material-symbols-outlined text-sm text-primary">shuffle</span>
+                    <span>Kelimeyi Değiştir</span>
+                </button>
             </div>
         </header>
 
@@ -924,46 +925,7 @@
         <!-- 5.2. GÖRÜNÜM: OKUMA VE HEDEF BELİRLEME EKRANI (READING ASSIGNMENT SCREEN) -->
     </section>
 
-    <section id="view-reading" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden" style="display:none;">
-        <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/10 h-16">
-            <div class="flex items-center justify-between px-md h-full w-full max-w-[600px] mx-auto">
-                <div class="w-6"></div>
-                <h1 class="font-h1-mobile text-h1-mobile font-bold text-primary tracking-tight">Mısra İnceleme</h1>
-                <div class="w-6"></div>
-            </div>
-        </header>
 
-        <main
-            class="relative z-10 w-full max-w-[600px] mx-auto flex-1 overflow-y-auto pt-20 pb-24 px-gutter flex flex-col items-center justify-center text-center gap-base">
-            <div>
-                <span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.2em] mb-xs">Sana Atanan
-                    Mısra</span>
-                <p
-                    class="font-body text-xs text-on-surface-variant opacity-70 italic max-w-sm mx-auto leading-relaxed mt-1">
-                    Sana atanan mısrayı sesli olarak gruba oku (spikerlik yap). Kimin mısrasını okuduğunu sakın söyleme! Tartışmada herkes kendi yazdığını savunacaktır.
-                </p>
-            </div>
-
-            <!-- Verse Display Card -->
-            <div
-                class="glass-card w-full rounded-lg p-lg text-center shadow-2xl border border-primary/20 relative overflow-hidden flex flex-col gap-sm">
-                <blockquote id="reading-assigned-verse"
-                    class="font-verse-display text-verse-display text-on-surface leading-normal text-glow py-md px-sm italic">
-                    "Yükleniyor..."
-                </blockquote>
-                <p id="reading-assigned-author-meta"
-                    class="font-mono-meta text-[11px] text-on-surface-variant opacity-50 uppercase tracking-wider">
-                    — Gizemli Şair
-                </p>
-            </div>
-
-            <button id="btn-reading-ready"
-                class="w-full max-w-xs py-md bg-primary text-on-primary font-h2 text-h2 rounded-lg flex items-center justify-center gap-xs uppercase active:scale-[0.98] transition-all shadow-lg mt-base">
-                <span>Okudum, Tartışmaya Hazırım</span>
-                <span class="material-symbols-outlined">done_all</span>
-            </button>
-        </main>
-    </section>
     <!-- 5.5. GÖRÜNÜM: TARTIŞMA ÖNCESİ SORGU ODASI (THE INTERROGATION ROOM) -->
     <section id="view-interrogation" class="game-view flex flex-col w-full h-[100dvh] overflow-hidden"
         style="display:none;">
@@ -1223,7 +1185,7 @@
                     </div>
                     <div class="pt-sm text-center">
                         <button id="btn-gameover-home"
-                            class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase underline decoration-primary/30 underline-offset-4">
+                            class="min-h-[48px] px-md font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase underline decoration-primary/30 underline-offset-4">
                             Ana Menüye Dön
                         </button>
                     </div>
@@ -1381,9 +1343,9 @@
                         </p>
                     </div>
                     <div>
-                        <span class="font-semibold text-on-surface block text-[12px]">3. Çapraz Okuma & Sunum:</span>
+                        <span class="font-semibold text-on-surface block text-[12px]">3. Tartışma & Kimlik Hırsızlığı:</span>
                         <p class="text-secondary bg-surface-container/20 px-2 py-1 rounded text-[11px]">
-                            Burcu'nun yazdığı <span class="italic">"Mavi tik oldu ama ses yok"</span> mısrası Can'a (Casus) atanır. Can bunu sesli okuyarak masaya sunar. Tartışmada Burcu kendi yazdığı bu mısrayı hevesle savunurken, Can araya girip "Hayır, onu ben yazdım!" diyerek mısrayı sahiplenmeye çalışır. Burcu, Can'ın blöf yaptığını hemen anlar.
+                            Tüm mısralar ekranda anonim olarak listelenir. Tartışmada Burcu kendi yazdığı <span class="italic">"Mavi tik oldu ama ses yok"</span> (Mavi Şair) mısrasını savunurken, Can (Casus) araya girip "Hayır, Mavi Şair benim, o mısrayı ben yazdım!" diyerek kimliği çalmaya çalışır. Burcu, Can'ın blöf yaptığını hemen anlar.
                         </p>
                     </div>
                     <div>

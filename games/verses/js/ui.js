@@ -2,6 +2,7 @@
 
 import { state, STATES, calculateGameDuration, calculateScores, shuffle } from './state.js';
 import { playTransition, playVibration, playTick } from './audio.js';
+import { dbUpdateRoom, dbRunTransaction, dbGetServerTime } from './firebase.js';
 
 // Görünüm Seçiciler
 export const views = {
@@ -11,7 +12,6 @@ export const views = {
     lobby: document.getElementById('view-lobby'), // Multiplayer Lobi
     roleDistribution: document.getElementById('view-role-distribution'),
     writing: document.getElementById('view-writing'),
-    reading: document.getElementById('view-reading'), // Mısra Okuma Ekranı
     interrogation: document.getElementById('view-interrogation'),
     reveal: document.getElementById('view-reveal'),
     voting: document.getElementById('view-voting'),
@@ -206,6 +206,15 @@ export function renderRoleDistribution() {
         }
     }
     
+    const btnDistReroll = document.getElementById('btn-dist-reroll');
+    if (btnDistReroll) {
+        if (state.isHost) {
+            btnDistReroll.classList.remove('hidden');
+        } else {
+            btnDistReroll.classList.add('hidden');
+        }
+    }
+    
     const myData = state.playersRaw[state.myPlayerId] || { role: "LOBBY", isReady: false };
     const colorIndex = (myData && myData.colorIndex !== undefined) ? myData.colorIndex : 0;
     const playerColor = SHAIER_COLORS[colorIndex % SHAIER_COLORS.length];
@@ -383,30 +392,11 @@ export function renderWritingPhase() {
             }
         }
         
-        // Sahte Şair Tahmin Butonu
+        // Sahte Şair Tahmin Butonu (Yazma aşamasında artık gösterilmeyecek)
         const btnSpyGuess = document.getElementById('btn-writing-spy-guess');
         if (btnSpyGuess) {
-            if (myData.role === "Casus") {
-                btnSpyGuess.classList.remove('hidden');
-                btnSpyGuess.classList.add('flex');
-                
-                if (state.spyGuessedCorrectly) {
-                    btnSpyGuess.innerHTML = `
-                        <span class="material-symbols-outlined text-[18px] text-primary">key</span>
-                        <span class="font-label-caps text-label-caps uppercase text-primary font-semibold">Tüyo: ${state.keyword}</span>
-                    `;
-                    btnSpyGuess.disabled = true;
-                } else {
-                    btnSpyGuess.innerHTML = `
-                        <span class="material-symbols-outlined text-[18px]">visibility_off</span>
-                        <span class="font-label-caps text-label-caps uppercase group-hover:underline decoration-primary underline-offset-4">Anahtar Kelimeyi Tahmin Et</span>
-                    `;
-                    btnSpyGuess.disabled = false;
-                }
-            } else {
-                btnSpyGuess.classList.add('hidden');
-                btnSpyGuess.classList.remove('flex');
-            }
+            btnSpyGuess.classList.add('hidden');
+            btnSpyGuess.classList.remove('flex');
         }
         
         // Sahte Şair Aday Kelime İpuçları Görünürlüğü
@@ -446,42 +436,7 @@ export function renderWritingPhase() {
     }
 }
 
-/**
- * Mısra İnceleme (Okuma) Ekranını render eder.
- */
-export function renderReadingPhase() {
-    showView(views.reading);
-    
-    const assignedVerseEl = document.getElementById('reading-assigned-verse');
-    const assignedAuthorEl = document.getElementById('reading-assigned-author-meta');
-    const btnReadingReady = document.getElementById('btn-reading-ready');
-    
-    const myData = state.playersRaw[state.myPlayerId] || { isReady: false };
-    
-    if (state.readingAssignments) {
-        if (assignedVerseEl) assignedVerseEl.textContent = `"${state.readingAssignments.line}"`;
-        if (assignedAuthorEl) {
-            const writerName = state.readingAssignments.writerName;
-            const colorSet = getPlayerColor(writerName);
-            assignedAuthorEl.textContent = `— ${colorSet.name}`;
-        }
-    } else {
-        if (assignedVerseEl) assignedVerseEl.textContent = `"Hata: Atanmış mısra bulunamadı!"`;
-        if (assignedAuthorEl) assignedAuthorEl.textContent = `— Sistem`;
-    }
-    
-    if (btnReadingReady) {
-        if (myData.isReady) {
-            btnReadingReady.textContent = "DİĞER OYUNCULAR BEKLENİYOR...";
-            btnReadingReady.disabled = true;
-            btnReadingReady.className = "w-full max-w-xs py-md bg-outline-variant/20 text-on-surface-variant/40 font-h2 text-h2 rounded-lg cursor-not-allowed transition-all flex items-center justify-center gap-sm active:scale-98";
-        } else {
-            btnReadingReady.textContent = "OKUDUM, TARTIŞMAYA HAZIRIM";
-            btnReadingReady.disabled = false;
-            btnReadingReady.className = "w-full max-w-xs py-md bg-primary text-on-primary font-h2 text-h2 rounded-lg flex items-center justify-center gap-xs uppercase active:scale-[0.98] transition-all shadow-lg";
-        }
-    }
-}
+
 
 /**
  * Tartışma ve Sorgu odası zamanlayıcısını yönetir.
@@ -572,7 +527,7 @@ export function renderRevealPhase() {
                 <blockquote class="font-verse-body text-verse-body text-on-surface leading-relaxed italic border-l border-primary/20 pl-sm py-xs">
                     "${item.line}"
                 </blockquote>
-                <p class="font-mono-meta text-[11px] text-on-surface-variant opacity-50 uppercase tracking-wider">— ${colorSet.name}</p>
+                <p class="font-mono-meta text-[11px] text-on-surface-variant opacity-50 uppercase tracking-wider">— ${colorSet.name} (${item.round}. Tur)</p>
             </div>
         `;
         poetryContainer.appendChild(verseBlock);
@@ -631,13 +586,16 @@ export function renderVotingPhase() {
             btnFinish.style.display = 'flex';
             // Herkes oy verdiyse daha belirgin hale getir
             if (voteCount >= totalCount) {
+                btnFinish.disabled = false;
                 btnFinish.className = "w-full py-md bg-primary-container text-on-primary font-h2 text-h2 uppercase rounded-lg hover:opacity-90 transition-all active:scale-[0.98] duration-200 shadow-lg shadow-primary/10";
             } else {
-                btnFinish.className = "w-full border border-primary/30 text-primary hover:bg-primary/5 font-h2 text-h2 py-md rounded-lg active:scale-[0.98] transition-all duration-300 uppercase flex items-center justify-center gap-xs";
+                btnFinish.disabled = true;
+                btnFinish.className = "w-full border border-outline-variant/20 text-on-surface-variant/40 bg-outline-variant/10 font-h2 text-h2 py-md rounded-lg cursor-not-allowed transition-all duration-300 uppercase flex items-center justify-center gap-xs";
             }
         } else {
             btnFinish.classList.add('hidden');
             btnFinish.style.display = 'none';
+            btnFinish.disabled = true;
         }
     }
 
@@ -815,6 +773,7 @@ export function renderGameOverPhase() {
     const btnSame = document.getElementById('btn-gameover-same-players');
     
     const myData = state.playersRaw[state.myPlayerId] || { isReady: false };
+    const playerEntries = Object.entries(state.playersRaw);
     
     if (state.isHost) {
         // Host ise: Devam Et butonu ve bekleme mesajı gizli, Host paneli her zaman görünür
@@ -854,6 +813,115 @@ export function renderGameOverPhase() {
                 continueBtn.textContent = "Devam Et (Lobiye Dön)";
             }
             if (clientMessage) clientMessage.classList.add('hidden');
+        }
+    }
+
+    // Casus'un Son Şansı: Eğer casus yakalandıysa ve henüz kelime tahmini yapmadıysa, casus olan oyuncuya tahmin penceresini aç
+    if (state.spyExposedByGroup && !state.spyGuessedCorrectly && (state.spyGuessText || "") === "" && myData.role === "Casus") {
+        const guessModal = document.getElementById('guess-modal');
+        if (guessModal) {
+            guessModal.classList.remove('hidden');
+            guessModal.style.display = 'flex';
+            
+            // Son tahmin olduğu için iptal butonlarını gizleyelim
+            const btnCloseGuess = document.getElementById('btn-close-guess');
+            const btnCloseGuessCancel = document.getElementById('btn-close-guess-cancel');
+            if (btnCloseGuess) btnCloseGuess.classList.add('hidden');
+            if (btnCloseGuessCancel) btnCloseGuessCancel.classList.add('hidden');
+            
+            // Başlığı son tahmin olarak güncelle
+            const modalTitle = guessModal.querySelector('h3');
+            if (modalTitle) modalTitle.textContent = "🕵️‍♂️ Son Tahmin Hakkı!";
+            
+            const modalDesc = guessModal.querySelector('p');
+            
+            // Firebase'deki guessDeadline zaman damgasına göre kalan süreyi hesapla
+            const getRemainingSeconds = () => {
+                if (!state.guessDeadline) return 30;
+                return Math.max(0, Math.round((state.guessDeadline - dbGetServerTime()) / 1000));
+            };
+            
+            let timeLeft = getRemainingSeconds();
+            if (modalDesc) modalDesc.textContent = `Ekip seni yakaladı! Kelimeyi bilip sıyrılmak için son şansın. Kalan Süre: ${timeLeft} saniye`;
+            
+            if (window.spyGuessTimerInterval) {
+                clearInterval(window.spyGuessTimerInterval);
+            }
+            
+            window.spyGuessTimerInterval = setInterval(() => {
+                timeLeft = getRemainingSeconds();
+                if (modalDesc) {
+                    modalDesc.textContent = `Ekip seni yakaladı! Kelimeyi bilip sıyrılmak için son şansın. Kalan Süre: ${timeLeft} saniye`;
+                }
+                if (timeLeft <= 0) {
+                    clearInterval(window.spyGuessTimerInterval);
+                    window.spyGuessTimerInterval = null;
+                    
+                    const inputSpyGuess = document.getElementById('input-spy-guess-word');
+                    if (inputSpyGuess) {
+                        inputSpyGuess.value = "Süre Doldu";
+                    }
+                    const btnSubmitSpyGuess = document.getElementById('btn-submit-spy-guess');
+                    if (btnSubmitSpyGuess) {
+                        btnSubmitSpyGuess.click();
+                    }
+                }
+            }, 1000);
+            
+            const inputSpyGuess = document.getElementById('input-spy-guess-word');
+            if (inputSpyGuess) {
+                inputSpyGuess.value = '';
+                inputSpyGuess.focus();
+            }
+        }
+    } else {
+        const guessModal = document.getElementById('guess-modal');
+        if (guessModal) {
+            guessModal.classList.add('hidden');
+            guessModal.style.display = 'none';
+        }
+        if (window.spyGuessTimerInterval) {
+            clearInterval(window.spyGuessTimerInterval);
+            window.spyGuessTimerInterval = null;
+        }
+    }
+
+    // Merkezsiz Zaman Aşımı Takibi (Casus veya Host oyundan koptuysa kilitlenmeyi önler)
+    // Casus olmayan tüm bağlı oyuncuların cihazlarında çalışır. İlk süreye ulaşan Firebase'e yazar.
+    if (myData.role !== "Casus" && state.spyExposedByGroup && (state.spyGuessText || "") === "") {
+        if (window.nonSpyGuessTimeoutInterval) {
+            clearInterval(window.nonSpyGuessTimeoutInterval);
+        }
+        
+        window.nonSpyGuessTimeoutInterval = setInterval(() => {
+            // Eğer oyun durumu değiştiyse veya casus tahmin yaptıysa zamanlayıcıyı kapat
+            if (state.currentState !== STATES.GAMEOVER || (state.spyGuessText || "") !== "") {
+                clearInterval(window.nonSpyGuessTimeoutInterval);
+                window.nonSpyGuessTimeoutInterval = null;
+                return;
+            }
+            
+            if (state.guessDeadline && dbGetServerTime() > state.guessDeadline) {
+                clearInterval(window.nonSpyGuessTimeoutInterval);
+                window.nonSpyGuessTimeoutInterval = null;
+                
+                // Yarış durumunu engellemek için atomik transaction kullan
+                dbRunTransaction(state.roomCode, "results", (currentResults) => {
+                    if (!currentResults) return currentResults;
+                    // Eğer Casus son saniyede bir tahmin kaydettiyse, süreyi doldurma (iptal et)
+                    if (currentResults.spyGuessText && currentResults.spyGuessText !== "") {
+                        return; // Abort
+                    }
+                    currentResults.spyGuessText = "Süre Doldu";
+                    currentResults.spyGuessedCorrectly = false;
+                    return currentResults;
+                });
+            }
+        }, 1000);
+    } else {
+        if (window.nonSpyGuessTimeoutInterval) {
+            clearInterval(window.nonSpyGuessTimeoutInterval);
+            window.nonSpyGuessTimeoutInterval = null;
         }
     }
 }
